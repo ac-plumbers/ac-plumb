@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+:root {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--color-background-00);
@@ -8,6 +13,9 @@ body {
 }
 
 @theme {
+  /* Font Families */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
   /* Colors */
   /* Primary Color Palette */
   /* #007bff - Blue */
