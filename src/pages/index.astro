@@ -3,13 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import logo from '@/images/logo.png';
 import prova from '@/images/img-prova.png';
+import Form from '../components/test/Form.astro';
+import Services from '../components/test/Services.astro';
 ---
 
 <Layout>
   <main class='max-w-5xl mx-auto space-y-12'>
     <!-- Title -->
     <header>
-      <h1 class='text-3xl sm:text-4xl font-bold text-text-00'>
+      <h1 class='text-3xl sm:text-4xl text-text-00'>
         🎨 AC Plumb Brand Preview
       </h1>
       <p class='text-text-00 mt-2 text-lg'>Main colors & typography showcase</p>
@@ -207,5 +209,9 @@ import prova from '@/images/img-prova.png';
         primary color.
       </p>
     </section>
+    <!-- Form -->
+    <Form />
+    <!-- Services -->
+    <Services />
   </main>
 </Layout>
