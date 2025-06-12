@@ -2,7 +2,7 @@
 
 A professional website for AC Plumbing services built with Astro and Tailwind CSS.
 
-![AC Plumbing Logo](public/favicon.svg)
+![AC Plumbing Logo](http://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png)
 
 ## 📋 Overview
 
