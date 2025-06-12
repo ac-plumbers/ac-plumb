@@ -27,12 +27,49 @@ The website uses a component-based architecture for easy maintenance and scalabi
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| Command                 | Action                                       |
+| :---------------------- | :------------------------------------------- |
+| `npm install`           | Installs dependencies                        |
+| `npm run dev`           | Starts local dev server at `localhost:4321`  |
+| `npm run build`         | Build your production site to `./dist/`      |
+| `npm run preview`       | Preview your build locally, before deploying |
+| `netlify login`         | Log in to your Netlify account               |
+| `netlify init`          | Connect repo to Netlify site                 |
+| `netlify deploy`        | Deploy preview version                       |
+| `netlify deploy --prod` | Deploy to production                         |
+
+## 🚢 Deployment with Netlify
+
+This project is configured for seamless deployment with Netlify. Follow these steps:
+
+1. **Install Netlify CLI** (if you haven't already):
+
+   ```
+   npm install netlify-cli -g
+   ```
+
+2. **Authenticate with Netlify**:
+
+   ```
+   netlify login
+   ```
+
+3. **Initialize Netlify in your project**:
+
+   ```
+   netlify init
+   ```
+
+   - Choose "Create & configure a new site"
+   - Select your team
+   - Give your site a name or press enter for a random name
+
+4. **Deploy your site**:
+   ```
+   netlify deploy --prod
+   ```
+
+The site's build settings are automatically configured via the `netlify.toml` file at the root of this project.
 
 ## ✨ Features
 
@@ -47,6 +84,7 @@ All commands are run from the root of the project, from a terminal:
 - [Astro](https://astro.build/) - The web framework for content-driven websites
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - [TypeScript](https://www.typescriptlang.org/) - For type-safe JavaScript
+- [Netlify](https://www.netlify.com/) - Hosting and continuous deployment
 
 ## 🎨 Color Palette
 

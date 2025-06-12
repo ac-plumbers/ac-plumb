@@ -1,5 +1,8 @@
 ---
 import '@/styles/global.css';
+// Supports weights 200-900
+import '@fontsource-variable/nunito-sans';
+import '@fontsource/poppins';
 ---
 
 <!doctype html>
@@ -9,7 +12,8 @@ import '@/styles/global.css';
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>My Astro Site</title>
   </head>
-  <body>
+  <body
+    class='mi-h-screen bg-[--color-background-00] text-[--color-text-00] font-sans p-8'>
     <slot />
   </body>
 </html>
