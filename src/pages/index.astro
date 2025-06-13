@@ -5,6 +5,9 @@ import logo from '@/images/logo.png';
 import prova from '@/images/img-prova.png';
 import Form from '../components/test/Form.astro';
 import Services from '../components/test/Services.astro';
+import Button from '@/components/fundations/elements/Button.astro';
+import Link from '@/components/fundations/elements/Link.astro';
+import Text from '@/components/fundations/elements/Text.astro';
 import Wrapper from '../components/fundations/containers/Wrapper.astro';
 ---
 
@@ -12,9 +15,9 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
   <main class='max-w-5xl mx-auto space-y-12'>
     <!-- Title -->
     <header>
-      <h1 class='text-3xl sm:text-4xl text-text-00'>
+      <Text tag='h1' class='text-3xl sm:text-4xl text-text-00'>
         🎨 AC Plumb Brand Preview
-      </h1>
+      </Text>
       <p class='text-text-00 mt-2 text-lg'>Main colors & typography showcase</p>
     </header>
 
@@ -49,6 +52,10 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
     <section>
       <h2 class='text-2xl font-semibold mb-4'>Buttons</h2>
       <div class='flex flex-wrap gap-4'>
+        <Button variant='default' size='md' class='bg-accent-500 text-white'>
+          <span class='text-sm'>Default Button</span>
+        </Button>
+        <Link size='sm' variant='link' href='#'> click me </Link>
         <button
           class='px-6 py-2 rounded font-semibold text-white bg-primary-500 hover:bg-primary-600 transition'
           >Primary</button
