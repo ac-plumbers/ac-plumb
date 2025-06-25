@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import logo from '@/images/logo.png';
-import prova from '@/images/img-prova.png';
+
+import prova from '@/images/logo/logo.png';
 import Form from '../components/test/Form.astro';
 import Services from '../components/test/Services.astro';
 import Button from '@/components/fundations/elements/Button.astro';
@@ -16,9 +16,29 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
     <!-- Title -->
     <header>
       <Text tag='h1' class='text-3xl sm:text-4xl text-text-00'>
-        🎨 AC Plumb Brand Preview
+        🎨 AC Plumblers Ltd Brand Preview
       </Text>
       <p class='text-text-00 mt-2 text-lg'>Main colors & typography showcase</p>
+    </header>
+    <!-- Title with Logo -->
+    <header class='flex items-center gap-4 mb-8'>
+      <div class='w-16 h-16 flex-shrink-0 bg-white rounded-lg shadow p-2'>
+        <Image
+          src={prova}
+          alt='AC Plumb Logo'
+          width={64}
+          height={64}
+          class='w-full h-full object-contain'
+        />
+      </div>
+      <div>
+        <Text tag='h1' class='text-3xl sm:text-4xl text-text-00'>
+          🎨 AC Plumbers Ltd Brand Preview
+        </Text>
+        <p class='text-text-00 mt-2 text-lg'>
+          Main colors & typography showcase
+        </p>
+      </div>
     </header>
 
     <!-- Main Colors -->
@@ -126,11 +146,13 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
         class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50] flex'
         style='background: var(--color-background-100);'>
         <div
-          class='flex-shrink-0 flex items-center justify-center px-6 py-8 bg-[--color-secondary-500]'>
+          class='flex-shrink-0 flex items-center justify-center px-6 py-8 bg-[--color-secondary-500] w-24 sm:w-32'>
           <Image
             src={prova}
-            alt='Info Icon'
-            class='w-16 h-16 rounded-lg bg-white object-cover shadow-inner'
+            alt='Logo'
+            width={80}
+            height={80}
+            class='w-full h-auto object-contain rounded-lg bg-white shadow-inner p-2'
           />
         </div>
         <div class='p-8'>
@@ -154,37 +176,55 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
         </div>
       </div>
     </section>
-    <!-- Card with Image Example -->
+    <!-- Card with Image Example - Responsive -->
     <section>
       <h2 class='text-2xl font-semibold mb-4 text-text-00'>Card with Image</h2>
       <div
         class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50]'
         style='background: var(--color-background-100);'>
-        <Image
-          src={logo}
-          width={400}
-          height={300}
-          alt='Placeholder image'
-          class='w-full h-48 object-cover'
-        />
-        <div class='p-6'>
+        <!-- Image container with responsive height -->
+        <div
+          class='h-48 sm:h-64 w-full overflow-hidden relative flex items-center justify-center bg-[--color-primary-100]'>
+          <Image
+            src={prova}
+            alt='Logo'
+            width={200}
+            height={200}
+            class='w-auto h-auto max-w-[80%] max-h-[80%] object-contain'
+          />
           <div
-            class='uppercase tracking-wide text-sm text-[--color-secondary-700] font-semibold'>
+            class='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60'>
+          </div>
+          <!-- Optional: Add a badge or overlay text -->
+          <div
+            class='absolute bottom-4 left-4 px-3 py-1 bg-[--color-accent-500] text-white text-xs font-bold rounded-full'>
+            Featured
+          </div>
+        </div>
+
+        <div class='p-5 sm:p-6'>
+          <div
+            class='uppercase tracking-wide text-xs sm:text-sm text-[--color-secondary-700] font-semibold'>
             Plumbing Tips
           </div>
           <h3
-            class='block mt-1 text-lg leading-tight font-bold text-[--color-text-00]'>
-            Prevent Frozen Pipes
+            class='block mt-1 text-base sm:text-lg leading-tight font-bold text-[--color-text-00] line-clamp-2'>
+            Prevent Frozen Pipes in Winter
           </h3>
-          <p class='mt-2 text-[--color-text-50]'>
+          <p
+            class='mt-2 text-sm sm:text-base text-[--color-text-50] line-clamp-3'>
             Learn how to insulate your pipes before winter to avoid costly
-            damage and water outages.
+            damage and water outages. Our expert tips can save you hundreds in
+            repairs.
           </p>
-          <button
-            class='mt-4 px-4 py-2 rounded font-semibold text-white'
-            style='background: var(--color-secondary-500);'>
-            Learn More
-          </button>
+          <div class='mt-4 flex justify-between items-center'>
+            <button
+              class='px-3 py-1.5 sm:px-4 sm:py-2 rounded font-semibold text-white text-sm sm:text-base transition-colors'
+              style='background: var(--color-secondary-500)'>
+              Learn More
+            </button>
+            <span class='text-xs text-[--color-text-50]'>5 min read</span>
+          </div>
         </div>
       </div>
     </section>
