@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import logo from '@/images/logo/logo.png';
 import imgHero from '@/images/lavori/6.jpeg';
+import Button from '@/components/fundations/elements/Button.astro';
 ---
 
 <div class='bg-white'>
@@ -147,10 +148,10 @@ import imgHero from '@/images/lavori/6.jpeg';
           <div class='mx-auto max-w-2xl lg:mx-0 lg:max-w-xl'>
             <div class='hidden sm:mb-10 sm:flex'>
               <div
-                class='relative rounded-full px-3 py-1 text-sm/6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
+                class='relative rounded-full px-3 py-1 text-sm/6 text-text-00 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
                 Trusted by homeowners across Sussex. <a
                   href='/testimonials'
-                  class='whitespace-nowrap font-semibold text-indigo-600'
+                  class='whitespace-nowrap font-semibold text-accent-00'
                   ><span class='absolute inset-0' aria-hidden='true'></span>Read
                   reviews <span aria-hidden='true'>&rarr;</span></a
                 >
@@ -167,6 +168,9 @@ import imgHero from '@/images/lavori/6.jpeg';
               Serving Brighton, Lewes, Worthing & beyond.
             </p>
             <div class='mt-10 flex items-center gap-x-6'>
+              <Button variant='default' size='md' class='bg-primary-500 text-white'>
+                <span class='text-sm'>Request a Quote</span>
+              </Button>
               <a
                 href='/contact-us'
                 class='rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
