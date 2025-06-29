@@ -1,11 +1,27 @@
 ---
 import Footer from '../components/basics/Footer.astro';
+import LogoCloud from '../components/LogoCloud.astro';
 import Layout from '../layouts/Layout.astro';
 const title = 'Demo Page';
 import Hero from '@/components/test/Hero.astro';
+import Services from '@/components/test/Services.astro';
+import Prices from '@/components/Prices.astro';
+import Prices1 from '@/components/Prices1.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import Contact from '@/components/Contact.astro';
 ---
 
 <Layout>
+  <main class=' mx-auto flex flex-col'>
   <Hero />
+  <LogoCloud />
+  <Services />
+  <Prices/>
+  <Prices1/>
+  <Testimonials/>
+   <Contact />
+
+
+  </main>
   <Footer />
 </Layout>
