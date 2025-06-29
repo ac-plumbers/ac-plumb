@@ -99,167 +99,191 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
       </div>
     </section>
 
-    <!-- Typography Poppins -->
+    <!-- Typography Poppins & Nunito -->
     <section class='font-poppins bg-white p-6 rounded shadow'>
       <h2
         class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Poppins
+        Typography – Poppins + Nunito
       </h2>
       <div class='space-y-4'>
         <h1 class='text-4xl font-bold'>Poppins Heading 1 – 4xl</h1>
         <h2 class='text-3xl font-semibold'>Poppins Heading 2 – 3xl</h2>
         <h3 class='text-2xl font-medium'>Poppins Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100'>
-          Poppins is a geometric sans serif typeface. This paragraph is styled
+        <p class='text-base font-nunito text-text-100'>
+          Nunito is a geometric sans serif typeface. This paragraph is styled
           to demonstrate how body text appesectionng Poppins.
         </p>
-        <p class='text-sm text-text-50 italic'>
-          This is secondary text in Poppins using <code>--color-text-50</code>.
-        </p>
-      </div>
-    </section>
-    <!-- Typography Nunito Sans -->
-    <section class='font-nunito bg-white p-6 rounded shadow'>
-      <h2
-        class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Nunito
-      </h2>
-      <div class='space-y-4'>
-        <h1 class='text-4xl font-bold'>Nunito Heading 1 – 4xl</h1>
-        <h2 class='text-3xl font-semibold'>Nunito Heading 2 – 3xl</h2>
-        <h3 class='text-2xl font-medium'>Nunito Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100'>
-          Nunito has a soft, rounded feel that makes it great for user
-          interfaces. This paragraph shows how paragraph text looks with Nunito.
-        </p>
-        <p class='text-sm text-text-50 italic'>
+        <p class='text-sm text-text-50 italic font-nunito'>
           This is secondary text in Nunito using <code>--color-text-50</code>.
         </p>
       </div>
     </section>
-    <!-- Card Example -->
-    <section>
-      <h2 class='text-2xl font-semibold mb-4 text-text-00'>
-        Card Example – Accent Button
+    <!-- Typography Inconsolata & Spectral-->
+    <section class='font-inconsolata bg-white p-6 rounded shadow'>
+      <h2
+        class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
+        Typography – Inconsolata + Spectral
       </h2>
-      <div
-        class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50] flex'
-        style='background: var(--color-background-100);'>
-        <div
-          class='flex-shrink-0 flex items-center justify-center px-6 py-8 bg-[--color-secondary-500] w-24 sm:w-32'>
-          <Image
-            src={prova}
-            alt='Logo'
-            width={80}
-            height={80}
-            class='w-full h-auto object-contain rounded-lg bg-white shadow-inner p-2'
-          />
-        </div>
-        <div class='p-8'>
-          <div
-            class='uppercase tracking-wide text-sm text-[--color-secondary-700] font-semibold'>
-            Tips & Advice
-          </div>
-          <h3
-            class='block mt-1 text-lg leading-tight font-bold text-[--color-text-00]'>
-            Save Water at Home
-          </h3>
-          <p class='mt-2 text-[--color-text-50]'>
-            Discover easy and effective ways to reduce water usage and lower
-            your utility bills.
-          </p>
-          <button
-            class='mt-4 px-4 py-2 rounded font-semibold text-white'
-            style='background: var(--color-accent-500);'>
-            Read Tips
-          </button>
-        </div>
+      <div class='space-y-4'>
+        <h1 class='text-4xl font-bold'>Incosolata Heading 1 – 4xl</h1>
+        <h2 class='text-3xl font-semibold'>Incosolata Heading 2 – 3xl</h2>
+        <h3 class='text-2xl font-medium'>Incosolata Heading 3 – 2xl</h3>
+        <p class='text-base text-text-100 font-spectral'>
+          Spectral is a serif typeface with a classic, elegant feel. This
+          paragraph shows how body text looks with Spectral.
+        </p>
+        <p class='text-sm text-text-50 italic font-spectral'>
+          This is secondary text in Nunito using <code>--color-text-50</code>.
+        </p>
       </div>
     </section>
-    <!-- Card with Image Example - Responsive -->
-    <section>
-      <h2 class='text-2xl font-semibold mb-4 text-text-00'>Card with Image</h2>
-      <div
-        class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50]'
-        style='background: var(--color-background-100);'>
-        <!-- Image container with responsive height -->
+    <!-- Typography Space Mono + Roboto Mono -->
+    <section class='font-space bg-white p-6 rounded shadow'>
+      <h2
+        class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
+        Typography – Space Mono + Roboto Mono
+      </h2>
+      <div class='space-y-4'>
+        <h1 class='text-4xl font-bold'>Space Mono Heading 1 – 4xl</h1>
+        <h2 class='text-3xl font-semibold'>Space Mono Heading 2 – 3xl</h2>
+        <h3 class='text-2xl font-medium'>Space Mono Heading 3 – 2xl</h3>
+        <p class='text-base text-text-100 font-roboto-mono'>
+          Roboto Mono is a monospaced typeface designed for coding and
+          technical content. This paragraph shows how body text appears using
+          Roboto Mono.
+        </p>
+        <p class='text-sm text-text-50 italic'>
+          This is secondary text in Roboto Mono using <code>--color-text-50</code
+          >.
+        </p>
+      </div>
+    </section>
+      <!-- Card Example -->
+      <section class='mt-12'>
+        <h2 class='text-2xl font-semibold mb-4 text-text-00'>
+          Card Example – Accent Button
+        </h2>
         <div
-          class='h-48 sm:h-64 w-full overflow-hidden relative flex items-center justify-center bg-[--color-primary-100]'>
-          <Image
-            src={prova}
-            alt='Logo'
-            width={200}
-            height={200}
-            class='w-auto h-auto max-w-[80%] max-h-[80%] object-contain'
-          />
+          class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50] flex'
+          style='background: var(--color-background-100);'>
           <div
-            class='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60'>
+            class='flex-shrink-0 flex items-center justify-center px-6 py-8 bg-[--color-secondary-500] w-24 sm:w-32'>
+            <Image
+              src={prova}
+              alt='Logo'
+              width={80}
+              height={80}
+              class='w-full h-auto object-contain rounded-lg bg-white shadow-inner p-2'
+            />
           </div>
-          <!-- Optional: Add a badge or overlay text -->
-          <div
-            class='absolute bottom-4 left-4 px-3 py-1 bg-[--color-accent-500] text-white text-xs font-bold rounded-full'>
-            Featured
-          </div>
-        </div>
-
-        <div class='p-5 sm:p-6'>
-          <div
-            class='uppercase tracking-wide text-xs sm:text-sm text-[--color-secondary-700] font-semibold'>
-            Plumbing Tips
-          </div>
-          <h3
-            class='block mt-1 text-base sm:text-lg leading-tight font-bold text-[--color-text-00] line-clamp-2'>
-            Prevent Frozen Pipes in Winter
-          </h3>
-          <p
-            class='mt-2 text-sm sm:text-base text-[--color-text-50] line-clamp-3'>
-            Learn how to insulate your pipes before winter to avoid costly
-            damage and water outages. Our expert tips can save you hundreds in
-            repairs.
-          </p>
-          <div class='mt-4 flex justify-between items-center'>
+          <div class='p-8'>
+            <div
+              class='uppercase tracking-wide text-sm text-[--color-secondary-700] font-semibold'>
+              Tips & Advice
+            </div>
+            <h3
+              class='block mt-1 text-lg leading-tight font-bold text-[--color-text-00]'>
+              Save Water at Home
+            </h3>
+            <p class='mt-2 text-[--color-text-50]'>
+              Discover easy and effective ways to reduce water usage and lower
+              your utility bills.
+            </p>
             <button
-              class='px-3 py-1.5 sm:px-4 sm:py-2 rounded font-semibold text-white text-sm sm:text-base transition-colors'
-              style='background: var(--color-secondary-500)'>
-              Learn More
+              class='mt-4 px-4 py-2 rounded font-semibold text-white'
+              style='background: var(--color-accent-500);'>
+              Read Tips
             </button>
-            <span class='text-xs text-[--color-text-50]'>5 min read</span>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Gradient Section 1 -->
-    <section
-      class='rounded-xl p-10 my-12 text-white'
-      style='
+      </section>
+      <!-- Card with Image Example - Responsive -->
+      <section>
+        <h2 class='text-2xl font-semibold mb-4 text-text-00'>
+          Card with Image
+        </h2>
+        <div
+          class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50]'
+          style='background: var(--color-background-100);'>
+          <!-- Image container with responsive height -->
+          <div
+            class='h-48 sm:h-64 w-full overflow-hidden relative flex items-center justify-center bg-[--color-primary-100]'>
+            <Image
+              src={prova}
+              alt='Logo'
+              width={200}
+              height={200}
+              class='w-auto h-auto max-w-[80%] max-h-[80%] object-contain'
+            />
+            <div
+              class='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60'>
+            </div>
+            <!-- Optional: Add a badge or overlay text -->
+            <div
+              class='absolute bottom-4 left-4 px-3 py-1 bg-[--color-accent-500] text-white text-xs font-bold rounded-full'>
+              Featured
+            </div>
+          </div>
+
+          <div class='p-5 sm:p-6'>
+            <div
+              class='uppercase tracking-wide text-xs sm:text-sm text-[--color-secondary-700] font-semibold'>
+              Plumbing Tips
+            </div>
+            <h3
+              class='block mt-1 text-base sm:text-lg leading-tight font-bold text-[--color-text-00] line-clamp-2'>
+              Prevent Frozen Pipes in Winter
+            </h3>
+            <p
+              class='mt-2 text-sm sm:text-base text-[--color-text-50] line-clamp-3'>
+              Learn how to insulate your pipes before winter to avoid costly
+              damage and water outages. Our expert tips can save you hundreds in
+              repairs.
+            </p>
+            <div class='mt-4 flex justify-between items-center'>
+              <button
+                class='px-3 py-1.5 sm:px-4 sm:py-2 rounded font-semibold text-white text-sm sm:text-base transition-colors'
+                style='background: var(--color-secondary-500)'>
+                Learn More
+              </button>
+              <span class='text-xs text-[--color-text-50]'>5 min read</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Gradient Section 1 -->
+      <section
+        class='rounded-xl p-10 my-12 text-white'
+        style='
         background: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
       '>
-      <h2 class='text-3xl font-bold mb-2 font-nunito'>
-        Gradient Section: Primary → Secondary
-      </h2>
-      <p class='text-lg font-poppins'>
-        This section uses a left-to-right gradient from your primary to
-        secondary color.
-      </p>
-    </section>
+        <h2 class='text-3xl font-bold mb-2 font-nunito'>
+          Gradient Section: Primary → Secondary
+        </h2>
+        <p class='text-lg font-poppins'>
+          This section uses a left-to-right gradient from your primary to
+          secondary color.
+        </p>
+      </section>
 
-    <!-- Gradient Section 2 -->
-    <section
-      class='rounded-xl p-10 my-12 text-white'
-      style='
+      <!-- Gradient Section 2 -->
+      <section
+        class='rounded-xl p-10 my-12 text-white'
+        style='
         background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-primary-400) 100%);
       '>
-      <h2 class='text-3xl font-bold mb-2 font-nunito'>
-        Gradient Section: Accent → Primary
-      </h2>
-      <p class='text-lg font-poppins'>
-        This section uses a diagonal gradient from your accent to a lighter
-        primary color.
-      </p>
+        <h2 class='text-3xl font-bold mb-2 font-nunito'>
+          Gradient Section: Accent → Primary
+        </h2>
+        <p class='text-lg font-poppins'>
+          This section uses a diagonal gradient from your accent to a lighter
+          primary color.
+        </p>
+      </section>
+      <!-- Form -->
+      <Form />
+      <!-- Services -->
+      <Services />
     </section>
-    <!-- Form -->
-    <Form />
-    <!-- Services -->
-    <Services />
   </main>
 </Layout>
