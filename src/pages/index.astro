@@ -330,7 +330,7 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
       });
 
       // Create a single particle
-      function createParticle(button) {
+      function createParticle(button: HTMLElement) {
         const particle = document.createElement('span');
 
         // Random size

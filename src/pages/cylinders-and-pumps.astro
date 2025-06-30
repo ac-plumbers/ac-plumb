@@ -1,12 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import prova from '@/images/lavori/1.jpeg';
 import prova1 from '@/images/lavori/2.jpeg';
 import prov2 from '@/images/lavori/3.jpeg';
 ---
 
-<Layout title='Hot Water Cylinders & Pump Services | AC Plumb Brighton & Hove'>
+<BaseLayout
+  title='Hot Water Cylinders & Pump Services | AC Plumb Brighton & Hove'>
   <section class='bg-gradient-to-b from-blue-50 to-white py-24'>
     <div class='max-w-7xl mx-auto px-4 md:px-8 text-center'>
       <h1 class='text-4xl md:text-5xl font-bold text-blue-900 mb-6'>
@@ -672,4 +673,4 @@ import prov2 from '@/images/lavori/3.jpeg';
       </div>
     </div>
   </section>
-</Layout>
+</BaseLayout>
