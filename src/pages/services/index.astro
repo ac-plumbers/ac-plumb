@@ -1,0 +1,19 @@
+---
+import ServicesLayout from '@/layouts/ServicesLayout.astro';
+import { getCollection } from 'astro:content';
+
+const services = await getCollection('services');
+---
+
+<ServicesLayout>
+  <h1>Our Services</h1>
+  <ul>
+    {
+      services.map(service => (
+        <li>
+          <a href={`/services/${service.slug}`}>{service.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</ServicesLayout>

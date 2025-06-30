@@ -1,0 +1,15 @@
+---
+// Fundations
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Wrapper from '../components/fundations/containers/Wrapper.astro';
+import Text from '../components/fundations/elements/Text.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section class='relative overflow-hidden'>
+    <Wrapper variant='hero'>
+      <slot />
+    </Wrapper>
+  </section>
+</BaseLayout>
