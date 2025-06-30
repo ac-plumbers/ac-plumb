@@ -1,7 +1,8 @@
 import { defineCollection, z } from "astro:content";
 
 const services = defineCollection({
-  schema: z.object({
+  schema: ({image}) =>
+    z.object({
     title: z.string(),
     description: z.string(),
     price: z.number(),
