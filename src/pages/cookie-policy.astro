@@ -1,9 +1,12 @@
 ---
+import Wrapper from '../components/fundations/containers/Wrapper.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-  <section class='prose max-w-3xl mx-auto py-16 px-4 sm:px-6 lg:px-8'>
+  <Wrapper
+    variant='prose'
+    class='max-w-3xl mx-auto py-16 px-4 sm:px-6 lg:px-8 space-y-4 mt-8'>
     <h1 class='text-primary-600'>Cookie Policy</h1>
     <p>Last updated: [Insert Date]</p>
 
@@ -49,5 +52,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <h2>4. Contact</h2>
     <p>For questions about our cookie use, contact us at: [Insert Email]</p>
-  </section>
+  </Wrapper>
 </BaseLayout>
