@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   background-color: var(--color-background-00);
   color: var(--color-text-00);
   margin: 0;
