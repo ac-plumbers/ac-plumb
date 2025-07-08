@@ -19,7 +19,7 @@ body {
 @theme {
   /* Font Families */
   --font-poppins: 'Poppins', sans-serif;
-  --font-nunito: 'Nunito', sans-serif;
+  --font-nunito: 'Nunito Sans', sans-serif;
   --font-space: 'Space Mono', monospace;
   --font-roboto-mono: 'Roboto Mono', monospace;
   --font-spectral: 'Spectral', serif;
