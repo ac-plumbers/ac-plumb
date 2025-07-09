@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '@/images/logo/logo.png';
+import logo1 from '@/images/logo/logo-positive.png';
 ---
 
 <header class='absolute inset-x-0 top-0 z-50'>
@@ -11,7 +12,13 @@ import logo from '@/images/logo/logo.png';
         aria-label='Global'>
         <a href='/' class='-m-1.5 p-1.5'>
           <span class='sr-only'>AC Plumbers</span>
-          <Image src={logo} alt='AC Plumb Logo' width={48} height={48} />
+          <Image
+            src={logo}
+            alt='AC Plumbers Logo'
+            width={300}
+            height={300}
+            class='w-16 sm:w-24 md:w-32 lg:w-40 h-auto lg:scale-155'
+          />
         </a>
         <button
           type='button'
