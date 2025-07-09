@@ -1,78 +1,48 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-
-import prova from '@/images/logo/logo.png';
+import logo from '@/images/logo.png';
+import prova from '@/images/img-prova.png';
 import Form from '../components/test/Form.astro';
-import Services from '../components/test/Services.astro';
+
 import Button from '@/components/fundations/elements/Button.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import Text from '@/components/fundations/elements/Text.astro';
-import Wrapper from '../components/fundations/containers/Wrapper.astro';
 ---
 
 <BaseLayout>
-  <main class='max-w-5xl mx-auto space-y-12'>
-    <!-- Title -->
-    <header class='font-poppins'>
-      <Text tag='h1' class='text-3xl sm:text-4xl text-text-00'>
-        🎨 AC Plumblers Ltd Brand Preview
-      </Text>
-      <p class='text-text-00 mt-2 text-lg'>Main colors & typography showcase</p>
-    </header>
-
-    <!-- Title with Logo -->
-    <header class='flex items-center gap-4 mb-8 font-nunito'>
-      <div class='w-16 h-16 flex-shrink-0 bg-white rounded-lg shadow p-2'>
-        <Image
-          src={prova}
-          alt='AC Plumb Logo'
-          width={64}
-          height={64}
-          class='w-full h-full object-contain'
-        />
-      </div>
-      <div>
-        <Text tag='h1' class='text-3xl sm:text-4xl text-text-00'>
-          🎨 AC Plumbers Ltd Brand Preview
-        </Text>
-        <p class='text-text-00 mt-2 text-lg'>
-          Main colors & typography showcase
-        </p>
-      </div>
-    </header>
-    <!-- Add a button to go visit the /demo version -->
-    <div class='text-center mb-8'>
-      <Link
-        href='/demo'
-        class='group relative inline-flex items-center justify-center px-8 py-3.5 bg-primary-500 text-white font-bold rounded-lg overflow-hidden transition-all duration-300 hover:bg-primary-600 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-inner'
-        id='fun-button'>
-        <span
-          class='absolute inset-0 bg-gradient-to-tr from-accent-500 via-primary-400 to-secondary-500 opacity-0 group-hover:opacity-80 transition-opacity duration-500'
-        ></span>
-        <span class='relative flex items-center gap-2'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='h-5 w-5 transition-transform group-hover:rotate-12'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'>
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M14 5l7 7m0 0l-7 7m7-7H3'></path>
-          </svg>
-          Visit Demo Version
-          <span
-            class='inline-block transition-transform group-hover:translate-x-1'
-            >✨</span
-          >
-        </span>
-      </Link>
-    </div>
+  <main class='max-w-5xl mx-auto space-y-12 font-poppins'>
     <!-- Main Colors -->
-    <section>
+    <section class='mt-40'>
+      <div class='text-center mb-8'>
+        <Link
+          href='/demo'
+          class='group relative inline-flex items-center justify-center px-8 py-3.5 bg-primary-500 text-white font-bold rounded-lg overflow-hidden transition-all duration-300 hover:bg-primary-600 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-inner'
+          id='fun-button'>
+          <span
+            class='absolute inset-0 bg-gradient-to-tr from-accent-500 via-primary-400 to-secondary-500 opacity-0 group-hover:opacity-80 transition-opacity duration-500'
+          ></span>
+          <span class='relative flex items-center gap-2'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='h-5 w-5 transition-transform group-hover:rotate-12'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'>
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M14 5l7 7m0 0l-7 7m7-7H3'></path>
+            </svg>
+            Visit Demo Version
+            <span
+              class='inline-block transition-transform group-hover:translate-x-1'
+              >✨</span
+            >
+          </span>
+        </Link>
+      </div>
       <h2 class='text-2xl font-semibold mb-4 text-text-00'>Main Colors</h2>
       <div class='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4'>
         <!-- Primary -->
@@ -98,75 +68,46 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
       </div>
     </section>
 
-    <!-- Buttons Showcase -->
-    <section>
-      <h2 class='text-2xl font-semibold mb-4'>Buttons</h2>
-      <div class='flex flex-wrap gap-4'>
-        <Button variant='default' size='md' class='bg-primary-500 text-white'>
-          <span class='text-sm'>Default Button</span>
-        </Button>
-        <Link size='sm' variant='link' href='#'> click me </Link>
-        <button
-          class='px-6 py-2 rounded font-semibold text-white bg-primary-500 hover:bg-primary-600 transition'
-          >Primary</button
-        >
-        <button
-          class='px-6 py-2 rounded font-semibold text-white bg-secondary-500 hover:bg-secondary-600 transition'
-          >Secondary</button
-        >
-        <button
-          class='px-6 py-2 rounded font-semibold text-white bg-accent-500 hover:bg-accent-600 transition'
-          >Accent</button
-        >
-        <button
-          class='px-6 py-2 rounded font-semibold text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 transition'
-          >Neutral</button
-        >
-        <button
-          class='px-6 py-2 rounded font-semibold text-primary-500 border-2 border-primary-500 bg-transparent hover:bg-primary-50 transition'
-          >Outline Primary</button
-        >
-      </div>
-    </section>
-
-    <!-- Typography Poppins & Nunito -->
+    <!-- Typography Poppins -->
     <section class='font-poppins bg-white p-6 rounded shadow'>
       <h2
         class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Poppins + Nunito
+        Typography – Poppins
       </h2>
       <div class='space-y-4'>
         <h1 class='text-4xl font-bold'>Poppins Heading 1 – 4xl</h1>
         <h2 class='text-3xl font-semibold'>Poppins Heading 2 – 3xl</h2>
         <h3 class='text-2xl font-medium'>Poppins Heading 3 – 2xl</h3>
-        <p class='text-base font-nunito text-text-100'>
-          Nunito is a geometric sans serif typeface. This paragraph is styled to
-          demonstrate how body text appesectionng Poppins.
+        <p class='text-base text-text-100'>
+          Poppins is a geometric sans serif typeface. This paragraph is styled
+          to demonstrate how body text appears using Poppins.
         </p>
-        <p class='text-sm text-text-50 italic font-nunito'>
-          This is secondary text in Nunito using <code>--color-text-50</code>.
+        <p class='text-sm text-text-50 italic'>
+          This is secondary text in Poppins using <code>--color-text-50</code>.
         </p>
       </div>
     </section>
-    <!-- Typography Inconsolata & Spectral-->
-    <section class='font-inconsolata bg-white p-6 rounded shadow'>
+
+    <!-- Typography Nunito -->
+    <section class='font-nunito bg-white p-6 rounded shadow'>
       <h2
         class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Inconsolata + Spectral
+        Typography – Nunito
       </h2>
       <div class='space-y-4'>
-        <h1 class='text-4xl font-bold'>Incosolata Heading 1 – 4xl</h1>
-        <h2 class='text-3xl font-semibold'>Incosolata Heading 2 – 3xl</h2>
-        <h3 class='text-2xl font-medium'>Incosolata Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100 font-spectral'>
-          Spectral is a serif typeface with a classic, elegant feel. This
-          paragraph shows how body text looks with Spectral.
+        <h1 class='text-4xl font-bold'>Nunito Heading 1 – 4xl</h1>
+        <h2 class='text-3xl font-semibold'>Nunito Heading 2 – 3xl</h2>
+        <h3 class='text-2xl font-medium'>Nunito Heading 3 – 2xl</h3>
+        <p class='text-base text-text-100'>
+          Nunito is a well-balanced sans serif typeface. This paragraph shows
+          how body text appears using Nunito.
         </p>
-        <p class='text-sm text-text-50 italic font-spectral'>
+        <p class='text-sm text-text-50 italic'>
           This is secondary text in Nunito using <code>--color-text-50</code>.
         </p>
       </div>
     </section>
+
     <!-- Typography Space Mono + Roboto Mono -->
     <section class='font-space bg-white p-6 rounded shadow'>
       <h2
@@ -188,130 +129,6 @@ import Wrapper from '../components/fundations/containers/Wrapper.astro';
         </p>
       </div>
     </section>
-    <!-- Card Example -->
-    <section class='mt-12'>
-      <h2 class='text-2xl font-semibold mb-4 text-text-00'>
-        Card Example – Accent Button
-      </h2>
-      <div
-        class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50] flex'
-        style='background: var(--color-background-100);'>
-        <div
-          class='flex-shrink-0 flex items-center justify-center px-6 py-8 bg-[--color-secondary-500] w-24 sm:w-32'>
-          <Image
-            src={prova}
-            alt='Logo'
-            width={80}
-            height={80}
-            class='w-full h-auto object-contain rounded-lg bg-white shadow-inner p-2'
-          />
-        </div>
-        <div class='p-8'>
-          <div
-            class='uppercase tracking-wide text-sm text-[--color-secondary-700] font-semibold'>
-            Tips & Advice
-          </div>
-          <h3
-            class='block mt-1 text-lg leading-tight font-bold text-[--color-text-00]'>
-            Save Water at Home
-          </h3>
-          <p class='mt-2 text-[--color-text-50]'>
-            Discover easy and effective ways to reduce water usage and lower
-            your utility bills.
-          </p>
-          <button
-            class='mt-4 px-4 py-2 rounded font-semibold text-white'
-            style='background: var(--color-accent-500);'>
-            Read Tips
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- Card with Image Example - Responsive -->
-    <section>
-      <h2 class='text-2xl font-semibold mb-4 text-text-00'>Card with Image</h2>
-      <div
-        class='max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-[--color-border-50]'
-        style='background: var(--color-background-100);'>
-        <!-- Image container with responsive height -->
-        <div
-          class='h-48 sm:h-64 w-full overflow-hidden relative flex items-center justify-center bg-[--color-primary-100]'>
-          <Image
-            src={prova}
-            alt='Logo'
-            width={200}
-            height={200}
-            class='w-auto h-auto max-w-[80%] max-h-[80%] object-contain'
-          />
-          <div
-            class='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60'>
-          </div>
-          <!-- Optional: Add a badge or overlay text -->
-          <div
-            class='absolute bottom-4 left-4 px-3 py-1 bg-[--color-accent-500] text-white text-xs font-bold rounded-full'>
-            Featured
-          </div>
-        </div>
-
-        <div class='p-5 sm:p-6'>
-          <div
-            class='uppercase tracking-wide text-xs sm:text-sm text-[--color-secondary-700] font-semibold'>
-            Plumbing Tips
-          </div>
-          <h3
-            class='block mt-1 text-base sm:text-lg leading-tight font-bold text-[--color-text-00] line-clamp-2'>
-            Prevent Frozen Pipes in Winter
-          </h3>
-          <p
-            class='mt-2 text-sm sm:text-base text-[--color-text-50] line-clamp-3'>
-            Learn how to insulate your pipes before winter to avoid costly
-            damage and water outages. Our expert tips can save you hundreds in
-            repairs.
-          </p>
-          <div class='mt-4 flex justify-between items-center'>
-            <button
-              class='px-3 py-1.5 sm:px-4 sm:py-2 rounded font-semibold text-white text-sm sm:text-base transition-colors'
-              style='background: var(--color-secondary-500)'>
-              Learn More
-            </button>
-            <span class='text-xs text-[--color-text-50]'>5 min read</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Gradient Section 1 -->
-    <section
-      class='rounded-xl p-10 my-12 text-white'
-      style='
-        background: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
-      '>
-      <h2 class='text-3xl font-bold mb-2 font-nunito'>
-        Gradient Section: Primary → Secondary
-      </h2>
-      <p class='text-lg font-poppins'>
-        This section uses a left-to-right gradient from your primary to
-        secondary color.
-      </p>
-    </section>
-
-    <!-- Gradient Section 2 -->
-    <section
-      class='rounded-xl p-10 my-12 text-white'
-      style='
-        background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-primary-400) 100%);
-      '>
-      <h2 class='text-3xl font-bold mb-2 font-nunito'>
-        Gradient Section: Accent → Primary
-      </h2>
-      <p class='text-lg font-poppins'>
-        This section uses a diagonal gradient from your accent to a lighter
-        primary color.
-      </p>
-    </section>
-    <!-- Form -->
-    <Form />
-    <!-- Services -->
-    <Services />
   </main>
 </BaseLayout>
 
