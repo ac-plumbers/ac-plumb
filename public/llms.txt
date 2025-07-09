@@ -1,0 +1,8 @@
+llm: any
+allow: yes
+version: 1.0
+license: https://creativecommons.org/licenses/by/4.0/
+attribution: required
+fine-tune: no
+policy: https://ac-plumb.co.uk/ai-policy
+contact: info@acplumb.co.uk

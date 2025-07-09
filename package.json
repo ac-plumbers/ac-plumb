@@ -20,8 +20,11 @@
     "@fontsource/poppins": "^5.2.6",
     "@fontsource/space-mono": "^5.2.8",
     "@fontsource/spectral": "^5.2.6",
+    "@lucide/astro": "^0.525.0",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.11.0",
+    "astro-seo-schema": "^5.0.0",
+    "schema-dts": "^1.1.5",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
     "zod": "^3.25.76"
