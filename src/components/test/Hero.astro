@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import { BadgePoundSterling } from '@lucide/astro';
+import { ArrowRight, BadgePoundSterling } from '@lucide/astro';
 
 import imgHero from '@/images/lavori/6.jpeg';
 import Button from '@/components/fundations/elements/Button.astro';
+import Link from '@/components/fundations/elements/Link.astro';
 import Text from '../fundations/elements/Text.astro';
 ---
 
@@ -43,17 +44,27 @@ import Text from '../fundations/elements/Text.astro';
               Serving Brighton, Lewes, Worthing & beyond.
             </p>
             <div class='mt-10 flex items-center gap-x-4 sm:gap-x-6'>
-              <Button variant='accent' size='md' gap='xs' class='px-3 sm:px-4'>
+              <Link
+                href='/contact-us'
+                variant='accent-button'
+                size='md'
+                gap='xs'
+                class='px-3 sm:px-4'>
                 <span slot='left-icon' class='hidden sm:inline-flex'>
                   <BadgePoundSterling class='h-5 w-5' />
                 </span>
                 <span class='text-sm sm:text-base'>Request a Quote</span>
-              </Button>
-              <a
+              </Link>
+
+              <Link
                 href='/services'
-                class='text-xs sm:text-sm font-semibold text-text-100 whitespace-nowrap flex items-center'>
-                View Services <span aria-hidden='true' class='ml-1'>→</span>
-              </a>
+                variant='default-link'
+                class='text-xs sm:text-sm font-semibold whitespace-nowrap flex items-center hover:text-primary-600 transition-colors'>
+                View Services
+                <span slot='right-icon' aria-hidden='true'>
+                  <ArrowRight class='h-4 w-4 ml-1' />
+                </span>
+              </Link>
             </div>
           </div>
         </div>
