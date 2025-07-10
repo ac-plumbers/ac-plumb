@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import Text from '../components/fundations/elements/Text.astro';
+
+// Import images (adjust paths as needed)
+const galleryItems = [
+  {
+    id: 1,
+    src: '/src/images/lavori/1.jpeg',
+    alt: 'Boiler installation',
+    category: 'boiler',
+    title: 'Modern Combi Boiler Installation',
+    description:
+      'High-efficiency boiler installation for a family home in Brighton.',
+  },
+  {
+    id: 2,
+    src: '/src/images/lavori/2.jpeg',
+    alt: 'Gas fitting',
+    category: 'gas',
+    title: 'Gas Fitting',
+    description:
+      'Professional gas line installation with safety certification.',
+  },
+  {
+    id: 3,
+    src: '/src/images/lavori/3.jpeg',
+    alt: 'Heat pump installation',
+    category: 'renewable',
+    title: 'Air Source Heat Pump',
+    description: 'Renewable energy solution for eco-conscious homeowners.',
+  },
+  {
+    id: 4,
+    src: '/src/images/lavori/4.jpeg',
+    alt: 'Bathroom plumbing',
+    category: 'plumbing',
+    title: 'Bathroom Renovation',
+    description: 'Complete bathroom plumbing renovation in Hove.',
+  },
+  {
+    id: 5,
+    src: '/src/images/lavori/5.jpeg',
+    alt: 'Smart thermostat',
+    category: 'smart',
+    title: 'Smart Home Integration',
+    description: 'Smart thermostat installation for efficient heating control.',
+  },
+  {
+    id: 6,
+    src: '/src/images/lavori/6.jpeg',
+    alt: 'Central heating',
+    category: 'heating',
+    title: 'Central Heating System',
+    description: 'Full central heating system installation.',
+  },
+  {
+    id: 7,
+    src: '/src/images/lavori/7.jpeg',
+    alt: 'Radiator installation',
+    category: 'heating',
+    title: 'Designer Radiator Installation',
+    description: 'Modern radiator fitting for enhanced heating efficiency.',
+  },
+  {
+    id: 8,
+    src: '/src/images/lavori/8.jpeg',
+    alt: 'Emergency repair',
+    category: 'emergency',
+    title: 'Emergency Leak Repair',
+    description: 'Rapid response emergency repair preventing water damage.',
+  },
+  {
+    id: 9,
+    src: '/src/images/lavori/9.jpeg',
+    alt: 'Cylinder replacement',
+    category: 'plumbing',
+    title: 'Hot Water Cylinder Upgrade',
+    description: 'Hot water cylinder replacement for improved capacity.',
+  },
+];
+
+// Define categories for filtering
+const categories = [
+  { id: 'all', name: 'All Projects' },
+  { id: 'boiler', name: 'Boiler Installation' },
+  { id: 'heating', name: 'Central Heating' },
+  { id: 'gas', name: 'Gas Services' },
+  { id: 'plumbing', name: 'Plumbing' },
+  { id: 'renewable', name: 'Renewable Energy' },
+  { id: 'smart', name: 'Smart Systems' },
+  { id: 'emergency', name: 'Emergency Repairs' },
+];
+---
+
+<BaseLayout
+  title='Our Work Gallery | AC Plumbers'
+  description='View our gallery of completed plumbing, heating and gas projects across Brighton & Hove'>
+  <div class='relative'>
+    <!-- Gallery Hero Section -->
+    <div class='bg-gradient-to-r from-primary-600 to-primary-800 text-white'>
+      <div class='container mx-auto px-4 py-16 md:py-24'>
+        <div class='max-w-3xl mx-auto text-center'>
+          <Text tag='h1' variant='display2XL' class='text-white mt-18'>
+            Our Recent Projects
+          </Text>
+          <p class='mt-4 text-lg text-primary-100'>
+            Browse through our portfolio of completed plumbing, heating, and
+            renewable energy projects across Brighton, Hove, and surrounding
+            areas.
+          </p>
+        </div>
+      </div>
+      <!-- Decorative wave pattern -->
+      <div class='absolute inset-x-0 bottom-0'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 1440 320'
+          class='w-full h-16 text-white fill-current'>
+          <path
+            d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,133.3C672,128,768,160,864,176C960,192,1056,192,1152,170.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Gallery Content -->
+    <div class='container mx-auto px-4 py-12'>
+      <!-- Category Filters -->
+      <div class='mb-10'>
+        <div class='flex flex-wrap items-center justify-center gap-2 md:gap-4'>
+          {
+            categories.map(category => (
+              <button
+                class='category-filter px-4 py-2 text-sm rounded-full border transition-all duration-300 hover:shadow-md'
+                data-category={category.id}
+                class:list={[
+                  'bg-white border-gray-300 text-gray-700 hover:bg-primary-50 hover:border-primary-200',
+                  {
+                    'bg-primary-500 text-white border-primary-500 hover:bg-primary-600':
+                      category.id === 'all',
+                  },
+                ]}>
+                {category.name}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div
+        class='gallery-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {
+          galleryItems.map(item => (
+            <div
+              class='gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-full'
+              data-category={item.category}>
+              <div class='aspect-w-4 aspect-h-3 overflow-hidden'>
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  class='w-full h-full object-cover transform hover:scale-105 transition-transform duration-500'
+                />
+              </div>
+              <div class='p-4 bg-white'>
+                <h3 class='text-lg font-semibold text-gray-900'>
+                  {item.title}
+                </h3>
+                <p class='mt-1 text-sm text-gray-500'>{item.description}</p>
+                <div class='mt-3'>
+                  <span class='inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full uppercase tracking-wide'>
+                    {categories.find(cat => cat.id === item.category)?.name ||
+                      'Project'}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- CTA Section -->
+      <div class='mt-16 bg-gray-50 rounded-lg p-8 text-center'>
+        <h2 class='text-2xl font-bold text-gray-900'>
+          Need similar work done?
+        </h2>
+        <p class='mt-2 text-gray-600 max-w-2xl mx-auto'>
+          Contact our team today to discuss your plumbing, heating, or renewable
+          energy project. We offer free consultations and competitive pricing.
+        </p>
+        <div class='mt-6'>
+          <a
+            href='/contact-us'
+            class='inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent-500 hover:bg-accent-600 md:py-4 md:text-lg md:px-10'>
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Gallery filtering functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.category-filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    // Set initial state (all items visible)
+    let currentCategory = 'all';
+
+    // Add click event to filter buttons
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Get category from data attribute
+        const category = button.getAttribute('data-category');
+        if (category === currentCategory) return;
+
+        // Update active button
+        filterButtons.forEach(btn => {
+          if (btn.getAttribute('data-category') === category) {
+            btn.classList.add(
+              'bg-primary-500',
+              'text-white',
+              'border-primary-500'
+            );
+            btn.classList.remove(
+              'bg-white',
+              'text-gray-700',
+              'border-gray-300'
+            );
+          } else {
+            btn.classList.remove(
+              'bg-primary-500',
+              'text-white',
+              'border-primary-500'
+            );
+            btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+          }
+        });
+
+        // Show/hide gallery items
+        galleryItems.forEach(item => {
+          if (
+            category === 'all' ||
+            item.getAttribute('data-category') === category
+          ) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Update current category
+        currentCategory = category;
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Add aspect ratio support for browsers that don't support it */
+  .aspect-w-4 {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 Aspect Ratio */
+  }
+
+  .aspect-w-4 > img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+  }
+
+  .gallery-item {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+</style>
