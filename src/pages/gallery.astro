@@ -131,20 +131,20 @@ const categories = [
       <div class='mb-10'>
         <div class='flex flex-wrap items-center justify-center gap-2 md:gap-4'>
           {
-            categories.map(category => (
-              <button
-                class='category-filter px-4 py-2 text-sm rounded-full border transition-all duration-300 hover:shadow-md'
-                data-category={category.id}
-                class:list={[
-                  'bg-white border-gray-300 text-gray-700 hover:bg-primary-50 hover:border-primary-200',
-                  {
-                    'bg-primary-500 text-white border-primary-500 hover:bg-primary-600':
-                      category.id === 'all',
-                  },
-                ]}>
-                {category.name}
-              </button>
-            ))
+            categories.map(category => {
+              const isActive = category.id === 'all';
+              return (
+                <button
+                  class={`category-filter px-4 py-2 text-sm font-medium rounded-full border transition-all duration-300 ${
+                    isActive
+                      ? 'bg-primary-500 text-white border-primary-500 shadow-md shadow-primary-500/20 hover:shadow-lg hover:shadow-primary-500/30 hover:bg-primary-600 hover:-translate-y-0.5'
+                      : 'bg-white border-gray-300 text-gray-700 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-300 hover:shadow-md hover:-translate-y-0.5'
+                  }`}
+                  data-category={category.id}>
+                  {category.name}
+                </button>
+              );
+            })
           }
         </div>
       </div>
@@ -243,13 +243,14 @@ const categories = [
 
         // Show/hide gallery items
         galleryItems.forEach(item => {
+          const el = item as HTMLElement;
           if (
             category === 'all' ||
-            item.getAttribute('data-category') === category
+            el.getAttribute('data-category') === category
           ) {
-            item.style.display = 'block';
+            el.style.display = 'block';
           } else {
-            item.style.display = 'none';
+            el.style.display = 'none';
           }
         });
 
@@ -286,5 +287,20 @@ const categories = [
 
   .gallery-item:hover {
     transform: translateY(-5px);
+  }
+
+  /* Enhanced button hover effects */
+  .category-filter {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .category-filter:hover {
+    transform: translateY(-2px);
+  }
+
+  .category-filter:active {
+    transform: translateY(0);
   }
 </style>
