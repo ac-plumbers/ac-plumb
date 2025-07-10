@@ -3,11 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import Text from '../components/fundations/elements/Text.astro';
 
-// Import images (adjust paths as needed)
+// Import images properly
+import img1 from '@/images/lavori/1.jpeg';
+import img2 from '@/images/lavori/2.jpeg';
+import img3 from '@/images/lavori/3.jpeg';
+import img4 from '@/images/lavori/4.jpeg';
+import img5 from '@/images/lavori/5.jpeg';
+import img6 from '@/images/lavori/6.jpeg';
+import img7 from '@/images/lavori/7.jpeg';
+import img8 from '@/images/lavori/8.jpeg';
+import img9 from '@/images/lavori/9.jpeg';
+
+// Gallery items with properly imported images
 const galleryItems = [
   {
     id: 1,
-    src: '@/images/lavori/1.jpeg',
+    src: img1,
     alt: 'Boiler installation',
     category: 'boiler',
     title: 'Modern Combi Boiler Installation',
@@ -16,7 +27,7 @@ const galleryItems = [
   },
   {
     id: 2,
-    src: '@/images/lavori/2.jpeg',
+    src: img2,
     alt: 'Gas fitting',
     category: 'gas',
     title: 'Gas Fitting',
@@ -25,7 +36,7 @@ const galleryItems = [
   },
   {
     id: 3,
-    src: '@/images/lavori/3.jpeg',
+    src: img3,
     alt: 'Heat pump installation',
     category: 'renewable',
     title: 'Air Source Heat Pump',
@@ -33,7 +44,7 @@ const galleryItems = [
   },
   {
     id: 4,
-    src: '@/images/lavori/4.jpeg',
+    src: img4,
     alt: 'Bathroom plumbing',
     category: 'plumbing',
     title: 'Bathroom Renovation',
@@ -41,7 +52,7 @@ const galleryItems = [
   },
   {
     id: 5,
-    src: '@/images/lavori/5.jpeg',
+    src: img5,
     alt: 'Smart thermostat',
     category: 'smart',
     title: 'Smart Home Integration',
@@ -49,7 +60,7 @@ const galleryItems = [
   },
   {
     id: 6,
-    src: '@/images/lavori/6.jpeg',
+    src: img6,
     alt: 'Central heating',
     category: 'heating',
     title: 'Central Heating System',
@@ -57,7 +68,7 @@ const galleryItems = [
   },
   {
     id: 7,
-    src: '@/images/lavori/7.jpeg',
+    src: img7,
     alt: 'Radiator installation',
     category: 'heating',
     title: 'Designer Radiator Installation',
@@ -65,7 +76,7 @@ const galleryItems = [
   },
   {
     id: 8,
-    src: '@/images/lavori/8.jpeg',
+    src: img8,
     alt: 'Emergency repair',
     category: 'emergency',
     title: 'Emergency Leak Repair',
@@ -73,7 +84,7 @@ const galleryItems = [
   },
   {
     id: 9,
-    src: '@/images/lavori/9.jpeg',
+    src: img9,
     alt: 'Cylinder replacement',
     category: 'plumbing',
     title: 'Hot Water Cylinder Upgrade',
@@ -158,9 +169,11 @@ const categories = [
               class='gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-full'
               data-category={item.category}>
               <div class='aspect-w-4 aspect-h-3 overflow-hidden'>
-                <img
+                <Image
                   src={item.src}
                   alt={item.alt}
+                  width={600}
+                  height={450}
                   class='w-full h-full object-cover transform hover:scale-105 transition-transform duration-500'
                 />
               </div>
@@ -255,7 +268,7 @@ const categories = [
         });
 
         // Update current category
-        currentCategory = category;
+        currentCategory = category || 'all';
       });
     });
   });
