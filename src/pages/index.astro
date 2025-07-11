@@ -1,13 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import logo from '@/images/logo.png';
-import prova from '@/images/img-prova.png';
-import Form from '../components/test/Form.astro';
 
-import Button from '@/components/fundations/elements/Button.astro';
 import Link from '@/components/fundations/elements/Link.astro';
-import Text from '@/components/fundations/elements/Text.astro';
 ---
 
 <BaseLayout>
@@ -78,52 +73,12 @@ import Text from '@/components/fundations/elements/Text.astro';
         <h1 class='text-4xl font-bold'>Poppins Heading 1 – 4xl</h1>
         <h2 class='text-3xl font-semibold'>Poppins Heading 2 – 3xl</h2>
         <h3 class='text-2xl font-medium'>Poppins Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100'>
-          Poppins is a geometric sans serif typeface. This paragraph is styled
-          to demonstrate how body text appears using Poppins.
+        <p class='text-base text-text-100 font-inconsolata'>
+          Inconsolata is a geometric sans serif typeface. This paragraph is
+          styled to demonstrate how body text appears using Poppins.
         </p>
-        <p class='text-sm text-text-50 italic'>
-          This is secondary text in Poppins using <code>--color-text-50</code>.
-        </p>
-      </div>
-    </section>
-
-    <!-- Typography Nunito -->
-    <section class='font-nunito bg-white p-6 rounded shadow'>
-      <h2
-        class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Nunito
-      </h2>
-      <div class='space-y-4'>
-        <h1 class='text-4xl font-bold'>Nunito Heading 1 – 4xl</h1>
-        <h2 class='text-3xl font-semibold'>Nunito Heading 2 – 3xl</h2>
-        <h3 class='text-2xl font-medium'>Nunito Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100'>
-          Nunito is a well-balanced sans serif typeface. This paragraph shows
-          how body text appears using Nunito.
-        </p>
-        <p class='text-sm text-text-50 italic'>
-          This is secondary text in Nunito using <code>--color-text-50</code>.
-        </p>
-      </div>
-    </section>
-
-    <!-- Typography Space Mono + Roboto Mono -->
-    <section class='font-space bg-white p-6 rounded shadow'>
-      <h2
-        class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Space Mono + Roboto Mono
-      </h2>
-      <div class='space-y-4'>
-        <h1 class='text-4xl font-bold'>Space Mono Heading 1 – 4xl</h1>
-        <h2 class='text-3xl font-semibold'>Space Mono Heading 2 – 3xl</h2>
-        <h3 class='text-2xl font-medium'>Space Mono Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100 font-roboto-mono'>
-          Roboto Mono is a monospaced typeface designed for coding and technical
-          content. This paragraph shows how body text appears using Roboto Mono.
-        </p>
-        <p class='text-sm text-text-50 italic'>
-          This is secondary text in Roboto Mono using <code
+        <p class='text-sm text-text-50 italic font-inconsolata'>
+          This is secondary text in Inconsolata using <code
             >--color-text-50</code
           >.
         </p>
