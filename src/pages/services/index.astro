@@ -18,15 +18,17 @@ const featuredServices = services.filter(service => service.data.featured);
 ---
 
 <ServicesLayout>
-  <div class='bg-white'>
+  <div class='bg-[--color-background-00]'>
     <!-- Hero Section -->
-    <div class='relative bg-gradient-to-r from-blue-700 to-blue-500 text-white'>
+    <div
+      class='relative bg-gradient-to-b from-[--color-primary-700] to-[--color-primary-500] text-white'>
       <div class='mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8'>
         <div class='text-center'>
           <h1 class='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
             Our Professional Services
           </h1>
-          <p class='mx-auto mt-6 max-w-2xl text-xl text-blue-100'>
+          <p
+            class='mx-auto mt-6 max-w-2xl text-xl text-[--color-background-00]'>
             Comprehensive plumbing solutions delivered with expertise and care
             across Brighton & Hove
           </p>
@@ -37,7 +39,7 @@ const featuredServices = services.filter(service => service.data.featured);
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 1440 320'
-          class='w-full h-16 text-white fill-current'>
+          class='w-full h-16 text-[--color-background-00] fill-current'>
           <path
             d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,133.3C672,128,768,160,864,176C960,192,1056,192,1152,170.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
           ></path>
@@ -47,7 +49,7 @@ const featuredServices = services.filter(service => service.data.featured);
 
     <!-- Introduction -->
     <div class='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
-      <div class='prose prose-lg mx-auto text-center text-gray-600'>
+      <div class='prose prose-lg mx-auto text-center text-[--color-text-00]'>
         <p>
           With over 20 years of experience, AC Plumbing delivers exceptional
           service for all your plumbing, heating, and renewable energy needs.
@@ -61,16 +63,16 @@ const featuredServices = services.filter(service => service.data.featured);
     <!-- Featured Services Section -->
     {
       featuredServices.length > 0 && (
-        <div class='bg-gray-50 py-12'>
+        <div class='bg-[--color-neutral-100] py-12'>
           <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-            <h2 class='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-12'>
+            <h2 class='text-3xl font-bold tracking-tight text-[--color-primary-900] sm:text-4xl text-center mb-12'>
               Featured Services
             </h2>
             <div class='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
               {featuredServices.map(service => (
                 <a
                   href={`/services/${service.slug}`}
-                  class='group relative overflow-hidden rounded-lg bg-white shadow-md transition-all hover:shadow-lg'>
+                  class='group relative overflow-hidden rounded-lg bg-[--color-background-00] shadow-md transition-all hover:shadow-lg border border-[--color-primary-300]'>
                   <div class='aspect-h-2 aspect-w-3 overflow-hidden'>
                     {service.data.image ? (
                       <img
@@ -79,14 +81,14 @@ const featuredServices = services.filter(service => service.data.featured);
                         class='h-full w-full object-cover object-center group-hover:opacity-75'
                       />
                     ) : (
-                      <div class='h-48 w-full bg-blue-100 flex items-center justify-center'>
+                      <div class='h-48 w-full bg-[--color-primary-100] flex items-center justify-center'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
                           fill='none'
                           viewBox='0 0 24 24'
                           stroke-width='1.5'
                           stroke='currentColor'
-                          class='w-12 h-12 text-blue-400'>
+                          class='w-12 h-12 text-[--color-primary-600]'>
                           <path
                             stroke-linecap='round'
                             stroke-linejoin='round'
@@ -95,19 +97,19 @@ const featuredServices = services.filter(service => service.data.featured);
                         </svg>
                       </div>
                     )}
-                    <div class='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity' />
+                    <div class='absolute inset-0 bg-gradient-to-t from-[--color-primary-900]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity' />
                   </div>
                   <div class='p-6'>
-                    <h3 class='text-xl font-semibold text-gray-900 group-hover:text-blue-600'>
+                    <h3 class='text-xl font-semibold text-[--color-text-00] group-hover:text-[--color-primary-600]'>
                       {service.data.title}
                     </h3>
-                    <p class='mt-2 text-gray-600 line-clamp-3'>
+                    <p class='mt-2 text-[--color-text-00] line-clamp-3'>
                       {service.data.description}
                     </p>
                     <div class='mt-4 flex items-center justify-between'>
-                      <span class='text-blue-600'>Learn more</span>
+                      <span class='text-[--color-primary-600]'>Learn more</span>
                       {service.data.price && (
-                        <span class='text-sm font-medium text-gray-900'>
+                        <span class='text-sm font-medium text-[--color-text-00]'>
                           From £{service.data.price}
                         </span>
                       )}
@@ -123,22 +125,24 @@ const featuredServices = services.filter(service => service.data.featured);
 
     <!-- All Services -->
     <div class='mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8'>
-      <h2 class='text-3xl font-bold text-gray-900 mb-8'>All Services</h2>
+      <h2 class='text-3xl font-bold text-[--color-primary-800] mb-8'>
+        All Services
+      </h2>
       <div
         class='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3'>
         {
           services.map(service => (
             <a href={`/services/${service.slug}`} class='group block'>
-              <div class='overflow-hidden rounded-lg bg-gray-100 p-6 shadow-sm transition-all hover:bg-blue-50 hover:shadow'>
+              <div class='overflow-hidden rounded-lg bg-[--color-neutral-100] p-6 shadow-sm transition-all hover:bg-[--color-primary-100] hover:shadow border border-[--color-primary-200]'>
                 <div class='flex items-center justify-between mb-4'>
-                  <div class='w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center'>
+                  <div class='w-12 h-12 rounded-full bg-[--color-primary-200] flex items-center justify-center'>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       fill='none'
                       viewBox='0 0 24 24'
                       stroke-width='1.5'
                       stroke='currentColor'
-                      class='w-6 h-6 text-blue-600'>
+                      class='w-6 h-6 text-[--color-primary-700]'>
                       <path
                         stroke-linecap='round'
                         stroke-linejoin='round'
@@ -152,24 +156,24 @@ const featuredServices = services.filter(service => service.data.featured);
                     </svg>
                   </div>
                   {service.data.price && (
-                    <div class='text-sm text-gray-500'>
+                    <div class='text-sm text-[--color-text-00]'>
                       From{' '}
-                      <span class='font-semibold text-gray-900'>
+                      <span class='font-semibold text-[--color-primary-800]'>
                         £{service.data.price}
                       </span>
                     </div>
                   )}
                 </div>
-                <h3 class='text-lg font-medium text-gray-900 group-hover:text-blue-700'>
+                <h3 class='text-lg font-medium text-[--color-primary-800] group-hover:text-[--color-primary-700]'>
                   {service.data.title}
                 </h3>
-                <p class='mt-2 text-sm text-gray-600 line-clamp-2'>
+                <p class='mt-2 text-sm text-[--color-text-00] line-clamp-2'>
                   {service.data.description}
                 </p>
                 {service.data.tags && service.data.tags.length > 0 && (
                   <div class='mt-4 flex flex-wrap gap-2'>
                     {service.data.tags.slice(0, 3).map(tag => (
-                      <span class='inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700'>
+                      <span class='inline-flex items-center rounded-full bg-[--color-primary-100] px-2 py-1 text-xs font-medium text-[--color-primary-800]'>
                         {tag}
                       </span>
                     ))}
@@ -183,24 +187,24 @@ const featuredServices = services.filter(service => service.data.featured);
     </div>
 
     <!-- Call to Action -->
-    <div class='bg-blue-700 text-white'>
+    <div class='bg-[--color-primary-700] text-white'>
       <div class='mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8'>
         <div class='lg:flex lg:items-center lg:justify-between'>
           <h2 class='text-3xl font-bold tracking-tight sm:text-4xl'>
             Ready to schedule your service?
-            <span class='block text-blue-200'
+            <span class='block text-[--color-background-00]'
               >Get in touch with our team today.</span
             >
           </h2>
           <div class='mt-8 flex flex-shrink-0 lg:mt-0 lg:ml-8'>
             <a
-              href='/contact'
-              class='inline-flex rounded-md bg-white px-6 py-3 text-base font-medium text-blue-700 shadow hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700'>
+              href='/contact-us'
+              class='inline-flex rounded-md bg-[--color-background-00] px-6 py-3 text-base font-medium text-[--color-primary-700] shadow hover:bg-[--color-primary-50] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[--color-primary-700]'>
               Request a Quote
             </a>
             <a
               href='tel:+441234567890'
-              class='ml-4 inline-flex items-center rounded-md border border-white bg-transparent px-6 py-3 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700'>
+              class='ml-4 inline-flex items-center rounded-md border border-white bg-transparent px-6 py-3 text-base font-medium text-white hover:bg-[--color-primary-600] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[--color-primary-700]'>
               Call Us
             </a>
           </div>
