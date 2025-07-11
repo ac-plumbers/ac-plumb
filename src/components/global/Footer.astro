@@ -3,18 +3,19 @@ import { Image } from 'astro:assets';
 import logo from '@/images/logo/logo.png';
 ---
 
-<footer class='bg-gray-900'>
+<footer class='bg-primary-800'>
   <div class='mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32'>
-    <div class='xl:grid xl:grid-cols-3 xl:gap-8'>
+    <div class='xl:grid xl:grid-cols-5 xl:gap-8'>
+      <!-- Company Info Column -->
       <div class='space-y-8'>
         <Image
           src={logo}
           width={48}
           height={48}
-          alt='AC Plumb Logoclass='
+          alt='AC Plumb Logo'
           class='lg:scale-115 w-auto h-auto'
         />
-        <p class='text-balance text-sm/6 text-gray-400'>
+        <p class='text-balance text-sm/6 text-primary-200'>
           Expert Plumbing, Heating & Renewable Energy Services in Brighton &
           Hove and surrounding areas. Trusted. Certified. Local.
         </p>
@@ -22,153 +23,205 @@ import logo from '@/images/logo/logo.png';
           <!-- social links remain unchanged -->
         </div>
       </div>
-      <div class='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
-        <div class='md:grid md:grid-cols-2 md:gap-8'>
-          <div>
-            <h3 class='text-sm/6 font-semibold text-white'>Services</h3>
-            <ul role='list' class='mt-6 space-y-4'>
-              <li>
-                <a
-                  href='/gas-safe-2'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Gas Safety (CP12)</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/boilers'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Gas Boilers</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/renewables'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Heat Pumps & Electric Boilers</a
-                >
-              </li>
 
-              <li>
-                <a
-                  href='/heating'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Central Heating</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/smart-thermostats'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Smart Thermostats</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/plumbing'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >General Plumbing</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class='mt-10 md:mt-0'>
-            <h3 class='text-sm/6 font-semibold text-white'>Support</h3>
-            <ul role='list' class='mt-6 space-y-4'>
-              <li>
-                <a
-                  href='/contact-us'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Contact Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/faq'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'>FAQs</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/testimonials'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Customer Reviews</a
-                >
-              </li>
-            </ul>
-          </div>
+      <!-- Main Links Section - Now spans 4 columns -->
+      <div
+        class='mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4 xl:col-span-4 xl:mt-0'>
+        <!-- Services Column -->
+        <div>
+          <h3 class='text-sm/6 font-semibold text-white'>Services</h3>
+          <ul role='list' class='mt-6 space-y-4'>
+            <li>
+              <a
+                href='/gas-safe-2'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Gas Safety (CP12)</a
+              >
+            </li>
+            <li>
+              <a
+                href='/boilers'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Gas Boilers</a
+              >
+            </li>
+            <li>
+              <a
+                href='/renewables'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Heat Pumps & Electric Boilers</a
+              >
+            </li>
+            <li>
+              <a
+                href='/heating'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Central Heating</a
+              >
+            </li>
+            <li>
+              <a
+                href='/smart-thermostats'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Smart Thermostats</a
+              >
+            </li>
+            <li>
+              <a
+                href='/plumbing'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >General Plumbing</a
+              >
+            </li>
+            <li>
+              <a
+                href='/landlords'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Landlord Services</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class='md:grid md:grid-cols-2 md:gap-8'>
-          <div>
-            <h3 class='text-sm/6 font-semibold text-white'>Company</h3>
-            <ul role='list' class='mt-6 space-y-4'>
-              <li>
-                <a
-                  href='/about-us'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/gallery'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Our Work</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/certifications'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Certifications</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/blog'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'>Blog</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class='mt-10 md:mt-0'>
-            <h3 class='text-sm/6 font-semibold text-white'>Legal</h3>
-            <ul role='list' class='mt-6 space-y-4'>
-              <li>
-                <a
-                  href='/terms-and-conditions'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Terms and Conditions</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/privacy-policy'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/cookie-policy'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >Cookie Policy</a
-                >
-              </li>
-              <li>
-                <a
-                  href='/ai-policy'
-                  class='text-sm/6 text-gray-400 hover:text-gray-300'
-                  >AI Policy</a
-                >
-              </li>
-            </ul>
-          </div>
+
+        <!-- NEW: Areas We Serve Column -->
+        <div>
+          <h3 class='text-sm/6 font-semibold text-white'>Areas We Serve</h3>
+          <ul role='list' class='mt-6 space-y-4'>
+            <li>
+              <a
+                href='/brighton'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Brighton</a
+              >
+            </li>
+            <li>
+              <a
+                href='/hove'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Hove</a
+              >
+            </li>
+            <li>
+              <a
+                href='/lewes'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Lewes</a
+              >
+            </li>
+            <li>
+              <a
+                href='/portslade'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Portslade</a
+              >
+            </li>
+            <!-- Add more villages as needed -->
+            <li>
+              <a
+                href='/areas-we-serve'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >See All Areas</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Company Column -->
+        <div>
+          <h3 class='text-sm/6 font-semibold text-white'>Company</h3>
+          <ul role='list' class='mt-6 space-y-4'>
+            <li>
+              <a
+                href='/about-us'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                href='/gallery'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Our Work</a
+              >
+            </li>
+            <li>
+              <a
+                href='/certifications'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Certifications</a
+              >
+            </li>
+            <li>
+              <a
+                href='/blog'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                href='/contact-us'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Contact Us</a
+              >
+            </li>
+            <li>
+              <a
+                href='/testimonials'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Customer Reviews</a
+              >
+            </li>
+            <li>
+              <a
+                href='/faq'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >FAQs</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Legal Column -->
+        <div>
+          <h3 class='text-sm/6 font-semibold text-white'>Legal</h3>
+          <ul role='list' class='mt-6 space-y-4'>
+            <li>
+              <a
+                href='/terms-and-conditions'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Terms and Conditions</a
+              >
+            </li>
+            <li>
+              <a
+                href='/privacy-policy'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                href='/cookie-policy'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >Cookie Policy</a
+              >
+            </li>
+            <li>
+              <a
+                href='/ai-policy'
+                class='text-sm/6 text-primary-200 hover:text-primary-100'
+                >AI Policy</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+
+    <!-- Copyright section - Updated with color palette -->
     <div class='mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24'>
-      <p class='text-sm/6 text-gray-400'>
+      <p class='text-sm/6 text-primary-200'>
         &copy; 2025 AC Plumbers. Serving Brighton, Hove, Lewes, and surrounding
         areas. All rights reserved.
       </p>
