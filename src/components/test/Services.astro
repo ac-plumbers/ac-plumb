@@ -2,20 +2,23 @@
 import { Wrench } from '@lucide/astro';
 import { AirVent } from '@lucide/astro';
 import { Droplets } from '@lucide/astro';
+import Text from '../fundations/elements/Text.astro';
 ---
 
 <div class='bg-primary-700 py-24 sm:py-32'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:mx-0'>
-      <h2
-        class='text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl'>
+      <Text
+        tag='h2'
+        variant='displayLG'
+        class='text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl font-poppins'>
         Professional Plumbing Services
-      </h2>
-      <p class='mt-6 text-lg/8 text-primary-100'>
+      </Text>
+      <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
         Our team of certified plumbers provides fast, reliable service for all
         your residential and commercial plumbing needs. From emergency repairs
         to complete installations.
-      </p>
+      </Text>
     </div>
     <div class='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
       <dl
@@ -26,14 +29,19 @@ import { Droplets } from '@lucide/astro';
               class='mb-6 flex size-10 items-center justify-center rounded-lg bg-primary-500 text-white'>
               <Wrench />
             </div>
-            Gas & Boiler Services
+            <Text
+              tag='h3'
+              variant='textBase'
+              class='text-white font-semibold font-poppins'>
+              Gas & Boiler Services
+            </Text>
           </dt>
           <dd class='mt-1 flex flex-auto flex-col text-base/7 text-primary-200'>
-            <p class='flex-auto'>
+            <Text tag='p' variant='text-base' class='flex-auto'>
               Professional installation, maintenance and repair of all boiler
               types. Our Gas Safe certified engineers ensure your heating system
               runs efficiently and safely year-round.
-            </p>
+            </Text>
             <p class='mt-6'>
               <a
                 href='/boilers'
@@ -49,14 +57,19 @@ import { Droplets } from '@lucide/astro';
               class='mb-6 flex size-10 items-center justify-center rounded-lg bg-accent-500 text-text-00'>
               <AirVent />
             </div>
-            Heat Pumps & Renewables
+            <Text
+              tag='h3'
+              variant='textBase'
+              class='text-white font-semibold font-poppins'>
+              Heat Pumps & Renewables
+            </Text>
           </dt>
           <dd class='mt-1 flex flex-auto flex-col text-base/7 text-primary-200'>
-            <p class='flex-auto'>
+            <Text variant='text-base' tag='p' class='flex-auto'>
               Eco-friendly heating solutions including air source heat pumps and
               solar thermal systems. Save on energy bills while reducing your
               carbon footprint with our professional installation services.
-            </p>
+            </Text>
             <p class='mt-6'>
               <a
                 href='/renewables'
@@ -72,14 +85,19 @@ import { Droplets } from '@lucide/astro';
               class='mb-6 flex size-10 items-center justify-center rounded-lg bg-secondary-500 text-white'>
               <Droplets />
             </div>
-            General Plumbing
+            <Text
+              tag='h3'
+              variant='textBase'
+              class='text-white font-semibold font-poppins'>
+              General Plumbing
+            </Text>
           </dt>
           <dd class='mt-1 flex flex-auto flex-col text-base/7 text-primary-200'>
-            <p class='flex-auto'>
+            <Text variant='text-base' tag='p' class='flex-auto'>
               From leaky taps to complete bathroom installations, our skilled
               plumbers handle all residential and commercial plumbing needs.
               Fast response times and quality workmanship guaranteed.
-            </p>
+            </Text>
             <p class='mt-6'>
               <a
                 href='/plumbing'
