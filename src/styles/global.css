@@ -1,12 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
-  --font-poppins: 'Poppins', sans-serif;
-  --font-inconsolata: 'Inconsolata', monospace;
+  --font-poppins: "Poppins", sans-serif;
+  --font-inconsolata: "Inconsolata", monospace;
 }
 
 body {
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
   background-color: var(--color-background-00);
   color: var(--color-text-00);
   margin: 0;
@@ -14,8 +14,8 @@ body {
 
 @theme {
   /* Font Families */
-  --font-poppins: 'Poppins', sans-serif;
-  --font-inconsolata: 'Inconsolata', monospace;
+  --font-poppins: "Poppins", sans-serif;
+  --font-inconsolata: "Inconsolata", monospace;
   /* Colors */
   /* Primary Color Palette */
   /* #007bff - Blue */
