@@ -1,0 +1,85 @@
+---
+import { Schema as AstroSchema } from 'astro-seo-schema';
+---
+
+<!-- Schema -->
+<AstroSchema
+  item={{
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'http://acplumb.co.uk/',
+        url: 'http://acplumb.co.uk/',
+        name: 'Home - AC Plumbing Heating & Bathrooms',
+        isPartOf: { '@id': 'http://acplumb.co.uk/#website' },
+        about: { '@id': 'http://acplumb.co.uk/#organization' },
+        primaryImageOfPage: { '@id': 'http://acplumb.co.uk/#primaryimage' },
+        image: { '@id': 'http://acplumb.co.uk/#primaryimage' },
+        thumbnailUrl:
+          'http://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
+        datePublished: '2017-01-04T21:17:16+00:00',
+        dateModified: '2023-09-11T13:56:53+00:00',
+        description:
+          'Boiler Services, new installation & repair. 10 years guarantee – 0% Finance. Serving East Sussex since 2005.',
+        breadcrumb: { '@id': 'http://acplumb.co.uk/#breadcrumb' },
+        inLanguage: 'en-GB',
+        potentialAction: [
+          { '@type': 'ReadAction', target: ['http://acplumb.co.uk/'] },
+        ],
+      },
+      {
+        '@type': 'ImageObject',
+        inLanguage: 'en-GB',
+        '@id': 'http://acplumb.co.uk/#primaryimage',
+        url: 'http://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
+        contentUrl:
+          'http://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
+        width: 110,
+        height: 110,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'http://acplumb.co.uk/#breadcrumb',
+        itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home' }],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'http://acplumb.co.uk/#website',
+        url: 'http://acplumb.co.uk/',
+        name: 'AC Plumbing Heating & Bathrooms',
+        description: 'AC Plumbing, Heating &amp; Bathrooms – Brighton',
+        publisher: { '@id': 'http://acplumb.co.uk/#organization' },
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'http://acplumb.co.uk/?s={search_term_string}',
+            },
+            'query-input': 'required name=search_term_string',
+          },
+        ],
+        inLanguage: 'en-GB',
+      },
+      {
+        '@type': 'Organization',
+        '@id': 'http://acplumb.co.uk/#organization',
+        name: 'AC Plumbing, Heating & Bathrooms',
+        url: 'http://acplumb.co.uk/',
+        logo: {
+          '@type': 'ImageObject',
+          inLanguage: 'en-GB',
+          '@id': 'http://acplumb.co.uk/#/schema/logo/image/',
+          url: 'http://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png',
+          contentUrl:
+            'http://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png',
+          width: 469,
+          height: 187,
+          caption: 'AC Plumbing, Heating & Bathrooms',
+        },
+        image: { '@id': 'http://acplumb.co.uk/#/schema/logo/image/' },
+      },
+    ],
+  }}
+/>

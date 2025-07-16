@@ -7,29 +7,74 @@ const {
   class: className,
   ...rest
 } = Astro.props;
-// Default button
+
+// Default/Primary button
 const defaultClass = [
-  'text-accent-900',
-  'bg-accent-100 hover:bg-primary-700',
-  'focus:outline-accent-200',
-  'outline-primary-100',
+  'text-white',
+  'bg-primary-500',
+  'hover:bg-primary-600',
+  'from-primary-400 to-primary-600 bg-gradient-to-br',
+  'hover:from-primary-500 hover:to-primary-700',
+  'shadow-md',
+  'shadow-primary-500/20',
+  'hover:shadow-primary-600/30',
+  'ring-1 ring-primary-300/50',
+  'focus:outline-primary-400',
+  'outline-primary-300',
+  'transform hover:-translate-y-0.5 active:translate-y-0',
+  'transition-all duration-300',
 ];
+
 // Accent button
 const accentClass = [
-  'text-accent-950',
-  'bg-linear-to-tr/oklch from-accent-500 via-accent-400 to-accent-300 hover:to-accent-400 ',
-  'focus:outline-accent-300',
-  'outline-accent-400',
+  'text-text-00', // Dark text for better contrast with yellow
+  'from-accent-400 via-accent-500 to-accent-600 bg-gradient-to-br',
+  'hover:from-accent-500 hover:to-accent-700', // Darker gradient on hover
+  'from-accent-400 to-accent-500 bg-gradient-to-br',
+  'hover:from-accent-500 hover:to-accent-600',
+  'shadow-lg shadow-accent-500/30',
+  'shadow-accent-500/30',
+  'hover:shadow-accent-600/40',
+  'ring-2 ring-accent-300/50',
+  'focus:outline-accent-400',
+  'outline-accent-300',
+  'transform hover:scale-105 active:scale-95',
+  'transition-all duration-300',
+  'from-accent-400 to-accent-600 bg-gradient-to-br',
 ];
-// Muted button
+
+// Secondary button (renamed from "muted")
 const mutedClass = [
   'text-white',
-  'hover:text-accent-300',
-  'bg-base-900 ',
-  'hover:bg-base-800',
-  'focus:outline-base-700',
-  'outline-base-800',
+  'bg-secondary-500',
+  'hover:bg-secondary-600',
+  'from-secondary-400 to-secondary-600 bg-gradient-to-br',
+  'hover:from-secondary-500 hover:to-secondary-700',
+  'shadow-md',
+  'shadow-secondary-500/20',
+  'hover:shadow-secondary-600/30',
+  'ring-1 ring-secondary-300/50',
+  'focus:outline-secondary-400',
+  'outline-secondary-300',
+  'transform hover:-translate-y-0.5 active:translate-y-0',
+  'transition-all duration-300',
 ];
+
+// Outline variant (new)
+const outlineClass = [
+  'text-primary-700',
+  'bg-transparent',
+  'hover:bg-primary-50',
+  'ring-2 ring-primary-500',
+  'hover:ring-primary-600',
+  'shadow-sm',
+  'hover:shadow-md',
+  'focus:outline-primary-400',
+  'outline-primary-300',
+  'transform hover:-translate-y-0.5 active:translate-y-0',
+  'transition-all duration-300',
+];
+
 // Size (only applies if variant is not "link")
 const xs = ['h-8', 'px-6', 'py-2', 'text-xs rounded-lg'];
 const sm = ['h-9', 'px-6', 'py-2', 'text-sm rounded-lg'];
@@ -37,12 +82,14 @@ const base = ['h-10', 'px-8', 'py-3', 'text-base rounded-xl'];
 const md = ['h-11', 'px-8', 'py-3', 'text-md rounded-xl'];
 const lg = ['h-12', 'px-8', 'py-3', 'text-lg rounded-xl'];
 const xl = ['h-14', 'px-12', 'py-3', 'text-xl rounded-xl'];
+
 // Gap
 const gapXS = ['gap-2'];
 const gapSM = ['gap-4'];
 const gapBase = ['gap-8'];
 const gapMD = ['gap-10'];
 const gapLG = ['gap-12'];
+
 const additionalClasses = className ? className.split(' ') : [];
 ---
 
@@ -54,19 +101,16 @@ const additionalClasses = className ? className.split(' ') : [];
     'text-center',
     'font-medium',
     'items-center',
-    'shadow-massive',
     'justify-center',
     'duration-300',
     'ease-in-out',
-    'transition-all',
-    'hover:shadow-none',
     'outline',
     'focus:outline-offset-4',
-    'oultine-offset-base-900',
-    'focus-visible:outline-none  focus:outline-2',
+    'focus-visible:outline-none focus:outline-2',
     variant === 'default' && defaultClass,
     variant === 'accent' && accentClass,
     variant === 'muted' && mutedClass,
+    variant === 'outline' && outlineClass,
     variant === 'none' && [], // No additional classes for "none" variant
     size === 'xs' && xs,
     size === 'sm' && sm,

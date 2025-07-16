@@ -1,16 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
-  --font-poppins: 'Poppins', sans-serif;
-  --font-nunito: 'Nunito Sans', sans-serif; /* Change to "Nunito Sans" */
-  --font-space: 'Space Mono', monospace;
-  --font-roboto-mono: 'Roboto Mono', monospace;
-  --font-spectral: 'Spectral', serif; /* Add Spectral font */
-  --font-inconsolata: 'Inconsolata', monospace; /* Add Inconsolata font */
+  --font-poppins: "Poppins", sans-serif;
+  --font-inconsolata: "Inconsolata", monospace;
 }
 
 body {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Inconsolata", monospace;
   background-color: var(--color-background-00);
   color: var(--color-text-00);
   margin: 0;
@@ -18,12 +14,8 @@ body {
 
 @theme {
   /* Font Families */
-  --font-poppins: 'Poppins', sans-serif;
-  --font-nunito: 'Nunito Sans', sans-serif;
-  --font-space: 'Space Mono', monospace;
-  --font-roboto-mono: 'Roboto Mono', monospace;
-  --font-spectral: 'Spectral', serif;
-  --font-inconsolata: 'Inconsolata', monospace;
+  --font-poppins: "Poppins", sans-serif;
+  --font-inconsolata: "Inconsolata", monospace;
   /* Colors */
   /* Primary Color Palette */
   /* #007bff - Blue */
