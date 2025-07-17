@@ -1,19 +1,20 @@
 ---
 import { Image } from 'astro:assets';
 import antonio from '@/images/Antonio.png';
+import Text from './fundations/elements/Text.astro';
 ---
 
 <section class='py-16 px-4 sm:px-6 lg:px-8 bg-white'>
   <div class='max-w-7xl mx-auto'>
     <!-- Mobile Heading (Shows only on mobile) -->
     <div class='md:hidden mb-8'>
-      <h2 class='text-3xl font-bold text-text-00 mb-2'>
+      <Text tag='h2' variant='displayLG' class=' font-bold text-text-00 mb-8 font-poppins'>
         Frequently Asked Questions
-      </h2>
-      <p class='text-text-50'>
+      </Text>
+      <Text tag='p' variant="textLG" class='text-text-50 font-poppins'>
         Find answers to common questions about our plumbing services, pricing,
         and availability.
-      </p>
+      </Text>
     </div>
 
     <!-- Two-column layout container with absolute positioning -->

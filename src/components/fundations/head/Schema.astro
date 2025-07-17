@@ -1,5 +1,24 @@
 ---
 import { Schema as AstroSchema } from 'astro-seo-schema';
+
+const {
+  type = 'WebPage',
+  title = 'AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton',
+  url = 'https://acplumb.co.uk',
+  description = 'AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.',
+  email= 'info@acplumb.co.uk',
+  telephone = '01273680731',
+  telephone2 = '07535653850',
+  address= '21j Campbell Road, Brighton BN1 4QD',
+  addressLocality = 'Brighton',
+  addressRegion = 'East Sussex',
+  postalCode = 'BN1 4QD',
+  addressCountry = 'GB',
+  breadcrumb = [],
+  image,
+  datePublished,
+  dateModified,
+} = Astro.props;
 ---
 
 <!-- Schema -->
@@ -8,31 +27,53 @@ import { Schema as AstroSchema } from 'astro-seo-schema';
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebPage',
-        '@id': 'http://acplumb.co.uk/',
-        url: 'http://acplumb.co.uk/',
-        name: 'Home - AC Plumbing Heating & Bathrooms',
-        isPartOf: { '@id': 'http://acplumb.co.uk/#website' },
-        about: { '@id': 'http://acplumb.co.uk/#organization' },
-        primaryImageOfPage: { '@id': 'http://acplumb.co.uk/#primaryimage' },
+        '@type': type,
+        '@id': url,
+        url: url,
+        name: title,
+        isPartOf: { '@id': 'https://acplumb.co.uk/#website' },
+        about: { '@id': 'https://acplumb.co.uk/#organization' },
+        primaryImageOfPage: { '@id': 'https://acplumb.co.uk/#primaryimage' },
         image: { '@id': 'http://acplumb.co.uk/#primaryimage' },
         thumbnailUrl:
           'http://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
         datePublished: '2017-01-04T21:17:16+00:00',
         dateModified: '2023-09-11T13:56:53+00:00',
         description:
-          'Boiler Services, new installation & repair. 10 years guarantee – 0% Finance. Serving East Sussex since 2005.',
-        breadcrumb: { '@id': 'http://acplumb.co.uk/#breadcrumb' },
+          description,
+        breadcrumb: { '@id': 'https://acplumb.co.uk/#breadcrumb' },
         inLanguage: 'en-GB',
         potentialAction: [
-          { '@type': 'ReadAction', target: ['http://acplumb.co.uk/'] },
+          { '@type': 'ReadAction', target: ['https://acplumb.co.uk/'] },
         ],
+      },
+      {
+        '@type': 'Plumber',
+        '@id': 'https://acplumb.co.uk/#organization',
+        name: title,
+        url: url,
+        telephone: telephone,
+        telephone: telephone2,
+        email: email,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: address,
+          addressLocality: addressLocality,
+          addressRegion: addressRegion,
+          postalCode: postalCode,
+          addressCountry: addressCountry,
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 50.83484516058824,
+          longitude: -0.1414027180757651,
+        },
       },
       {
         '@type': 'ImageObject',
         inLanguage: 'en-GB',
-        '@id': 'http://acplumb.co.uk/#primaryimage',
-        url: 'http://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
+        '@id': 'https://acplumb.co.uk/#primaryimage',
+        url: 'https://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
         contentUrl:
           'http://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png',
         width: 110,
@@ -40,7 +81,7 @@ import { Schema as AstroSchema } from 'astro-seo-schema';
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'http://acplumb.co.uk/#breadcrumb',
+        '@id': 'https://acplumb.co.uk/#breadcrumb',
         itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home' }],
       },
       {
@@ -76,7 +117,7 @@ import { Schema as AstroSchema } from 'astro-seo-schema';
             'http://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png',
           width: 469,
           height: 187,
-          caption: 'AC Plumbing, Heating & Bathrooms',
+          caption: description,
         },
         image: { '@id': 'http://acplumb.co.uk/#/schema/logo/image/' },
       },
