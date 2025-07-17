@@ -4,7 +4,7 @@ import antonio from '@/images/Antonio.png';
 import Text from './fundations/elements/Text.astro';
 ---
 
-<section class='py-16 px-4 sm:px-6 lg:px-8 bg-white'>
+<section class='py-16 px-4 sm:px-6 lg:px-8 bg-primary-200'>
   <div class='max-w-7xl mx-auto'>
     <!-- Mobile Heading (Shows only on mobile) -->
     <div class='md:hidden mb-8'>
@@ -35,19 +35,19 @@ import Text from './fundations/elements/Text.astro';
 
           <!-- Contact Section -->
           <div>
-            <p class='text-xl font-semibold text-text-00'>
+            <Text tag='h3' variant='displayLG' class='font-poppins font-semibold text-text-00'>
               Have more questions?
-            </p>
-            <p class='text-text-50 mt-2'>
+            </Text>
+            <Text tag='p' variant='textBase' class='text-text-50 mt-2'>
               We're here to help! Our team is ready to assist you with any
               plumbing concerns. We understand that each situation is unique,
               which is why we offer personalized consultations and expert
               advice.
-            </p>
+            </Text>
 
-            <p class='text-xl font-semibold text-text-00 mt-6'>
+            <Text tag='h4' variant="displaySM" class='font-semibold text-text-00 mt-6 font-poppins'>
               Your Contact Person
-            </p>
+            </Text>
 
             <div class='mt-4 flex flex-col sm:flex-row gap-6 items-start'>
               <div class='w-24 h-24 relative flex-shrink-0'>
