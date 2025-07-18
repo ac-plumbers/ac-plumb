@@ -1,111 +1,119 @@
 ---
-import { Wrench } from '@lucide/astro';
-import { AirVent } from '@lucide/astro';
-import { Droplets } from '@lucide/astro';
-import Text from '../fundations/elements/Text.astro';
+import { Wrench } from "@lucide/astro";
+import { AirVent } from "@lucide/astro";
+import { Droplets } from "@lucide/astro";
+import Text from "../fundations/elements/Text.astro";
 ---
 
-<div class='bg-primary-700 py-24 sm:py-32'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div class='mx-auto max-w-2xl lg:mx-0'>
+<div class="bg-primary-700 py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
       <Text
-        tag='h2'
-        variant='displayLG'
-        class='text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl font-poppins '>
+        tag="h2"
+        variant="displayLG"
+        class="font-poppins text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
+      >
         Professional Plumbing Services
       </Text>
-      <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
+      <Text tag="p" variant="textLG" class="mt-6 text-primary-100">
         Our team of certified plumbers provides fast, reliable service for all
         your residential and commercial plumbing needs. From emergency repairs
         to complete installations.
       </Text>
     </div>
-    <div class='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
       <dl
-        class='grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3'>
-        <div class='flex flex-col'>
-          <dt class='text-base/7 font-semibold text-white'>
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
+      >
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
             <div
-              class='mb-6 flex size-10 items-center justify-center rounded-lg bg-primary-500 text-white'>
+              class="mb-6 flex size-10 items-center justify-center rounded-lg bg-primary-500 text-white"
+            >
               <Wrench />
             </div>
             <Text
-              tag='h3'
-              variant='displayXS'
-              class='text-white font-semibold font-poppins'>
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
               Gas & Boiler Services
             </Text>
           </dt>
-          <dd class='mt-1 flex flex-auto flex-col text-base/7 text-primary-200'>
-            <Text tag='p' variant='text-base' class='flex-auto'>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
               Professional installation, maintenance and repair of all boiler
               types. Our Gas Safe certified engineers ensure your heating system
               runs efficiently and safely year-round.
             </Text>
-            <p class='mt-6'>
+            <p class="mt-6">
               <Text
-                tag='a'
-                href='/boilers'
-                class='text-sm font-semibold text-accent-00 hover:text-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 rounded-sm'
-                >Learn more about Gas & Boiler <span aria-hidden='true'>→</span>
-                </Text>
-            </p>
-          </dd>
-        </div>
-        <div class='flex flex-col'>
-          <dt class='text-base/7 font-semibold text-white'>
-            <div
-              class='mb-6 flex size-10 items-center justify-center rounded-lg bg-accent-500 text-text-00'>
-              <AirVent />
-            </div>
-            <Text
-              tag='h3'
-              variant='displayXS'
-              class='text-white font-semibold font-poppins'>
-              Heat Pumps & Renewables
-            </Text>
-          </dt>
-          <dd class='mt-1 flex flex-auto flex-col text-base/7 text-primary-200'>
-            <Text variant='text-base' tag='p' class='flex-auto'>
-              Eco-friendly heating solutions including air source heat pumps and
-              solar thermal systems. Save on energy bills while reducing your
-              carbon footprint with our professional installation services.
-            </Text>
-            <p class='mt-6'>
-              <Text
-                tag='a'
-                href='/renewables'
-                class='text-sm font-semibold text-accent-00 hover:text-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 rounded-sm'
-                >Learn more about Renewables <span aria-hidden='true'>→</span>
+                tag="a"
+                href="/boilers"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+                >Learn more about Gas & Boiler <span aria-hidden="true">→</span>
               </Text>
             </p>
           </dd>
         </div>
-        <div class='flex flex-col'>
-          <dt class='text-base/7 font-semibold text-white'>
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
             <div
-              class='mb-6 flex size-10 items-center justify-center rounded-lg bg-secondary-500 text-white'>
+              class="mb-6 flex size-10 items-center justify-center rounded-lg bg-accent-500 text-text-00"
+            >
+              <AirVent />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Heat Pumps & Renewables
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text variant="text-base" tag="p" class="flex-auto">
+              Eco-friendly heating solutions including air source heat pumps and
+              solar thermal systems. Save on energy bills while reducing your
+              carbon footprint with our professional installation services.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/renewables"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+                >Learn more about Renewables <span aria-hidden="true">→</span>
+              </Text>
+            </p>
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div
+              class="mb-6 flex size-10 items-center justify-center rounded-lg bg-secondary-500 text-white"
+            >
               <Droplets />
             </div>
             <Text
-              tag='h3'
-              variant='displayXS'
-              class='text-white font-semibold font-poppins'>
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
               General Plumbing
             </Text>
           </dt>
-          <dd class='mt-1 flex flex-auto flex-col text-base/7 text-primary-200'>
-            <Text variant='text-base' tag='p' class='flex-auto'>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text variant="text-base" tag="p" class="flex-auto">
               From leaky taps to complete bathroom installations, our skilled
               plumbers handle all residential and commercial plumbing needs.
               Fast response times and quality workmanship guaranteed.
             </Text>
-            <p class='mt-6'>
+            <p class="mt-6">
               <Text
-                tag='a'
-                href='/plumbing'
-                class='text-sm font-semibold text-accent-00 hover:text-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 rounded-sm'
-                >Learn more about Plumbing <span aria-hidden='true'>→</span>
+                tag="a"
+                href="/plumbing"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+                >Learn more about Plumbing <span aria-hidden="true">→</span>
               </Text>
             </p>
           </dd>
