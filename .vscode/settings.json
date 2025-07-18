@@ -1,0 +1,8 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#176776", // primary-500 from your palette
+    "activityBar.foreground": "#ffffff", // white
+    "titleBar.activeBackground": "#176776", // top bar background
+    "titleBar.activeForeground": "#ffffff" // top bar text/icons
+  }
+}
