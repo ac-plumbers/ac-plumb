@@ -1,26 +1,24 @@
 ---
-import '@/styles/global.css';
+import "@/styles/global.css";
+import "@fontsource/poppins";
+import "@fontsource-variable/inconsolata";
 
-import '@fontsource/poppins';
-
-import '@fontsource-variable/inconsolata';
-import BaseHead from '@/components/fundations/head/BaseHead.astro';
-import Hero from '@/components/test/Hero.astro';
-import Header from '@/components/global/Header.astro';
-import Footer from '@/components/global/Footer.astro';
+import BaseHead from "@/components/fundations/head/BaseHead.astro";
+import Header from "@/components/global/Header.astro";
+import Footer from "@/components/global/Footer.astro";
 ---
 
 <!doctype html>
-<html lang='en-GB' class='h-full' class="scrool-smooth">
+<html lang="en-GB" class="h-full" class="scrool-smooth">
   <head>
     <BaseHead />
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AC Plumbers</title>
   </head>
-  <body class='h-full bg-[--color-background-00] text-[--color-text-00]'>
+  <body class="h-full">
     <Header />
-    <main class='mx-auto flex flex-col'>
+    <main class="mx-auto flex flex-col">
       <slot />
     </main>
     <Footer />

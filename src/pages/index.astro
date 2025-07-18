@@ -1,159 +1,21 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import Link from '@/components/fundations/elements/Link.astro';
+import Hero from "../components/home/Hero.astro";
+import LogoCloud from "@/components/LogoCloud.astro";
+import Services from "@components/home/Services.astro";
+import Prices from "@/components/Prices.astro";
+import Faq from "@/components/home/Faq.astro";
+import Testimonials from "@/components/Testimonials.astro";
+import Contact from "@/components/Contact.astro";
 ---
 
 <BaseLayout>
-  <main class='max-w-5xl mx-auto space-y-12 font-poppins'>
-    <!-- Main Colors -->
-    <section class='mt-40'>
-      <div class='text-center mb-8'>
-        <Link
-          href='/demo'
-          class='group relative inline-flex items-center justify-center px-8 py-3.5 bg-primary-500 text-white font-bold rounded-lg overflow-hidden transition-all duration-300 hover:bg-primary-600 hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-inner'
-          id='fun-button'>
-          <span
-            class='absolute inset-0 bg-gradient-to-tr from-accent-500 via-primary-400 to-secondary-500 opacity-0 group-hover:opacity-80 transition-opacity duration-500'
-          ></span>
-          <span class='relative flex items-center gap-2'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              class='h-5 w-5 transition-transform group-hover:rotate-12'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'>
-              <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
-                d='M14 5l7 7m0 0l-7 7m7-7H3'></path>
-            </svg>
-            Visit Demo Version
-            <span
-              class='inline-block transition-transform group-hover:translate-x-1'
-              >✨</span
-            >
-          </span>
-        </Link>
-      </div>
-      <h2 class='text-2xl font-semibold mb-4 text-text-00'>Main Colors</h2>
-      <div class='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4'>
-        <!-- Primary -->
-        <div class='rounded overflow-hidden shadow border'>
-          <div class='h-20 bg-primary-500'></div>
-          <div class='p-2 text-center text-sm'>Primary 500</div>
-        </div>
-        <!-- Secondary -->
-        <div class='rounded overflow-hidden shadow border'>
-          <div class='h-20 bg-secondary-500'></div>
-          <div class='p-2 text-center text-sm'>Secondary 500</div>
-        </div>
-        <!-- Accent -->
-        <div class='rounded overflow-hidden shadow border'>
-          <div class='h-20 bg-accent-500'></div>
-          <div class='p-2 text-center text-sm'>Accent 500</div>
-        </div>
-        <!-- Neutral -->
-        <div class='rounded overflow-hidden shadow border'>
-          <div class='h-20 bg-neutral-300'></div>
-          <div class='p-2 text-center text-sm'>Neutral 300</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Typography Poppins -->
-    <section class='font-poppins bg-white p-6 rounded shadow'>
-      <h2
-        class='text-2xl font-semibold mb-6 border-b pb-2 border-[--color-border-50]'>
-        Typography – Poppins
-      </h2>
-      <div class='space-y-4'>
-        <h1 class='text-4xl font-bold'>Poppins Heading 1 – 4xl</h1>
-        <h2 class='text-3xl font-semibold'>Poppins Heading 2 – 3xl</h2>
-        <h3 class='text-2xl font-medium'>Poppins Heading 3 – 2xl</h3>
-        <p class='text-base text-text-100 font-inconsolata'>
-          Inconsolata is a geometric sans serif typeface. This paragraph is
-          styled to demonstrate how body text appears using Poppins.
-        </p>
-        <p class='text-sm text-text-50 italic font-inconsolata'>
-          This is secondary text in Inconsolata using <code
-            >--color-text-50</code
-          >.
-        </p>
-      </div>
-    </section>
-  </main>
+  <Hero />
+  <LogoCloud />
+  <Services />
+  <Prices />
+  <Faq />
+  <Testimonials />
+  <Contact />
 </BaseLayout>
-
-<script>
-  // Add fun interactive effects
-  document.addEventListener('DOMContentLoaded', () => {
-    const funButton = document.getElementById('fun-button');
-
-    if (funButton) {
-      // Add confetti effect on hover
-      funButton.addEventListener('mouseenter', () => {
-        // Create and append small particles
-        for (let i = 0; i < 10; i++) {
-          createParticle(funButton);
-        }
-      });
-
-      // Create a single particle
-      function createParticle(button: HTMLElement) {
-        const particle = document.createElement('span');
-
-        // Random size
-        const size = Math.floor(Math.random() * 8 + 6);
-
-        // Random position relative to button
-        const x = Math.random() * button.offsetWidth;
-        const y = button.offsetHeight;
-
-        // Random colors from your palette
-        const colors = [
-          'var(--color-primary-300)',
-          'var(--color-secondary-300)',
-          'var(--color-accent-300)',
-        ];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
-        // Apply styles
-        particle.style.position = 'absolute';
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.background = color;
-        particle.style.borderRadius = '50%';
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        particle.style.pointerEvents = 'none';
-        particle.style.zIndex = '10';
-
-        // Add to button
-        button.appendChild(particle);
-
-        // Animate particle
-        const animation = particle.animate(
-          [
-            { transform: `translate(0, 0)`, opacity: 1 },
-            {
-              transform: `translate(${Math.random() * 50 - 25}px, -${Math.random() * 60 + 50}px)`,
-              opacity: 0,
-            },
-          ],
-          {
-            duration: 1000 + Math.random() * 1000,
-            easing: 'cubic-bezier(0, .9, .57, 1)',
-          }
-        );
-
-        // Remove particle when animation completes
-        animation.onfinish = () => {
-          particle.remove();
-        };
-      }
-    }
-  });
-</script>

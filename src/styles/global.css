@@ -7,7 +7,7 @@
 
 body {
   font-family: "Inconsolata", monospace;
-  background-color: var(--color-background-00);
+  background-color: var(--color-primary-50);
   color: var(--color-text-00);
   margin: 0;
 }
@@ -32,7 +32,7 @@ body {
   --color-primary-900: oklch(0.1 0.21 200);
 
   /* Secondary Color Palette */
-  /* #21b6df - Orange */
+  /* #21b6df - */
   --color-secondary-00: oklch(0.7 0.15 210);
   --color-secondary-50: oklch(0.97 0.04 210);
   --color-secondary-100: oklch(0.94 0.06 210);
