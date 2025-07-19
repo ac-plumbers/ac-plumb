@@ -1,162 +1,98 @@
-<div class='relative isolate  pb-32 pt-24 sm:pt-32'>
-  <div
-    class='absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl'
-    aria-hidden='true'>
-    <div
-      class='ml-[max(50%,38rem)] aspect-[1313/771] w-[82.0625rem]'
-      style='background-image: linear-gradient(to top right, var(--color-accent-300), var(--color-secondary-300)); clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'>
-    </div>
-  </div>
-  <div
-    class='absolute inset-x-0 top-0 -z-10 flex transform-gpu overflow-hidden pt-32 opacity-25 blur-3xl sm:pt-40 xl:justify-end'
-    aria-hidden='true'>
-    <div
-      class='ml-[-22rem] aspect-[1313/771] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] xl:ml-0 xl:mr-[calc(50%-12rem)]'
-      style='background-image: linear-gradient(to top right, var(--color-accent-300), var(--color-secondary-300)); clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'>
-    </div>
-  </div>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-    <div class='mx-auto max-w-2xl text-center'>
-      <h2 class='text-base/7 font-semibold text-[--color-primary-500] font-poppins'>
+---
+import * as cheerio from "cheerio";
+import fetch from "node-fetch";
+import Text from "./fundations/elements/Text.astro";
+
+// Cache object
+let cache = {
+  reviews: [],
+  lastFetched: 0, // Timestamp of the last fetch
+};
+
+// Fetch reviews from Checkatrade
+const url =
+  "https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited/reviews";
+const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
+
+async function fetchReviews() {
+  // Check if cache is still valid
+  const now = Date.now();
+  if (cache.reviews.length > 0 && now - cache.lastFetched < CACHE_DURATION) {
+    return cache.reviews; // Return cached reviews
+  }
+
+  // Fetch and parse reviews
+  try {
+    const response = await fetch(url);
+    const html = await response.text();
+    const $ = cheerio.load(html);
+
+    // Extract reviews (adjust selectors based on Checkatrade's structure)
+    const reviews = $("li.bg-card")
+      .map((i, el) => ({
+        rating: $(el).find("span.font-semibold").text().trim(), // Rating (e.g., "10")
+        title: $(el).find("h3").text().trim(), // Review title
+        date: $(el).find("p.text-neutral-strong").text().trim(), // Date posted
+        content: $(el).find("div.line-clamp-3").text().trim(), // Review content
+        location: $(el).find("span.text-neutral-strong").last().text().trim(), // Job location
+      }))
+      .get();
+
+    // Update cache
+    cache.reviews = reviews;
+    cache.lastFetched = now;
+
+    return reviews;
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    return []; // Return an empty array on error
+  }
+}
+
+// Fetch reviews (with caching)
+const reviews = await fetchReviews();
+---
+
+<!-- display few reviews in a bento layout with cards -->
+<div class="isolate overflow-hidden bg-primary-700">
+  <div class="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
+    <div class="mx-auto max-w-4xl">
+      <Text variant="displayLG" tag="h3" class="font-semibold text-accent-600">
         Testimonials
-      </h2>
-      <p
-        class='mt-2 text-balance text-4xl font-semibold tracking-tight text-[--color-text-00] sm:text-5xl font-poppins'>
-        We have worked with thousands of amazing people
-      </p>
+      </Text>
+      <Text variant="textLG" tag="p" class="mt-2 text-neutral-200">
+        What our customers say about us
+      </Text>
     </div>
     <div
-      class='mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-[--color-text-00] sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4'>
-      <figure
-        class='rounded-2xl bg-[--color-background-100] shadow-lg ring-1 ring-[--color-border-100]/50 sm:col-span-2 xl:col-start-2 xl:row-end-1'>
-        <blockquote
-          class='p-6 text-lg font-semibold tracking-tight text-[--color-text-00] sm:p-12 sm:text-xl/8'>
-          <p>
-            "Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit
-            montes vitae auctor libero. Hac condimentum dignissim nibh vulputate
-            ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non
-            hendrerit in vel ac diam."
-          </p>
-        </blockquote>
-        <figcaption
-          class='flex flex-wrap items-center gap-x-4 gap-y-4 border-t border-[--color-border-50]/50 px-6 py-4 sm:flex-nowrap'>
-          <img
-            class='size-10 flex-none rounded-full bg-[--color-neutral-100]'
-            src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80'
-            alt=''
-          />
-          <div class='flex-auto'>
-            <div class='font-semibold'>Brenna Goyette</div>
-            <div class='text-[--color-text-50]'>@brennagoyette</div>
+      class="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-12"
+    >
+      {
+        reviews.slice(0, 6).map((review) => (
+          <div class="rounded-lg bg-white p-6 shadow-lg">
+            <Text
+              variant="textMD"
+              tag="h4"
+              class="font-semibold text-neutral-900"
+            >
+              {review.title}
+            </Text>
+            <Text variant="textSM" tag="p" class="mt-2 text-neutral-600">
+              {review.content}
+            </Text>
+            <Text variant="textSM" tag="p" class="mt-2 text-neutral-500">
+              {review.date} - {review.location}
+            </Text>
+            <Text
+              variant="textSM"
+              tag="p"
+              class="mt-2 font-bold text-accent-600"
+            >
+              Rating: {review.rating}
+            </Text>
           </div>
-          <img
-            class='h-10 w-auto flex-none'
-            src='/src/images/brands/vaillant-logo.jpg'
-            alt='Vaillant'
-          />
-        </figcaption>
-      </figure>
-      <div class='space-y-8 xl:contents xl:space-y-0'>
-        <div class='space-y-8 xl:row-span-2'>
-          <figure
-            class='rounded-2xl bg-[--color-background-100] p-6 shadow-lg ring-1 ring-[--color-border-100]/50'>
-            <blockquote class='text-[--color-text-00]'>
-              <p>
-                "Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam
-                delectus nihil. Aut enim doloremque et ipsam."
-              </p>
-            </blockquote>
-            <figcaption class='mt-6 flex items-center gap-x-4'>
-              <img
-                class='size-10 rounded-full bg-[--color-neutral-100]'
-                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                alt=''
-              />
-              <div>
-                <div class='font-semibold'>Leslie Alexander</div>
-                <div class='text-[--color-text-50]'>@lesliealexander</div>
-              </div>
-            </figcaption>
-          </figure>
-
-          <!-- More testimonials... -->
-        </div>
-        <div class='space-y-8 xl:row-start-1'>
-          <figure
-            class='rounded-2xl bg-[--color-background-100] p-6 shadow-lg ring-1 ring-[--color-border-100]/50'>
-            <blockquote class='text-[--color-text-00]'>
-              <p>
-                "Aut reprehenderit voluptatem eum asperiores beatae id. Iure
-                molestiae ipsam ut officia rem nulla blanditiis."
-              </p>
-            </blockquote>
-            <figcaption class='mt-6 flex items-center gap-x-4'>
-              <img
-                class='size-10 rounded-full bg-[--color-neutral-100]'
-                src='https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                alt=''
-              />
-              <div>
-                <div class='font-semibold'>Lindsay Walton</div>
-                <div class='text-[--color-text-50]'>@lindsaywalton</div>
-              </div>
-            </figcaption>
-          </figure>
-
-          <!-- More testimonials... -->
-        </div>
-      </div>
-      <div class='space-y-8 xl:contents xl:space-y-0'>
-        <div class='space-y-8 xl:row-start-1'>
-          <figure
-            class='rounded-2xl bg-[--color-background-100] p-6 shadow-lg ring-1 ring-[--color-border-100]/50'>
-            <blockquote class='text-[--color-text-00]'>
-              <p>
-                "Voluptas quos itaque ipsam in voluptatem est. Iste eos
-                blanditiis repudiandae. Earum deserunt enim molestiae ipsum
-                perferendis recusandae saepe corrupti."
-              </p>
-            </blockquote>
-            <figcaption class='mt-6 flex items-center gap-x-4'>
-              <img
-                class='size-10 rounded-full bg-[--color-neutral-100]'
-                src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                alt=''
-              />
-              <div>
-                <div class='font-semibold'>Tom Cook</div>
-                <div class='text-[--color-text-50]'>@tomcook</div>
-              </div>
-            </figcaption>
-          </figure>
-
-          <!-- More testimonials... -->
-        </div>
-        <div class='space-y-8 xl:row-span-2'>
-          <figure
-            class='rounded-2xl bg-[--color-background-100] p-6 shadow-lg ring-1 ring-[--color-border-100]/50'>
-            <blockquote class='text-[--color-text-00]'>
-              <p>
-                "Molestias ea earum quos nostrum doloremque sed. Quaerat quasi
-                aut velit incidunt excepturi rerum voluptatem minus harum."
-              </p>
-            </blockquote>
-            <figcaption class='mt-6 flex items-center gap-x-4'>
-              <img
-                class='size-10 rounded-full bg-[--color-neutral-100]'
-                src='https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                alt=''
-              />
-              <div>
-                <div class='font-semibold'>Leonard Krasner</div>
-                <div class='text-[--color-text-50]'>@leonardkrasner</div>
-              </div>
-            </figcaption>
-          </figure>
-
-          <!-- More testimonials... -->
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </div>
