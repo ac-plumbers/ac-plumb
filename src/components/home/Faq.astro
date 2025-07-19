@@ -6,43 +6,34 @@ import Text from "@/components/fundations/elements/Text.astro";
 
 <section class="bg-primary-50 px-4 py-16 sm:px-6 lg:px-8">
   <div class="mx-auto max-w-7xl">
-    <!-- Mobile Heading (Shows only on mobile) -->
-    <div class="mb-8 md:hidden">
-      <Text
-        tag="h2"
-        variant="displayLG"
-        class="mb-8 font-poppins font-bold text-text-00"
-      >
-        Frequently Asked Questions
-      </Text>
-      <Text tag="p" variant="textLG" class="font-poppins text-text-50">
-        Find answers to common questions about our plumbing services, pricing,
-        and availability.
-      </Text>
-    </div>
+    <!-- Unified Heading (visible on all devices) -->
+    <Text
+      tag="h2"
+      variant="displayLG"
+      class="mb-8 font-poppins text-4xl font-bold text-text-00 sm:text-5xl"
+    >
+      Frequently Asked Questions
+    </Text>
+    <Text
+      tag="p"
+      variant="textXL"
+      class="mb-12 font-poppins text-xl text-text-50 sm:text-2xl"
+    >
+      Find answers to common questions about our plumbing services, pricing, and
+      availability.
+    </Text>
 
     <!-- Two-column layout container with absolute positioning -->
     <div class="relative flex flex-col gap-8 md:flex-row md:gap-12">
       <!-- Left Column: Heading and Contact Section - Absolute position on desktop -->
       <div class="order-2 w-full md:static md:order-1 md:w-5/12">
         <div class="md:sticky md:top-24">
-          <!-- Heading (Hidden on mobile, shown on desktop) -->
-          <div class="mb-8 hidden md:block">
-            <h2 class="mb-2 text-3xl font-bold text-text-00">
-              Frequently Asked Questions
-            </h2>
-            <p class="text-text-50">
-              Find answers to common questions about our plumbing services,
-              pricing, and availability.
-            </p>
-          </div>
-
           <!-- Contact Section -->
           <div>
             <Text
               tag="h3"
-              variant="displayLG"
-              class="font-poppins font-semibold text-text-00"
+              variant="displayMD"
+              class="font-poppins text-2xl font-semibold text-text-00 sm:text-3xl"
             >
               Have more questions?
             </Text>
@@ -56,7 +47,7 @@ import Text from "@/components/fundations/elements/Text.astro";
             <Text
               tag="h4"
               variant="displaySM"
-              class="mt-6 font-poppins font-semibold text-text-00"
+              class="mt-6 font-poppins text-xl font-semibold text-text-00 sm:text-2xl"
             >
               Your Contact Person
             </Text>
@@ -65,7 +56,7 @@ import Text from "@/components/fundations/elements/Text.astro";
               <div class="relative h-24 w-24 flex-shrink-0">
                 <Image
                   src={antonio}
-                  alt="Alex Johnson"
+                  alt="Antonio Catalano"
                   width={96}
                   height={96}
                   class="h-full w-full rounded-full object-cover shadow"
@@ -80,7 +71,7 @@ import Text from "@/components/fundations/elements/Text.astro";
                 </p>
                 <p class="mt-2 text-text-50">
                   Email: <a
-                    href="mailto:alex@acplumb.com"
+                    href="mailto:info@acplumb.co.uk"
                     class="text-primary-600 hover:text-primary-700"
                     >info@acplumb.co.uk</a
                   >
@@ -101,162 +92,67 @@ import Text from "@/components/fundations/elements/Text.astro";
       <!-- Right Column: Accordion -->
       <div class="order-1 w-full md:order-2 md:w-7/12">
         <div class="space-y-4">
-          <!-- FAQ Item 1 -->
-          <div
-            class="faq-item overflow-hidden rounded-md border border-neutral-200"
-          >
-            <button
-              class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-text-00 transition hover:bg-neutral-50 focus:outline-none"
-              aria-expanded="false"
-            >
-              <span>What services do you offer?</span>
-              <svg
-                class="h-5 w-5 text-primary-500 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <!-- FAQ Items -->
+          {
+            [
+              {
+                question: "What services do you offer?",
+                answer:
+                  "We offer a comprehensive range of plumbing services including emergency repairs, leak detection, fixture installation, bathroom and kitchen renovations, water heater installation and repair, pipe repair and replacement, drain cleaning, and preventative maintenance.",
+              },
+              {
+                question: "How quickly can you respond to emergency calls?",
+                answer:
+                  "Our emergency response time is typically within 1-2 hours for urgent situations such as burst pipes or major leaks. We maintain a dedicated emergency team available 24/7, 365 days a year, including holidays and weekends. We prioritize calls based on severity to minimize property damage.",
+              },
+              {
+                question:
+                  "Do you provide upfront pricing before starting work?",
+                answer:
+                  "Yes, we believe in complete transparency with our pricing. After assessing the job, we provide a detailed written estimate before beginning any work. There are never any hidden fees or surprise charges. For standard services like drain cleaning or leak repair, we can often quote prices over the phone.",
+              },
+              {
+                question: "How can I prevent frozen pipes in winter?",
+                answer:
+                  "To prevent frozen pipes, insulate exposed pipes in unheated areas like basements and garages using foam pipe insulation. When temperatures drop below freezing, allow faucets to drip slightly to relieve pressure and keep water moving. Keep cabinet doors open to allow warm air circulation around pipes under sinks. We also offer professional winterization services for complete protection.",
+              },
+              {
+                question: "What payment methods do you accept?",
+                answer:
+                  "We accept multiple payment methods for your convenience, including all major credit cards (Visa, Mastercard, American Express, Discover), cash, checks, and digital payment options like Apple Pay and Google Pay. For larger renovation projects, we also offer financing options with flexible payment plans through our financing partners.",
+              },
+            ].map((faq, idx) => (
+              <div
+                class="faq-item overflow-hidden rounded-md border border-neutral-200"
+                key={idx}
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden px-4 pb-4 text-text-50">
-              We offer a comprehensive range of plumbing services including
-              emergency repairs, leak detection, fixture installation, bathroom
-              and kitchen renovations, water heater installation and repair,
-              pipe repair and replacement, drain cleaning, and preventative
-              maintenance.
-            </div>
-          </div>
-
-          <!-- FAQ Item 2 -->
-          <div
-            class="faq-item overflow-hidden rounded-md border border-neutral-200"
-          >
-            <button
-              class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-text-00 transition hover:bg-neutral-50 focus:outline-none"
-              aria-expanded="false"
-            >
-              <span>How quickly can you respond to emergency calls?</span>
-              <svg
-                class="h-5 w-5 text-primary-500 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden px-4 pb-4 text-text-50">
-              Our emergency response time is typically within 1-2 hours for
-              urgent situations such as burst pipes or major leaks. We maintain
-              a dedicated emergency team available 24/7, 365 days a year,
-              including holidays and weekends. We prioritize calls based on
-              severity to minimize property damage.
-            </div>
-          </div>
-
-          <!-- FAQ Item 3 -->
-          <div
-            class="faq-item overflow-hidden rounded-md border border-neutral-200"
-          >
-            <button
-              class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-text-00 transition hover:bg-neutral-50 focus:outline-none"
-              aria-expanded="false"
-            >
-              <span>Do you provide upfront pricing before starting work?</span>
-              <svg
-                class="h-5 w-5 text-primary-500 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden px-4 pb-4 text-text-50">
-              Yes, we believe in complete transparency with our pricing. After
-              assessing the job, we provide a detailed written estimate before
-              beginning any work. There are never any hidden fees or surprise
-              charges. For standard services like drain cleaning or leak repair,
-              we can often quote prices over the phone.
-            </div>
-          </div>
-
-          <!-- FAQ Item 4 -->
-          <div
-            class="faq-item overflow-hidden rounded-md border border-neutral-200"
-          >
-            <button
-              class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-text-00 transition hover:bg-neutral-50 focus:outline-none"
-              aria-expanded="false"
-            >
-              <span>How can I prevent frozen pipes in winter?</span>
-              <svg
-                class="h-5 w-5 text-primary-500 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden px-4 pb-4 text-text-50">
-              To prevent frozen pipes, insulate exposed pipes in unheated areas
-              like basements and garages using foam pipe insulation. When
-              temperatures drop below freezing, allow faucets to drip slightly
-              to relieve pressure and keep water moving. Keep cabinet doors open
-              to allow warm air circulation around pipes under sinks. We also
-              offer professional winterization services for complete protection.
-            </div>
-          </div>
-
-          <!-- FAQ Item 5 -->
-          <div
-            class="faq-item overflow-hidden rounded-md border border-neutral-200"
-          >
-            <button
-              class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-medium text-text-00 transition hover:bg-neutral-50 focus:outline-none"
-              aria-expanded="false"
-            >
-              <span>What payment methods do you accept?</span>
-              <svg
-                class="h-5 w-5 text-primary-500 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="faq-content hidden px-4 pb-4 text-text-50">
-              We accept multiple payment methods for your convenience, including
-              all major credit cards (Visa, Mastercard, American Express,
-              Discover), cash, checks, and digital payment options like Apple
-              Pay and Google Pay. For larger renovation projects, we also offer
-              financing options with flexible payment plans through our
-              financing partners.
-            </div>
-          </div>
+                <h3>
+                  <button
+                    class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-semibold text-text-00 transition hover:bg-neutral-50 focus:outline-none"
+                    aria-expanded="false"
+                  >
+                    <span>{faq.question}</span>
+                    <svg
+                      class="h-5 w-5 text-primary-500 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </h3>
+                <div class="faq-content hidden px-4 pb-4 text-text-50">
+                  {faq.answer}
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -269,8 +165,8 @@ import Text from "@/components/fundations/elements/Text.astro";
 
     toggles.forEach((toggle) => {
       toggle.addEventListener("click", () => {
-        const faqItem = toggle.parentElement;
-        const content = toggle.nextElementSibling;
+        const faqItem = toggle.closest(".faq-item");
+        const content = faqItem.querySelector(".faq-content");
         const arrow = toggle.querySelector("svg");
         const isExpanded = toggle.getAttribute("aria-expanded") === "true";
 
@@ -281,7 +177,10 @@ import Text from "@/components/fundations/elements/Text.astro";
             otherToggle.getAttribute("aria-expanded") === "true"
           ) {
             otherToggle.setAttribute("aria-expanded", "false");
-            otherToggle.nextElementSibling.classList.add("hidden");
+            otherToggle
+              .closest(".faq-item")
+              .querySelector(".faq-content")
+              .classList.add("hidden");
             otherToggle.querySelector("svg").style.transform = "";
             otherToggle.classList.remove("bg-neutral-50");
           }
