@@ -1,7 +1,8 @@
 ---
 import * as cheerio from "cheerio";
 import fetch from "node-fetch";
-import Text from "./fundations/elements/Text.astro";
+import Text from "@components/fundations/elements/Text.astro";
+import TestimonialsCard from "./global/TestimonialsCard.astro";
 
 // Cache object
 let cache = {
@@ -57,7 +58,11 @@ const reviews = await fetchReviews();
 <div class="isolate overflow-hidden bg-primary-700">
   <div class="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
     <div class="mx-auto max-w-4xl">
-      <Text variant="displayLG" tag="h3" class="font-semibold text-accent-600">
+      <Text
+        variant="displayLG"
+        tag="h3"
+        class="font-poppins font-semibold text-accent-600"
+      >
         Testimonials
       </Text>
       <Text variant="textLG" tag="p" class="mt-2 text-neutral-200">
@@ -69,28 +74,15 @@ const reviews = await fetchReviews();
     >
       {
         reviews.slice(0, 6).map((review) => (
-          <div class="rounded-lg bg-white p-6 shadow-lg">
-            <Text
-              variant="textMD"
-              tag="h4"
-              class="font-semibold text-neutral-900"
-            >
-              {review.title}
-            </Text>
-            <Text variant="textSM" tag="p" class="mt-2 text-neutral-600">
-              {review.content}
-            </Text>
-            <Text variant="textSM" tag="p" class="mt-2 text-neutral-500">
-              {review.date} - {review.location}
-            </Text>
-            <Text
-              variant="textSM"
-              tag="p"
-              class="mt-2 font-bold text-accent-600"
-            >
-              Rating: {review.rating}
-            </Text>
-          </div>
+          <TestimonialsCard
+            title={review.title}
+            review={{
+              rating: review.rating,
+              content: review.content,
+              date: review.date,
+              location: review.location,
+            }}
+          />
         ))
       }
     </div>

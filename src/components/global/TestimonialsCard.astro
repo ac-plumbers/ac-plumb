@@ -1,0 +1,29 @@
+---
+import Text from "@components/fundations/elements/Text.astro";
+
+type Props = {
+  title: string;
+  review: {
+    rating: string;
+    content: string;
+    date: string;
+    location: string;
+  };
+};
+const { title, review }: Props = Astro.props;
+---
+
+<div class="rounded-lg border-2 border-red-500 bg-white p-6 shadow-lg">
+  <Text variant="textMD" tag="h4" class="font-semibold text-neutral-900">
+    {title}
+  </Text>
+  <Text variant="textSM" tag="p" class="mt-2 text-neutral-600">
+    {review.content}
+  </Text>
+  <Text variant="textSM" tag="p" class="mt-2 text-neutral-500">
+    {review.date} - {review.location}
+  </Text>
+  <Text variant="textSM" tag="p" class="mt-2 font-bold text-accent-600">
+    Rating: {review.rating}
+  </Text>
+</div>
