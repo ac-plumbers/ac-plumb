@@ -1,0 +1,50 @@
+---
+type Step = {
+  title: string;
+  description: string;
+};
+
+type Props = {
+  steps: Step[];
+};
+
+const { steps } = Astro.props;
+---
+
+<section id="service-process" class="py-16 sm:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <h2
+        class="text-base font-semibold tracking-wide text-primary-600 uppercase"
+      >
+        Our Process
+      </h2>
+      <p
+        class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl"
+      >
+        How We Work
+      </p>
+      <p class="mt-4 text-lg text-neutral-600">
+        Our proven process ensures quality results and complete satisfaction
+      </p>
+    </div>
+
+    <div class="mx-auto mt-16 max-w-3xl">
+      <ol class="relative border-l border-primary-200">
+        {
+          steps.map((step, index) => (
+            <li class="mb-10 ml-6">
+              <span class="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary-600 text-white ring-4 ring-white">
+                {index + 1}
+              </span>
+              <h3 class="mb-1 text-xl font-semibold text-neutral-900">
+                {step.title}
+              </h3>
+              <p class="text-neutral-600">{step.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

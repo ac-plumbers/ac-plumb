@@ -10,6 +10,7 @@ const services = defineCollection({
       category: z.string().optional(),
       tags: z.array(z.string()).optional(),
       featured: z.boolean().optional(),
+      slug: z.string().optional(),
     }),
 });
 

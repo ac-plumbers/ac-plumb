@@ -1,22 +1,129 @@
 ---
-import { getCollection } from 'astro:content';
-import ServicesLayout from '@/layouts/ServicesLayout.astro';
-export async function getStaticPaths() {
-  const services = await getCollection('services');
-  const paths = services.map(page => {
-    return {
-      params: { slug: page.slug },
-      props: { page },
+import { getCollection } from "astro:content";
+import ServicesLayout from "@/layouts/ServicesLayout.astro";
+import ServiceHeroSection from "@/components/services/ServiceHeroSection.astro";
+import ServiceFeaturesList from "@/components/services/ServiceFeaturesList.astro";
+import ServiceProcessSteps from "@/components/services/ServiceProcessSteps.astro";
+import Testimonials from "@/components/Testimonials.astro";
+import ServiceFaqList from "@/components/services/ServiceFaqList.astro";
+import ServiceCallToAction from "@/components/services/ServiceCallToAction.astro";
+import RelatedServicesList from "@/components/services/RelatedServicesList.astro";
 
-      trailingSlash: false,
-    };
-  });
-  return paths;
+export async function getStaticPaths() {
+  const services = await getCollection("services");
+  return services.map((page) => ({
+    params: { slug: page.slug },
+    props: { page, allServices: services },
+  }));
 }
-const { page } = Astro.props;
+
+const { page, allServices } = Astro.props;
 const { Content } = await page.render();
+
+// Get related services (excluding current page)
+const relatedServices = allServices
+  .filter((s) => s.slug !== page.slug)
+  .filter((s) => {
+    // Find related services by matching tags
+    if (!page.data.tags || !s.data.tags) return false;
+    return page.data.tags.some((tag) => s.data.tags.includes(tag));
+  })
+  .slice(0, 3);
+
+// Extract features from content data or set defaults
+const features = page.data.features || [
+  {
+    title: "Expert Technicians",
+    description:
+      "Our team consists of qualified professionals with years of experience in the field.",
+  },
+  {
+    title: "Quality Guaranteed",
+    description:
+      "We stand by the quality of our work with warranties and guarantees.",
+  },
+  {
+    title: "Competitive Pricing",
+    description: "Get excellent service at fair and transparent prices.",
+  },
+];
+
+// Extract process steps from content data or set defaults
+const steps = page.data.process || [
+  {
+    title: "Initial Consultation",
+    description:
+      "We'll discuss your needs and requirements to determine the best approach.",
+  },
+  {
+    title: "Detailed Inspection",
+    description:
+      "Our technicians will thoroughly inspect your property to assess the situation.",
+  },
+  {
+    title: "Implementation",
+    description:
+      "We'll perform the necessary work with minimal disruption to your home or business.",
+  },
+  {
+    title: "Final Inspection",
+    description:
+      "We'll ensure everything is working perfectly before we consider the job complete.",
+  },
+];
+
+// Extract FAQs from content data or set defaults
+const faqs = page.data.faqs || [
+  {
+    question: "What areas do you service?",
+    answer:
+      "We service Brighton, Hove, and surrounding areas within a 20-mile radius.",
+  },
+  {
+    question: "Are you fully insured and certified?",
+    answer:
+      "Yes, all our technicians are fully insured, Gas Safe registered, and certified in their respective fields.",
+  },
+  {
+    question: "How quickly can you respond to emergency calls?",
+    answer:
+      "We offer 24/7 emergency service with typical response times of 1-2 hours for urgent situations.",
+  },
+];
 ---
 
 <ServicesLayout frontmatter={page.data}>
-  <Content />
+  <!-- Hero Section with Service Overview -->
+  <ServiceHeroSection
+    title={page.data.title}
+    description={page.data.description}
+    image={page.data.image}
+  />
+
+  <!-- Main Service Content -->
+  <div id="service-details" class="prose prose-lg mx-auto max-w-3xl py-12">
+    <Content />
+  </div>
+
+  <!-- Key Features/Benefits -->
+  <ServiceFeaturesList features={features} />
+
+  <!-- Service Process/Steps -->
+  <ServiceProcessSteps steps={steps} />
+
+  <!-- Service-Specific Testimonials -->
+  <Testimonials />
+
+  <!-- Service-Specific FAQs -->
+  <ServiceFaqList questions={faqs} />
+
+  <!-- Related Services -->
+  <RelatedServicesList services={relatedServices} />
+
+  <!-- Call to Action -->
+  <ServiceCallToAction
+    title={`Ready to get started with ${page.data.title}?`}
+    buttonText="Book a Service"
+    buttonLink="/contact"
+  />
 </ServicesLayout>

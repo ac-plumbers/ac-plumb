@@ -1,0 +1,64 @@
+---
+type Feature = {
+  title: string;
+  description: string;
+  icon?: string;
+};
+
+type Props = {
+  features: Feature[];
+};
+
+const { features } = Astro.props;
+---
+
+<section id="service-features" class="bg-neutral-50 py-16 sm:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <h2
+        class="text-base font-semibold tracking-wide text-primary-600 uppercase"
+      >
+        Benefits
+      </h2>
+      <p
+        class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl"
+      >
+        Why Choose Our {features[0]?.title ? "Service" : "Services"}
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3"
+      >
+        {
+          features.map((feature) => (
+            <div class="relative pl-16">
+              <dt class="text-lg font-semibold text-neutral-900">
+                <div class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600">
+                  <svg
+                    class="h-6 w-6 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                {feature.title}
+              </dt>
+              <dd class="mt-2 text-base text-neutral-600">
+                {feature.description}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

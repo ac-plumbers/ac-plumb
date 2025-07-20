@@ -13,7 +13,10 @@ let cache = {
 // Fetch function (unchanged)
 const url =
   "https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited/reviews";
-const CACHE_DURATION = 60 * 60 * 1000;
+
+const CACHE_DURATION = import.meta.env.DEV
+  ? 24 * 60 * 60 * 1000 // 24 hours in dev
+  : 60 * 60 * 1000; // 1 hour in prod
 
 async function fetchReviews() {
   // Check if cache is still valid

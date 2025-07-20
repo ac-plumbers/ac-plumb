@@ -1,0 +1,42 @@
+---
+type Question = {
+  question: string;
+  answer: string;
+};
+
+type Props = {
+  questions: Question[];
+};
+
+const { questions } = Astro.props;
+---
+
+<section id="service-faqs" class="bg-neutral-50 py-16 sm:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <h2
+        class="text-base font-semibold tracking-wide text-primary-600 uppercase"
+      >
+        FAQs
+      </h2>
+      <p
+        class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl"
+      >
+        Frequently Asked Questions
+      </p>
+    </div>
+
+    <div class="mx-auto mt-16 max-w-2xl divide-y divide-neutral-200">
+      {
+        questions.map((faq, index) => (
+          <div class="py-6">
+            <h3 class="text-lg font-semibold text-neutral-900">
+              {faq.question}
+            </h3>
+            <div class="mt-2 text-neutral-600">{faq.answer}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
