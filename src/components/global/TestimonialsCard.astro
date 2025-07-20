@@ -13,17 +13,55 @@ type Props = {
 const { title, review }: Props = Astro.props;
 ---
 
-<div class="rounded-lg border-2 border-red-500 bg-white p-6 shadow-lg">
-  <Text variant="textMD" tag="h4" class="font-semibold text-neutral-900">
-    {title}
-  </Text>
-  <Text variant="textSM" tag="p" class="mt-2 text-neutral-600">
-    {review.content}
-  </Text>
-  <Text variant="textSM" tag="p" class="mt-2 text-neutral-500">
-    {review.date} - {review.location}
-  </Text>
-  <Text variant="textSM" tag="p" class="mt-2 font-bold text-accent-600">
-    Rating: {review.rating}
-  </Text>
+<div
+  class="group flex h-full flex-col justify-between rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl"
+>
+  <!-- Rating Badge -->
+  <div class="mb-4 flex items-center justify-between">
+    <div
+      class="flex aspect-square min-h-[2.6rem] min-w-[2.6rem] items-center justify-center rounded-full bg-primary-100 p-2 text-sm font-bold text-primary-700 sm:text-lg"
+    >
+      {review.rating}
+    </div>
+    <div class="text-xs text-neutral-500 sm:text-sm">
+      {review.date} · {review.location}
+    </div>
+  </div>
+
+  <!-- Title & Content -->
+  <div class="flex-grow">
+    <Text
+      variant="textLG"
+      tag="h4"
+      class="line-clamp-1 font-poppins font-semibold text-neutral-900 sm:line-clamp-2"
+    >
+      {title}
+    </Text>
+    <div class="relative mt-3">
+      <Text variant="textBase" tag="p" class="text-neutral-600">
+        "{review.content}"
+      </Text>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="mt-4 border-t border-neutral-100 pt-3">
+    <div class="flex items-center">
+      <div class="flex">
+        {
+          [...Array(5)].map((_, i) => (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class={`h-3 w-3 sm:h-4 sm:w-4 ${Number(review.rating) / 2 > i ? "text-yellow-400" : "text-neutral-200"}`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))
+        }
+      </div>
+      <span class="ml-2 text-xs text-neutral-500">Verified Review</span>
+    </div>
+  </div>
 </div>
