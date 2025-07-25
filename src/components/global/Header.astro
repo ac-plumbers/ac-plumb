@@ -1,50 +1,64 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '@/images/logo/logo.png';
-import Link from '@/components/fundations/elements/Link.astro';
+import { Image } from "astro:assets";
+import logo from "@/images/logo/logo.png";
+import Link from "@/components/fundations/elements/Link.astro";
 ---
 
-<header class='absolute inset-x-0 top-0 z-50'>
-  <div class='mx-auto max-w-[1330px]'>
-    <div class='px-6 pt-6 lg:max-w-2xl lg:pl-8 lg:pr-0'>
+<!-- Skip to main content link for keyboard users -->
+<a
+  href="#main-content"
+  class="sr-only z-[100] rounded-md bg-primary-600 px-4 py-2 text-white focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:ring-2 focus:ring-accent-400 focus:outline-none"
+>
+  Skip to main content
+</a>
+
+<header class="absolute inset-x-0 top-0 z-50">
+  <div class="mx-auto max-w-[1330px]">
+    <div class="px-6 pt-6 lg:max-w-2xl lg:pr-0 lg:pl-8">
       <nav
-        class='flex items-center justify-between lg:justify-start space-x-4'
-        aria-label='Global'>
-        <a href='/' class='-m-1.5 p-1.5 inline-flex items-center flex-shrink-0'>
-          <span class='sr-only'>AC Plumbers</span>
+        class="flex items-center justify-between space-x-4 lg:justify-start"
+        aria-label="Global"
+      >
+        <a href="/" class="-m-1.5 inline-flex flex-shrink-0 items-center p-1.5">
+          <span class="sr-only">AC Plumbers</span>
           <Image
             src={logo}
-            alt='AC Plumbers Logo'
+            alt="AC Plumbers Logo"
             width={300}
             height={300}
-            class='w-20 sm:w-28 md:w-32 lg:w-28 h-auto object-contain'
+            class="h-auto w-20 object-contain sm:w-28 md:w-32 lg:w-28"
           />
         </a>
         <button
-          type='button'
-          class='-m-2.5 rounded-md p-2.5 text-gray-700 lg:hidden'
-          id='open-menu-button'>
-          <span class='sr-only'>Open main menu</span>
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
+          id="open-menu-button"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span class="sr-only">Open main menu</span>
           <svg
-            class='size-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke-width='1.5'
-            stroke='currentColor'
-            aria-hidden='true'
-            data-slot='icon'>
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
           </svg>
         </button>
-        <div class='hidden lg:ml-12 lg:flex lg:gap-x-14 uppercase flex-grow-0'>
-          <Link href='/services' variant='default-link'>Services</Link>
-          <Link href='/landlords' variant='default-link'>Landlords</Link>
-          <Link href='/about-us' variant='default-link'>About</Link>
-          <Link href='/testimonials' variant='default-link'>Testimonials</Link>
-          <Link href='/contact-us' variant='default-link'>Contact</Link>
+        <div class="hidden flex-grow-0 uppercase lg:ml-12 lg:flex lg:gap-x-14">
+          <Link href="/services" variant="default-link">Services</Link>
+          <Link href="/landlords" variant="default-link">Landlords</Link>
+          <Link href="/about-us" variant="default-link">About</Link>
+          <Link href="/testimonials" variant="default-link">Testimonials</Link>
+          <Link href="/contact-us" variant="default-link">Contact</Link>
 
           <!--   <a href='/testimonials' class='text-sm/6 font-semibold text-gray-900'
             >Testimonials</a
@@ -60,75 +74,98 @@ import Link from '@/components/fundations/elements/Link.astro';
     </div>
   </div>
   <!-- Mobile menu, show/hide based on menu open state. -->
-  <nav aria-label='Mobile'
-    class='lg:hidden hidden font-poppins'
-    role='dialog'
-    aria-modal='true'
-    id='mobile-menu'>
+  <nav
+    aria-label="Mobile navigation"
+    class="hidden font-poppins lg:hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="mobile-menu-title"
+    id="mobile-menu"
+  >
+    <h2 id="mobile-menu-title" class="sr-only">Main Navigation Menu</h2>
     <!-- Background backdrop, show/hide based on slide-over state. -->
-    <div class='fixed inset-0 z-50 bg-black/25' id='menu-backdrop'></div>
+    <div class="fixed inset-0 z-50 bg-black/25" id="menu-backdrop"></div>
     <div
-      class='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transform transition-transform duration-300 translate-x-full'
-      id='menu-panel'>
-      <div class='flex items-center justify-between'>
-        <a href='/' class='-m-1.5 p-1.5'>
-          <span class='sr-only'>AC Plumbers</span>
+      class="fixed inset-y-0 right-0 z-50 w-full translate-x-full transform overflow-y-auto bg-white p-6 transition-transform duration-300 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      id="menu-panel"
+    >
+      <div class="flex items-center justify-between">
+        <a href="/" class="-m-1.5 p-1.5">
+          <span class="sr-only">AC Plumbers</span>
           <Image
-            class='h-8 w-auto'
+            class="h-8 w-auto"
             src={logo}
             width={48}
             height={48}
-            alt='AC Plumb Logo'
+            alt="AC Plumb Logo"
           />
         </a>
         <button
-          type='button'
-          class='-m-2.5 rounded-md p-2.5 text-gray-700'
-          id='close-menu-button'>
-          <span class='sr-only'>Close menu</span>
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+          id="close-menu-button"
+          aria-label="Close navigation menu"
+        >
+          <span class="sr-only">Close menu</span>
           <svg
-            class='size-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke-width='1.5'
-            stroke='currentColor'
-            aria-hidden='true'
-            data-slot='icon'>
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M6 18 18 6M6 6l12 12'></path>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
-      <div class='mt-6 flow-root'>
-        <div class='-my-6 divide-y divide-gray-500/10'>
-          <div class='space-y-2 py-6'>
-            <a
-              href='/services'
-              class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-              >Services</a
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-2 py-6" role="list">
+            <Link
+              href="/services"
+              variant="default-link"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              role="listitem"
             >
-            <a
-              href='/gallery'
-              class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-              >Gallery</a
+              Services
+            </Link>
+            <Link
+              href="/landlords"
+              variant="default-link"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              role="listitem"
             >
-            <a
-              href='/testimonials'
-              class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-              >Testimonials</a
+              Landlords
+            </Link>
+            <Link
+              href="/testimonials"
+              variant="default-link"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              role="listitem"
             >
-            <a
-              href='/about-us'
-              class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-              >About</a
+              Testimonials
+            </Link>
+            <Link
+              href="/about-us"
+              variant="default-link"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              role="listitem"
             >
-            <a
-              href='/contact-us'
-              class='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
-              >Contact</a
+              About
+            </Link>
+            <Link
+              href="/contact-us"
+              variant="default-link"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              role="listitem"
             >
+              Contact
+            </Link>
           </div>
         </div>
       </div>
@@ -137,62 +174,142 @@ import Link from '@/components/fundations/elements/Link.astro';
 </header>
 
 <script>
-  // Mobile menu functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const openMenuButton = document.getElementById('open-menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuPanel = document.getElementById('menu-panel');
-    const menuBackdrop = document.getElementById('menu-backdrop');
+  // Mobile menu functionality with enhanced accessibility
+  document.addEventListener("DOMContentLoaded", () => {
+    const openMenuButton = document.getElementById("open-menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuPanel = document.getElementById("menu-panel");
+    const menuBackdrop = document.getElementById("menu-backdrop");
+
+    // Store the last focused element when menu opens
+    let lastFocusedElement: Element | null = null;
+
+    function trapFocus(element: Element) {
+      const focusableElements = element.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      const firstFocusableElement = focusableElements[0] as HTMLElement;
+      const lastFocusableElement = focusableElements[
+        focusableElements.length - 1
+      ] as HTMLElement;
+
+      element.addEventListener("keydown", (e: Event) => {
+        const keyEvent = e as KeyboardEvent;
+        if (keyEvent.key === "Tab") {
+          if (keyEvent.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+              lastFocusableElement.focus();
+              keyEvent.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastFocusableElement) {
+              firstFocusableElement.focus();
+              keyEvent.preventDefault();
+            }
+          }
+        }
+      });
+    }
 
     function openMenu() {
+      // Store the currently focused element
+      lastFocusedElement = document.activeElement;
+
+      // Update ARIA state
+      if (openMenuButton) {
+        openMenuButton.setAttribute("aria-expanded", "true");
+      }
+
       // Show the mobile menu
       if (mobileMenu) {
-        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.remove("hidden");
       }
 
       // Allow time for the DOM to update before animating
       setTimeout(() => {
         if (menuPanel) {
-          menuPanel.classList.remove('translate-x-full');
+          menuPanel.classList.remove("translate-x-full");
+        }
+
+        // Focus the close button when menu opens
+        if (closeMenuButton) {
+          closeMenuButton.focus();
+        }
+
+        // Set up focus trapping
+        if (mobileMenu) {
+          trapFocus(mobileMenu);
         }
       }, 10);
 
       // Prevent body scrolling
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
 
     function closeMenu() {
+      // Update ARIA state
+      if (openMenuButton) {
+        openMenuButton.setAttribute("aria-expanded", "false");
+      }
+
       // Animate the panel out
-      menuPanel?.classList.add('translate-x-full');
+      menuPanel?.classList.add("translate-x-full");
 
       // Hide the entire menu after animation completes
       setTimeout(() => {
-        mobileMenu?.classList.add('hidden');
-        document.body.style.overflow = '';
+        mobileMenu?.classList.add("hidden");
+        document.body.style.overflow = "";
+
+        // Return focus to the element that opened the menu
+        if (lastFocusedElement && "focus" in lastFocusedElement) {
+          (lastFocusedElement as HTMLElement).focus();
+        }
       }, 300); // Match this with your transition duration
     }
 
     // Event listeners
     if (openMenuButton) {
-      openMenuButton.addEventListener('click', openMenu);
+      openMenuButton.addEventListener("click", openMenu);
     }
     if (closeMenuButton) {
-      closeMenuButton.addEventListener('click', closeMenu);
+      closeMenuButton.addEventListener("click", closeMenu);
     }
     if (menuBackdrop) {
-      menuBackdrop.addEventListener('click', closeMenu);
+      menuBackdrop.addEventListener("click", closeMenu);
     }
 
     // Close menu when pressing Escape key
-    document.addEventListener('keydown', e => {
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
       if (
-        e.key === 'Escape' &&
+        e.key === "Escape" &&
         mobileMenu &&
-        !mobileMenu.classList.contains('hidden')
+        !mobileMenu.classList.contains("hidden")
       ) {
         closeMenu();
       }
     });
+
+    // Handle reduced motion preferences
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion && menuPanel) {
+      (menuPanel as HTMLElement).style.transition = "none";
+    }
   });
 </script>
+
+<style>
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    #menu-panel {
+      transition: none !important;
+    }
+  }
+
+  /* Ensure skip link is always on top */
+  .skip-link {
+    z-index: 1000;
+  }
+</style>
