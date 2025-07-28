@@ -15,7 +15,8 @@ const url =
   "https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited/reviews";
 
 const CACHE_DURATION = import.meta.env.DEV
-  ? 24 * 60 * 60 * 1000 // 24 hours in dev
+  ? /* 1 min in dev */
+    1 * 60 * 1000 // 10 minutes in dev
   : 60 * 60 * 1000; // 1 hour in prod
 
 async function fetchReviews() {
@@ -55,9 +56,7 @@ const reviews = await fetchReviews();
 ---
 
 <!-- Modern Bento-Style Layout -->
-<section
-  class="relative overflow-hidden bg-gradient-to-b from-primary-800 to-primary-700 pt-24 pb-48 sm:py-32"
->
+<section class="relative overflow-hidden bg-neutral-50 pt-24 pb-48 sm:py-32">
   <!-- Decorative Elements -->
   <div class="absolute inset-0 overflow-hidden opacity-10">
     <div
@@ -81,11 +80,11 @@ const reviews = await fetchReviews();
       <Text
         tag="h2"
         variant="displayXL"
-        class="mt-2 font-poppins font-bold text-balance text-white"
+        class="mt-2 font-poppins font-bold text-balance text-text-00"
       >
         What our clients say
       </Text>
-      <p class="mt-6 text-lg leading-8 text-neutral-200">
+      <p class="mt-6 text-lg leading-8 text-text-00">
         Discover why our customers trust us for their plumbing and heating needs
       </p>
     </div>

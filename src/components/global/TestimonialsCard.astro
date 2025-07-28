@@ -14,16 +14,16 @@ const { title, review }: Props = Astro.props;
 ---
 
 <div
-  class="group flex h-full flex-col justify-between rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl"
+  class="group flex h-full flex-col justify-between rounded-xl bg-gradient-to-b from-primary-800 to-primary-700 p-6 shadow-md transition-all duration-300 hover:shadow-xl"
 >
   <!-- Rating Badge -->
   <div class="mb-4 flex items-center justify-between">
-    <div
+    <!--  <div
       class="flex aspect-square min-h-[2.6rem] min-w-[2.6rem] items-center justify-center rounded-full bg-primary-100 p-2 text-sm font-bold text-primary-700 sm:text-lg"
     >
       {review.rating}
-    </div>
-    <div class="text-xs text-neutral-500 sm:text-sm">
+    </div> -->
+    <div class="text-xs text-accent-00 sm:text-sm">
       {review.date} · {review.location}
     </div>
   </div>
