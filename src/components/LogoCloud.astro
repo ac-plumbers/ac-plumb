@@ -1,91 +1,98 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
-import vaillant from '@/images/brands/vaillant-logo.jpg';
-import viesmann from '@/images/brands/viesmann-logo.jpg';
-import bpec from '@/images/brands/bpec-logo.png';
-import checktrade from '@/images/brands/checkatrade-logo.png';
-import oftec from '@/images/brands/oftec-logo.png';
-import Text from './fundations/elements/Text.astro';
+import vaillant from "@/images/brands/vaillant-logo.jpg";
+import viesmann from "@/images/brands/viesmann-logo.jpg";
+import bpec from "@/images/brands/bpec-logo.png";
+import checktrade from "@/images/brands/checkatrade-logo.png";
+import oftec from "@/images/brands/oftec-logo.png";
+import Text from "./fundations/elements/Text.astro";
 ---
 
-<div class='py-24 sm:py-32' id='logo-cloud'>
-  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+<div class="py-24 sm:py-32" id="logo-cloud">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <Text
-      tag='h2'
-      variant='displayLG'
-      class='text-center font-semibold mb-8 font-poppins text-white'>
+      tag="h2"
+      variant="displayLG"
+      class="mb-8 text-center font-poppins font-semibold text-white"
+    >
       Trusted by Leading Brands
     </Text>
 
     <div
-      class='mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12'>
+      class="mx-auto grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-12 lg:grid-cols-5"
+    >
       <!-- Vaillant -->
       <div
-        class='bg-white p-4 rounded-lg shadow-md flex items-center justify-center backlight relative'>
+        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+      >
         <Image
-          class='h-16 md:h-20 w-auto object-contain'
+          class="h-16 w-auto object-contain md:h-20"
           src={vaillant}
-          alt='Vaillant'
+          alt="Vaillant"
           width={200}
           height={100}
-          format='webp'
+          format="webp"
           quality={90}
         />
       </div>
 
       <!-- Viesmann -->
       <div
-        class='bg-white p-4 rounded-lg shadow-md flex items-center justify-center backlight relative'>
+        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+      >
         <Image
-          class='h-16 md:h-20 w-auto object-contain'
+          class="h-16 w-auto object-contain md:h-20"
           src={viesmann}
-          alt='Viesmann'
+          alt="Viesmann"
           width={200}
           height={100}
-          format='webp'
+          format="webp"
           quality={90}
         />
       </div>
 
       <!-- BPEC -->
       <div
-        class='bg-white p-4 rounded-lg shadow-md flex items-center justify-center backlight relative'>
+        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+      >
         <Image
-          class='h-16 md:h-20 w-auto object-contain'
+          class="h-16 w-auto object-contain md:h-20"
           src={bpec}
-          alt='BPEC'
+          alt="BPEC"
           width={200}
           height={100}
-          format='webp'
+          format="webp"
           quality={90}
         />
       </div>
 
       <!-- Checkatrade -->
       <div
-        class='bg-white p-4 rounded-lg shadow-md flex items-center justify-center backlight relative'>
+        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+      >
         <Image
-          class='h-16 md:h-20 w-auto object-contain'
+          class="h-16 w-auto object-contain md:h-20"
           src={checktrade}
-          alt='Checkatrade'
+          alt="Checkatrade"
           width={200}
           height={100}
-          format='webp'
+          format="webp"
           quality={90}
         />
       </div>
 
       <!-- OFTEC -->
       <div
-        class='bg-white p-4 rounded-lg shadow-md flex items-center justify-center md:col-span-1 col-span-2 backlight relative'>
+        class="backlight relative col-span-2 flex items-center justify-center rounded-lg bg-white p-4 shadow-md md:col-span-1"
+      >
         <Image
-          class='h-16 md:h-20 w-auto object-contain'
+          class="h-16 w-auto object-contain md:h-20"
           src={oftec}
-          alt='OFTEC'
+          alt="OFTEC"
           width={200}
           height={100}
-          format='webp'
+          format="webp"
           quality={90}
         />
       </div>
@@ -100,14 +107,14 @@ import Text from './fundations/elements/Text.astro';
     overflow: hidden;
   }
 
-  .backlight {
+  /*  .backlight {
     overflow: visible;
     position: relative;
     z-index: 1;
-  }
+  } */
 
   .backlight::after {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     position: absolute;

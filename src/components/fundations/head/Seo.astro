@@ -1,9 +1,32 @@
 ---
-import { AstroSeo } from '@astrolib/seo';
+import { AstroSeo } from "@astrolib/seo";
 ---
 
 <AstroSeo
-  title='AC Plumbers Heating and Cooling'
-  description='AC Plumbing Heating and Cooling is a family-owned business that has been serving the community for over 20 years. We specialize in providing top-notch plumbing, heating, and cooling services to residential and commercial clients.'
-  canonical='https://www.acplumb.co.uk'
+  title="AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton"
+  description="AC Plumbing Heating and Cooling is a family-owned business that has been serving the community for over 20 years. We specialize in providing top-notch plumbing, heating, and cooling services to residential and commercial clients."
+  canonical="https://www.acplumb.co.uk"
+  openGraph={{
+    url: "https://www.acplumb.co.uk",
+    title:
+      "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
+    description:
+      "AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.",
+    images: [
+      {
+        url: "https://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png",
+        width: 469,
+        height: 187,
+        alt: "AC Plumbers Ltd Logo",
+        type: "image/png",
+      },
+      {
+        url: "https://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png",
+        width: 110,
+        height: 110,
+        alt: "AC Plumbers Boiler Services",
+        type: "image/png",
+      },
+    ],
+  }}
 />

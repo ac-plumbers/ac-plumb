@@ -11,122 +11,123 @@ const {
 
 // Default link
 const defaultClass = [
-  'text-primary-700',
-  'hover:text-primary-800',
-  'focus:outline-primary-400',
-  'outline-primary-300',
+  "text-primary-900",
+  "hover:text-primary-800",
+  "focus:outline-primary-400",
+  "outline-primary-300",
 ];
 
 // Accent link
 const accentClass = [
-  'text-accent-600',
-  'hover:text-accent-700',
-  'focus:outline-accent-400',
-  'outline-accent-300',
+  "text-accent-600",
+  "hover:text-accent-700",
+  "focus:outline-accent-400",
+  "outline-accent-300",
 ];
 
 // Secondary/Muted link
 const mutedClass = [
-  'text-secondary-600',
-  'hover:text-secondary-700',
-  'focus:outline-secondary-400',
-  'outline-secondary-300',
+  "text-secondary-600",
+  "hover:text-secondary-700",
+  "focus:outline-secondary-400",
+  "outline-secondary-300",
 ];
 
 // Button style link (default)
 const buttonClass = [
-  'text-white',
-  'bg-primary-500',
-  'hover:bg-primary-600',
-  'shadow-md',
-  'hover:shadow-lg',
-  'focus:outline-primary-400',
-  'outline-primary-300',
+  "text-white",
+  "bg-primary-500",
+  "hover:bg-primary-600",
+  "shadow-md",
+  "hover:shadow-lg",
+  "focus:outline-primary-400",
+  "outline-primary-300",
 ];
 
 // Button accent link
 const buttonAccentClass = [
-  'text-text-00', // Dark text for better contrast with yellow
-  'bg-accent-500',
-  'hover:bg-accent-600',
-  'shadow-md',
-  'hover:shadow-lg',
-  'focus:outline-accent-400',
-  'outline-accent-300',
+  "text-text-00", // Dark text for better contrast with yellow
+  "bg-accent-500",
+  "hover:bg-accent-600",
+  "shadow-md",
+  "hover:shadow-lg",
+  "focus:outline-accent-400",
+  "outline-accent-300",
 ];
 
 // Button secondary link
 const buttonSecondaryClass = [
-  'text-white',
-  'bg-secondary-500',
-  'hover:bg-secondary-600',
-  'shadow-md',
-  'hover:shadow-lg',
-  'focus:outline-secondary-400',
-  'outline-secondary-300',
+  "text-white",
+  "bg-secondary-500",
+  "hover:bg-secondary-600",
+  "shadow-md",
+  "hover:shadow-lg",
+  "focus:outline-secondary-400",
+  "outline-secondary-300",
 ];
 // Size (only applies if variant is not "link")
-const xs = ['h-8', 'px-6', 'py-2', 'text-xs rounded-lg'];
-const sm = ['h-9', 'px-6', 'py-2', 'text-sm rounded-lg'];
-const base = ['h-10', 'px-8', 'py-3', 'text-base rounded-xl'];
-const md = ['h-11', 'px-8', 'py-3', 'text-md rounded-xl'];
-const lg = ['h-12', 'px-8', 'py-3', 'text-lg rounded-xl'];
-const xl = ['h-14', 'px-12', 'py-3', 'text-xl rounded-xl'];
+const xs = ["h-8", "px-6", "py-2", "text-xs rounded-lg"];
+const sm = ["h-9", "px-6", "py-2", "text-sm rounded-lg"];
+const base = ["h-10", "px-8", "py-3", "text-base rounded-xl"];
+const md = ["h-11", "px-8", "py-3", "text-md rounded-xl"];
+const lg = ["h-12", "px-8", "py-3", "text-lg rounded-xl"];
+const xl = ["h-14", "px-12", "py-3", "text-xl rounded-xl"];
 // Gap
-const gapXS = ['gap-2'];
-const gapSM = ['gap-4'];
-const gapBase = ['gap-8'];
-const gapMD = ['gap-10'];
-const gapLG = ['gap-12'];
-const additionalClasses = className ? className.split(' ') : [];
+const gapXS = ["gap-2"];
+const gapSM = ["gap-4"];
+const gapBase = ["gap-8"];
+const gapMD = ["gap-10"];
+const gapLG = ["gap-12"];
+const additionalClasses = className ? className.split(" ") : [];
 ---
 
 <a
   href={href}
   class:list={[
-    ...(variant === 'link'
+    ...(variant?.includes("link")
       ? [
-          'inline-flex items-center',
-          'transition-colors duration-200',
-          'underline-offset-2 hover:underline',
-          variant === 'default-link' && defaultClass,
-          variant === 'accent-link' && accentClass,
-          variant === 'muted-link' && mutedClass,
+          "inline-flex items-center",
+          "transition-colors duration-200",
+          "underline-offset-2 hover:underline",
+          variant === "default-link" && defaultClass,
+          variant === "accent-link" && accentClass,
+          variant === "muted-link" && mutedClass,
           ...additionalClasses,
         ]
       : [
-          'flex',
-          'relative',
-          'transition',
-          'text-center',
-          'font-medium',
-          'items-center',
-          'shadow-md',
-          'justify-center',
-          'duration-300',
-          'ease-in-out',
-          'hover:shadow-sm',
-          'focus:outline-offset-4',
-          'focus-visible:outline-none focus:outline-2',
-          variant === 'default-button' && buttonClass,
-          variant === 'accent-button' && buttonAccentClass,
-          variant === 'muted-button' && buttonSecondaryClass,
-          size === 'xs' && xs,
-          size === 'sm' && sm,
-          size === 'base' && base,
-          size === 'md' && md,
-          size === 'lg' && lg,
-          size === 'xl' && xl,
-          gap === 'xs' && gapXS,
-          gap === 'sm' && gapSM,
-          gap === 'base' && gapBase,
-          gap === 'md' && gapMD,
-          gap === 'lg' && gapLG,
+          "flex",
+          "relative",
+          "transition",
+          "text-center",
+          "font-medium",
+          "items-center",
+          "shadow-md",
+          "justify-center",
+          "duration-300",
+          "ease-in-out",
+          "hover:shadow-sm",
+          "focus:outline-offset-4",
+          "focus:outline-2 focus-visible:outline-none",
+          variant === "default-button" && buttonClass,
+          variant === "accent-button" && buttonAccentClass,
+          variant === "muted-button" && buttonSecondaryClass,
+          size === "xs" && xs,
+          size === "sm" && sm,
+          size === "base" && base,
+          size === "md" && md,
+          size === "lg" && lg,
+          size === "xl" && xl,
+          gap === "xs" && gapXS,
+          gap === "sm" && gapSM,
+          gap === "base" && gapBase,
+          gap === "md" && gapMD,
+          gap === "lg" && gapLG,
           ...additionalClasses,
         ]),
   ]}
-  {...rest}>
-  <slot name='left-icon' />
+  {...rest}
+>
+  <slot name="left-icon" />
   <slot />
-  <slot name='right-icon' />
+  <slot name="right-icon" />
 </a>

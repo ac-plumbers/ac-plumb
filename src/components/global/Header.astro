@@ -5,12 +5,13 @@ import Link from "@/components/fundations/elements/Link.astro";
 ---
 
 <!-- Skip to main content link for keyboard users -->
-<a
+<Link
   href="#main-content"
-  class="sr-only z-[100] rounded-md bg-primary-600 px-4 py-2 text-white focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:ring-2 focus:ring-accent-400 focus:outline-none"
+  variant="default-button"
+  class="sr-only z-[100] focus:not-sr-only focus:absolute focus:top-2 focus:left-2"
 >
   Skip to main content
-</a>
+</Link>
 
 <header class="absolute inset-x-0 top-0 z-50">
   <div class="mx-auto max-w-[1330px]">
@@ -19,7 +20,12 @@ import Link from "@/components/fundations/elements/Link.astro";
         class="flex items-center justify-between space-x-4 lg:justify-start"
         aria-label="Global"
       >
-        <a href="/" class="-m-1.5 inline-flex flex-shrink-0 items-center p-1.5">
+        <!-- Use Link component for logo -->
+        <Link
+          href="/"
+          variant="default-link"
+          class="-m-1.5 inline-flex flex-shrink-0 items-center p-1.5"
+        >
           <span class="sr-only">AC Plumbers</span>
           <Image
             src={logo}
@@ -28,10 +34,11 @@ import Link from "@/components/fundations/elements/Link.astro";
             height={300}
             class="h-auto w-20 object-contain sm:w-28 md:w-32 lg:w-28"
           />
-        </a>
+        </Link>
+
         <button
           type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-[--color-primary-600] focus:ring-offset-2 focus:outline-none lg:hidden"
           id="open-menu-button"
           aria-controls="mobile-menu"
           aria-expanded="false"
@@ -53,27 +60,20 @@ import Link from "@/components/fundations/elements/Link.astro";
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
           </svg>
         </button>
+
+        <!-- Desktop navigation - clean Link usage -->
         <div class="hidden flex-grow-0 uppercase lg:ml-12 lg:flex lg:gap-x-14">
           <Link href="/services" variant="default-link">Services</Link>
           <Link href="/landlords" variant="default-link">Landlords</Link>
           <Link href="/about-us" variant="default-link">About</Link>
           <Link href="/testimonials" variant="default-link">Testimonials</Link>
           <Link href="/contact-us" variant="default-link">Contact</Link>
-
-          <!--   <a href='/testimonials' class='text-sm/6 font-semibold text-gray-900'
-            >Testimonials</a
-          >
-          <a href='/about-us' class='text-sm/6 font-semibold text-gray-900'
-            >About</a
-          >
-          <a href='/contact-us' class='text-sm/6 font-semibold text-gray-900'
-            >Contact</a
-          > -->
         </div>
       </nav>
     </div>
   </div>
-  <!-- Mobile menu, show/hide based on menu open state. -->
+
+  <!-- Mobile menu -->
   <nav
     aria-label="Mobile navigation"
     class="hidden font-poppins lg:hidden"
@@ -83,14 +83,14 @@ import Link from "@/components/fundations/elements/Link.astro";
     id="mobile-menu"
   >
     <h2 id="mobile-menu-title" class="sr-only">Main Navigation Menu</h2>
-    <!-- Background backdrop, show/hide based on slide-over state. -->
     <div class="fixed inset-0 z-50 bg-black/25" id="menu-backdrop"></div>
     <div
       class="fixed inset-y-0 right-0 z-50 w-full translate-x-full transform overflow-y-auto bg-white p-6 transition-transform duration-300 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
       id="menu-panel"
     >
       <div class="flex items-center justify-between">
-        <a href="/" class="-m-1.5 p-1.5">
+        <!-- Mobile logo should also use Link component -->
+        <Link href="/" variant="default-link" class="-m-1.5 p-1.5">
           <span class="sr-only">AC Plumbers</span>
           <Image
             class="h-8 w-auto"
@@ -99,10 +99,11 @@ import Link from "@/components/fundations/elements/Link.astro";
             height={48}
             alt="AC Plumb Logo"
           />
-        </a>
+        </Link>
+
         <button
           type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-[--color-primary-600] focus:ring-offset-2 focus:outline-none"
           id="close-menu-button"
           aria-label="Close navigation menu"
         >
@@ -123,13 +124,15 @@ import Link from "@/components/fundations/elements/Link.astro";
           </svg>
         </button>
       </div>
+
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6" role="list">
+            <!-- Clean mobile links - let Link component handle all styling -->
             <Link
               href="/services"
               variant="default-link"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
               role="listitem"
             >
               Services
@@ -137,7 +140,7 @@ import Link from "@/components/fundations/elements/Link.astro";
             <Link
               href="/landlords"
               variant="default-link"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
               role="listitem"
             >
               Landlords
@@ -145,7 +148,7 @@ import Link from "@/components/fundations/elements/Link.astro";
             <Link
               href="/testimonials"
               variant="default-link"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
               role="listitem"
             >
               Testimonials
@@ -153,7 +156,7 @@ import Link from "@/components/fundations/elements/Link.astro";
             <Link
               href="/about-us"
               variant="default-link"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
               role="listitem"
             >
               About
@@ -161,7 +164,7 @@ import Link from "@/components/fundations/elements/Link.astro";
             <Link
               href="/contact-us"
               variant="default-link"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
               role="listitem"
             >
               Contact
@@ -172,144 +175,3 @@ import Link from "@/components/fundations/elements/Link.astro";
     </div>
   </nav>
 </header>
-
-<script>
-  // Mobile menu functionality with enhanced accessibility
-  document.addEventListener("DOMContentLoaded", () => {
-    const openMenuButton = document.getElementById("open-menu-button");
-    const closeMenuButton = document.getElementById("close-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const menuPanel = document.getElementById("menu-panel");
-    const menuBackdrop = document.getElementById("menu-backdrop");
-
-    // Store the last focused element when menu opens
-    let lastFocusedElement: Element | null = null;
-
-    function trapFocus(element: Element) {
-      const focusableElements = element.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-      );
-      const firstFocusableElement = focusableElements[0] as HTMLElement;
-      const lastFocusableElement = focusableElements[
-        focusableElements.length - 1
-      ] as HTMLElement;
-
-      element.addEventListener("keydown", (e: Event) => {
-        const keyEvent = e as KeyboardEvent;
-        if (keyEvent.key === "Tab") {
-          if (keyEvent.shiftKey) {
-            if (document.activeElement === firstFocusableElement) {
-              lastFocusableElement.focus();
-              keyEvent.preventDefault();
-            }
-          } else {
-            if (document.activeElement === lastFocusableElement) {
-              firstFocusableElement.focus();
-              keyEvent.preventDefault();
-            }
-          }
-        }
-      });
-    }
-
-    function openMenu() {
-      // Store the currently focused element
-      lastFocusedElement = document.activeElement;
-
-      // Update ARIA state
-      if (openMenuButton) {
-        openMenuButton.setAttribute("aria-expanded", "true");
-      }
-
-      // Show the mobile menu
-      if (mobileMenu) {
-        mobileMenu.classList.remove("hidden");
-      }
-
-      // Allow time for the DOM to update before animating
-      setTimeout(() => {
-        if (menuPanel) {
-          menuPanel.classList.remove("translate-x-full");
-        }
-
-        // Focus the close button when menu opens
-        if (closeMenuButton) {
-          closeMenuButton.focus();
-        }
-
-        // Set up focus trapping
-        if (mobileMenu) {
-          trapFocus(mobileMenu);
-        }
-      }, 10);
-
-      // Prevent body scrolling
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      // Update ARIA state
-      if (openMenuButton) {
-        openMenuButton.setAttribute("aria-expanded", "false");
-      }
-
-      // Animate the panel out
-      menuPanel?.classList.add("translate-x-full");
-
-      // Hide the entire menu after animation completes
-      setTimeout(() => {
-        mobileMenu?.classList.add("hidden");
-        document.body.style.overflow = "";
-
-        // Return focus to the element that opened the menu
-        if (lastFocusedElement && "focus" in lastFocusedElement) {
-          (lastFocusedElement as HTMLElement).focus();
-        }
-      }, 300); // Match this with your transition duration
-    }
-
-    // Event listeners
-    if (openMenuButton) {
-      openMenuButton.addEventListener("click", openMenu);
-    }
-    if (closeMenuButton) {
-      closeMenuButton.addEventListener("click", closeMenu);
-    }
-    if (menuBackdrop) {
-      menuBackdrop.addEventListener("click", closeMenu);
-    }
-
-    // Close menu when pressing Escape key
-    document.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (
-        e.key === "Escape" &&
-        mobileMenu &&
-        !mobileMenu.classList.contains("hidden")
-      ) {
-        closeMenu();
-      }
-    });
-
-    // Handle reduced motion preferences
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReducedMotion && menuPanel) {
-      (menuPanel as HTMLElement).style.transition = "none";
-    }
-  });
-</script>
-
-<style>
-  /* Respect user's motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    #menu-panel {
-      transition: none !important;
-    }
-  }
-
-  /* Ensure skip link is always on top */
-  .skip-link {
-    z-index: 1000;
-  }
-</style>

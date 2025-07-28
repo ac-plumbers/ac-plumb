@@ -2,7 +2,7 @@
 import Text from "@/components/fundations/elements/Text.astro";
 ---
 
-<div class="isolate overflow-hidden bg-primary-700">
+<div class="isolate overflow-hidden bg-neutral-50">
   <div class="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
     <div class="mx-auto max-w-4xl">
       <Text variant="displayLG" tag="h3" class="font-semibold text-accent-600"
@@ -11,7 +11,7 @@ import Text from "@/components/fundations/elements/Text.astro";
       <Text
         variant="displayLG"
         tag="h2"
-        class="mt-2 font-poppins font-semibold tracking-tight text-white"
+        class="mt-2 font-poppins font-semibold tracking-tight text-text-00"
       >
         Choose the right plan for you
       </Text>
@@ -20,9 +20,9 @@ import Text from "@/components/fundations/elements/Text.astro";
       <Text
         tag="p"
         variant="textLG"
-        class="mx-auto max-w-2xl font-medium text-pretty text-primary-100"
+        class="mx-auto max-w-2xl font-medium text-pretty text-text-50"
       >
-        Choose an affordable plan that’s packed with the best features for
+        Choose an affordable plan that's packed with the best features for
         engaging your audience, creating customer loyalty, and driving sales.
       </Text>
       <svg
@@ -32,13 +32,13 @@ import Text from "@/components/fundations/elements/Text.astro";
         <ellipse
           cx="604"
           cy="512"
-          fill="url(#6d1bd035-0dd1-437e-93fa-59d316231eb0)"
+          fill="url(#pricing-gradient)"
           rx="604"
           ry="512"></ellipse>
         <defs>
-          <radialGradient id="6d1bd035-0dd1-437e-93fa-59d316231eb0">
-            <stop stop-color="#21b6df"></stop>
-            <stop offset="1" stop-color="#007bff"></stop>
+          <radialGradient id="pricing-gradient">
+            <stop stop-color="oklch(0.6 0.15 200)"></stop>
+            <stop offset="1" stop-color="oklch(0.4 0.15 200)"></stop>
           </radialGradient>
         </defs>
       </svg>
@@ -151,21 +151,25 @@ import Text from "@/components/fundations/elements/Text.astro";
               >Contact Us Now</a
             >
           </div>
-          <!-- SEcond card -->
+          <!-- Second card -->
           <div
             class="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-neutral-200 sm:p-10"
           >
             <div>
-              <h3
+              <Text
+                tag="h3"
+                variant="displaySM"
                 id="tier-hobby"
-                class="text-base/7 font-semibold text-primary-600"
+                class="font-semibold text-primary-600"
               >
                 Gas Safety Inspections & Certificates
-              </h3>
+              </Text>
               <div class="mt-4 flex items-baseline gap-x-2">
-                <span
-                  class="font-poppins text-5xl font-semibold tracking-tight text-text-00"
-                  >£65 + VAT</span
+                <Text
+                  tag="span"
+                  variant="displaySM"
+                  class="font-poppins font-semibold tracking-tight text-accent-00"
+                  >£65 + VAT</Text
                 >
                 <!--  <span class='text-base/7 font-semibold text-text-50'
                   >/month</span
@@ -249,7 +253,7 @@ import Text from "@/components/fundations/elements/Text.astro";
             >
           </div>
 
-          <div
+          <!--  <div
             class="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-neutral-200 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center"
           >
             <div class="lg:min-w-0 lg:flex-1">
@@ -270,7 +274,7 @@ import Text from "@/components/fundations/elements/Text.astro";
               class="rounded-md px-3.5 py-2 text-sm/6 font-semibold text-accent-600 ring-1 ring-accent-200 ring-inset hover:ring-accent-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-600"
               >Buy discounted license <span aria-hidden="true">&rarr;</span></a
             >
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
