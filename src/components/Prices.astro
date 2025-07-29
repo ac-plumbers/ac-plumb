@@ -2,7 +2,9 @@
 import Text from "@/components/fundations/elements/Text.astro";
 ---
 
-<div class="isolate overflow-hidden">
+<div
+  class="isolate overflow-hidden bg-[radial-gradient(ellipse_at_center,var(--color-primary-400)_20%,var(--color-background-100)_80%)]"
+>
   <div class="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
     <div class="mx-auto max-w-4xl">
       <Text variant="displayLG" tag="h3" class="font-semibold text-accent-600"
@@ -25,7 +27,7 @@ import Text from "@/components/fundations/elements/Text.astro";
         Choose an affordable plan that's packed with the best features for
         engaging your audience, creating customer loyalty, and driving sales.
       </Text>
-      <svg
+      <!--   <svg
         viewBox="0 0 1208 1024"
         class="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0"
       >
@@ -41,7 +43,7 @@ import Text from "@/components/fundations/elements/Text.astro";
             <stop offset="1" stop-color="oklch(0.4 0.15 200)"></stop>
           </radialGradient>
         </defs>
-      </svg>
+      </svg> -->
       <!-- <svg
         viewBox="0 0 1208 1024"
         class="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0"
@@ -61,22 +63,7 @@ import Text from "@/components/fundations/elements/Text.astro";
       </svg> -->
     </div>
   </div>
-  <div
-    class="relative flow-root border-2 border-red-500 bg-white pb-24 sm:pb-32"
-  >
-    <svg
-      viewBox="0 0 1208 1024"
-      class="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0"
-    >
-      <ellipse cx="604" cy="512" fill="url(#pricing-gradient)" rx="604" ry="512"
-      ></ellipse>
-      <defs>
-        <radialGradient id="pricing-gradient">
-          <stop stop-color="oklch(0.4 0.15 200)"></stop>
-          <stop offset="1" stop-color="oklch(0.6 0.15 200)"></stop>
-        </radialGradient>
-      </defs>
-    </svg>
+  <div class="relative flow-root pb-24 sm:pb-32">
     <div class="-mt-80">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div

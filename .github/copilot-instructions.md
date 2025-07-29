@@ -25,9 +25,8 @@ This project is a plumbing service management application built with modern web 
 
 ### Styling System
 
-- **CSS Custom Properties**: Extensive color system in \`src/styles/global.css\` using \`--color-primary-_\`, \`--color-secondary-_\`, \`--color-text-_\`, \`--color-background-_\`
 - **Color usage**: Use \`[--color-primary-600]\` syntax in Tailwind classes, not direct color names
-- **Typography**: Poppins font for headings, system fonts for body text
+- **Typography**: Poppins font for headings, Inconsolata fonts for body text
 - **Component styling**: Mix of Tailwind utility classes and CSS custom properties
 
 ### Service Page Structure
