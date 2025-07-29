@@ -9,15 +9,15 @@ const {
   ...rest
 } = Astro.props;
 
-// Default link
+// Default link (Primary)
 const defaultClass = [
-  "text-primary-900",
-  "hover:text-primary-800",
+  "text-primary-700",
+  "hover:text-primary-600",
   "focus:outline-primary-400",
   "outline-primary-300",
 ];
 
-// Accent link
+// Accent link (Yellow)
 const accentClass = [
   "text-accent-600",
   "hover:text-accent-700",
@@ -25,7 +25,7 @@ const accentClass = [
   "outline-accent-300",
 ];
 
-// Secondary/Muted link
+// Muted/Secondary link
 const mutedClass = [
   "text-secondary-600",
   "hover:text-secondary-700",
@@ -33,9 +33,9 @@ const mutedClass = [
   "outline-secondary-300",
 ];
 
-// Button style link (default)
+// Default Button (Primary Blue)
 const buttonClass = [
-  "text-white",
+  "text-background-00",
   "bg-primary-500",
   "hover:bg-primary-600",
   "shadow-md",
@@ -44,9 +44,9 @@ const buttonClass = [
   "outline-primary-300",
 ];
 
-// Button accent link
+// Accent Button (Yellow)
 const buttonAccentClass = [
-  "text-text-00", // Dark text for better contrast with yellow
+  "text-text-00",
   "bg-accent-500",
   "hover:bg-accent-600",
   "shadow-md",
@@ -55,9 +55,9 @@ const buttonAccentClass = [
   "outline-accent-300",
 ];
 
-// Button secondary link
+// Secondary Button (Cyan/Secondary)
 const buttonSecondaryClass = [
-  "text-white",
+  "text-background-00",
   "bg-secondary-500",
   "hover:bg-secondary-600",
   "shadow-md",
