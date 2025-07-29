@@ -1,8 +1,9 @@
 ---
 import Text from "./fundations/elements/Text.astro";
+import Button from "./fundations/elements/Button.astro";
 ---
 
-<div class="relative isolate bg-gray-900">
+<div class="relative isolate bg-primary-00">
   <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
     <div class="relative px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">
       <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -10,7 +11,7 @@ import Text from "./fundations/elements/Text.astro";
           class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2"
         >
           <svg
-            class="absolute inset-0 size-full [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-700"
+            class="absolute inset-0 size-full [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-accent-500"
             aria-hidden="true"
           >
             <defs>
@@ -240,11 +241,7 @@ import Text from "./fundations/elements/Text.astro";
           </div>
         </div>
         <div class="mt-8 flex justify-end">
-          <button
-            type="submit"
-            class="rounded-md bg-accent-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-accent-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
-            >Send message</button
-          >
+          <Button type="submit" variant="accent" size="lg">Send message</Button>
         </div>
       </div>
     </form>
