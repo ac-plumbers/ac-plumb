@@ -1,6 +1,8 @@
 ---
 import Text from "@components/fundations/elements/Text.astro";
 import TestimonialsCard from "./global/TestimonialsCard.astro";
+import Link from "./fundations/elements/Link.astro";
+import Button from "./fundations/elements/Button.astro";
 
 // Use static review data for now to ensure compatibility
 const reviews = [
@@ -123,27 +125,9 @@ const reviews = [
 
     <!-- Call to Action -->
     <div class="mt-20 text-center">
-      <a
-        href="https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited/reviews"
-        class="inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-semibold text-primary-700 shadow-sm transition-colors duration-200 hover:bg-neutral-100 focus:ring-2 focus:ring-primary-400 focus:outline-none"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Read all reviews
-        <svg
-          class="ml-2 h-5 w-5"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-        </svg>
-      </a>
+      <Link href="/contact-us" variant="accent-button" size="md" class="inline">
+        <span class="text-xl uppercase sm:text-base">Chiamami</span>
+      </Link>
     </div>
   </div>
 </section>
