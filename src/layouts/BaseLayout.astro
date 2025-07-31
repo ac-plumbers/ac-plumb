@@ -5,6 +5,7 @@ import "@fontsource-variable/inconsolata";
 
 import BaseHead from "@/components/fundations/head/BaseHead.astro";
 import Header from "@/components/global/Header.astro";
+import HeaderVue from "@/components/global/Header.vue";
 import Footer from "@/components/global/Footer.astro";
 ---
 
@@ -17,7 +18,8 @@ import Footer from "@/components/global/Footer.astro";
     <title>AC Plumbers</title>
   </head>
   <body class="h-full">
-    <Header />
+    <!-- <Header /> -->
+    <HeaderVue client:load />
     <main id="main-content" class="mx-auto flex flex-col">
       <slot />
     </main>
