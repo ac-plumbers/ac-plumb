@@ -7,15 +7,19 @@ import BaseHead from "@/components/fundations/head/BaseHead.astro";
 import Header from "@/components/global/Header.astro";
 import HeaderVue from "@/components/global/Header.vue";
 import Footer from "@/components/global/Footer.astro";
+const { title, description, keywords, author, themeColor } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en-GB" class="h-full" class="scrool-smooth">
   <head>
-    <BaseHead />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AC Plumbers</title>
+    <BaseHead
+      title={title}
+      description={description}
+      keywords={keywords}
+      author={author}
+      themeColor={themeColor}
+    />
   </head>
   <body class="h-full">
     <!-- <Header /> -->

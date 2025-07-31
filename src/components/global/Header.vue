@@ -33,10 +33,11 @@
           <button
             type="button"
             class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-[--color-primary-600] focus:ring-offset-2 focus:outline-none lg:hidden"
-            @click="isOpen = true"
+            @click="openMenu"
             aria-controls="mobile-menu"
-            aria-expanded="false"
+            :aria-expanded="isOpen ? 'true' : 'false'"
             aria-haspopup="true"
+            ref="openMenuButton"
           >
             <span class="sr-only">Open main menu</span>
             <svg
@@ -78,6 +79,8 @@
       aria-modal="true"
       aria-labelledby="mobile-menu-title"
       id="mobile-menu"
+      tabindex="-1"
+      ref="mobileMenu"
     >
       <h2 id="mobile-menu-title" class="sr-only">Main Navigation Menu</h2>
       <div class="fixed inset-0 z-50 bg-black/25" @click="isOpen = false"></div>
@@ -101,8 +104,9 @@
           <button
             type="button"
             class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-[--color-primary-600] focus:ring-offset-2 focus:outline-none"
-            @click="isOpen = false"
+            @click="closeMenu"
             aria-label="Close navigation menu"
+            ref="closeMenuButton"
           >
             <span class="sr-only">Close menu</span>
             <svg
@@ -169,9 +173,59 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, nextTick, onMounted, onBeforeUnmount } from "vue";
 
 const isOpen = ref(false);
+const openMenuButton = ref(null);
+const closeMenuButton = ref(null);
+const mobileMenu = ref(null);
+
+function openMenu() {
+  isOpen.value = true;
+  nextTick(() => {
+    // Focus the close button for accessibility
+    closeMenuButton.value?.focus();
+  });
+}
+
+function closeMenu() {
+  isOpen.value = false;
+  nextTick(() => {
+    // Return focus to the open menu button
+    openMenuButton.value?.focus();
+  });
+}
+
+// Optional: Trap focus inside the mobile menu when open
+function handleTab(e) {
+  if (!isOpen.value) return;
+  const focusableEls = mobileMenu.value?.querySelectorAll(
+    'a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])',
+  );
+  if (!focusableEls || focusableEls.length === 0) return;
+  const first = focusableEls[0];
+  const last = focusableEls[focusableEls.length - 1];
+  if (e.key === "Tab") {
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("keydown", handleTab);
+});
+onBeforeUnmount(() => {
+  document.removeEventListener("keydown", handleTab);
+});
 </script>
 
 <style scoped>

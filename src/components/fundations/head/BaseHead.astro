@@ -2,9 +2,19 @@
 import Favicons from "./Favicons.astro";
 import AstroSchema from "@/components/fundations/head/Schema.astro";
 import Meta from "./Meta.astro";
+const { title, description, keywords, author, themeColor } = Astro.props;
 ---
 
+<!-- Meta Tags -->
+<Meta
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  themeColor={themeColor}
+/>
+<!-- Schema -->
 <AstroSchema />
-<Meta />
+<!-- Favicons -->
 <Favicons />
 <!-- Scripts -->

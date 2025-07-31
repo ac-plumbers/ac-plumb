@@ -1,19 +1,17 @@
-<!-- Meta Tags -->
-<meta charset="UTF-8" />
+---
+const {
+  title = "AC Plumbers Ltd.",
+  description = "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
+  keywords = "Boiler Services, Installation, Repair, East Sussex",
+  author = "AC Plumbers Ltd.",
+  themeColor = "#ffffff",
+} = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content={author} />
+<meta name="theme-color" content={themeColor} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AC Plumbers Ltd.</title>
-<meta
-  name="description"
-  content="AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton"
-/>
-<meta
-  name="keywords"
-  content="Boiler Services, Installation, Repair, East Sussex"
-/>
-<meta name="author" content="AC Plumbers Ltd." />
-
-<!-- Theme Color for Mobile Browsers -->
-<meta name="theme-color" content="#ffffff" />
-
-<!-- For IE -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="UTF-8" />

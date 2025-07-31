@@ -1,14 +1,21 @@
 ---
-// Fundations
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Wrapper from '../components/fundations/containers/Wrapper.astro';
-import Text from '../components/fundations/elements/Text.astro';
-const { frontmatter } = Astro.props;
+// src/pages/services/index.astro
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+
+// Custom meta for the services home page
+const title = "Our Plumbing & Heating Services | AC Plumbers";
+const description =
+  "Browse all plumbing, heating, and renewable services offered by AC Plumbers in Brighton. Book, compare, and learn more about each service.";
+const keywords =
+  "plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers";
 ---
 
-<BaseLayout>
-  <section class='relative overflow-hidden mt-12'>
-    <Wrapper variant='hero'>
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <section class="relative mt-12 overflow-hidden">
+    <Wrapper variant="hero">
+      <Text tag="h1" class="mb-6 text-4xl font-bold">Our Services</Text>
       <slot />
     </Wrapper>
   </section>
