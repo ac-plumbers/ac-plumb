@@ -3,6 +3,7 @@ import { Wrench } from "@lucide/astro";
 import { AirVent } from "@lucide/astro";
 import { Droplets } from "@lucide/astro";
 import Text from "../fundations/elements/Text.astro";
+import { Thermometer, ShieldCheck, Building2 } from "@lucide/astro";
 ---
 
 <div class="bg-primary-700 py-24 sm:py-32">
@@ -13,12 +14,12 @@ import Text from "../fundations/elements/Text.astro";
         variant="displayLG"
         class="font-poppins text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
       >
-        Professional Plumbing Services
+        Trusted Plumbing, Heating & Renewable Services in Brighton & Sussex
       </Text>
       <Text tag="p" variant="textLG" class="mt-6 text-primary-100">
-        Our team of certified plumbers provides fast, reliable service for all
-        your residential and commercial plumbing needs. From emergency repairs
-        to complete installations.
+        Our certified Gas Safe engineers deliver expert plumbing, boiler, and
+        renewable energy solutions for homes and businesses across Brighton,
+        Hove, Lewes, Worthing and beyond.
       </Text>
     </div>
     <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -37,21 +38,22 @@ import Text from "../fundations/elements/Text.astro";
               variant="displayXS"
               class="font-poppins font-semibold text-white"
             >
-              Gas & Boiler Services
+              Gas Boilers & Heating Systems
             </Text>
           </dt>
           <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
             <Text tag="p" variant="text-base" class="flex-auto">
-              Professional installation, maintenance and repair of all boiler
-              types. Our Gas Safe certified engineers ensure your heating system
-              runs efficiently and safely year-round.
+              Installations, breakdown repairs, and servicing of gas boilers
+              from Vaillant, Viessmann, and more. Our Gas Safe engineers keep
+              your home warm and compliant with CP12 safety standards.
             </Text>
             <p class="mt-6">
               <Text
                 tag="a"
                 href="/boilers"
                 class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
-                >Learn more about Gas & Boiler <span aria-hidden="true">→</span>
+              >
+                Learn more about Gas & Boiler <span aria-hidden="true">→</span>
               </Text>
             </p>
           </dd>
@@ -68,21 +70,22 @@ import Text from "../fundations/elements/Text.astro";
               variant="displayXS"
               class="font-poppins font-semibold text-white"
             >
-              Heat Pumps & Renewables
+              Air Source Heat Pumps & Renewables
             </Text>
           </dt>
           <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
             <Text variant="text-base" tag="p" class="flex-auto">
-              Eco-friendly heating solutions including air source heat pumps and
-              solar thermal systems. Save on energy bills while reducing your
-              carbon footprint with our professional installation services.
+              Energy-efficient heating solutions including air source heat pumps
+              and electric boilers. Designed for eco-conscious homes across
+              Sussex — lower bills and reduce your carbon footprint.
             </Text>
             <p class="mt-6">
               <Text
                 tag="a"
                 href="/renewables"
                 class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
-                >Learn more about Renewables <span aria-hidden="true">→</span>
+              >
+                Learn more about Renewables <span aria-hidden="true">→</span>
               </Text>
             </p>
           </dd>
@@ -99,21 +102,126 @@ import Text from "../fundations/elements/Text.astro";
               variant="displayXS"
               class="font-poppins font-semibold text-white"
             >
-              General Plumbing
+              All Plumbing & Bathroom Services
             </Text>
           </dt>
           <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
             <Text variant="text-base" tag="p" class="flex-auto">
-              From leaky taps to complete bathroom installations, our skilled
-              plumbers handle all residential and commercial plumbing needs.
-              Fast response times and quality workmanship guaranteed.
+              From blocked drains and burst pipes to full bathroom
+              installations, our plumbers handle it all. We cover Brighton,
+              Saltdean, Seaford, Uckfield, and nearby areas with fast, expert
+              service.
             </Text>
             <p class="mt-6">
               <Text
                 tag="a"
                 href="/plumbing"
                 class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
-                >Learn more about Plumbing <span aria-hidden="true">→</span>
+              >
+                Learn more about Plumbing <span aria-hidden="true">→</span>
+              </Text>
+            </p>
+          </dd>
+        </div>
+        <!-- Smart Thermostat Installation -->
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div
+              class="mb-6 flex size-10 items-center justify-center rounded-lg bg-primary-400 text-white"
+            >
+              <Thermometer />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Smart Thermostat Installation
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
+              Control your heating from anywhere with smart thermostats like
+              Nest and Hive. We'll install and configure your system for
+              comfort, convenience, and energy savings.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/services/smart-thermostats"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+              >
+                Learn more about Smart Heating <span aria-hidden="true">→</span>
+              </Text>
+            </p>
+          </dd>
+        </div>
+
+        <!-- Gas Safety Certificates -->
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div
+              class="mb-6 flex size-10 items-center justify-center rounded-lg bg-secondary-400 text-white"
+            >
+              <ShieldCheck />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Gas Safety Certificates (CP12)
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
+              Stay compliant and safe with annual CP12 gas safety inspections
+              for landlords and homeowners. We provide certified checks across
+              Brighton, Lewes, and surrounding areas.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/services/gas-safety-checks-cp12"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+              >
+                Learn more about CP12 Checks <span aria-hidden="true">→</span>
+              </Text>
+            </p>
+          </dd>
+        </div>
+
+        <!-- Landlord Services -->
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div
+              class="mb-6 flex size-10 items-center justify-center rounded-lg bg-accent-400 text-white"
+            >
+              <Building2 />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Landlord Plumbing Services
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
+              We support landlords with legally required inspections, CP12s, and
+              ongoing maintenance. Fast response, reliable reporting, and
+              tenant-friendly service guaranteed.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/landlords"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+              >
+                Learn more about Landlord Services <span aria-hidden="true"
+                  >→</span
+                >
               </Text>
             </p>
           </dd>
