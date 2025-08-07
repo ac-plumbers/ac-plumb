@@ -1,6 +1,10 @@
 ## Project Overview
 
-This project is a plumbing service management application built with modern web technologies. It allows users to book plumbing services, manage appointments, and process payments seamlessly. The application is designed to be user-friendly and efficient, catering to both customers and service providers.
+This### St- **Color usage**: Use direct Tailwind CSS color classes (e.g., `text-primary-600`, `bg-accent-500`) that reference the @theme colors defined in `src/styles/global.css`. Do NOT use CSS custom property syntax like `[--color-primary-600]`ling System
+
+- **Color usage**: Use direct Tailwind CSS color classes (e.g., `text-primary-600`, `bg-accent-500`) that reference the @theme colors defined in `src/styles/global.css`. Do NOT use CSS custom property syntax like `[--color-primary-600]`
+- **Typography**: Poppins font for headings, Inconsolata fonts for body text
+- **Component styling**: Mix of Tailwind utility classes referencing the global @theme color systemect is a plumbing service management application built with modern web technologies. It allows users to book plumbing services, manage appointments, and process payments seamlessly. The application is designed to be user-friendly and efficient, catering to both customers and service providers.
 
 ## Architecture & Key Patterns
 
@@ -92,4 +96,5 @@ features:
 - Maintain consistent spacing with Tailwind's spacing scale
 - Include alt text for all images
 - Use TypeScript for all new components
-- Follow existing component prop patterns for consistency" > .github/copilot-instructions.md
+- Follow existing component prop patterns for consistency
+- **Color system**: Always use direct Tailwind classes (e.g., `text-primary-600`, `bg-accent-500`) that reference the @theme definitions in `src/styles/global.css`" > .github/copilot-instructions.md

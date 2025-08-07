@@ -13,7 +13,7 @@ const services = allServices.sort((a, b) => {
 ---
 
 <ServicesLayout>
-  <p class="mx-auto mt-6 max-w-2xl text-xl text-[--color-background-00]">
+  <p class="mx-auto mt-6 max-w-2xl text-xl text-background-00">
     Comprehensive plumbing solutions delivered with expertise and care across
     Brighton & Hove
   </p>
@@ -27,11 +27,11 @@ const services = allServices.sort((a, b) => {
           class="group block"
           aria-label={`View details for ${service.data.title}`}
         >
-          <div class="overflow-hidden rounded-lg border border-[--color-primary-200] bg-[--color-neutral-100] p-6 shadow-sm transition-all hover:bg-[--color-primary-100] hover:shadow">
-            <h3 class="text-lg font-medium text-[--color-primary-800] group-hover:text-[--color-primary-700]">
+          <div class="overflow-hidden rounded-lg border border-primary-200 bg-neutral-100 p-6 shadow-sm transition-all hover:bg-primary-100 hover:shadow">
+            <h3 class="text-lg font-medium text-primary-800 group-hover:text-primary-700">
               {service.data.title}
             </h3>
-            <p class="mt-2 line-clamp-2 text-sm text-[--color-text-00]">
+            <p class="mt-2 line-clamp-2 text-sm text-text-00">
               {service.data.description}
             </p>
             {/* Optionally render price, tags, or image here */}

@@ -11,7 +11,7 @@
     <div class="mx-auto max-w-[1330px]">
       <div class="px-6 pt-6 lg:max-w-2xl lg:pr-0 lg:pl-8">
         <nav
-          class="flex items-center justify-between space-x-4 lg:justify-start"
+          class="flex items-center justify-between space-x-4"
           aria-label="Global"
         >
           <!-- Logo link -->
@@ -19,12 +19,13 @@
             href="/"
             class="default-link -m-1.5 inline-flex flex-shrink-0 items-center p-1.5"
           >
-            <span class="sr-only">AC Plumbers</span>
+            <span class="sr-only">AC Plumbers Ltd</span>
             <img
-              src="/images/logo/logo.png"
-              alt="AC Plumbers Logo"
+              src="/images/logo/ac-plumbers-logo-brighton.png"
+              alt="AC Plumbers Ltd logo with water and flame icons"
               width="300"
               height="300"
+              title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
               class="h-auto w-20 object-contain sm:w-28 md:w-32 lg:w-28"
             />
           </a>
@@ -32,7 +33,7 @@
           <!-- Mobile menu button -->
           <button
             type="button"
-            class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-[--color-primary-600] focus:ring-offset-2 focus:outline-none lg:hidden"
+            class="-m-2.5 rounded-md p-2.5 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -57,14 +58,39 @@
           </button>
 
           <!-- Desktop nav links -->
-          <div
-            class="hidden flex-grow-0 uppercase lg:ml-12 lg:flex lg:gap-x-14"
-          >
-            <a href="/services" class="default-link">Services</a>
-            <a href="/landlords" class="default-link">Landlords</a>
-            <a href="/about-us" class="default-link">About</a>
-            <a href="/testimonials" class="default-link">Testimonials</a>
-            <a href="/contact-us" class="default-link">Contact</a>
+          <div class="hidden lg:flex lg:max-w-sm lg:flex-1 lg:justify-end">
+            <div class="flex gap-x-4 text-sm font-medium uppercase xl:gap-x-6">
+              <a
+                href="/services"
+                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              >
+                Services
+              </a>
+              <a
+                href="/landlords"
+                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              >
+                Landlords
+              </a>
+              <a
+                href="/about"
+                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              >
+                About
+              </a>
+              <a
+                href="/testimonials"
+                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              >
+                Testimonials
+              </a>
+              <a
+                href="/contact"
+                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </nav>
       </div>
@@ -91,19 +117,20 @@
       >
         <div class="flex items-center justify-between">
           <a href="/" class="default-link -m-1.5 p-1.5">
-            <span class="sr-only">AC Plumbers</span>
+            <span class="sr-only">AC Plumbers Ltd</span>
             <img
               class="h-8 w-auto"
-              src="/images/logo/logo.png"
+              src="/images/logo/ac-plumbers-logo-brighton.png"
               width="48"
               height="48"
-              alt="AC Plumb Logo"
+              alt="AC Plumbers Ltd logo with water and flame icons"
+              title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
             />
           </a>
 
           <button
             type="button"
-            class="-m-2.5 rounded-md p-2.5 text-gray-700 focus:ring-2 focus:ring-[--color-primary-600] focus:ring-offset-2 focus:outline-none"
+            class="-m-2.5 rounded-md p-2.5 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
             @click="closeMenu"
             aria-label="Close navigation menu"
             ref="closeMenuButton"
@@ -131,35 +158,56 @@
             <div class="flex flex-col space-y-2 py-6" role="list">
               <a
                 href="/services"
-                class="default-link -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
                 role="listitem"
               >
                 Services
               </a>
               <a
+                href="/plumbing"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                role="listitem"
+              >
+                Plumbing
+              </a>
+              <a
+                href="/heating"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                role="listitem"
+              >
+                Heating
+              </a>
+              <a
+                href="/boilers"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                role="listitem"
+              >
+                Boilers
+              </a>
+              <a
                 href="/landlords"
-                class="default-link -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
                 role="listitem"
               >
                 Landlords
               </a>
               <a
                 href="/testimonials"
-                class="default-link -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
                 role="listitem"
               >
                 Testimonials
               </a>
               <a
                 href="/about-us"
-                class="default-link -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
                 role="listitem"
               >
                 About
               </a>
               <a
                 href="/contact-us"
-                class="default-link -mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
                 role="listitem"
               >
                 Contact
