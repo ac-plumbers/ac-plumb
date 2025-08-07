@@ -8,8 +8,10 @@
   </a>
 
   <header class="absolute inset-x-0 top-0 z-50">
-    <div class="mx-auto max-w-[1330px]">
-      <div class="px-6 pt-6 lg:max-w-2xl lg:pr-0 lg:pl-8">
+    <div class="w-full">
+      <div
+        class="bg-background-00/95 px-6 pt-6 shadow-sm backdrop-blur-sm lg:pr-8 lg:pl-8"
+      >
         <nav
           class="flex items-center justify-between space-x-4"
           aria-label="Global"
@@ -58,35 +60,73 @@
           </button>
 
           <!-- Desktop nav links -->
-          <div class="hidden lg:flex lg:max-w-sm lg:flex-1 lg:justify-end">
+          <div
+            class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
+          >
             <div class="flex gap-x-4 text-sm font-medium uppercase xl:gap-x-6">
               <a
+                href="/"
+                :class="[
+                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                  isActiveLink('/')
+                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                ]"
+              >
+                Home
+              </a>
+              <a
                 href="/services"
-                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+                :class="[
+                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                  isActiveLink('/services')
+                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                ]"
               >
                 Services
               </a>
               <a
                 href="/landlords"
-                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+                :class="[
+                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                  isActiveLink('/landlords')
+                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                ]"
               >
                 Landlords
               </a>
               <a
                 href="/about"
-                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+                :class="[
+                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                  isActiveLink('/about')
+                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                ]"
               >
                 About
               </a>
               <a
                 href="/testimonials"
-                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+                :class="[
+                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                  isActiveLink('/testimonials')
+                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                ]"
               >
                 Testimonials
               </a>
               <a
                 href="/contact"
-                class="rounded-md px-2 py-1 text-text-00 transition-colors duration-200 hover:text-primary-600 focus:text-primary-600 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+                :class="[
+                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                  isActiveLink('/contact')
+                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                ]"
               >
                 Contact
               </a>
@@ -157,57 +197,109 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="flex flex-col space-y-2 py-6" role="list">
               <a
+                href="/"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
+                role="listitem"
+              >
+                Home
+              </a>
+              <a
                 href="/services"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/services')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Services
               </a>
               <a
                 href="/plumbing"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/plumbing')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Plumbing
               </a>
               <a
                 href="/heating"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/heating')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Heating
               </a>
               <a
                 href="/boilers"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/boilers')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Boilers
               </a>
               <a
                 href="/landlords"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/landlords')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Landlords
               </a>
               <a
                 href="/testimonials"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/testimonials')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Testimonials
               </a>
               <a
                 href="/about-us"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/about')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 About
               </a>
               <a
                 href="/contact-us"
-                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10 focus:outline-none"
+                :class="[
+                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
+                  isActiveLink('/contact')
+                    ? 'bg-primary-600 text-background-00'
+                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                ]"
                 role="listitem"
               >
                 Contact
@@ -221,12 +313,44 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, onBeforeUnmount } from "vue";
+import { ref, nextTick, onMounted, onBeforeUnmount, computed } from "vue";
+
+// Define props to receive current path from Astro
+const props = defineProps({
+  currentPath: {
+    type: String,
+    default: "",
+  },
+});
 
 const isOpen = ref(false);
 const openMenuButton = ref(null);
 const closeMenuButton = ref(null);
 const mobileMenu = ref(null);
+const currentPath = ref(props.currentPath);
+
+// Get current path for active link highlighting (fallback for client-side)
+onMounted(() => {
+  // Only update if no path was provided via props
+  if (!currentPath.value && typeof window !== "undefined") {
+    currentPath.value = window.location.pathname;
+  }
+  document.addEventListener("keydown", handleTab);
+
+  // Listen for navigation changes (for SPA-like behavior)
+  if (typeof window !== "undefined") {
+    window.addEventListener("popstate", () => {
+      currentPath.value = window.location.pathname;
+    });
+  }
+});
+
+// Helper function to check if a link is active
+const isActiveLink = (href) => {
+  if (href === "/" && currentPath.value === "/") return true;
+  if (href !== "/" && currentPath.value.startsWith(href)) return true;
+  return false;
+};
 
 function openMenu() {
   isOpen.value = true;
@@ -268,9 +392,6 @@ function handleTab(e) {
   }
 }
 
-onMounted(() => {
-  document.addEventListener("keydown", handleTab);
-});
 onBeforeUnmount(() => {
   document.removeEventListener("keydown", handleTab);
 });
