@@ -1,5 +1,6 @@
 ---
 import Text from "../fundations/elements/Text.astro";
+import { Image } from "astro:assets";
 import {
   Thermometer,
   ShieldCheck,
@@ -8,6 +9,11 @@ import {
   Wrench,
   Droplets,
 } from "@lucide/astro";
+
+// Import work images
+import workImage1 from "@/images/lavori/1.jpeg";
+import workImage2 from "@/images/lavori/5.jpeg";
+import workImage3 from "@/images/lavori/10.jpeg";
 ---
 
 <div class="bg-primary-700 py-24 sm:py-32">
@@ -226,6 +232,127 @@ import {
                 Learn more about Landlord Services <span aria-hidden="true"
                   >→</span
                 >
+              </Text>
+            </p>
+          </dd>
+        </div>
+
+        <!-- Third Row: Our Recent Work -->
+        <!-- Boiler Installation Work -->
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div class="mb-6 overflow-hidden rounded-lg">
+              <Image
+                src={workImage1}
+                alt="Professional boiler installation by AC Plumbers"
+                width={400}
+                height={300}
+                class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105"
+                format="webp"
+                quality={85}
+              />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Boiler Installation Projects
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
+              See our recent boiler installations across Brighton and Sussex.
+              From compact combi boilers to system upgrades, we deliver
+              professional installations with full warranties.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/gallery"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+              >
+                View Our Work Gallery <span aria-hidden="true">→</span>
+              </Text>
+            </p>
+          </dd>
+        </div>
+
+        <!-- Heating System Work -->
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div class="mb-6 overflow-hidden rounded-lg">
+              <Image
+                src={workImage2}
+                alt="Central heating system installation by AC Plumbers"
+                width={400}
+                height={300}
+                class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105"
+                format="webp"
+                quality={85}
+              />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Heating System Upgrades
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
+              Complete heating system installations and upgrades for homes
+              across Brighton. Modern, efficient systems designed for comfort
+              and energy savings.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/heating"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+              >
+                Explore Heating Solutions <span aria-hidden="true">→</span>
+              </Text>
+            </p>
+          </dd>
+        </div>
+
+        <!-- Bathroom & Plumbing Work -->
+        <div class="flex flex-col">
+          <dt class="text-base/7 font-semibold text-white">
+            <div class="mb-6 overflow-hidden rounded-lg">
+              <Image
+                src={workImage3}
+                alt="Bathroom plumbing installation by AC Plumbers"
+                width={400}
+                height={300}
+                class="h-64 w-full object-cover transition-transform duration-300 hover:scale-105"
+                format="webp"
+                quality={85}
+              />
+            </div>
+            <Text
+              tag="h3"
+              variant="displayXS"
+              class="font-poppins font-semibold text-white"
+            >
+              Bathroom & Plumbing Projects
+            </Text>
+          </dt>
+          <dd class="mt-1 flex flex-auto flex-col text-base/7 text-primary-200">
+            <Text tag="p" variant="text-base" class="flex-auto">
+              Professional bathroom installations and plumbing projects
+              throughout Sussex. Quality workmanship with attention to detail
+              and customer satisfaction.
+            </Text>
+            <p class="mt-6">
+              <Text
+                tag="a"
+                href="/plumbing"
+                class="rounded-sm text-sm font-semibold text-accent-00 hover:text-accent-300 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-700 focus:outline-none"
+              >
+                See Plumbing Services <span aria-hidden="true">→</span>
               </Text>
             </p>
           </dd>
