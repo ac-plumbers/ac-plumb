@@ -13,7 +13,7 @@
         class="bg-background-00/95 px-6 pt-6 shadow-sm backdrop-blur-sm lg:pr-8 lg:pl-8"
       >
         <nav
-          class="flex items-center justify-between space-x-4"
+          class="flex items-center justify-between space-x-4 py-2"
           aria-label="Global"
         >
           <!-- Logo link -->
@@ -63,7 +63,7 @@
           <div
             class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
           >
-            <div class="flex gap-x-4 text-sm font-medium uppercase xl:gap-x-6">
+            <div class="text-md flex gap-x-4 font-medium xl:gap-x-6">
               <a
                 href="/"
                 :class="[
@@ -75,18 +75,89 @@
               >
                 Home
               </a>
-              <a
-                href="/services"
-                :class="[
-                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
-                  isActiveLink('/services')
-                    ? 'bg-primary-600 text-background-00 shadow-sm'
-                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
-                ]"
+
+              <!-- Services Dropdown -->
+              <div
+                class="relative"
+                @mouseenter="showServicesDropdown = true"
+                @mouseleave="showServicesDropdown = false"
               >
-                Services
-              </a>
-              <a
+                <button
+                  type="button"
+                  :class="[
+                    'flex items-center gap-x-1 rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
+                    isActiveLink('/services') ||
+                    isActiveLink('/plumbing') ||
+                    isActiveLink('/heating') ||
+                    isActiveLink('/boilers')
+                      ? 'bg-primary-600 text-background-00 shadow-sm'
+                      : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
+                  ]"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  Services
+                  <svg
+                    class="size-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Dropdown Menu -->
+                <div
+                  v-show="showServicesDropdown"
+                  class="absolute top-full left-0 z-10 w-56 rounded-lg bg-white py-2 shadow-lg ring-1 ring-gray-900/5"
+                  role="menu"
+                  aria-orientation="vertical"
+                >
+                  <a
+                    href="/services"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    All Services
+                  </a>
+                  <a
+                    href="/plumbing"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    🔧 Plumbing Services
+                  </a>
+                  <a
+                    href="/heating"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    🔥 Heating Services
+                  </a>
+                  <a
+                    href="/boilers"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    🏠 Boiler Services
+                  </a>
+                  <a
+                    href="/landlords"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    🏢 Landlord Services
+                  </a>
+                </div>
+              </div>
+
+              <!--   <a
                 href="/landlords"
                 :class="[
                   'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
@@ -96,7 +167,7 @@
                 ]"
               >
                 Landlords
-              </a>
+              </a> -->
               <a
                 href="/about"
                 :class="[
@@ -157,7 +228,7 @@
       >
         <div class="flex items-center justify-between">
           <a href="/" class="default-link -m-1.5 p-1.5">
-            <span class="sr-only">AC Plumbers Ltd</span>
+            <span class="sr-only">AC Plumbers Ltd.</span>
             <img
               class="h-8 w-auto"
               src="/images/logo/ac-plumbers-logo-brighton.png"
@@ -205,68 +276,97 @@
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
+                @click="closeMenu"
               >
                 Home
               </a>
+
+              <!-- Services Section -->
+              <div class="py-2">
+                <div
+                  class="px-3 py-1 text-xs font-semibold tracking-wide text-gray-500 uppercase"
+                >
+                  Services
+                </div>
+                <a
+                  href="/services"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium focus:outline-none',
+                    isActiveLink('/services')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  All Services
+                </a>
+                <a
+                  href="/plumbing"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/plumbing')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  🔧 Plumbing Services
+                </a>
+                <a
+                  href="/heating"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/heating')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  🔥 Heating Services
+                </a>
+                <a
+                  href="/boilers"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/boilers')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  🏠 Boiler Services
+                </a>
+                <a
+                  href="/landlords"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/landlords')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  🏢 Landlord Services
+                </a>
+              </div>
+
               <a
-                href="/services"
+                href="/about-us"
                 :class="[
                   '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/services')
+                  isActiveLink('/about')
                     ? 'bg-primary-600 text-background-00'
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
+                @click="closeMenu"
               >
-                Services
-              </a>
-              <a
-                href="/plumbing"
-                :class="[
-                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/plumbing')
-                    ? 'bg-primary-600 text-background-00'
-                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
-                ]"
-                role="listitem"
-              >
-                Plumbing
-              </a>
-              <a
-                href="/heating"
-                :class="[
-                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/heating')
-                    ? 'bg-primary-600 text-background-00'
-                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
-                ]"
-                role="listitem"
-              >
-                Heating
-              </a>
-              <a
-                href="/boilers"
-                :class="[
-                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/boilers')
-                    ? 'bg-primary-600 text-background-00'
-                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
-                ]"
-                role="listitem"
-              >
-                Boilers
-              </a>
-              <a
-                href="/landlords"
-                :class="[
-                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/landlords')
-                    ? 'bg-primary-600 text-background-00'
-                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
-                ]"
-                role="listitem"
-              >
-                Landlords
+                About
               </a>
               <a
                 href="/testimonials"
@@ -277,20 +377,9 @@
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
+                @click="closeMenu"
               >
                 Testimonials
-              </a>
-              <a
-                href="/about-us"
-                :class="[
-                  '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/about')
-                    ? 'bg-primary-600 text-background-00'
-                    : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
-                ]"
-                role="listitem"
-              >
-                About
               </a>
               <a
                 href="/contact-us"
@@ -301,6 +390,7 @@
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
+                @click="closeMenu"
               >
                 Contact
               </a>
@@ -324,6 +414,7 @@ const props = defineProps({
 });
 
 const isOpen = ref(false);
+const showServicesDropdown = ref(false);
 const openMenuButton = ref(null);
 const closeMenuButton = ref(null);
 const mobileMenu = ref(null);
