@@ -17,7 +17,43 @@ export async function getStaticPaths() {
   }));
 }
 
-const { page, allServices } = Astro.props;
+type ServiceFeature = {
+  title: string;
+  description: string;
+};
+
+type ServiceStep = {
+  title: string;
+  description: string;
+};
+
+type ServiceFaq = {
+  question: string;
+  answer: string;
+};
+
+type ServiceFrontmatter = {
+  title: string;
+  description: string;
+  price: number;
+  image?: string;
+  category?: string;
+  tags?: string[];
+  featured?: boolean;
+  slug?: string;
+  features?: ServiceFeature[];
+  process?: ServiceStep[];
+  faqs?: ServiceFaq[];
+};
+
+const { page, allServices } = Astro.props as {
+  page: {
+    data: ServiceFrontmatter;
+    slug: string;
+    render: () => Promise<{ Content: any }>;
+  };
+  allServices: { data: ServiceFrontmatter; slug: string }[];
+};
 const { Content } = await page.render();
 
 // Get related services (excluding current page)
@@ -26,7 +62,7 @@ const relatedServices = allServices
   .filter((s) => {
     // Find related services by matching tags
     if (!page.data.tags || !s.data.tags) return false;
-    return page.data.tags.some((tag) => s.data.tags.includes(tag));
+    return page.data.tags.some((tag) => (s.data.tags ?? []).includes(tag));
   })
   .slice(0, 3);
 
@@ -97,7 +133,7 @@ const faqs = page.data.faqs || [
   <ServiceHeroSection
     title={page.data.title}
     description={page.data.description}
-    image={page.data.image}
+    image={page.data.image ?? ""}
   />
 
   <!-- Main Service Content -->

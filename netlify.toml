@@ -2,44 +2,11 @@
   command = "npm run build"
   publish = "dist"
 
-# Redirects from old website to new pages
-[[redirects]]
-  from = "/plumbing/"
-  to = "/services/all-aspects-of-plumbing-heating-and-gas/"
-  status = 301
-
-[[redirects]]
-  from = "/boilers/"
-  to = "/services/boilers"
-  status = 301
-
-[[redirects]]
-  from = "/heating/"
-  to = "/services/gas-boiler-installation"
-  status = 301
-
-[[redirects]]
-  from = "/gas-safe-2/"
-  to = "/services/gas-safety-checks-cp12"
-  status = 301
-
-# 404 catch-all (must be last)
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
-
-[build.environment]
-  NODE_VERSION = "20"
-[build]
-  command = "npm run build"
-  publish = "dist"
-
 [build.environment]
   NODE_VERSION = "20"
 
 # --- Canonical host + HTTPS ---
-# Force everything to HTTPS and apex (change target if you prefer www)
+# Force everything to HTTPS and apex domain
 [[redirects]]
   from = "http://www.acplumb.co.uk/*"
   to = "https://acplumb.co.uk/:splat"
@@ -58,11 +25,12 @@
   status = 301
   force = true
 
-# --- Redirects from old website to new pages (add both slash & no-slash) ---
+# --- Redirects from old website to new pages ---
 [[redirects]]
   from = "/plumbing/"
   to = "/services/all-aspects-of-plumbing-heating-and-gas/"
   status = 301
+
 [[redirects]]
   from = "/plumbing"
   to = "/services/all-aspects-of-plumbing-heating-and-gas/"
@@ -72,6 +40,7 @@
   from = "/boilers/"
   to = "/services/boilers/"
   status = 301
+
 [[redirects]]
   from = "/boilers"
   to = "/services/boilers/"
@@ -81,6 +50,7 @@
   from = "/heating/"
   to = "/services/gas-boiler-installation/"
   status = 301
+
 [[redirects]]
   from = "/heating"
   to = "/services/gas-boiler-installation/"
@@ -90,6 +60,7 @@
   from = "/gas-safe-2/"
   to = "/services/gas-safety-checks-cp12/"
   status = 301
+
 [[redirects]]
   from = "/gas-safe-2"
   to = "/services/gas-safety-checks-cp12/"
@@ -108,7 +79,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Cache static assets aggressively (adjust paths to your build output as needed)
+# Cache static assets aggressively
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -119,7 +90,7 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# --- 404 catch-all (must be last). Ensure you have /404.astro generating /404.html ---
+# --- 404 catch-all (must be last) ---
 [[redirects]]
   from = "/*"
   to = "/404.html"
