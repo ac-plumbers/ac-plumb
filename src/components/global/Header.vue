@@ -191,10 +191,10 @@
                 Testimonials
               </a>
               <a
-                href="/contact"
+                href="/contact-us"
                 :class="[
                   'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
-                  isActiveLink('/contact')
+                  isActiveLink('/contact-us')
                     ? 'bg-primary-600 text-background-00 shadow-sm'
                     : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
                 ]"
@@ -436,7 +436,7 @@
                 href="/contact-us"
                 :class="[
                   '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
-                  isActiveLink('/contact')
+                  isActiveLink('/contact-us')
                     ? 'bg-primary-600 text-background-00'
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
