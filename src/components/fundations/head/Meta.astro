@@ -1,17 +1,14 @@
 ---
 const {
-  title = "AC Plumbers Ltd.",
-  description = "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
   keywords = "Boiler Services, Installation, Repair, East Sussex",
   author = "AC Plumbers Ltd.",
-  themeColor = "#ffffff",
+  themeColor = "#2563eb",
 } = Astro.props;
 ---
 
-<title>{title}</title>
-<meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <meta name="author" content={author} />
 <meta name="theme-color" content={themeColor} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
+<meta name="generator" content={Astro.generator} />

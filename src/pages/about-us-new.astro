@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import lavori from "@/images/lavori/3.jpeg";
 ---
 
 <BaseLayout>
@@ -66,8 +64,8 @@ import lavori from "@/images/lavori/3.jpeg";
               </div>
             </div>
 
-            <Image
-              src={lavori}
+            <img
+              src="/images/lavori/1.jpeg"
               alt="AC Plumbers team member working on a professional plumbing installation in Brighton"
               class="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover shadow-lg sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
               loading="eager"
@@ -86,13 +84,13 @@ import lavori from "@/images/lavori/3.jpeg";
 
       <!-- Company Story Timeline -->
       <section
-        class="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 lg:px-8"
+        class="mx-auto -mt-8 max-w-7xl px-6 lg:px-8"
         aria-labelledby="timeline-title"
       >
         <div class="mx-auto mb-16 max-w-2xl lg:mx-0">
           <h2
             id="timeline-title"
-            class="mt-4 font-poppins text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl"
+            class="font-poppins text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl"
           >
             Our Journey
           </h2>

@@ -1,32 +1,45 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
+  description = "AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.",
+  canonical = "https://acplumb.co.uk",
+  noindex = false,
+} = Astro.props;
 ---
 
 <AstroSeo
-  title="AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton"
-  description="AC Plumbing Heating and Cooling is a family-owned business that has been serving the community for over 20 years. We specialize in providing top-notch plumbing, heating, and cooling services to residential and commercial clients."
-  canonical="https://www.acplumb.co.uk"
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
   openGraph={{
-    url: "https://www.acplumb.co.uk",
-    title:
-      "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
-    description:
-      "AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.",
+    url: canonical,
+    title: title,
+    description: description,
     images: [
       {
-        url: "https://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png",
-        width: 469,
-        height: 187,
-        alt: "AC Plumbers Ltd Logo",
-        type: "image/png",
-      },
-      {
-        url: "https://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png",
-        width: 110,
-        height: 110,
-        alt: "AC Plumbers Boiler Services",
-        type: "image/png",
+        url: "https://acplumb.co.uk/images/ac-plumbers-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AC Plumbers Ltd - Professional Plumbing Services",
+        type: "image/jpeg",
       },
     ],
+    site_name: "AC Plumbers Ltd",
+    type: "website",
+  }}
+  twitter={{
+    handle: "@acplumbersltd",
+    site: "@acplumbersltd",
+    cardType: "summary_large_image",
   }}
 />

@@ -2,19 +2,42 @@
 import Favicons from "./Favicons.astro";
 import AstroSchema from "@/components/fundations/head/Schema.astro";
 import Meta from "./Meta.astro";
-const { title, description, keywords, author, themeColor } = Astro.props;
+import Seo from "./Seo.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  author?: string;
+  themeColor?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  author,
+  themeColor,
+  canonical,
+  noindex = false,
+} = Astro.props;
 ---
 
-<!-- Meta Tags -->
-<Meta
+<!-- SEO with title, description, and canonical URL -->
+<Seo
   title={title}
   description={description}
-  keywords={keywords}
-  author={author}
-  themeColor={themeColor}
+  canonical={canonical}
+  noindex={noindex}
 />
+
+<!-- Additional meta tags (keywords, author, theme-color, etc.) -->
+<Meta keywords={keywords} author={author} themeColor={themeColor} />
+
 <!-- Schema -->
 <AstroSchema />
+
 <!-- Favicons -->
 <Favicons />
-<!-- Scripts -->
