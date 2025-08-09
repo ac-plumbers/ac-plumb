@@ -10,7 +10,7 @@
   <header class="absolute inset-x-0 top-0 z-50">
     <div class="w-full">
       <div
-        class="border-b border-white/20 bg-gradient-to-r from-white/95 via-blue-50/95 to-white/95 px-6 pt-6 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
+        class="backdrop- 🌱 Air Source Heat Pumps 🌡️ Smart Thermostatslur-md border-b border-white/20 bg-gradient-to-r from-white/95 via-blue-50/95 to-white/95 px-6 pt-6 shadow-lg lg:pr-8 lg:pl-8"
       >
         <nav
           class="flex items-center justify-between space-x-4 py-2"
@@ -86,10 +86,7 @@
                   type="button"
                   :class="[
                     'flex items-center gap-x-1 rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
-                    isActiveLink('/services') ||
-                    isActiveLink('/plumbing') ||
-                    isActiveLink('/heating') ||
-                    isActiveLink('/boilers')
+                    isInServicesSection()
                       ? 'bg-primary-600 text-background-00 shadow-sm'
                       : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
                   ]"
@@ -121,38 +118,52 @@
                 >
                   <a
                     href="/services"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block border-b border-gray-100 px-4 py-2 text-sm font-medium text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    All Services
+                    📋 All Services
                   </a>
                   <a
-                    href="/plumbing"
+                    href="/services/plumbing"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🔧 Plumbing Services
+                    🔧 Plumbing, Heating & Gas
                   </a>
                   <a
-                    href="/heating"
+                    href="/services/gas-boiler-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🔥 Heating Services
+                    🔥 Gas Boiler Installation
                   </a>
                   <a
-                    href="/boilers"
+                    href="/services/central-heating-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🏠 Boiler Services
+                    🏠 Central Heating Installation
                   </a>
                   <a
-                    href="/landlords"
+                    href="/services/gas-safety-checks-cp12"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🏢 Landlord Services
+                    🛡️ Gas Safety Checks (CP12)
+                  </a>
+                  <a
+                    href="/services/smart-thermostats"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    �️ Smart Thermostats
+                  </a>
+                  <a
+                    href="/services/renewable-air-source-heat-pump"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    � Air Source Heat Pumps
                   </a>
                 </div>
               </div>
@@ -353,56 +364,82 @@
                   All Services
                 </a>
                 <a
-                  href="/plumbing"
+                  href="/services/plumbing"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/plumbing')
+                    isActiveLink('/services/plumbing')
                       ? 'bg-primary-600 text-background-00'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🔧 Plumbing Services
+                  🔧 Plumbing, Heating & Gas
                 </a>
                 <a
-                  href="/heating"
+                  href="/services/gas-boiler-installation"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/heating')
+                    isActiveLink('/services/gas-boiler-installation')
                       ? 'bg-primary-600 text-background-00'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🔥 Heating Services
+                  🔥 Gas Boiler Installation
                 </a>
                 <a
-                  href="/boilers"
+                  href="/services/central-heating-installation"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/boilers')
+                    isActiveLink('/services/central-heating-installation')
                       ? 'bg-primary-600 text-background-00'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🏠 Boiler Services
+                  🏠 Central Heating Installation
                 </a>
                 <a
-                  href="/landlords"
+                  href="/services/gas-safety-checks-cp12"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/landlords')
+                    isActiveLink('/services/gas-safety-checks-cp12')
                       ? 'bg-primary-600 text-background-00'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🏢 Landlord Services
+                  🛡️ Gas Safety Checks (CP12)
+                </a>
+                <a
+                  href="/services/smart-thermostats"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/services/smart-thermostats')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  �️ Smart Thermostats
+                </a>
+                <a
+                  href="/services/renewable-air-source-heat-pump"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/services/renewable-air-source-heat-pump')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  � Air Source Heat Pumps
                 </a>
               </div>
 
@@ -490,8 +527,13 @@ onMounted(() => {
 // Helper function to check if a link is active
 const isActiveLink = (href) => {
   if (href === "/" && currentPath.value === "/") return true;
-  if (href !== "/" && currentPath.value.startsWith(href)) return true;
+  if (href !== "/" && currentPath.value === href) return true;
   return false;
+};
+
+// Helper function to check if we're in the services section (for dropdown highlighting)
+const isInServicesSection = () => {
+  return currentPath.value.startsWith("/services");
 };
 
 function openMenu() {
