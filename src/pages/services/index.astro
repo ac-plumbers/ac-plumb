@@ -1,28 +1,26 @@
 ---
-// src/pages/services/index.astro
 import ServicesLayout from "@/layouts/ServicesLayout.astro";
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
 
-// Get all services and organize them
+// Get all services
 const allServices = await getCollection("services");
 
 // Featured services for special display
 const featuredServices = allServices
-  .filter((service) => service.data.featured)
+  .filter((service) => Boolean(service.data.featured))
   .slice(0, 3);
 
 // All services sorted (featured first, then alphabetically)
-const services = allServices.sort((a, b) => {
+const services = [...allServices].sort((a, b) => {
   if (a.data.featured && !b.data.featured) return -1;
   if (!a.data.featured && b.data.featured) return 1;
   return a.data.title.localeCompare(b.data.title);
 });
 
-// Group services by category for better organization
+// Group services by category
 const servicesByCategory = services.reduce(
   (acc, service) => {
-    const category = service.data.category || "general";
+    const category = (service.data.category || "general").toLowerCase();
     if (!acc[category]) acc[category] = [];
     acc[category].push(service);
     return acc;
@@ -30,16 +28,19 @@ const servicesByCategory = services.reduce(
   {} as Record<string, typeof services>,
 );
 
+// Helpers
+const hasPrice = (p: unknown): p is number => typeof p === "number" && p > 0;
+
 const title = "Professional Plumbing Services in Brighton - AC Plumbers Ltd";
 const description =
   "Comprehensive plumbing, heating and gas services in Brighton. From emergency repairs to new installations. Fully qualified Gas Safe engineers.";
-const canonical = "https://acplumb.co.uk/services";
+const canonical = "https://acplumb.co.uk/services/";
 ---
 
 <ServicesLayout title={title} description={description} canonical={canonical}>
   <!-- Hero Section with Gradient Background -->
   <div
-    class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 px-8 py-16 text-center"
+    class="relative overflow-hidden rounded-3xl border-2 border-red-500 bg-gradient-to-br from-primary-300 via-primary-700 to-primary-800 px-8 py-16 text-center"
   >
     <div
       class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent"
@@ -69,7 +70,9 @@ const canonical = "https://acplumb.co.uk/services";
       >
         Professional Plumbing Services
       </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-xl leading-8 text-primary-100">
+      <p
+        class="mx-auto mt-6 max-w-2xl font-inconsolata text-xl leading-8 text-primary-100"
+      >
         From emergency repairs to complete installations, our Gas Safe certified
         engineers deliver professional plumbing, heating, and gas services
         across Brighton & Hove.
@@ -117,6 +120,7 @@ const canonical = "https://acplumb.co.uk/services";
             businesses
           </p>
         </div>
+
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredServices.map((service, index) => (
             <div
@@ -133,15 +137,17 @@ const canonical = "https://acplumb.co.uk/services";
               <div class="relative z-10">
                 {service.data.image && (
                   <div class="mb-6 overflow-hidden rounded-xl">
-                    <Image
+                    <img
                       src={service.data.image}
                       alt={service.data.alt || service.data.title}
-                      width={400}
-                      height={240}
+                      width="400"
+                      height="240"
+                      loading="lazy"
                       class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 )}
+
                 <div class="mb-4 flex items-center justify-between">
                   <span class="inline-flex items-center rounded-full bg-white px-3 py-1 text-sm font-semibold text-primary-600 shadow-sm">
                     <svg
@@ -153,18 +159,21 @@ const canonical = "https://acplumb.co.uk/services";
                     </svg>
                     Featured
                   </span>
-                  {service.data.price > 0 && (
+
+                  {hasPrice(service.data.price) && (
                     <span class="text-2xl font-bold text-primary-600">
                       From £{service.data.price}
                     </span>
                   )}
                 </div>
+
                 <h3 class="mb-4 font-poppins text-2xl font-bold text-primary-600">
                   {service.data.title}
                 </h3>
                 <p class="mb-6 line-clamp-6 leading-relaxed text-text-00">
                   {service.data.description}
                 </p>
+
                 {service.data.tags && (
                   <div class="mb-6 flex flex-wrap gap-2">
                     {service.data.tags.slice(0, 3).map((tag) => (
@@ -174,6 +183,7 @@ const canonical = "https://acplumb.co.uk/services";
                     ))}
                   </div>
                 )}
+
                 <a
                   href={`/services/${service.slug}`}
                   class="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:bg-primary-700 hover:shadow-xl focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
@@ -263,13 +273,15 @@ const canonical = "https://acplumb.co.uk/services";
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
-                />
+                  />
+                </svg>
               </span>
               {category.replace("-", " ")} Services
             </h3>
           </div>
+
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {servicesByCategory[category].map((service, serviceIndex) => (
+            {servicesByCategory[category].map((service) => (
               <a
                 href={`/services/${service.slug}`}
                 class="group block"
@@ -282,11 +294,12 @@ const canonical = "https://acplumb.co.uk/services";
                 >
                   {service.data.image && (
                     <div class="relative overflow-hidden">
-                      <Image
+                      <img
                         src={service.data.image}
                         alt={service.data.alt || service.data.title}
-                        width={400}
-                        height={240}
+                        width="400"
+                        height="240"
+                        loading="lazy"
                         class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -297,6 +310,7 @@ const canonical = "https://acplumb.co.uk/services";
                       <h4 class="font-poppins text-lg font-semibold text-primary-600 transition-colors group-hover:text-primary-700">
                         {service.data.title}
                       </h4>
+
                       {service.data.featured && (
                         <span class="inline-flex items-center rounded-full bg-gradient-to-r from-accent-400 to-accent-500 px-3 py-1 text-xs font-semibold text-white shadow-sm">
                           <svg
@@ -310,10 +324,12 @@ const canonical = "https://acplumb.co.uk/services";
                         </span>
                       )}
                     </div>
+
                     <p class="mb-4 line-clamp-3 text-sm leading-relaxed text-text-00">
                       {service.data.description}
                     </p>
-                    {service.data.price > 0 && (
+
+                    {hasPrice(service.data.price) && (
                       <div class="mb-4 inline-flex items-center rounded-lg bg-primary-50 px-3 py-1">
                         <span class="text-sm font-medium text-primary-600">
                           Starting from
@@ -323,6 +339,7 @@ const canonical = "https://acplumb.co.uk/services";
                         </span>
                       </div>
                     )}
+
                     {service.data.tags && (
                       <div class="mb-4 flex flex-wrap gap-2">
                         {service.data.tags.slice(0, 3).map((tag) => (
@@ -332,6 +349,7 @@ const canonical = "https://acplumb.co.uk/services";
                         ))}
                       </div>
                     )}
+
                     <div class="flex items-center justify-between">
                       <span class="text-sm font-semibold text-primary-600 transition-colors group-hover:text-primary-500">
                         View Details
@@ -378,6 +396,7 @@ const canonical = "https://acplumb.co.uk/services";
       >
       </div>
     </div>
+
     <div class="relative z-10 mx-auto max-w-4xl">
       <div
         class="mb-6 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm"
@@ -397,6 +416,7 @@ const canonical = "https://acplumb.co.uk/services";
         </svg>
         Free Expert Consultation
       </div>
+
       <h3
         class="font-poppins text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
       >
@@ -407,6 +427,7 @@ const canonical = "https://acplumb.co.uk/services";
         help you find the perfect solution for your plumbing, heating, or gas
         needs.
       </p>
+
       <div
         class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
       >
@@ -441,6 +462,7 @@ const canonical = "https://acplumb.co.uk/services";
               d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
           </svg>
         </a>
+
         <a
           href="tel:01273123456"
           class="group inline-flex items-center gap-2 rounded-lg border-2 border-white px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-primary-600 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 focus:outline-none"
@@ -456,12 +478,13 @@ const canonical = "https://acplumb.co.uk/services";
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M3 5.25c0-1.243.757-2.25 1.75-2.25h2.5c.966 0 1.8.784 1.8 1.75v2.5c0 .966-.784 1.8-1.75 1.8H5.25c-.966 0-1.8-.784-1.8-1.75V5.25zm0 13.5c0-1.243.757-2.25 1.75-2.25h2.5c.966 0 1.8.784 1.8 1.75v2.5c0 .966-.784 1.8-1.75 1.8H5.25c-.966 0-1.8-.784-1.8-1.75v-2.5zm13.5-13.5c0-1.243.757-2.25 1.75-2.25h2.5c.966 0 1.8.784 1.8 1.75v2.5c0 .966-.784 1.8-1.75 1.8h-2.5c-.966 0-1.8-.784-1.8-1.75V5.25zm0 13.5c0-1.243.757-2.25 1.75-2.25h2.5c.966 0 1.8.784 1.8 1.75v2.5c0 .966-.784 1.8-1.75 1.8h-2.5c-.966 0-1.8-.784-1.8-1.75v-2.5z"
-            />
+            ></path>
           </svg>
           Call 01273 123 456
           <span class="text-sm opacity-75">(Free consultation)</span>
         </a>
       </div>
+
       <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
         <div class="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
           <div class="mb-2 flex justify-center">
@@ -482,6 +505,7 @@ const canonical = "https://acplumb.co.uk/services";
           <h4 class="font-semibold text-white">Gas Safe Certified</h4>
           <p class="text-sm text-primary-100">Fully qualified engineers</p>
         </div>
+
         <div class="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
           <div class="mb-2 flex justify-center">
             <svg
@@ -502,6 +526,7 @@ const canonical = "https://acplumb.co.uk/services";
             Always available when you need us
           </p>
         </div>
+
         <div class="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
           <div class="mb-2 flex justify-center">
             <svg
