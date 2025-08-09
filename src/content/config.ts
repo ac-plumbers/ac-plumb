@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { title } from "process";
 
 const services = defineCollection({
   schema: ({ image }) =>
@@ -7,6 +8,7 @@ const services = defineCollection({
       description: z.string(),
       price: z.number(),
       image: z.string().optional(),
+      alt: z.string().optional(),
       category: z.string().optional(),
       tags: z.array(z.string()).optional(),
       featured: z.boolean().optional(),

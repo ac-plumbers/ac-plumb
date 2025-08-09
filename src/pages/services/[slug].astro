@@ -41,6 +41,7 @@ type ServiceFrontmatter = {
   tags?: string[];
   featured?: boolean;
   slug?: string;
+  alt?: string;
   features?: ServiceFeature[];
   process?: ServiceStep[];
   faqs?: ServiceFaq[];
@@ -134,6 +135,7 @@ const faqs = page.data.faqs || [
     title={page.data.title}
     description={page.data.description}
     image={page.data.image ?? ""}
+    alt={page.data.alt ?? ""}
   />
 
   <!-- Main Service Content -->
