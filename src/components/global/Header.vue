@@ -123,6 +123,11 @@
                   >
                     📋 All Services
                   </a>
+                  <div
+                    class="px-4 py-1 text-xs font-semibold tracking-wide text-gray-400 uppercase"
+                  >
+                    Core Services
+                  </div>
                   <a
                     href="/services/plumbing"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
@@ -144,6 +149,13 @@
                   >
                     🏠 Central Heating Installation
                   </a>
+                  <!-- Separator with category label -->
+                  <div class="my-1 border-t border-gray-100"></div>
+                  <div
+                    class="px-4 py-1 text-xs font-semibold tracking-wide text-gray-400 uppercase"
+                  >
+                    Safety & Smart Systems
+                  </div>
                   <a
                     href="/services/gas-safety-checks-cp12"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
@@ -156,14 +168,14 @@
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    �️ Smart Thermostats
+                    🌡️ Smart Thermostats
                   </a>
                   <a
                     href="/services/renewable-air-source-heat-pump"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    � Air Source Heat Pumps
+                    🌬️ Air Source Heat Pumps
                   </a>
                 </div>
               </div>
@@ -402,6 +414,8 @@
                 >
                   🏠 Central Heating Installation
                 </a>
+                <!-- Separator -->
+                <div class="mx-3 my-2 border-t border-gray-200"></div>
                 <a
                   href="/services/gas-safety-checks-cp12"
                   :class="[
