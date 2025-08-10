@@ -1,0 +1,76 @@
+---
+export type ServicesHeroProps = {
+  title: string;
+  description: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  decorativeElements?: boolean;
+};
+
+const { title, description, ctaPrimary, ctaSecondary, decorativeElements } =
+  Astro.props as ServicesHeroProps;
+---
+
+<div
+  class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-300 via-primary-700 to-primary-800 px-8 py-16 text-center"
+>
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent"
+  >
+  </div>
+  <div class="relative z-10 mx-auto max-w-4xl">
+    <div
+      class="mb-6 inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm"
+    >
+      <svg
+        class="mr-2 h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+        ></path>
+      </svg>
+      Gas Safe Certified Engineers
+    </div>
+    <h1
+      class="font-poppins text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+    >
+      {title}
+    </h1>
+    <p
+      class="mx-auto mt-6 max-w-2xl font-inconsolata text-xl leading-8 text-primary-100"
+    >
+      {description}
+    </p>
+    <div
+      class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+    >
+      <a
+        href="#featured-services"
+        class="rounded-lg bg-white px-8 py-3 text-sm font-semibold text-primary-600 shadow-lg transition-all duration-200 hover:bg-primary-50 hover:shadow-xl focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 focus:outline-none"
+      >
+        {ctaPrimary}
+      </a>
+      <a
+        href="/contact-us"
+        class="rounded-lg border-2 border-white px-8 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-white hover:text-primary-600 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 focus:outline-none"
+      >
+        {ctaSecondary}
+      </a>
+    </div>
+  </div>
+  <!-- Decorative elements -->
+  {
+    decorativeElements && (
+      <>
+        <div class="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-white/5" />
+        <div class="absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-white/5" />
+      </>
+    )
+  }
+</div>
