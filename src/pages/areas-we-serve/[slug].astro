@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 import {
   MapPin,
   Phone,
@@ -17,6 +18,12 @@ import {
   Zap,
 } from "@lucide/astro";
 
+// Import background images
+import brightonBg from "@/images/lavori/viessmann-boiler-closeup-brighton-installation.jpeg";
+import hoveBg from "@/images/lavori/radiator-valve-installation-brass-fitting-hove.jpeg";
+import lewesBg from "@/images/lavori/vaillant-air-source-heat-pump-brighton-installation.jpeg";
+import portsladeBg from "@/images/lavori/compact-cast-iron-radiator-bee-valve-saltdean.jpeg";
+
 // Define area data
 const areaData = {
   brighton: {
@@ -24,6 +31,7 @@ const areaData = {
     title: "Plumbing & Heating Services in Brighton",
     description:
       "Professional plumbing and heating services in Brighton. Local engineers, competitive prices, reliable service.",
+    backgroundImage: brightonBg,
     neighborhoods: [
       "Brighton City Centre",
       "The Lanes",
@@ -49,6 +57,7 @@ const areaData = {
     title: "Plumbing & Heating Services in Hove",
     description:
       "Expert plumbing and heating services in Hove. Trusted local engineers serving all areas of Hove.",
+    backgroundImage: hoveBg,
     neighborhoods: [
       "Hove Centre",
       "Aldrington",
@@ -74,6 +83,7 @@ const areaData = {
     title: "Plumbing & Heating Services in Lewes",
     description:
       "Reliable plumbing and heating services in Lewes. Local engineers covering the historic town and surrounding areas.",
+    backgroundImage: lewesBg,
     neighborhoods: [
       "Lewes Town Centre",
       "Southover",
@@ -99,6 +109,7 @@ const areaData = {
     title: "Plumbing & Heating Services in Portslade",
     description:
       "Professional plumbing and heating services in Portslade. Fast, reliable service for homes and businesses.",
+    backgroundImage: portsladeBg,
     neighborhoods: [
       "Portslade Village",
       "Mile Oak",
@@ -202,36 +213,53 @@ const whyChooseUs = [
 <BaseLayout title={area.title} description={area.description}>
   <!-- Hero Section -->
   <section
-    class="mt-24 bg-gradient-to-br from-primary-50 to-white pt-16 pb-16 md:mt-28 md:pt-20 md:pb-20"
+    class="relative mt-24 overflow-hidden pt-16 pb-16 md:mt-28 md:pt-20 md:pb-20"
   >
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={area.backgroundImage}
+        alt={`Plumbing and heating work in ${area.name}`}
+        class="h-full w-full object-cover"
+        quality={85}
+        format="webp"
+      />
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-800/80 to-primary-700/70"
+      >
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <div class="mb-4 flex items-center gap-2">
-            <MapPin class="h-5 w-5 text-primary-600" />
-            <span class="font-medium text-primary-600">Serving {area.name}</span
+            <MapPin class="h-5 w-5 text-primary-100" />
+            <span class="font-medium text-primary-100">Serving {area.name}</span
             >
           </div>
 
-          <h1 class="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">
+          <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
             Plumbing & Heating in {area.name}
           </h1>
 
-          <p class="mt-6 text-lg text-gray-700 md:text-xl">
+          <p class="mt-6 text-lg text-primary-100 md:text-xl">
             {area.localInfo}
           </p>
 
           <div class="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
               href="tel:01273123456"
-              class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-700"
+              class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-primary-600 transition-colors hover:bg-gray-100"
             >
               <Phone class="h-5 w-5" />
               Call 01273 123 456
             </a>
             <a
               href="/contact-us"
-              class="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-600 px-6 py-3 font-semibold text-primary-600 transition-colors hover:bg-primary-50"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-primary-600"
             >
               Get a Quote
               <ArrowRight class="h-4 w-4" />
@@ -239,39 +267,43 @@ const whyChooseUs = [
           </div>
 
           <div
-            class="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600"
+            class="mt-6 flex flex-wrap items-center gap-4 text-sm text-primary-200"
           >
             <div class="flex items-center gap-2">
-              <CheckCircle class="h-4 w-4 text-primary-600" />
+              <CheckCircle class="h-4 w-4 text-primary-100" />
               Local {area.name} engineers
             </div>
             <div class="flex items-center gap-2">
-              <CheckCircle class="h-4 w-4 text-primary-600" />
+              <CheckCircle class="h-4 w-4 text-primary-100" />
               Same day service available
             </div>
           </div>
         </div>
 
         <div class="relative">
-          <div class="rounded-2xl bg-white p-6 shadow-xl">
-            <h3 class="mb-4 text-lg font-semibold text-gray-900">
-              Areas We Cover in {area.name}
-            </h3>
-            <div class="grid grid-cols-2 gap-3">
-              {
-                area.neighborhoods.map((neighborhood) => (
-                  <div class="flex items-center gap-2 text-sm text-gray-700">
-                    <span class="h-1.5 w-1.5 rounded-full bg-primary-600" />
-                    {neighborhood}
-                  </div>
-                ))
-              }
-            </div>
-            <div class="mt-4 border-t border-gray-200 pt-4">
-              <p class="text-sm text-gray-600">
-                <strong>Postcodes:</strong>
-                {area.postcodes.join(", ")}
-              </p>
+          <div class="relative">
+            <div
+              class="rounded-2xl border border-white/20 bg-white/95 p-6 shadow-xl backdrop-blur-sm"
+            >
+              <h3 class="mb-4 text-lg font-semibold text-gray-900">
+                Areas We Cover in {area.name}
+              </h3>
+              <div class="grid grid-cols-2 gap-3">
+                {
+                  area.neighborhoods.map((neighborhood) => (
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                      <span class="h-1.5 w-1.5 rounded-full bg-primary-600" />
+                      {neighborhood}
+                    </div>
+                  ))
+                }
+              </div>
+              <div class="mt-4 border-t border-gray-200 pt-4">
+                <p class="text-sm text-gray-600">
+                  <strong>Postcodes:</strong>
+                  {area.postcodes.join(", ")}
+                </p>
+              </div>
             </div>
           </div>
         </div>
