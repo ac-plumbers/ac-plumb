@@ -19,7 +19,7 @@
           <!-- Logo link -->
           <a
             href="/"
-            class="default-link -m-1.5 inline-flex flex-shrink-0 items-center p-1.5"
+            class="default-link ml-4 inline-flex flex-shrink-0 items-center p-2"
           >
             <span class="sr-only">AC Plumbers Ltd</span>
             <img

@@ -38,12 +38,12 @@
 
 [[redirects]]
   from = "/boilers/"
-  to = "/services/boilers/"
+  to = "/services/gas-boiler-installation/"
   status = 301
 
 [[redirects]]
   from = "/boilers"
-  to = "/services/boilers/"
+  to = "/services/gas-boiler-installation/"
   status = 301
 
 [[redirects]]
