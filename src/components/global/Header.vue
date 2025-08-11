@@ -10,10 +10,10 @@
   <header class="absolute inset-x-0 top-0 z-50">
     <div class="w-full">
       <div
-        class="backdrop- 🌱 Air Source Heat Pumps 🌡️ Smart Thermostatslur-md border-b border-white/20 bg-gradient-to-r from-white/95 via-blue-50/95 to-white/95 px-6 pt-6 shadow-lg lg:pr-8 lg:pl-8"
+        class="border-b border-white/20 bg-gradient-to-r from-white/95 via-blue-50/95 to-white/95 px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
       >
         <nav
-          class="flex items-center justify-between space-x-4 py-2"
+          class="flex items-center justify-between space-x-4 py-1"
           aria-label="Global"
         >
           <!-- Logo link -->
