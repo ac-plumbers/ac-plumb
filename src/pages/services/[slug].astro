@@ -53,7 +53,10 @@ const { page, allServices } = Astro.props as {
     slug: string;
     render: () => Promise<{ Content: any }>;
   };
-  allServices: { data: ServiceFrontmatter; slug: string }[];
+  allServices: Array<{
+    data: ServiceFrontmatter;
+    slug: string;
+  }>;
 };
 const { Content } = await page.render();
 
@@ -127,6 +130,134 @@ const faqs = page.data.faqs || [
       "We offer 24/7 emergency service with typical response times of 1-2 hours for urgent situations.",
   },
 ];
+
+// Define types for service content
+type ServiceContent = {
+  intro: string;
+  benefits: string[];
+  specialties: string[];
+};
+
+type ServiceContentMap = {
+  [key: string]: ServiceContent;
+};
+
+// Personalized content based on service type
+const serviceContent: ServiceContentMap = {
+  "gas-boiler-installation": {
+    intro:
+      "Our gas boiler installation service combines cutting-edge technology with decades of experience. We specialize in high-efficiency condensing boilers from leading manufacturers like Vaillant, Worcester Bosch, and Ideal, ensuring your home stays warm while reducing energy bills.",
+    benefits: [
+      "Gas Safe registered engineers",
+      "10-year manufacturer warranties",
+      "Energy efficiency ratings up to A++",
+      "Same-day emergency replacements",
+    ],
+    specialties: [
+      "Combi, system & conventional boilers",
+      "Smart thermostat integration",
+      "PowerFlushing included",
+      "Building regulations compliance",
+    ],
+  },
+  "central-heating-installation": {
+    intro:
+      "Transform your home with our comprehensive central heating installation service. From radiator positioning to pipe routing, we design systems that deliver consistent warmth throughout your property while maximizing energy efficiency.",
+    benefits: [
+      "Bespoke system design",
+      "Premium radiator selection",
+      "Intelligent zoning options",
+      "Minimal disruption installation",
+    ],
+    specialties: [
+      "Underfloor heating systems",
+      "Smart radiator valves",
+      "Cast iron & designer radiators",
+      "Wet room heating solutions",
+    ],
+  },
+  "renewable-air-source-heat-pump": {
+    intro:
+      "Future-proof your home with our renewable air source heat pump installations. These eco-friendly systems can reduce your heating costs by up to 50% while significantly lowering your carbon footprint.",
+    benefits: [
+      "MCS certified installations",
+      "Government grant eligible",
+      "Up to 400% efficiency ratings",
+      "Low maintenance operation",
+    ],
+    specialties: [
+      "Mitsubishi & Daikin heat pumps",
+      "Hybrid heat pump systems",
+      "Hot water cylinder integration",
+      "Smart home compatibility",
+    ],
+  },
+  "smart-thermostats": {
+    intro:
+      "Upgrade to intelligent heating control with our smart thermostat installation service. Take command of your comfort and energy usage with programmable, learning, and remote-controlled heating systems.",
+    benefits: [
+      "Professional setup & configuration",
+      "Energy usage monitoring",
+      "Smartphone app integration",
+      "Potential 15-20% energy savings",
+    ],
+    specialties: [
+      "Nest, Hive & Tado thermostats",
+      "Multi-zone control systems",
+      "Voice assistant integration",
+      "Existing system compatibility",
+    ],
+  },
+  "gas-safety-checks-cp12": {
+    intro:
+      "Ensure your property meets legal safety requirements with our comprehensive CP12 gas safety inspections. Our Gas Safe engineers provide thorough checks and immediate certification for landlords and homeowners.",
+    benefits: [
+      "Same-day certification",
+      "Comprehensive safety reports",
+      "Defect rectification service",
+      "Landlord compliance assurance",
+    ],
+    specialties: [
+      "Annual CP12 certificates",
+      "Gas appliance servicing",
+      "Emergency safety disconnections",
+      "Commercial property inspections",
+    ],
+  },
+  "all-aspects-of-plumbing-heating-and-gas": {
+    intro:
+      "Your one-stop solution for all plumbing, heating, and gas requirements. From emergency repairs to complete system installations, our multi-skilled engineers handle every aspect of your property's essential services.",
+    benefits: [
+      "All trades under one roof",
+      "Emergency 24/7 response",
+      "Comprehensive maintenance plans",
+      "Single point of contact",
+    ],
+    specialties: [
+      "Bathroom installations",
+      "Leak detection & repair",
+      "Boiler servicing & repairs",
+      "Gas safety & installations",
+    ],
+  },
+};
+
+// Get personalized content or fallback to generic
+const currentServiceContent: ServiceContent = serviceContent[page.slug] || {
+  intro: `Our professional ${page.data.title.toLowerCase()} service ensures quality, safety, and reliability. We use industry-leading techniques and equipment to deliver exceptional results for our customers in Brighton and surrounding areas.`,
+  benefits: [
+    "Fully qualified professionals",
+    "Quality guarantee",
+    "Competitive pricing",
+    "Emergency availability",
+  ],
+  specialties: [
+    "Professional installation",
+    "Maintenance services",
+    "Emergency repairs",
+    "Quality assurance",
+  ],
+};
 ---
 
 <ServicesLayout frontmatter={page.data}>
@@ -139,9 +270,100 @@ const faqs = page.data.faqs || [
   />
 
   <!-- Main Service Content -->
-  <div id="service-details" class="prose prose-lg mx-auto max-w-3xl py-12">
-    <Content />
-  </div>
+  <section class="bg-neutral-50 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="rounded-xl bg-white p-8 shadow-lg">
+            <div class="mb-8">
+              <h2 class="mb-4 text-2xl font-bold text-primary-900">
+                About This Service
+              </h2>
+              <p class="text-lg leading-relaxed text-neutral-700">
+                {currentServiceContent.intro}
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div class="rounded-lg bg-primary-50 p-6">
+                <h3 class="mb-3 text-lg font-semibold text-primary-900">
+                  Why Choose Us?
+                </h3>
+                <ul class="space-y-2">
+                  {
+                    currentServiceContent.benefits.map((benefit) => (
+                      <li class="flex items-center text-neutral-700">
+                        <svg
+                          class="mr-2 h-5 w-5 text-accent-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                        {benefit}
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+
+              <div class="rounded-lg bg-accent-50 p-6">
+                <h3 class="mb-3 text-lg font-semibold text-primary-900">
+                  Our Specialties
+                </h3>
+                <ul class="space-y-1 text-neutral-700">
+                  {
+                    currentServiceContent.specialties.map((specialty) => (
+                      <li>• {specialty}</li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 rounded-xl bg-primary-900 p-6 text-white">
+            <h3 class="mb-4 text-lg font-semibold">Quick Contact</h3>
+            <p class="mb-4 text-primary-200">Need immediate assistance?</p>
+            <a
+              href="/contact-us"
+              class="mb-4 block w-full rounded-lg bg-accent-500 px-4 py-3 text-center font-semibold text-white transition-colors duration-200 hover:bg-accent-400"
+            >
+              Get Quote
+            </a>
+
+            <div class="mt-4 border-t border-primary-700 pt-4">
+              <h4 class="mb-2 font-semibold">Service Hours</h4>
+              <p class="mb-2 text-sm text-primary-200">
+                Monday - Friday: 7AM - 6PM
+              </p>
+              <p class="mb-2 text-sm text-primary-200">Saturday: 8AM - 4PM</p>
+              <p class="text-sm text-primary-200">Sunday: Emergency only</p>
+            </div>
+
+            <div class="mt-4 border-t border-primary-700 pt-4">
+              <h4 class="mb-2 font-semibold">Emergency Service</h4>
+              <p class="mb-2 text-sm text-primary-200">24/7 availability</p>
+              <a
+                href="tel:01273123456"
+                class="font-semibold text-accent-400 hover:text-accent-300"
+              >
+                01273 123 456
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Key Features/Benefits -->
   <ServiceFeaturesList features={features} />
