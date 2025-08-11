@@ -25,166 +25,168 @@ const { servicesByCategory } = Astro.props;
 ---
 
 <section class="bg-gray-50/50 py-20">
-  <div class="mx-auto mb-16 max-w-3xl text-center">
-    <div
-      class="mb-4 inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-medium text-primary-700"
-    >
-      <svg
-        class="mr-2 h-4 w-4"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto mb-16 max-w-3xl text-center">
+      <div
+        class="mb-4 inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-sm font-medium text-primary-700"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
-        ></path>
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6 6h.008v.008H6V6z"></path>
-      </svg>
-      Complete Service Range
+        <svg
+          class="mr-2 h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 6h.008v.008H6V6z"></path>
+        </svg>
+        Complete Service Range
+      </div>
+      <h2
+        class="font-poppins text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl"
+      >
+        All Our Professional Services
+      </h2>
+      <p class="mt-6 text-xl leading-8 text-text-00">
+        Comprehensive solutions for all your plumbing, heating, and gas needs in
+        Brighton & Hove
+      </p>
     </div>
-    <h2
-      class="font-poppins text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl"
-    >
-      All Our Professional Services
-    </h2>
-    <p class="mt-6 text-xl leading-8 text-text-00">
-      Comprehensive solutions for all your plumbing, heating, and gas needs in
-      Brighton & Hove
-    </p>
-  </div>
 
-  {
-    Object.keys(servicesByCategory).map((category, categoryIndex) => (
-      <div class="mb-16">
-        <div class="mb-8 text-center">
-          <h3
-            class={`inline-flex items-center gap-3 font-poppins text-3xl font-bold capitalize ${
-              categoryIndex % 2 === 0 ? "text-primary-600" : "text-accent-600"
-            }`}
-          >
-            <span
-              class={`flex h-10 w-10 items-center justify-center rounded-lg ${
-                categoryIndex % 2 === 0 ? "bg-primary-100" : "bg-accent-100"
+    {
+      Object.keys(servicesByCategory).map((category, categoryIndex) => (
+        <div class="mb-16">
+          <div class="mb-8 text-center">
+            <h3
+              class={`inline-flex items-center gap-3 font-poppins text-3xl font-bold capitalize ${
+                categoryIndex % 2 === 0 ? "text-primary-600" : "text-accent-600"
               }`}
             >
-              <svg
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
-                />
-              </svg>
-            </span>
-            {category.replace("-", " ")} Services
-          </h3>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {servicesByCategory[category].map((service) => (
-            <a
-              href={`/services/${service.slug}`}
-              class="group block"
-              aria-label={`View details for ${service.data.title}`}
-            >
-              <div
-                class={`relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                  service.data.featured ? "ring-2 ring-accent-200" : ""
+              <span
+                class={`flex h-10 w-10 items-center justify-center rounded-lg ${
+                  categoryIndex % 2 === 0 ? "bg-primary-100" : "bg-accent-100"
                 }`}
               >
-                {service.data.image && (
-                  <div class="relative overflow-hidden">
-                    <img
-                      src={service.data.image}
-                      alt={service.data.alt || service.data.title}
-                      width="400"
-                      height="240"
-                      loading="lazy"
-                      class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  </div>
-                )}
-                <div class="p-6">
-                  <div class="mb-3 flex items-start justify-between">
-                    <h4 class="font-poppins text-lg font-semibold text-primary-600 transition-colors group-hover:text-primary-700">
-                      {service.data.title}
-                    </h4>
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+                  />
+                </svg>
+              </span>
+              {category.replace("-", " ")} Services
+            </h3>
+          </div>
 
-                    {service.data.featured && (
-                      <span class="inline-flex items-center rounded-full bg-gradient-to-r from-accent-400 to-accent-500 px-3 py-1 text-xs font-semibold text-white shadow-sm">
-                        <svg
-                          class="mr-1 h-3 w-3"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        Popular
-                      </span>
-                    )}
-                  </div>
-
-                  <p class="mb-4 line-clamp-3 text-sm leading-relaxed text-text-00">
-                    {service.data.description}
-                  </p>
-
-                  {hasPrice(service.data.price) && (
-                    <div class="mb-4 inline-flex items-center rounded-lg bg-primary-50 px-3 py-1">
-                      <span class="text-sm font-medium text-primary-600">
-                        Starting from
-                      </span>
-                      <span class="ml-1 font-bold text-primary-600">
-                        £{service.data.price}
-                      </span>
-                    </div>
-                  )}
-
-                  {service.data.tags && (
-                    <div class="mb-4 flex flex-wrap gap-2">
-                      {service.data.tags.slice(0, 3).map((tag) => (
-                        <span class="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold text-primary-600 transition-colors group-hover:text-primary-500">
-                      View Details
-                    </span>
-                    <svg
-                      class="h-5 w-5 text-primary-600 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-500"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {servicesByCategory[category].map((service) => (
+              <a
+                href={`/services/${service.slug}`}
+                class="group block"
+                aria-label={`View details for ${service.data.title}`}
+              >
+                <div
+                  class={`relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+                    service.data.featured ? "ring-2 ring-accent-200" : ""
+                  }`}
+                >
+                  {service.data.image && (
+                    <div class="relative overflow-hidden">
+                      <img
+                        src={service.data.image}
+                        alt={service.data.alt || service.data.title}
+                        width="400"
+                        height="240"
+                        loading="lazy"
+                        class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                    </svg>
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </div>
+                  )}
+                  <div class="p-6">
+                    <div class="mb-3 flex items-start justify-between">
+                      <h4 class="font-poppins text-lg font-semibold text-primary-600 transition-colors group-hover:text-primary-700">
+                        {service.data.title}
+                      </h4>
+
+                      {service.data.featured && (
+                        <span class="inline-flex items-center rounded-full bg-gradient-to-r from-accent-400 to-accent-500 px-3 py-1 text-xs font-semibold text-white shadow-sm">
+                          <svg
+                            class="mr-1 h-3 w-3"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          Popular
+                        </span>
+                      )}
+                    </div>
+
+                    <p class="mb-4 line-clamp-3 text-sm leading-relaxed text-text-00">
+                      {service.data.description}
+                    </p>
+
+                    {hasPrice(service.data.price) && (
+                      <div class="mb-4 inline-flex items-center rounded-lg bg-primary-50 px-3 py-1">
+                        <span class="text-sm font-medium text-primary-600">
+                          Starting from
+                        </span>
+                        <span class="ml-1 font-bold text-primary-600">
+                          £{service.data.price}
+                        </span>
+                      </div>
+                    )}
+
+                    {service.data.tags && (
+                      <div class="mb-4 flex flex-wrap gap-2">
+                        {service.data.tags.slice(0, 3).map((tag) => (
+                          <span class="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm font-semibold text-primary-600 transition-colors group-hover:text-primary-500">
+                        View Details
+                      </span>
+                      <svg
+                        class="h-5 w-5 text-primary-600 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    ))
-  }
+      ))
+    }
+  </div>
 </section>
