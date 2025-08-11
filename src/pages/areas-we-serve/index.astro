@@ -1,0 +1,505 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  MapPin,
+  Phone,
+  CheckCircle,
+  Star,
+  ArrowRight,
+  Shield,
+  Wrench,
+  Thermometer,
+  Flame,
+  Users,
+  Award,
+} from "@lucide/astro";
+
+type ServiceLevel = "Priority" | "Standard" | "Extended";
+type ServiceArea = {
+  zone: string;
+  coverage: string[];
+  response: string;
+  level: ServiceLevel;
+};
+
+const serviceAreas: ServiceArea[] = [
+  {
+    zone: "Central Brighton & Hove",
+    coverage: [
+      "Brighton City Centre",
+      "The Lanes",
+      "North Laine",
+      "Hove Centre",
+      "Preston",
+      "Seven Dials",
+    ],
+    response: "15–20 minutes",
+    level: "Priority",
+  },
+  {
+    zone: "Brighton Seafront",
+    coverage: [
+      "Kemp Town",
+      "Marine Parade",
+      "Eastern Road",
+      "Roedean",
+      "Brighton Marina",
+    ],
+    response: "20–25 minutes",
+    level: "Standard",
+  },
+  {
+    zone: "North Brighton",
+    coverage: [
+      "Preston Park",
+      "Withdean",
+      "Patcham",
+      "Hollingbury",
+      "Fiveways",
+    ],
+    response: "20–30 minutes",
+    level: "Standard",
+  },
+  {
+    zone: "West Areas",
+    coverage: [
+      "Portslade",
+      "Mile Oak",
+      "Southwick",
+      "Fishersgate",
+      "Aldrington",
+    ],
+    response: "25–35 minutes",
+    level: "Extended",
+  },
+  {
+    zone: "East Areas",
+    coverage: [
+      "Saltdean",
+      "Rottingdean",
+      "Peacehaven",
+      "Telscombe Cliffs",
+      "Ovingdean",
+    ],
+    response: "30–40 minutes",
+    level: "Extended",
+  },
+];
+
+const extendedAreas: string[] = [
+  "Lewes",
+  "Burgess Hill",
+  "Hassocks",
+  "Ditchling",
+  "Falmer",
+  "Woodingdean",
+  "Stanmer",
+  "Coldean",
+  "Moulsecoomb",
+  "Bevendean",
+  "Newhaven",
+];
+
+const whyChooseUs = [
+  {
+    icon: Shield,
+    title: "Gas Safe & Insured",
+    description:
+      "Fully qualified, insured and compliant across all areas we serve.",
+  },
+  {
+    icon: Users,
+    title: "Local Engineers",
+    description:
+      "Brighton & Hove based team for quicker travel and better support.",
+  },
+  {
+    icon: Award,
+    title: "Trusted Service",
+    description:
+      "Established reputation with thousands of satisfied customers.",
+  },
+  {
+    icon: Wrench,
+    title: "Quality Workmanship",
+    description: "Professional work with guarantees and follow-up support.",
+  },
+];
+
+const allServices = [
+  { icon: Wrench, label: "Emergency Plumbing" },
+  { icon: Thermometer, label: "Boiler Installation" },
+  { icon: Flame, label: "Heating & Radiators" },
+  { icon: Shield, label: "Gas Safety Checks" },
+];
+---
+
+<BaseLayout
+  title="Areas We Serve | AC Plumbers Ltd. Brighton"
+  description="Plumbing and heating services across Brighton, Hove and nearby areas. Local engineers, transparent pricing, reliable service."
+>
+  <!-- Hero Section -->
+  <section
+    class="mt-24 bg-gradient-to-br from-primary-50 to-white pt-16 pb-16 md:mt-28 md:pt-20 md:pb-20"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <h1 class="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">
+            Areas We Serve
+          </h1>
+          <p class="mt-6 text-lg text-gray-700 md:text-xl">
+            Professional plumbing and heating services across Brighton, Hove and
+            surrounding areas with transparent pricing and reliable local
+            service.
+          </p>
+
+          <!-- Quick stats -->
+          <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-2">
+            <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+              <div class="text-2xl font-bold text-primary-600">5+</div>
+              <div class="text-sm text-gray-600">Coverage Zones</div>
+            </div>
+            <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+              <div class="text-2xl font-bold text-primary-600">100%</div>
+              <div class="text-sm text-gray-600">Local Service</div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="tel:01273123456"
+              class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-700"
+              aria-label="Call AC Plumbers Brighton now"
+            >
+              <Phone class="h-5 w-5" />
+              Call 01273 123 456
+            </a>
+            <a
+              href="/contact-us"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-600 px-6 py-3 font-semibold text-primary-600 transition-colors hover:bg-primary-50"
+            >
+              Get a Quote
+              <ArrowRight class="h-4 w-4" />
+            </a>
+          </div>
+
+          <div
+            class="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600"
+          >
+            <div class="flex items-center gap-2">
+              <CheckCircle class="h-4 w-4 text-primary-600" />
+              No hidden travel fees
+            </div>
+            <div class="flex items-center gap-2">
+              <CheckCircle class="h-4 w-4 text-primary-600" />
+              Free quotes & estimates
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="rounded-2xl bg-white p-6 shadow-xl">
+            <h3 class="mb-4 text-lg font-semibold text-gray-900">
+              Our Service Areas
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span
+                  class="rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-800"
+                >
+                  Priority
+                </span>
+                <span class="text-gray-700">Central Brighton & Hove</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span
+                  class="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-800"
+                >
+                  Standard
+                </span>
+                <span class="text-gray-700">Surrounding Areas</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span
+                  class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-800"
+                >
+                  Extended
+                </span>
+                <span class="text-gray-700">Nearby Towns</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Why Choose AC Plumbers?
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Local expertise you can trust across all our coverage areas
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {
+          whyChooseUs.map((point) => {
+            const Icon = point.icon;
+            return (
+              <div class="text-center">
+                <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100">
+                  <Icon class="h-8 w-8 text-primary-600" />
+                </div>
+                <h3 class="mb-2 text-lg font-semibold text-gray-900">
+                  {point.title}
+                </h3>
+                <p class="text-gray-600">{point.description}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Primary Coverage Areas -->
+  <section class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Primary Coverage Areas
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Detailed breakdown of our service zones across Brighton & Hove
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {
+          serviceAreas.map((area) => (
+            <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h3 class="mb-2 flex items-center gap-3 text-xl font-semibold text-gray-900">
+                    <MapPin class="h-6 w-6 text-primary-600" />
+                    {area.zone}
+                  </h3>
+                  <div class="flex flex-wrap gap-3">
+                    {area.coverage.map((location) => (
+                      <span class="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
+                        <span class="h-1.5 w-1.5 rounded-full bg-primary-600" />
+                        {location}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span
+                    class={`rounded-full px-3 py-1 text-sm font-semibold ${
+                      area.level === "Priority"
+                        ? "bg-green-100 text-green-800"
+                        : area.level === "Standard"
+                          ? "bg-blue-100 text-blue-800"
+                          : "bg-gray-100 text-gray-800"
+                    }`}
+                  >
+                    {area.level}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Available -->
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Services Available Everywhere We Cover
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Same quality standards in every location
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+        {
+          allServices.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center transition-colors hover:border-primary-300 hover:bg-primary-50">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100">
+                  <Icon class="h-6 w-6 text-primary-600" />
+                </div>
+                <p class="font-medium text-gray-900">{service.label}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Extended Coverage -->
+  <section class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Extended Coverage Areas
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          We also serve nearby towns and surrounding areas
+        </p>
+      </div>
+
+      <div class="rounded-xl bg-white p-8 shadow-sm">
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          {
+            extendedAreas.map((area) => (
+              <div class="flex items-center gap-3 rounded-lg border border-gray-200 p-4">
+                <Star class="h-5 w-5 text-primary-600" />
+                <span class="font-medium text-gray-900">{area}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 rounded-lg bg-blue-50 p-6 text-center">
+          <p class="text-blue-800">
+            Not sure if we cover your area?
+            <a
+              href="/contact-us"
+              class="font-semibold text-blue-900 underline hover:text-blue-700"
+            >
+              Contact us
+            </a>
+            and we'll confirm availability for your location.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Service Area FAQs
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <details class="group rounded-lg border border-gray-200 bg-gray-50 p-6">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between gap-4"
+          >
+            <span class="text-lg font-semibold text-gray-900">
+              Do you charge extra for travel in Brighton & Hove?
+            </span>
+            <ArrowRight
+              class="h-5 w-5 text-gray-400 transition-transform group-open:rotate-90"
+            />
+          </summary>
+          <p class="mt-4 text-gray-700">
+            No additional travel fees within our core Brighton & Hove coverage
+            areas. For extended areas, we'll confirm any small surcharge before
+            booking—always transparent, no surprises.
+          </p>
+        </details>
+
+        <details class="group rounded-lg border border-gray-200 bg-gray-50 p-6">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between gap-4"
+          >
+            <span class="text-lg font-semibold text-gray-900">
+              Do you work evenings and weekends?
+            </span>
+            <ArrowRight
+              class="h-5 w-5 text-gray-400 transition-transform group-open:rotate-90"
+            />
+          </summary>
+          <p class="mt-4 text-gray-700">
+            Yes, we offer flexible appointments for planned work, including
+            evenings and weekends to suit your schedule.
+          </p>
+        </details>
+
+        <details class="group rounded-lg border border-gray-200 bg-gray-50 p-6">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between gap-4"
+          >
+            <span class="text-lg font-semibold text-gray-900">
+              What if my area isn't listed?
+            </span>
+            <ArrowRight
+              class="h-5 w-5 text-gray-400 transition-transform group-open:rotate-90"
+            />
+          </summary>
+          <p class="mt-4 text-gray-700">
+            Get in touch with your postcode. If we're nearby or have engineer
+            capacity in your area, we'll try to help or recommend a trusted
+            partner from our network.
+          </p>
+        </details>
+
+        <details class="group rounded-lg border border-gray-200 bg-gray-50 p-6">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between gap-4"
+          >
+            <span class="text-lg font-semibold text-gray-900">
+              What services do you offer in all areas?
+            </span>
+            <ArrowRight
+              class="h-5 w-5 text-gray-400 transition-transform group-open:rotate-90"
+            />
+          </summary>
+          <p class="mt-4 text-gray-700">
+            We offer the full range of plumbing and heating services across all
+            our coverage areas, including boiler installation, repairs, heating
+            systems, and gas safety checks.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-gradient-to-r from-primary-600 to-primary-700 py-16">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white md:text-4xl">
+        Ready to Book a Local Plumber?
+      </h2>
+      <p class="mt-4 text-xl text-primary-100">
+        Tell us where you are and what you need. We'll confirm the earliest
+        available slot.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <a
+          href="tel:01273123456"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-primary-600 transition-colors hover:bg-gray-100"
+        >
+          <Phone class="h-5 w-5" />
+          Call 01273 123 456
+        </a>
+        <a
+          href="/contact-us"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-primary-600"
+        >
+          Get a Quote
+          <ArrowRight class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

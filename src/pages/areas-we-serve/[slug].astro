@@ -1,0 +1,406 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  MapPin,
+  Phone,
+  CheckCircle,
+  Star,
+  ArrowRight,
+  Shield,
+  Wrench,
+  Thermometer,
+  Flame,
+  Users,
+  Award,
+  Home,
+  Building,
+  Zap,
+} from "@lucide/astro";
+
+// Define area data
+const areaData = {
+  brighton: {
+    name: "Brighton",
+    title: "Plumbing & Heating Services in Brighton",
+    description:
+      "Professional plumbing and heating services in Brighton. Local engineers, competitive prices, reliable service.",
+    neighborhoods: [
+      "Brighton City Centre",
+      "The Lanes",
+      "North Laine",
+      "Preston",
+      "Seven Dials",
+      "Kemp Town",
+      "Hanover",
+      "Round Hill",
+    ],
+    postcodes: ["BN1", "BN2", "BN3"],
+    specialties: [
+      "Historic property plumbing",
+      "Victorian house heating",
+      "City centre emergency calls",
+      "Apartment block services",
+    ],
+    localInfo:
+      "Brighton's mix of historic and modern properties requires specialized knowledge. Our local engineers understand the unique challenges of Victorian terraces, seafront apartments, and city centre buildings.",
+  },
+  hove: {
+    name: "Hove",
+    title: "Plumbing & Heating Services in Hove",
+    description:
+      "Expert plumbing and heating services in Hove. Trusted local engineers serving all areas of Hove.",
+    neighborhoods: [
+      "Hove Centre",
+      "Aldrington",
+      "Goldstone",
+      "Hangleton",
+      "West Blatchington",
+      "Knoll",
+      "Brunswick",
+      "Portland Road",
+    ],
+    postcodes: ["BN3"],
+    specialties: [
+      "Period property heating",
+      "Seafront apartment plumbing",
+      "Family home installations",
+      "Hove park area services",
+    ],
+    localInfo:
+      "Hove's beautiful Regency and Victorian properties require careful, expert attention. We specialize in maintaining and upgrading heating systems while preserving the character of these historic homes.",
+  },
+  lewes: {
+    name: "Lewes",
+    title: "Plumbing & Heating Services in Lewes",
+    description:
+      "Reliable plumbing and heating services in Lewes. Local engineers covering the historic town and surrounding areas.",
+    neighborhoods: [
+      "Lewes Town Centre",
+      "Southover",
+      "Cliffe",
+      "South Malling",
+      "Landport",
+      "Nevill",
+      "Wallands Park",
+      "Barcombe",
+    ],
+    postcodes: ["BN7", "BN8"],
+    specialties: [
+      "Historic building heating",
+      "Rural property services",
+      "Oil to gas conversions",
+      "Listed building compliance",
+    ],
+    localInfo:
+      "Lewes combines historic charm with modern living needs. Our experienced team handles everything from listed building compliance to rural property challenges with care and expertise.",
+  },
+  portslade: {
+    name: "Portslade",
+    title: "Plumbing & Heating Services in Portslade",
+    description:
+      "Professional plumbing and heating services in Portslade. Fast, reliable service for homes and businesses.",
+    neighborhoods: [
+      "Portslade Village",
+      "Mile Oak",
+      "Southwick",
+      "Fishersgate",
+      "Portslade Station",
+      "North Portslade",
+      "South Portslade",
+      "West Hove",
+    ],
+    postcodes: ["BN41", "BN42"],
+    specialties: [
+      "Family home heating",
+      "New build installations",
+      "Commercial properties",
+      "Coastal area maintenance",
+    ],
+    localInfo:
+      "Portslade's growing community of families and professionals needs reliable, affordable plumbing services. We provide comprehensive coverage from traditional homes to modern developments.",
+  },
+};
+
+// Dynamic routing
+export async function getStaticPaths() {
+  const areas = [
+    { slug: "brighton" },
+    { slug: "hove" },
+    { slug: "lewes" },
+    { slug: "portslade" },
+  ];
+
+  return areas.map((area) => ({
+    params: { slug: area.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const area = areaData[slug as keyof typeof areaData];
+
+if (!area) {
+  throw new Error(`Area ${slug} not found`);
+}
+
+const services = [
+  {
+    icon: Thermometer,
+    name: "Boiler Installation",
+    desc: "New boiler installations with warranty",
+  },
+  {
+    icon: Wrench,
+    name: "Emergency Repairs",
+    desc: "24/7 emergency plumbing repairs",
+  },
+  {
+    icon: Flame,
+    name: "Heating Systems",
+    desc: "Central heating installation & repair",
+  },
+  {
+    icon: Shield,
+    name: "Gas Safety",
+    desc: "Gas safety checks and certificates",
+  },
+  {
+    icon: Zap,
+    name: "Electrical Work",
+    desc: "Electrical work for heating systems",
+  },
+  {
+    icon: Home,
+    name: "Bathroom Fitting",
+    desc: "Complete bathroom installations",
+  },
+];
+
+const whyChooseUs = [
+  {
+    icon: MapPin,
+    title: "Local to " + area.name,
+    desc: "Based locally with fast response times",
+  },
+  {
+    icon: Shield,
+    title: "Fully Insured",
+    desc: "Comprehensive insurance and Gas Safe registered",
+  },
+  {
+    icon: Award,
+    title: "Quality Guaranteed",
+    desc: "All work comes with our quality guarantee",
+  },
+  {
+    icon: Users,
+    title: "Trusted Engineers",
+    desc: "Experienced, friendly, professional team",
+  },
+];
+---
+
+<BaseLayout title={area.title} description={area.description}>
+  <!-- Hero Section -->
+  <section
+    class="mt-24 bg-gradient-to-br from-primary-50 to-white pt-16 pb-16 md:mt-28 md:pt-20 md:pb-20"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <div class="mb-4 flex items-center gap-2">
+            <MapPin class="h-5 w-5 text-primary-600" />
+            <span class="font-medium text-primary-600">Serving {area.name}</span
+            >
+          </div>
+
+          <h1 class="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">
+            Plumbing & Heating in {area.name}
+          </h1>
+
+          <p class="mt-6 text-lg text-gray-700 md:text-xl">
+            {area.localInfo}
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="tel:01273123456"
+              class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-700"
+            >
+              <Phone class="h-5 w-5" />
+              Call 01273 123 456
+            </a>
+            <a
+              href="/contact-us"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-600 px-6 py-3 font-semibold text-primary-600 transition-colors hover:bg-primary-50"
+            >
+              Get a Quote
+              <ArrowRight class="h-4 w-4" />
+            </a>
+          </div>
+
+          <div
+            class="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600"
+          >
+            <div class="flex items-center gap-2">
+              <CheckCircle class="h-4 w-4 text-primary-600" />
+              Local {area.name} engineers
+            </div>
+            <div class="flex items-center gap-2">
+              <CheckCircle class="h-4 w-4 text-primary-600" />
+              Same day service available
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="rounded-2xl bg-white p-6 shadow-xl">
+            <h3 class="mb-4 text-lg font-semibold text-gray-900">
+              Areas We Cover in {area.name}
+            </h3>
+            <div class="grid grid-cols-2 gap-3">
+              {
+                area.neighborhoods.map((neighborhood) => (
+                  <div class="flex items-center gap-2 text-sm text-gray-700">
+                    <span class="h-1.5 w-1.5 rounded-full bg-primary-600" />
+                    {neighborhood}
+                  </div>
+                ))
+              }
+            </div>
+            <div class="mt-4 border-t border-gray-200 pt-4">
+              <p class="text-sm text-gray-600">
+                <strong>Postcodes:</strong>
+                {area.postcodes.join(", ")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Our Services in {area.name}
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Comprehensive plumbing and heating services for {area.name} residents
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 transition-colors hover:border-primary-300 hover:bg-primary-50">
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100">
+                  <Icon class="h-6 w-6 text-primary-600" />
+                </div>
+                <h3 class="mb-2 text-lg font-semibold text-gray-900">
+                  {service.name}
+                </h3>
+                <p class="text-gray-600">{service.desc}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Specialties -->
+  <section class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          {area.name} Specialties
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Specialized services for {area.name}'s unique properties and needs
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {
+          area.specialties.map((specialty) => (
+            <div class="rounded-lg bg-white p-6 text-center shadow-sm">
+              <Star class="mx-auto mb-3 h-8 w-8 text-primary-600" />
+              <h3 class="font-semibold text-gray-900">{specialty}</h3>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Why Choose Us in {area.name}?
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Local expertise and professional service you can trust
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {
+          whyChooseUs.map((point) => {
+            const Icon = point.icon;
+            return (
+              <div class="text-center">
+                <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100">
+                  <Icon class="h-8 w-8 text-primary-600" />
+                </div>
+                <h3 class="mb-2 text-lg font-semibold text-gray-900">
+                  {point.title}
+                </h3>
+                <p class="text-gray-600">{point.desc}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary-600 py-16">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white md:text-4xl">
+        Need a Plumber in {area.name}?
+      </h2>
+      <p class="mt-4 text-xl text-primary-100">
+        Get in touch today for a free quote on your plumbing or heating needs.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <a
+          href="tel:01273123456"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-primary-600 transition-colors hover:bg-gray-100"
+        >
+          <Phone class="h-5 w-5" />
+          Call Now: 01273 123 456
+        </a>
+        <a
+          href="/contact-us"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-primary-600"
+        >
+          Request Quote
+          <ArrowRight class="h-4 w-4" />
+        </a>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-primary-100">
+          Serving all areas of {area.name} • Same day service available • Free quotes
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
