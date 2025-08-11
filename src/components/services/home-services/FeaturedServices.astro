@@ -1,0 +1,133 @@
+---
+export interface Props {
+  featuredServices: Array<{
+    id: string;
+    slug: string;
+    collection: "services";
+    data: {
+      title: string;
+      description: string;
+      price?: number;
+      image?: string;
+      tags?: string[];
+      alt?: string;
+      featured?: boolean;
+      category?: string;
+    };
+  }>;
+}
+
+const { featuredServices } = Astro.props;
+
+// Helper function to check if price exists and is valid
+const hasPrice = (p: unknown): p is number => typeof p === "number" && p > 0;
+---
+
+<!-- Featured Services Section -->{
+  featuredServices.length > 0 && (
+    <section id="featured-services" class="py-20">
+      <div class="mx-auto mb-16 max-w-3xl text-center">
+        <div class="mb-4 inline-flex items-center rounded-full bg-accent-100 px-4 py-2 text-sm font-medium text-accent-700">
+          <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          Most Popular Services
+        </div>
+        <h2 class="font-poppins text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl">
+          Trusted by Brighton Residents
+        </h2>
+        <p class="mt-6 text-xl leading-8 text-text-00">
+          The services our customers rely on most for their homes and businesses
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {featuredServices.map((service, index) => (
+          <div
+            class={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${
+              index === 0
+                ? "from-primary-50 to-primary-100"
+                : index === 1
+                  ? "from-accent-50 to-accent-100"
+                  : "from-primary-50 to-blue-100"
+            } p-8 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl`}
+          >
+            <div class="absolute -top-4 -right-4 h-20 w-20 rounded-full bg-white/20" />
+            <div class="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-white/10" />
+            <div class="relative z-10">
+              {service.data.image && (
+                <div class="mb-6 overflow-hidden rounded-xl">
+                  <img
+                    src={service.data.image}
+                    alt={service.data.alt || service.data.title}
+                    width="400"
+                    height="240"
+                    loading="lazy"
+                    class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+              )}
+
+              <div class="mb-4 flex items-center justify-between">
+                <span class="inline-flex items-center rounded-full bg-white px-3 py-1 text-sm font-semibold text-primary-600 shadow-sm">
+                  <svg
+                    class="mr-1 h-3 w-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Featured
+                </span>
+
+                {hasPrice(service.data.price) && (
+                  <span class="text-2xl font-bold text-primary-600">
+                    From £{service.data.price}
+                  </span>
+                )}
+              </div>
+
+              <h3 class="mb-4 font-poppins text-2xl font-bold text-primary-600">
+                {service.data.title}
+              </h3>
+              <p class="mb-6 line-clamp-6 leading-relaxed text-text-00">
+                {service.data.description}
+              </p>
+
+              {service.data.tags && (
+                <div class="mb-6 flex flex-wrap gap-2">
+                  {service.data.tags.slice(0, 3).map((tag) => (
+                    <span class="inline-flex items-center rounded-lg bg-white/70 px-3 py-1 text-xs font-medium text-primary-700">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <a
+                href={`/services/${service.slug}`}
+                class="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:bg-primary-700 hover:shadow-xl focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+                aria-label={`Learn more about ${service.data.title}`}
+              >
+                Learn More
+                <svg
+                  class="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
