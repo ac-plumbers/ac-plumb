@@ -133,21 +133,21 @@
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🔧 Plumbing, Heating & Gas
+                    Plumbing, Heating & Gas
                   </a>
                   <a
                     href="/services/gas-boiler-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🔥 Gas Boiler Installation
+                    Gas Boiler Installation
                   </a>
                   <a
                     href="/services/central-heating-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🏠 Central Heating Installation
+                    Central Heating Installation
                   </a>
                   <!-- Separator with category label -->
                   <div class="my-1 border-t border-gray-100"></div>
@@ -161,21 +161,21 @@
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🛡️ Gas Safety Checks (CP12)
+                    Gas Safety Checks (CP12)
                   </a>
                   <a
                     href="/services/smart-thermostats"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🌡️ Smart Thermostats
+                    Smart Thermostats
                   </a>
                   <a
                     href="/services/renewable-air-source-heat-pump"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    🌬️ Air Source Heat Pumps
+                    Air Source Heat Pumps
                   </a>
                 </div>
               </div>
@@ -386,7 +386,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🔧 Plumbing, Heating & Gas
+                  Plumbing, Heating & Gas
                 </a>
                 <a
                   href="/services/gas-boiler-installation"
@@ -399,7 +399,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🔥 Gas Boiler Installation
+                  Gas Boiler Installation
                 </a>
                 <a
                   href="/services/central-heating-installation"
@@ -412,7 +412,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🏠 Central Heating Installation
+                  Central Heating Installation
                 </a>
                 <!-- Separator -->
                 <div class="mx-3 my-2 border-t border-gray-200"></div>
@@ -427,7 +427,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  🛡️ Gas Safety Checks (CP12)
+                  Gas Safety Checks (CP12)
                 </a>
                 <a
                   href="/services/smart-thermostats"
@@ -440,7 +440,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  �️ Smart Thermostats
+                  Smart Thermostats
                 </a>
                 <a
                   href="/services/renewable-air-source-heat-pump"
@@ -453,7 +453,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  � Air Source Heat Pumps
+                  Air Source Heat Pumps
                 </a>
               </div>
 
