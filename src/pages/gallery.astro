@@ -1,122 +1,123 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import Text from '../components/fundations/elements/Text.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import Text from "../components/fundations/elements/Text.astro";
 
 // Import images properly
-import img1 from '@/images/lavori/1.jpeg';
-import img2 from '@/images/lavori/2.jpeg';
-import img3 from '@/images/lavori/3.jpeg';
-import img4 from '@/images/lavori/4.jpeg';
-import img5 from '@/images/lavori/5.jpeg';
-import img6 from '@/images/lavori/6.jpeg';
-import img7 from '@/images/lavori/7.jpeg';
-import img8 from '@/images/lavori/8.jpeg';
-import img9 from '@/images/lavori/9.jpeg';
+import img1 from "@/images/lavori/1.jpeg";
+import img2 from "@/images/lavori/2.jpeg";
+import img3 from "@/images/lavori/3.jpeg";
+import img4 from "@/images/lavori/4.jpeg";
+import img5 from "@/images/lavori/viessmann-boiler-closeup-brighton-installation.jpeg";
+import img6 from "@/images/lavori/6.jpeg";
+import img7 from "@/images/lavori/7.jpeg";
+import img8 from "@/images/lavori/8.jpeg";
+import img9 from "@/images/lavori/9.jpeg";
 
 // Gallery items with properly imported images
 const galleryItems = [
   {
     id: 1,
     src: img1,
-    alt: 'Boiler installation',
-    category: 'boiler',
-    title: 'Modern Combi Boiler Installation',
+    alt: "Boiler installation",
+    category: "boiler",
+    title: "Modern Combi Boiler Installation",
     description:
-      'High-efficiency boiler installation for a family home in Brighton.',
+      "High-efficiency boiler installation for a family home in Brighton.",
   },
   {
     id: 2,
     src: img2,
-    alt: 'Gas fitting',
-    category: 'gas',
-    title: 'Gas Fitting',
+    alt: "Gas fitting",
+    category: "gas",
+    title: "Gas Fitting",
     description:
-      'Professional gas line installation with safety certification.',
+      "Professional gas line installation with safety certification.",
   },
   {
     id: 3,
     src: img3,
-    alt: 'Heat pump installation',
-    category: 'renewable',
-    title: 'Air Source Heat Pump',
-    description: 'Renewable energy solution for eco-conscious homeowners.',
+    alt: "Heat pump installation",
+    category: "renewable",
+    title: "Air Source Heat Pump",
+    description: "Renewable energy solution for eco-conscious homeowners.",
   },
   {
     id: 4,
     src: img4,
-    alt: 'Bathroom plumbing',
-    category: 'plumbing',
-    title: 'Bathroom Renovation',
-    description: 'Complete bathroom plumbing renovation in Hove.',
+    alt: "Bathroom plumbing",
+    category: "plumbing",
+    title: "Bathroom Renovation",
+    description: "Complete bathroom plumbing renovation in Hove.",
   },
   {
     id: 5,
     src: img5,
-    alt: 'Smart thermostat',
-    category: 'smart',
-    title: 'Smart Home Integration',
-    description: 'Smart thermostat installation for efficient heating control.',
+    alt: "Smart thermostat",
+    category: "smart",
+    title: "Smart Home Integration",
+    description: "Smart thermostat installation for efficient heating control.",
   },
   {
     id: 6,
     src: img6,
-    alt: 'Central heating',
-    category: 'heating',
-    title: 'Central Heating System',
-    description: 'Full central heating system installation.',
+    alt: "Central heating",
+    category: "heating",
+    title: "Central Heating System",
+    description: "Full central heating system installation.",
   },
   {
     id: 7,
     src: img7,
-    alt: 'Radiator installation',
-    category: 'heating',
-    title: 'Designer Radiator Installation',
-    description: 'Modern radiator fitting for enhanced heating efficiency.',
+    alt: "Radiator installation",
+    category: "heating",
+    title: "Designer Radiator Installation",
+    description: "Modern radiator fitting for enhanced heating efficiency.",
   },
   {
     id: 8,
     src: img8,
-    alt: 'Emergency repair',
-    category: 'emergency',
-    title: 'Emergency Leak Repair',
-    description: 'Rapid response emergency repair preventing water damage.',
+    alt: "Emergency repair",
+    category: "emergency",
+    title: "Emergency Leak Repair",
+    description: "Rapid response emergency repair preventing water damage.",
   },
   {
     id: 9,
     src: img9,
-    alt: 'Cylinder replacement',
-    category: 'plumbing',
-    title: 'Hot Water Cylinder Upgrade',
-    description: 'Hot water cylinder replacement for improved capacity.',
+    alt: "Cylinder replacement",
+    category: "plumbing",
+    title: "Hot Water Cylinder Upgrade",
+    description: "Hot water cylinder replacement for improved capacity.",
   },
 ];
 
 // Define categories for filtering
 const categories = [
-  { id: 'all', name: 'All Projects' },
-  { id: 'boiler', name: 'Boiler Installation' },
-  { id: 'heating', name: 'Central Heating' },
-  { id: 'gas', name: 'Gas Services' },
-  { id: 'plumbing', name: 'Plumbing' },
-  { id: 'renewable', name: 'Renewable Energy' },
-  { id: 'smart', name: 'Smart Systems' },
-  { id: 'emergency', name: 'Emergency Repairs' },
+  { id: "all", name: "All Projects" },
+  { id: "boiler", name: "Boiler Installation" },
+  { id: "heating", name: "Central Heating" },
+  { id: "gas", name: "Gas Services" },
+  { id: "plumbing", name: "Plumbing" },
+  { id: "renewable", name: "Renewable Energy" },
+  { id: "smart", name: "Smart Systems" },
+  { id: "emergency", name: "Emergency Repairs" },
 ];
 ---
 
 <BaseLayout
-  title='Our Work Gallery | AC Plumbers'
-  description='View our gallery of completed plumbing, heating and gas projects across Brighton & Hove'>
-  <div class='relative'>
+  title="Our Work Gallery | AC Plumbers"
+  description="View our gallery of completed plumbing, heating and gas projects across Brighton & Hove"
+>
+  <div class="relative">
     <!-- Gallery Hero Section -->
-    <div class='bg-gradient-to-r from-primary-600 to-primary-800 text-white'>
-      <div class='container mx-auto px-4 py-16 md:py-24'>
-        <div class='max-w-3xl mx-auto text-center'>
-          <Text tag='h1' variant='display2XL' class='text-white mt-18'>
+    <div class="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+      <div class="container mx-auto px-4 py-16 md:py-24">
+        <div class="mx-auto max-w-3xl text-center">
+          <Text tag="h1" variant="display2XL" class="mt-18 text-white">
             Our Recent Projects
           </Text>
-          <p class='mt-4 text-lg text-primary-100'>
+          <p class="mt-4 text-lg text-primary-100">
             Browse through our portfolio of completed plumbing, heating, and
             renewable energy projects across Brighton, Hove, and surrounding
             areas.
@@ -124,34 +125,36 @@ const categories = [
         </div>
       </div>
       <!-- Decorative wave pattern -->
-      <div class='absolute inset-x-0 bottom-0'>
+      <div class="absolute inset-x-0 bottom-0">
         <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 1440 320'
-          class='w-full h-16 text-white fill-current'>
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          class="h-16 w-full fill-current text-white"
+        >
           <path
-            d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,133.3C672,128,768,160,864,176C960,192,1056,192,1152,170.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
+            d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,133.3C672,128,768,160,864,176C960,192,1056,192,1152,170.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
       </div>
     </div>
 
     <!-- Gallery Content -->
-    <div class='container mx-auto px-4 py-12'>
+    <div class="container mx-auto px-4 py-12">
       <!-- Category Filters -->
-      <div class='mb-10'>
-        <div class='flex flex-wrap items-center justify-center gap-2 md:gap-4'>
+      <div class="mb-10">
+        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4">
           {
-            categories.map(category => {
-              const isActive = category.id === 'all';
+            categories.map((category) => {
+              const isActive = category.id === "all";
               return (
                 <button
-                  class={`category-filter px-4 py-2 text-sm font-medium rounded-full border transition-all duration-300 ${
+                  class={`category-filter rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 ${
                     isActive
-                      ? 'bg-primary-500 text-white border-primary-500 shadow-md shadow-primary-500/20 hover:shadow-lg hover:shadow-primary-500/30 hover:bg-primary-600 hover:-translate-y-0.5'
-                      : 'bg-white border-gray-300 text-gray-700 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-300 hover:shadow-md hover:-translate-y-0.5'
+                      ? "border-primary-500 bg-primary-500 text-white shadow-md shadow-primary-500/20 hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-500/30"
+                      : "border-gray-300 bg-white text-gray-700 hover:-translate-y-0.5 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700 hover:shadow-md"
                   }`}
-                  data-category={category.id}>
+                  data-category={category.id}
+                >
                   {category.name}
                 </button>
               );
@@ -162,30 +165,32 @@ const categories = [
 
       <!-- Gallery Grid -->
       <div
-        class='gallery-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        class="gallery-container grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {
-          galleryItems.map(item => (
+          galleryItems.map((item) => (
             <div
-              class='gallery-item overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-full'
-              data-category={item.category}>
-              <div class='aspect-w-4 aspect-h-3 overflow-hidden'>
+              class="gallery-item h-full overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl"
+              data-category={item.category}
+            >
+              <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   width={600}
                   height={450}
-                  class='w-full h-full object-cover transform hover:scale-105 transition-transform duration-500'
+                  class="h-full w-full transform object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <div class='p-4 bg-white'>
-                <h3 class='text-lg font-semibold text-gray-900'>
+              <div class="bg-white p-4">
+                <h3 class="text-lg font-semibold text-gray-900">
                   {item.title}
                 </h3>
-                <p class='mt-1 text-sm text-gray-500'>{item.description}</p>
-                <div class='mt-3'>
-                  <span class='inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full uppercase tracking-wide'>
-                    {categories.find(cat => cat.id === item.category)?.name ||
-                      'Project'}
+                <p class="mt-1 text-sm text-gray-500">{item.description}</p>
+                <div class="mt-3">
+                  <span class="inline-block rounded-full bg-primary-100 px-2 py-1 text-xs tracking-wide text-primary-800 uppercase">
+                    {categories.find((cat) => cat.id === item.category)?.name ||
+                      "Project"}
                   </span>
                 </div>
               </div>
@@ -195,18 +200,19 @@ const categories = [
       </div>
 
       <!-- CTA Section -->
-      <div class='mt-16 bg-gray-50 rounded-lg p-8 text-center'>
-        <h2 class='text-2xl font-bold text-gray-900'>
+      <div class="mt-16 rounded-lg bg-gray-50 p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-900">
           Need similar work done?
         </h2>
-        <p class='mt-2 text-gray-600 max-w-2xl mx-auto'>
+        <p class="mx-auto mt-2 max-w-2xl text-gray-600">
           Contact our team today to discuss your plumbing, heating, or renewable
           energy project. We offer free consultations and competitive pricing.
         </p>
-        <div class='mt-6'>
+        <div class="mt-6">
           <a
-            href='/contact-us'
-            class='inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent-500 hover:bg-accent-600 md:py-4 md:text-lg md:px-10'>
+            href="/contact-us"
+            class="inline-flex items-center justify-center rounded-md border border-transparent bg-accent-500 px-6 py-3 text-base font-medium text-white hover:bg-accent-600 md:px-10 md:py-4 md:text-lg"
+          >
             Request a Quote
           </a>
         </div>
@@ -217,58 +223,58 @@ const categories = [
 
 <script>
   // Gallery filtering functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.category-filter');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".category-filter");
+    const galleryItems = document.querySelectorAll(".gallery-item");
 
     // Set initial state (all items visible)
-    let currentCategory = 'all';
+    let currentCategory = "all";
 
     // Add click event to filter buttons
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
         // Get category from data attribute
-        const category = button.getAttribute('data-category');
+        const category = button.getAttribute("data-category");
         if (category === currentCategory) return;
 
         // Update active button
-        filterButtons.forEach(btn => {
-          if (btn.getAttribute('data-category') === category) {
+        filterButtons.forEach((btn) => {
+          if (btn.getAttribute("data-category") === category) {
             btn.classList.add(
-              'bg-primary-500',
-              'text-white',
-              'border-primary-500'
+              "bg-primary-500",
+              "text-white",
+              "border-primary-500",
             );
             btn.classList.remove(
-              'bg-white',
-              'text-gray-700',
-              'border-gray-300'
+              "bg-white",
+              "text-gray-700",
+              "border-gray-300",
             );
           } else {
             btn.classList.remove(
-              'bg-primary-500',
-              'text-white',
-              'border-primary-500'
+              "bg-primary-500",
+              "text-white",
+              "border-primary-500",
             );
-            btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+            btn.classList.add("bg-white", "text-gray-700", "border-gray-300");
           }
         });
 
         // Show/hide gallery items
-        galleryItems.forEach(item => {
+        galleryItems.forEach((item) => {
           const el = item as HTMLElement;
           if (
-            category === 'all' ||
-            el.getAttribute('data-category') === category
+            category === "all" ||
+            el.getAttribute("data-category") === category
           ) {
-            el.style.display = 'block';
+            el.style.display = "block";
           } else {
-            el.style.display = 'none';
+            el.style.display = "none";
           }
         });
 
         // Update current category
-        currentCategory = category || 'all';
+        currentCategory = category || "all";
       });
     });
   });
