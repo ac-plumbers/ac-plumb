@@ -6,6 +6,7 @@ import "@fontsource/lato";
 
 import BaseHead from "@/components/fundations/head/BaseHead.astro";
 import HeaderVue from "@/components/global/Header.vue";
+import StickyCallButton from "@/components/global/StickyCallButton.vue";
 import Footer from "@/components/global/Footer.astro";
 const { title, description, keywords, author, themeColor } = Astro.props;
 
@@ -32,9 +33,25 @@ const currentPath = Astro.url.pathname;
   <body class="h-full">
     <!-- <Header /> -->
     <HeaderVue client:load currentPath={currentPath} />
-    <main id="main-content" class="mx-auto flex flex-col pt-24">
+    <main id="main-content" class="mx-auto flex flex-col pt-28">
       <slot />
     </main>
     <Footer />
+    <!-- Add a sticky contact bar that appears on scroll -->
+    <!--   <div class="fixed right-4 bottom-4 z-40">
+      <a
+        href="tel:01273123456"
+        class="flex items-center gap-2 rounded-full bg-primary-600 px-4 py-3 text-background-50 shadow-lg transition-all duration-200 hover:bg-primary-700"
+      >
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+          ></path>
+        </svg>
+        <span class="hidden sm:inline">Call Now</span>
+      </a>
+    </div> -->
+    <!-- Sticky Call Button - Only appears on scroll -->
+    <StickyCallButton client:load />
   </body>
 </html>
