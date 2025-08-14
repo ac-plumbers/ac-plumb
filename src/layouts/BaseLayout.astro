@@ -31,8 +31,8 @@ const currentPath = Astro.url.pathname;
   </head>
   <body class="h-full">
     <!-- <Header /> -->
-    <HeaderVue currentPath={currentPath} client:load />
-    <main id="main-content" class="mx-auto flex flex-col">
+    <HeaderVue client:load currentPath={currentPath} />
+    <main id="main-content" class="mx-auto flex flex-col pt-24">
       <slot />
     </main>
     <Footer />

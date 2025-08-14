@@ -7,10 +7,11 @@
     Skip to main content
   </a>
 
-  <header class="absolute inset-x-0 top-0 z-50">
+  <header class="fixed inset-x-0 top-0 z-50 w-full transition-all duration-300">
     <div class="w-full">
       <div
-        class="border-b border-white/20 bg-gradient-to-r from-white/95 via-blue-50/95 to-white/95 px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
+        class="border-b px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
+        :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
         <nav
           class="flex items-center justify-between space-x-4 py-1"
@@ -376,7 +377,7 @@
                   All Services
                 </a>
                 <a
-                  href="/services/plumbing"
+                  href="/services/all-aspects-of-plumbing-heating-and-gas"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/plumbing')
@@ -506,6 +507,17 @@
 
 <script setup>
 import { ref, nextTick, onMounted, onBeforeUnmount, computed } from "vue";
+const scrolled = ref(false);
+const handleScroll = () => {
+  scrolled.value = window.scrollY > 50;
+};
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 
 // Define props to receive current path from Astro
 const props = defineProps({
