@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --font-poppins: "Poppins", sans-serif;
+  --font-lato: "Poppins", sans-serif;
+  --font-lato: "Lato", sans-serif;
   --font-inconsolata: "Inconsolata", monospace;
 }
 
@@ -14,7 +15,7 @@ body {
 
 @theme {
   /* Font Families */
-  --font-poppins: "Poppins", sans-serif;
+  --font-lato: "Poppins", sans-serif;
   --font-inconsolata: "Inconsolata", monospace;
   /* Colors */
   /* Primary Color Palette */

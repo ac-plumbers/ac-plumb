@@ -285,7 +285,7 @@
     <nav
       v-if="isOpen"
       aria-label="Mobile navigation"
-      class="font-poppins lg:hidden"
+      class="font-lato lg:hidden"
       role="dialog"
       aria-modal="true"
       aria-labelledby="mobile-menu-title"
