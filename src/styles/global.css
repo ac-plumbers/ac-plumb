@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --font-lato: "Poppins", sans-serif;
   --font-lato: "Lato", sans-serif;
   --font-inconsolata: "Inconsolata", monospace;
 }
@@ -15,8 +14,8 @@ body {
 
 @theme {
   /* Font Families */
-  --font-lato: "Poppins", sans-serif;
-  --font-inconsolata: "Inconsolata", monospace;
+  --font-lato: "Lato", sans-serif;
+  --font-inconsolata: "Inconsolata Variable", monospace;
   /* Colors */
   /* Primary Color Palette */
   /* #007bff - Blue */
@@ -96,4 +95,25 @@ body {
   --color-shadow-00: oklch(0.1 0.02 0);
   --color-shadow-50: oklch(0.15 0.02 0);
   --color-shadow-100: oklch(0.2 0.02 0);
+}
+@layer components {
+  html {
+    font-family: var(--font-inconsolata);
+    font-optical-sizing: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-lato);
+    font-weight: 700;
+  }
+  a,
+  button {
+    font-family: var(--font-lato); /* Lato */
+    font-weight: 500; /* Medium weight for better visibility */
+  }
 }
