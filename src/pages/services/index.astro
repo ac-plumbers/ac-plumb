@@ -1,62 +1,115 @@
 ---
-import ServicesLayout from "@/layouts/ServicesLayout.astro";
-import ServicesHero from "../../components/services/home-services/ServicesHero.astro";
-import FeaturedServices from "../../components/services/home-services/FeaturedServices.astro";
+// src/pages/services/index.astro
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ServicesGrid from "@/components/services/ServicesGrid.astro";
 import { getCollection } from "astro:content";
-import ServicesByCategory from "../../components/services/home-services/ServicesByCategory.astro";
-import CallToActionServices from "../../components/services/home-services/CallToActionServices.astro";
 
-// Get all services
+// Get all services and sort (featured first, then alphabetically)
 const allServices = await getCollection("services");
-
-// Featured services for special display
-const featuredServices = allServices
-  .filter((service) => Boolean(service.data.featured))
-  .slice(0, 3);
-
-// All services sorted (featured first, then alphabetically)
-const services = [...allServices].sort((a, b) => {
+const services = allServices.sort((a, b) => {
   if (a.data.featured && !b.data.featured) return -1;
   if (!a.data.featured && b.data.featured) return 1;
   return a.data.title.localeCompare(b.data.title);
 });
 
-// Group services by category
-const servicesByCategory = services.reduce(
-  (acc, service) => {
-    const category = (service.data.category || "general").toLowerCase();
-    if (!acc[category]) acc[category] = [];
-    acc[category].push(service);
-    return acc;
-  },
-  {} as Record<string, typeof services>,
-);
-
 const title = "Professional Plumbing Services in Brighton - AC Plumbers Ltd";
 const description =
   "From emergency repairs to complete installations, our Gas Safe certified engineers deliver professional plumbing, heating, and gas services across Brighton & Hove.";
-const ctaPrimary = { text: "Browse Our Services", href: "#featured-services" };
-const ctaSecondary = { text: "Get Free Quote", href: "/contact-us" };
-const canonical = "https://acplumb.co.uk/services/";
-const decorativeElements = true;
 ---
 
-<ServicesLayout title={title} description={description} canonical={canonical}>
-  <!-- Hero Section with Gradient Background -->
-  <ServicesHero
-    title={title}
-    description={description}
-    ctaPrimary={ctaPrimary.text}
-    ctaSecondary={ctaSecondary.text}
-    decorativeElements={decorativeElements}
-  />
+<BaseLayout title={title} description={description}>
+  <!-- Page Header -->
+  <section class="bg-primary-600 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Our Services
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-primary-100">
+          Comprehensive plumbing, heating, and gas services for homes and
+          businesses across Brighton & Hove. Available 24/7 for emergencies.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Featured Services Section -->
-  <FeaturedServices featuredServices={featuredServices} />
+  <!-- Services Section -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- Stats Bar -->
+      <div class="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div
+          class="rounded-lg border border-neutral-200 bg-neutral-50 p-6 text-center"
+        >
+          <dt class="text-3xl font-bold text-primary-600">{services.length}</dt>
+          <dd class="text-sm font-medium text-neutral-600">Total Services</dd>
+        </div>
+        <div
+          class="rounded-lg border border-neutral-200 bg-neutral-50 p-6 text-center"
+        >
+          <dt class="text-3xl font-bold text-accent-600">
+            {services.filter((s) => s.data.featured).length}
+          </dt>
+          <dd class="text-sm font-medium text-neutral-600">
+            Featured Services
+          </dd>
+        </div>
+        <div
+          class="rounded-lg border border-neutral-200 bg-neutral-50 p-6 text-center"
+        >
+          <dt class="text-3xl font-bold text-primary-600">24/7</dt>
+          <dd class="text-sm font-medium text-neutral-600">
+            Emergency Support
+          </dd>
+        </div>
+      </div>
 
-  <!-- All Services by Category -->
-  <ServicesByCategory servicesByCategory={servicesByCategory} />
+      <!-- Services Grid -->
+      <ServicesGrid services={services} />
 
-  <!-- Enhanced Call to Action -->
-  <CallToActionServices />
-</ServicesLayout>
+      <!-- Contact CTA -->
+      <div
+        class="mt-16 rounded-2xl bg-primary-600 px-6 py-12 text-center sm:px-12"
+      >
+        <h2 class="text-3xl font-bold text-white">
+          Need Help Choosing the Right Service?
+        </h2>
+        <p class="mt-4 text-lg text-primary-100">
+          Our expert team is here to help you find the perfect solution for your
+          needs.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href="tel:01273123456"
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-semibold text-primary-600 shadow-sm transition-colors duration-200 hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+              ></path>
+            </svg>
+            Call Now: 01273 123 456
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Get Free Quote
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
