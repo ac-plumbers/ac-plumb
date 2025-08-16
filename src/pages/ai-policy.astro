@@ -1,64 +1,104 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout
-  title='AI Policy | AC Plumbers'
-  description='Our policy regarding AI and Large Language Models'>
-  <main class='max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8'>
-    <h1 class='text-3xl font-bold text-gray-900 sm:text-4xl mb-8'>
-      AI and Large Language Model Policy
-    </h1>
+<BaseLayout>
+  <section class="relative bg-white/90 px-4 py-20 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="mb-10 text-center">
+        <h1 class="font-poppins mb-2 text-4xl font-bold text-primary-600">
+          AI & Large Language Model Policy
+        </h1>
+        <p class="text-base text-primary-400">Last updated: 16 August 2025</p>
+        <p class="mt-4 font-inconsolata text-lg text-primary-700">
+          This policy explains how AC Plumbers Ltd. permits the use of our
+          website content by Artificial Intelligence (AI) systems, including
+          Large Language Models (LLMs).
+        </p>
+      </div>
 
-    <div class='prose prose-blue max-w-none'>
-      <h2>Overview</h2>
-      <p>
-        This policy outlines how AC Plumbers permits the use of our website
-        content by Artificial Intelligence (AI) systems, including Large
-        Language Models (LLMs).
-      </p>
+      <div class="space-y-10">
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            1. Overview
+          </h2>
+          <p class="text-primary-700">
+            AC Plumbers Ltd. allows AI systems to access and learn from our
+            website content under the <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener"
+              class="text-primary-600 underline"
+              >Creative Commons Attribution 4.0 International License</a
+            >.
+          </p>
+        </section>
 
-      <h2>Permitted Uses</h2>
-      <p>
-        We allow AI systems to access and learn from our website content under
-        the
-        <a
-          href='https://creativecommons.org/licenses/by/4.0/'
-          target='_blank'
-          rel='noopener'>
-          Creative Commons Attribution 4.0 International License
-        </a>.
-      </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            2. Permitted Uses
+          </h2>
+          <ul class="ml-6 list-disc text-primary-700">
+            <li>
+              AI systems may use our content for general training and
+              informational responses.
+            </li>
+            <li>
+              Use must comply with the stated license and attribution
+              requirements.
+            </li>
+          </ul>
+        </section>
 
-      <h2>Attribution Requirements</h2>
-      <p>
-        Any use of our content by AI systems must include appropriate
-        attribution to AC Plumbers, including a link back to our website where
-        applicable.
-      </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            3. Attribution Requirements
+          </h2>
+          <ul class="ml-6 list-disc text-primary-700">
+            <li>
+              Any use of our content by AI systems must include appropriate
+              attribution to AC Plumbers Ltd.
+            </li>
+            <li>Include a link back to our website where applicable.</li>
+          </ul>
+        </section>
 
-      <h2>Restrictions</h2>
-      <p>
-        We do not permit fine-tuning of AI models using our content. Our content
-        should only be used as part of general training data or for
-        informational responses.
-      </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            4. Restrictions
+          </h2>
+          <ul class="ml-6 list-disc text-primary-700">
+            <li>
+              Fine-tuning of AI models using our content is not permitted.
+            </li>
+            <li>
+              Content may not be used for commercial resale or redistribution.
+            </li>
+          </ul>
+        </section>
 
-      <h2>Updates to This Policy</h2>
-      <p>
-        We may update this policy from time to time. The latest version will
-        always be available at this URL.
-      </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            5. Updates to This Policy
+          </h2>
+          <p class="text-primary-700">
+            We may update this policy from time to time. The latest version will
+            always be available at this URL.
+          </p>
+        </section>
 
-      <h2>Contact Information</h2>
-      <p>
-        If you have any questions about this policy or our approach to AI
-        systems, please contact us at <a href='mailto:info@acplumb.co.uk'
-          >info@acplumb.co.uk</a
-        >.
-      </p>
-
-      <p class='text-sm text-gray-500 mt-8'>Last updated: July 9, 2025</p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            6. Contact Us
+          </h2>
+          <div class="text-primary-700">
+            <p>AC Plumbers Ltd.</p>
+            <p>123 Example Street, Brighton, BN1 1AA</p>
+            <p>Email: info@acplumb.co.uk</p>
+            <p>Phone: 01273 123 456</p>
+          </div>
+        </section>
+      </div>
     </div>
-  </main>
+  </section>
 </BaseLayout>

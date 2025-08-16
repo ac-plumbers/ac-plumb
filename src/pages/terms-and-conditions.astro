@@ -1,67 +1,120 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Wrapper from '@/components/fundations/containers/Wrapper.astro';
-import Text from '@/components/fundations/elements/Text.astro';
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
 ---
 
 <BaseLayout>
-  <Wrapper
-    variant='prose'
-    class='max-w-3xl mx-auto py-16 px-4 sm:px-6 lg:px-8 space-y-4 mt-8'>
-    <Text tag='h1' variant='displayXL' class='text-primary-600'
-      >Terms and Conditions</Text
-    >
-    <p>Last updated: [Insert Date]</p>
+  <section class="relative bg-white/90 px-4 py-20 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="mb-10 text-center">
+        <h1 class="font-poppins mb-2 text-4xl font-bold text-primary-600">
+          Terms & Conditions
+        </h1>
+        <p class="text-base text-primary-400">Last updated: 16 August 2025</p>
+        <p class="mt-4 font-inconsolata text-lg text-primary-700">
+          Please read these terms and conditions carefully before using our
+          services.
+        </p>
+      </div>
 
-    <p>
-      Welcome to the AC Plumb website. By accessing or using this website, you
-      agree to the following terms:
-    </p>
+      <div class="space-y-10">
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            1. Introduction
+          </h2>
+          <p class="text-primary-700">
+            These terms and conditions apply to all services provided by AC
+            Plumbers Ltd. By booking or using our services, you agree to these
+            terms.
+          </p>
+        </section>
 
-    <h2>1. Use of the Website</h2>
-    <p>
-      This website is provided for information and service enquiries only. You
-      may not use it for any unlawful purpose.
-    </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            2. Services
+          </h2>
+          <p class="text-primary-700">
+            We provide plumbing, heating, and gas services in Brighton and
+            surrounding areas. All services are subject to availability and
+            confirmation.
+          </p>
+        </section>
 
-    <h2>2. Service Information</h2>
-    <p>
-      All services listed are subject to availability and local regulations. We
-      reserve the right to change services or pricing without notice.
-    </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            3. Bookings & Payment
+          </h2>
+          <ul class="ml-6 list-disc text-primary-700">
+            <li>Bookings can be made via phone, email, or our website.</li>
+            <li>
+              Payment is due upon completion of work unless otherwise agreed.
+            </li>
+            <li>
+              We accept cash, bank transfer, and major credit/debit cards.
+            </li>
+          </ul>
+        </section>
 
-    <h2>3. Booking and Quotes</h2>
-    <p>
-      Any booking or quote request made via our website does not constitute a
-      legally binding contract until confirmed by us.
-    </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            4. Cancellations & Refunds
+          </h2>
+          <ul class="ml-6 list-disc text-primary-700">
+            <li>
+              Cancellations must be made at least 24 hours before the scheduled
+              appointment.
+            </li>
+            <li>
+              Refunds are issued at our discretion for cancellations or
+              unsatisfactory service.
+            </li>
+          </ul>
+        </section>
 
-    <h2>4. Intellectual Property</h2>
-    <p>
-      All content on this site is the property of AC Plumb and may not be copied
-      or reused without permission.
-    </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            5. Liability
+          </h2>
+          <p class="text-primary-700">
+            AC Plumbers Ltd. is not liable for indirect, incidental, or
+            consequential damages. Our liability is limited to the value of the
+            service provided.
+          </p>
+        </section>
 
-    <h2>5. Liability</h2>
-    <p>
-      We do our best to ensure accuracy, but we are not liable for any losses
-      arising from use of this website or reliance on its content.
-    </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            6. Customer Responsibilities
+          </h2>
+          <ul class="ml-6 list-disc text-primary-700">
+            <li>Provide safe and clear access to the work area.</li>
+            <li>Notify us of any hazards or special requirements.</li>
+            <li>Ensure payment is made promptly.</li>
+          </ul>
+        </section>
 
-    <h2>6. Links to Other Sites</h2>
-    <p>
-      We are not responsible for the content of any third-party websites linked
-      from this site.
-    </p>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            7. Data Protection
+          </h2>
+          <p class="text-primary-700">
+            We handle your personal data in accordance with our Privacy Policy.
+          </p>
+        </section>
 
-    <h2>7. Governing Law</h2>
-    <p>These terms are governed by the laws of England and Wales.</p>
-
-    <h2>8. Contact</h2>
-    <p>
-      AC Plumb<br />
-      Email: [Insert Email]<br />
-      Phone: [Insert Phone]
-    </p>
-  </Wrapper>
+        <section>
+          <h2 class="font-poppins mb-2 text-2xl font-semibold text-primary-600">
+            8. Contact Us
+          </h2>
+          <div class="text-primary-700">
+            <p>AC Plumbers Ltd.</p>
+            <p>123 Example Street, Brighton, BN1 1AA</p>
+            <p>Email: info@acplumb.co.uk</p>
+            <p>Phone: 01273 123 456</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
