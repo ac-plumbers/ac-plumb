@@ -4,158 +4,139 @@ import antonio from "@/images/Antonio.png";
 import Text from "@/components/fundations/elements/Text.astro";
 ---
 
-<section
-  class="border-2 border-red-800 bg-neutral-50 px-4 py-16 sm:px-6 lg:px-8"
->
-  <div class="mx-auto max-w-7xl">
+<section class="bg-background-50 px-4 py-16 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-6xl rounded-2xl bg-white/80 p-8 shadow-xl">
     <!-- Unified Heading (visible on all devices) -->
     <Text
       tag="h2"
       variant="displayLG"
-      class="font-lato mb-8 text-4xl font-bold text-text-00 sm:text-5xl"
+      class="font-poppins mb-6 text-4xl font-extrabold text-primary-800 sm:text-5xl"
     >
       Frequently Asked Questions
     </Text>
     <Text
       tag="p"
       variant="textXL"
-      class="font-lato mb-12 text-xl text-text-50 sm:text-2xl"
+      class="mb-10 font-inconsolata text-lg text-primary-700 sm:text-xl"
     >
       Find answers to common questions about our plumbing services, pricing, and
       availability.
     </Text>
 
     <!-- Two-column layout container with absolute positioning -->
-    <div class="relative flex flex-col gap-8 md:flex-row md:gap-12">
+    <div class="grid grid-cols-1 items-start gap-10 md:grid-cols-2">
       <!-- Left Column: Heading and Contact Section - Absolute position on desktop -->
-      <div class="order-2 w-full md:static md:order-1 md:w-5/12">
-        <div class="md:top-24">
-          <!-- Contact Section -->
+      <div
+        class="flex flex-col justify-between rounded-xl bg-background-100/80 p-6 shadow-md"
+      >
+        <Text
+          tag="h3"
+          variant="displayMD"
+          class="font-poppins mb-2 text-2xl font-bold text-primary-700"
+        >
+          Have more questions?
+        </Text>
+        <Text tag="p" variant="textBase" class="mb-4 text-primary-600">
+          We're here to help! Our team is ready to assist you with any plumbing
+          concerns. We offer personalized consultations and expert advice.
+        </Text>
+        <Text
+          tag="h4"
+          variant="displaySM"
+          class="font-poppins mb-3 text-lg font-semibold text-primary-800"
+        >
+          Your Contact Person
+        </Text>
+        <div class="flex items-center gap-4">
+          <Image
+            src={antonio}
+            alt="Antonio Catalano"
+            width={64}
+            height={64}
+            class="h-16 w-16 rounded-full object-cover shadow"
+          />
           <div>
-            <Text
-              tag="h3"
-              variant="displayMD"
-              class="font-lato text-2xl font-semibold text-text-00 sm:text-3xl"
-            >
-              Have more questions?
-            </Text>
-            <Text tag="p" variant="textBase" class="mt-2 text-text-50">
-              We're here to help! Our team is ready to assist you with any
-              plumbing concerns. We understand that each situation is unique,
-              which is why we offer personalized consultations and expert
-              advice.
-            </Text>
-
-            <Text
-              tag="h4"
-              variant="displaySM"
-              class="font-lato mt-6 text-xl font-semibold text-text-00 sm:text-2xl"
-            >
-              Your Contact Person
-            </Text>
-
-            <div class="mt-4 flex flex-col items-start gap-6 sm:flex-row">
-              <div class="relative h-24 w-24 flex-shrink-0">
-                <Image
-                  src={antonio}
-                  alt="Antonio Catalano"
-                  width={96}
-                  height={96}
-                  class="h-full w-full rounded-full object-cover shadow"
-                />
-              </div>
-              <div>
-                <p class="font-bold text-text-00">
-                  Antonio Catalano<br />
-                  <span class="font-normal"
-                    >Master Plumber & Customer Service</span
-                  >
-                </p>
-                <p class="mt-2 text-text-50">
-                  Email: <a
-                    href="mailto:info@acplumb.co.uk"
-                    class="text-primary-600 hover:text-primary-700"
-                    >info@acplumb.co.uk</a
-                  >
-                </p>
-                <p class="text-text-50">
-                  Phone: <a
-                    href="tel:+15555551234"
-                    class="text-primary-600 hover:text-primary-700"
-                    >(555) 555-1234</a
-                  >
-                </p>
-              </div>
-            </div>
+            <p class="font-bold text-primary-800">
+              Antonio Catalano<br /><span class="font-normal text-primary-600"
+                >Master Plumber & Customer Service</span
+              >
+            </p>
+            <p class="mt-2 text-sm text-primary-700">
+              Email: <a
+                href="mailto:info@acplumb.co.uk"
+                class="text-accent-500 hover:text-accent-600"
+                >info@acplumb.co.uk</a
+              >
+            </p>
+            <p class="text-sm text-primary-700">
+              Phone: <a
+                href="tel:+15555551234"
+                class="text-accent-500 hover:text-accent-600">(555) 555-1234</a
+              >
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Right Column: Accordion -->
-      <div class="order-1 w-full md:order-2 md:w-7/12">
-        <div class="space-y-4">
-          <!-- FAQ Items -->
-          {
-            [
-              {
-                question: "What services do you offer?",
-                answer:
-                  "We offer a comprehensive range of plumbing services including emergency repairs, leak detection, fixture installation, bathroom and kitchen renovations, water heater installation and repair, pipe repair and replacement, drain cleaning, and preventative maintenance.",
-              },
-              {
-                question: "How quickly can you respond to emergency calls?",
-                answer:
-                  "Our emergency response time is typically within 1-2 hours for urgent situations such as burst pipes or major leaks. We maintain a dedicated emergency team available 24/7, 365 days a year, including holidays and weekends. We prioritize calls based on severity to minimize property damage.",
-              },
-              {
-                question:
-                  "Do you provide upfront pricing before starting work?",
-                answer:
-                  "Yes, we believe in complete transparency with our pricing. After assessing the job, we provide a detailed written estimate before beginning any work. There are never any hidden fees or surprise charges. For standard services like drain cleaning or leak repair, we can often quote prices over the phone.",
-              },
-              {
-                question: "How can I prevent frozen pipes in winter?",
-                answer:
-                  "To prevent frozen pipes, insulate exposed pipes in unheated areas like basements and garages using foam pipe insulation. When temperatures drop below freezing, allow faucets to drip slightly to relieve pressure and keep water moving. Keep cabinet doors open to allow warm air circulation around pipes under sinks. We also offer professional winterization services for complete protection.",
-              },
-              {
-                question: "What payment methods do you accept?",
-                answer:
-                  "We accept multiple payment methods for your convenience, including all major credit cards (Visa, Mastercard, American Express, Discover), cash, checks, and digital payment options like Apple Pay and Google Pay. For larger renovation projects, we also offer financing options with flexible payment plans through our financing partners.",
-              },
-            ].map((faq, idx) => (
-              <div
-                class="faq-item overflow-hidden rounded-md border border-neutral-200"
-                key={idx}
-              >
-                <h3>
-                  <button
-                    class="faq-toggle flex w-full cursor-pointer items-center justify-between p-4 text-lg font-semibold text-text-00 transition hover:bg-neutral-50 focus:outline-none"
-                    aria-expanded="false"
+      <div class="space-y-4">
+        {/* FAQ Items */}
+        {
+          [
+            {
+              question: "What services do you offer?",
+              answer:
+                "We offer a comprehensive range of plumbing services including emergency repairs, leak detection, fixture installation, bathroom and kitchen renovations, water heater installation and repair, pipe repair and replacement, drain cleaning, and preventative maintenance.",
+            },
+            {
+              question: "How quickly can you respond to emergency calls?",
+              answer:
+                "Our emergency response time is typically within 1-2 hours for urgent situations such as burst pipes or major leaks. We maintain a dedicated emergency team available 24/7, 365 days a year, including holidays and weekends. We prioritize calls based on severity to minimize property damage.",
+            },
+            {
+              question: "Do you provide upfront pricing before starting work?",
+              answer:
+                "Yes, we believe in complete transparency with our pricing. After assessing the job, we provide a detailed written estimate before beginning any work. There are never any hidden fees or surprise charges. For standard services like drain cleaning or leak repair, we can often quote prices over the phone.",
+            },
+            {
+              question: "How can I prevent frozen pipes in winter?",
+              answer:
+                "To prevent frozen pipes, insulate exposed pipes in unheated areas like basements and garages using foam pipe insulation. When temperatures drop below freezing, allow faucets to drip slightly to relieve pressure and keep water moving. Keep cabinet doors open to allow warm air circulation around pipes under sinks. We also offer professional winterization services for complete protection.",
+            },
+            {
+              question: "What payment methods do you accept?",
+              answer:
+                "We accept multiple payment methods for your convenience, including all major credit cards (Visa, Mastercard, American Express, Discover), cash, checks, and digital payment options like Apple Pay and Google Pay. For larger renovation projects, we also offer financing options with flexible payment plans through our financing partners.",
+            },
+          ].map((faq) => (
+            <div class="faq-item overflow-hidden rounded-xl border-2 border-neutral-200 bg-white/90 shadow-sm transition-all duration-200">
+              <h3>
+                <button
+                  class="faq-toggle flex w-full items-center justify-between p-5 text-lg font-semibold text-primary-800 transition hover:bg-background-50 focus:outline-none"
+                  aria-expanded="false"
+                >
+                  <span>{faq.question}</span>
+                  <svg
+                    class="h-5 w-5 text-accent-500 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <span>{faq.question}</span>
-                    <svg
-                      class="h-5 w-5 text-primary-500 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                </h3>
-                <div class="faq-content hidden px-4 pb-4 text-text-50">
-                  {faq.answer}
-                </div>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </h3>
+              <div class="faq-content hidden px-5 pb-5 text-primary-700">
+                {faq.answer}
               </div>
-            ))
-          }
-        </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -168,7 +149,7 @@ import Text from "@/components/fundations/elements/Text.astro";
     toggles.forEach((toggle) => {
       toggle.addEventListener("click", () => {
         const faqItem = toggle.closest(".faq-item");
-        const content = faqItem.querySelector(".faq-content");
+        const content = faqItem ? faqItem.querySelector(".faq-content") : null;
         const arrow = toggle.querySelector("svg");
         const isExpanded = toggle.getAttribute("aria-expanded") === "true";
 
@@ -178,26 +159,28 @@ import Text from "@/components/fundations/elements/Text.astro";
             otherToggle !== toggle &&
             otherToggle.getAttribute("aria-expanded") === "true"
           ) {
-            otherToggle.setAttribute("aria-expanded", "false");
-            otherToggle
-              .closest(".faq-item")
-              .querySelector(".faq-content")
-              .classList.add("hidden");
-            otherToggle.querySelector("svg").style.transform = "";
+            const otherFaqItem = otherToggle.closest(".faq-item");
+            const otherContent = otherFaqItem
+              ? otherFaqItem.querySelector(".faq-content")
+              : null;
+            if (otherContent) otherContent.classList.add("hidden");
+            const otherArrow = otherToggle.querySelector("svg");
+            if (otherArrow) otherArrow.style.transform = "";
             otherToggle.classList.remove("bg-neutral-50");
+            otherToggle.setAttribute("aria-expanded", "false");
           }
         });
 
         // Toggle the clicked item
         if (isExpanded) {
           toggle.setAttribute("aria-expanded", "false");
-          content.classList.add("hidden");
-          arrow.style.transform = "";
+          if (content) content.classList.add("hidden");
+          if (arrow) arrow.style.transform = "";
           toggle.classList.remove("bg-neutral-50");
         } else {
           toggle.setAttribute("aria-expanded", "true");
-          content.classList.remove("hidden");
-          arrow.style.transform = "rotate(180deg)";
+          if (content) content.classList.remove("hidden");
+          if (arrow) arrow.style.transform = "rotate(180deg)";
           toggle.classList.add("bg-neutral-50");
         }
       });
