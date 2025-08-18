@@ -1,0 +1,116 @@
+---
+import Text from "@components/fundations/elements/Text.astro";
+import Link from "@components/fundations/elements/Link.astro";
+---
+
+<!-- PricesA: Modern horizontal cards with icon accents and feature comparison -->
+<section class="relative bg-background-100 px-6 py-24 sm:py-32 lg:px-8">
+  <div class="mx-auto max-w-7xl text-center">
+    <Text variant="displayLG" tag="h3" class="font-semibold text-primary-600">
+      Our Service Packages
+    </Text>
+    <Text
+      variant="displayLG"
+      tag="h2"
+      class="mt-2 font-lato font-semibold tracking-tight text-text-00"
+    >
+      Transparent, fair pricing for every need
+    </Text>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-text-50">
+      No hidden fees. All prices include callout, diagnostics, and expert
+      advice. Choose the best fit for your property or project.
+    </p>
+  </div>
+  <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+    <!-- Card 1: Boiler Service -->
+    <div
+      class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-lg ring-1 ring-primary-100"
+    >
+      <svg
+        class="mb-4 h-12 w-12 text-primary-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <rect x="6" y="6" width="12" height="12" rx="3" stroke-width="2"></rect>
+        <circle cx="12" cy="12" r="3" stroke-width="2"></circle>
+      </svg>
+      <Text tag="h4" variant="displaySM" class="font-semibold text-primary-600"
+        >Boiler Service</Text
+      >
+      <p class="mt-2 text-2xl font-bold text-accent-600">£75 + VAT</p>
+      <ul class="mt-4 space-y-2 text-left text-sm text-text-50">
+        <li>Annual safety check & cleaning</li>
+        <li>Efficiency optimization</li>
+        <li>Digital service report</li>
+      </ul>
+      <Link
+        href="/contact-us"
+        variant="accent-button"
+        size="md"
+        class="mt-6 w-full">Book Now</Link
+      >
+    </div>
+    <!-- Card 2: Gas Safety Certificate -->
+    <div
+      class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-lg ring-1 ring-accent-100"
+    >
+      <svg
+        class="mb-4 h-12 w-12 text-accent-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M12 2 C15 7, 19 12, 12 22 C5 12, 9 7, 12 2 Z" stroke-width="2"
+        ></path>
+        <circle cx="12" cy="16" r="2" stroke-width="2"></circle>
+      </svg>
+      <Text tag="h4" variant="displaySM" class="font-semibold text-accent-600"
+        >Gas Safety Certificate (CP12)</Text
+      >
+      <p class="mt-2 text-2xl font-bold text-primary-600">£65 + VAT</p>
+      <ul class="mt-4 space-y-2 text-left text-sm text-text-50">
+        <li>Full landlord certification</li>
+        <li>All appliances & pipework</li>
+        <li>Digital certificate issued</li>
+      </ul>
+      <Link
+        href="/contact-us"
+        variant="primary-button"
+        size="md"
+        class="mt-6 w-full">Get Certified</Link
+      >
+    </div>
+    <!-- Card 3: Emergency Callout -->
+    <div
+      class="flex flex-col items-center rounded-2xl bg-white p-8 shadow-lg ring-1 ring-secondary-100"
+    >
+      <svg
+        class="mb-4 h-12 w-12 text-secondary-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M12 2v20M2 12h20" stroke-width="2"></path>
+        <circle cx="12" cy="12" r="8" stroke-width="2"></circle>
+      </svg>
+      <Text
+        tag="h4"
+        variant="displaySM"
+        class="font-semibold text-secondary-600">Emergency Callout</Text
+      >
+      <p class="mt-2 text-2xl font-bold text-accent-600">from £95 + VAT</p>
+      <ul class="mt-4 space-y-2 text-left text-sm text-text-50">
+        <li>Rapid response (same day)</li>
+        <li>All urgent plumbing & heating</li>
+        <li>Expert diagnostics & fix</li>
+      </ul>
+      <Link
+        href="/contact-us"
+        variant="secondary-button"
+        size="md"
+        class="mt-6 w-full">Request Help</Link
+      >
+    </div>
+  </div>
+</section>
