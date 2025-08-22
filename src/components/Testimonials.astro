@@ -3,7 +3,15 @@ import Text from "@components/fundations/elements/Text.astro";
 import TestimonialsCard from "./global/TestimonialsCard.astro";
 import Link from "./fundations/elements/Link.astro";
 import Button from "./fundations/elements/Button.astro";
+import Carousel from "./home/Carousel.vue";
 
+import { Image } from "astro:assets";
+
+// Images
+import checkaTrade from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
+import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.png";
+import trustpilot from "@/images/brands/trustpilot-logo-ac-plumbers-brighton.png";
+import google from "@/images/brands/g.webp";
 // Use static review data for now to ensure compatibility
 const reviews = [
   {
@@ -93,22 +101,42 @@ const reviews = [
 
     <!-- Social Proof Logos -->
     <div class="mb-10 flex flex-wrap items-center justify-center gap-6">
-      <img src="/images/brands/google.png" alt="Google" class="h-8" />
-      <img
-        src="/images/brands/trustpilot-logo.png"
-        alt="Trustpilot"
-        class="h-8"
-      />
-      <img
-        src="/images/brands/checkatrade-logo.png"
+      <a
+        href="https://www.google.com/search?sca_esv=ce44fb6aa5ce43e4&tbm=lcl&sxsrf=AE3TifO3vHBTlpVY5ucEmmsRCKq7gtAlvA:1755861284723&q=AC+Plumbing+Heating+%26+Bathrooms+Services+Limited+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDawNDYzNTI2NzA1tzA1MzIwNtrAyPiK0cLRWSEgpzQ3KTMvXcEjNbEERKspOCWWZBTl5-cWKwSnFpVlJqcWK_hk5maWpKYoBKWWZaaWFy9iJVsrAPIqeh6RAAAA&rldimm=13093652370578562032&hl=en-ES&sa=X&ved=2ahUKEwisjpqBpZ6PAxVTQfEDHWZKHe4Q9fQKegQIOhAF&biw=1920&bih=934&dpr=1#"
+        target="_blank"
+        rel="noopener"
+        class="flex h-10 items-center gap-3 rounded-xl border border-neutral-200 bg-background-100 px-4 py-2 text-neutral-800 shadow transition hover:shadow-md"
+        aria-label="Read our reviews on Google"
+      >
+        <Image
+          src={google}
+          alt="Google Reviews"
+          width={120}
+          height={40}
+          class="h-8 w-auto object-contain"
+        />
+        <span class="font-semibold">Rated 5.0 ★ on Google</span>
+      </a>
+      <Image
+        src={checkaTrade}
         alt="Checkatrade"
-        class="h-8"
+        width={120}
+        height={40}
+        class="w-auto object-contain"
       />
-      <img src="/images/brands/gas-safe-logo.png" alt="Gas Safe" class="h-8" />
+      <Image
+        src={gasSafe}
+        alt="Gas Safe"
+        width={120}
+        height={40}
+        class="w-auto object-contain"
+      />
     </div>
 
     <!-- Testimonials Grid with Animated Entry -->
+
     <div class="relative">
+      <Carousel client:load reviews={reviews} />
       <div
         class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
       >
