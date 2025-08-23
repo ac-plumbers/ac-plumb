@@ -136,7 +136,7 @@
                     📋 All Services
                   </a>
                   <div
-                    class="px-4 py-1 text-xs font-semibold tracking-wide text-gray-400 uppercase"
+                    class="hidden px-4 py-1 text-xs font-semibold tracking-wide text-gray-400 uppercase"
                   >
                     Core Services
                   </div>
@@ -162,9 +162,9 @@
                     Central Heating Installation
                   </a>
                   <!-- Separator with category label -->
-                  <div class="my-1 border-t border-gray-100"></div>
+                  <div class="my-1 border-t border-gray-200"></div>
                   <div
-                    class="px-4 py-1 text-xs font-semibold tracking-wide text-gray-400 uppercase"
+                    class="hidden px-4 py-1 text-xs font-semibold tracking-wide text-gray-400 uppercase"
                   >
                     Safety & Smart Systems
                   </div>

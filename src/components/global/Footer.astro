@@ -1,5 +1,48 @@
 ---
 import { Image } from "astro:assets";
+
+// Services Links
+const servicesLinks = [
+  { href: "/services/gas-boiler-installation", label: "Gas Boilers" },
+  { href: "/services/gas-safety-checks-cp12", label: "Gas Safety (CP12)" },
+  { href: "/services/central-heating-installation", label: "Heating" },
+  {
+    href: "/services/all-aspects-of-plumbing-heating-and-gas",
+    label: "General Plumbing",
+  },
+  {
+    href: "/services/renewable-air-source-heat-pump",
+    label: "Heat Pumps & Electric Boilers",
+  },
+  { href: "/services/smart-thermostats", label: "Smart Thermostats" },
+  { href: "/landlords", label: "Landlord Services" },
+];
+
+const areasLinks = [
+  { href: "/areas-we-serve/brighton", label: "Brighton" },
+  { href: "/areas-we-serve/hove", label: "Hove" },
+  { href: "/areas-we-serve/lewes", label: "Lewes" },
+  { href: "/areas-we-serve/portslade", label: "Portslade" },
+  { href: "/areas-we-serve", label: "See All Areas" },
+];
+
+const companyLinks = [
+  { href: "/about-us", label: "About Us" },
+  { href: "/gallery", label: "Our Work" },
+  { href: "/certifications", label: "Certifications" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact-us", label: "Contact Us" },
+  { href: "/testimonials", label: "Customer Reviews" },
+  { href: "/faq", label: "FAQs" },
+];
+
+const legalLinks = [
+  { href: "/terms-and-conditions", label: "Terms and Conditions" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/cookie-policy", label: "Cookie Policy" },
+  { href: "/ai-policy", label: "AI Policy" },
+];
+// Images
 import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
 import bpec from "@/images/brands/bpec-certification-logo-gas-plumbing.png";
 import checktrade from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
@@ -7,8 +50,8 @@ import oftec from "@/images/brands/oftec-registered-logo-heating-certification.p
 import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.png";
 ---
 
-<footer class="bg-white">
-  <div class="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
+<footer class="bg-neutral-200">
+  <div class="mx-auto max-w-7xl px-6 pt-8 pb-4 sm:pt-12 lg:px-8 lg:pt-16">
     <div class="xl:grid xl:grid-cols-5 xl:gap-8">
       <!-- Company Info Column -->
       <div class="space-y-8">
@@ -37,198 +80,86 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
         <div>
           <h3 class="text-sm/6 font-semibold text-black">Services</h3>
           <ul role="list" class="mt-6 space-y-4">
-            <li>
-              <a
-                href="/services/gas-boiler-installation"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Gas Boilers</a
-              >
-            </li>
-            <li>
-              <a
-                href="services/gas-safety-checks-cp12"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Gas Safety (CP12)</a
-              >
-            </li>
-            <li>
-              <a
-                href="/services/central-heating-installation"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Heating</a
-              >
-            </li>
-            <li>
-              <a
-                href="/services/all-aspects-of-plumbing-heating-and-gas"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >General Plumbing</a
-              >
-            </li>
-            <li>
-              <a
-                href="/services/renewable-air-source-heat-pump"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Heat Pumps & Electric Boilers</a
-              >
-            </li>
-            <li>
-              <a
-                href="/services/smart-thermostats"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Smart Thermostats</a
-              >
-            </li>
-            <li>
-              <a
-                href="/landlords"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Landlord Services</a
-              >
-            </li>
+            {
+              servicesLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm/6 text-neutral-700 hover:text-primary-600 focus-visible:text-primary-600"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- NEW: Areas We Serve Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Areas We Serve</h3>
+          <h3 class="text-sm/6 font-semibold text-neutral-900">
+            Areas We Serve
+          </h3>
           <ul role="list" class="mt-6 space-y-4">
-            <li>
-              <a
-                href="/areas-we-serve/brighton"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Brighton</a
-              >
-            </li>
-            <li>
-              <a
-                href="/areas-we-serve/hove"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Hove</a
-              >
-            </li>
-            <li>
-              <a
-                href="/areas-we-serve/lewes"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Lewes</a
-              >
-            </li>
-            <li>
-              <a
-                href="/areas-we-serve/portslade"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Portslade</a
-              >
-            </li>
-            <!-- Add more villages as needed -->
-            <li>
-              <a
-                href="/areas-we-serve"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >See All Areas</a
-              >
-            </li>
+            {
+              areasLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm/6 text-neutral-700 hover:text-primary-600 focus-visible:text-primary-600"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Company Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Company</h3>
+          <h3 class="text-sm/6 font-semibold text-neutral-900">Company</h3>
           <ul role="list" class="mt-6 space-y-4">
-            <li>
-              <a
-                href="/about-us"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >About Us</a
-              >
-            </li>
-            <li>
-              <a
-                href="/gallery"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Our Work</a
-              >
-            </li>
-            <li>
-              <a
-                href="/certifications"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Certifications</a
-              >
-            </li>
-            <li>
-              <a
-                href="/blog"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Blog</a
-              >
-            </li>
-            <li>
-              <a
-                href="/contact-us"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Contact Us</a
-              >
-            </li>
-            <li>
-              <a
-                href="/testimonials"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Customer Reviews</a
-              >
-            </li>
-            <li>
-              <a
-                href="/faq"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >FAQs</a
-              >
-            </li>
+            {
+              companyLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm/6 text-neutral-700 hover:text-primary-600 focus-visible:text-primary-600"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Legal Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Legal</h3>
+          <h3 class="text-sm/6 font-semibold text-neutral-900">Legal</h3>
           <ul role="list" class="mt-6 space-y-4">
-            <li>
-              <a
-                href="/terms-and-conditions"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Terms and Conditions</a
-              >
-            </li>
-            <li>
-              <a
-                href="/privacy-policy"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Privacy Policy</a
-              >
-            </li>
-            <li>
-              <a
-                href="/cookie-policy"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >Cookie Policy</a
-              >
-            </li>
-            <li>
-              <a
-                href="/ai-policy"
-                class="text-sm/6 text-primary-200 hover:text-primary-100"
-                >AI Policy</a
-              >
-            </li>
+            {
+              legalLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm/6 text-neutral-700 hover:text-primary-600 focus-visible:text-primary-600"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
     </div>
 
     <!-- Certifications Section -->
-    <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+    <div class="mt-8 border-t border-white/10 pt-0 sm:mt-12 lg:mt-16">
       <h3
-        class="mb-8 text-center text-sm font-semibold tracking-wide text-primary-200 uppercase"
+        class="mb-1 text-center text-sm font-semibold tracking-wide uppercase"
       >
         Certified & Trusted
       </h3>
@@ -302,8 +233,8 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
     </div>
 
     <!-- Copyright section - Updated with color palette -->
-    <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-      <p class="text-sm/6 text-primary-200">
+    <div class="mt-8 border-t border-white/10 pt-4 sm:mt-12 lg:mt-16">
+      <p class="text-sm/6">
         &copy; 2025 AC Plumbers Ltd. Serving Brighton, Hove, Lewes, and
         surrounding areas. All rights reserved.
       </p>
