@@ -59,6 +59,17 @@
               />
             </svg>
           </button>
+          <!-- Tagline -->
+          <span
+            class="hidden text-sm font-semibold tracking-wide text-primary-700 md:inline-block"
+          >
+            Plumbing • Heating • Renewable
+          </span>
+          <span
+            class="hidden rounded-full bg-accent-100 px-3 py-1 text-xs font-medium text-accent-700 md:inline-block"
+          >
+            Plumbing • Heating • Renewable
+          </span>
 
           <!-- Desktop nav links -->
           <div

@@ -12,14 +12,14 @@ const { services } = Astro.props;
 
 
         {service.data.image && (
-          <div class="aspect-video overflow-hidden bg-neutral-100">
+          <div class="aspect-[3/2] overflow-hidden bg-neutral-100">
             <img
               src={service.data.image}
               alt={service.data.title}
-              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              class="h-full aspect-[3/2] w-full object-cover transition-transform duration-300 group-hover:scale-105 shadow"
               loading="lazy"
-              width="400"
-              height="225"
+              width="600"
+              height="400"
             />
           </div>
         )}
@@ -28,7 +28,7 @@ const { services } = Astro.props;
         <div class="p-6 space-y-4">
 
           <!-- Featured Badge & Category -->
-          <div class="flex items-center justify-between">
+         {/*  <div class="flex items-center justify-between">
             {service.data.featured && (
               <span class="inline-flex items-center rounded-full bg-accent-100 px-2.5 py-0.5 text-xs font-medium text-accent-800">
                 ⭐ Featured
@@ -42,7 +42,7 @@ const { services } = Astro.props;
                 ).join(' ')}
               </span>
             )}
-          </div>
+          </div> */}
 
           <!-- Service Title -->
           <h3 class="text-xl font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-200 leading-tight">
@@ -54,7 +54,7 @@ const { services } = Astro.props;
             {service.data.description}
           </p>
 
-          <!-- Service Tags -->
+          {/* <!-- Tags -->
           {service.data.tags && service.data.tags.length > 0 && (
             <div class="flex flex-wrap gap-1.5">
               {service.data.tags.slice(0, 3).map((tag: string) => (
@@ -68,16 +68,16 @@ const { services } = Astro.props;
                 </span>
               )}
             </div>
-          )}
+          )} */}
 
           <!-- Price and CTA -->
           <div class="flex items-end justify-between pt-2 border-t border-neutral-100">
-            <div>
+          {/*   <div>
               <p class="text-sm text-neutral-500 font-medium">Starting from</p>
               <p class="text-2xl font-bold text-primary-600">
                 {service.data.price === 0 ? "Free Quote" : `£${service.data.price}`}
               </p>
-            </div>
+            </div> */}
 
             <div class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold text-sm group-hover:translate-x-1 transition-transform duration-200">
               Learn More
