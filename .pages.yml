@@ -1,0 +1,63 @@
+content:
+  - name: services
+    label: Services
+    type: collection
+    path: src/content/services
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: price, label: Price, type: number }
+      - { name: image, label: Image, type: image }
+      - { name: tags, label: Tags, type: list }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: category, label: Category, type: string }
+      - name: features
+        label: Features
+        type: list
+        fields:
+          - { name: title, label: Feature Title, type: string }
+          - { name: description, label: Feature Description, type: text }
+      - name: steps
+        label: Steps
+        type: list
+        fields:
+          - { name: title, label: Step Title, type: string }
+          - { name: description, label: Step Description, type: text }
+      - name: questions
+        label: FAQs
+        type: list
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+
+  - name: testimonials
+    label: Testimonials
+    type: collection
+    path: src/content/testimonials
+    fields:
+      - { name: author, label: Author, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: content, label: Content, type: text }
+      - { name: rating, label: Rating, type: number }
+
+  - name: areas
+    label: Areas We Serve
+    type: collection
+    path: src/content/areas
+    fields:
+      - { name: title, label: Area Name, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: postcodes, label: Postcodes, type: list }
+      - { name: neighborhoods, label: Neighborhoods, type: list }
+      - { name: image, label: Image, type: image }
+
+  - name: blog
+    label: Blog
+    type: collection
+    path: src/content/posts
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: pubDate, label: Publication Date, type: date }
+      - { name: tags, label: Tags, type: list }
+      - { name: content, label: Content, type: text }
