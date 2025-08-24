@@ -2,7 +2,7 @@
 title: All Aspects of Plumbing, Heating, and Gas Services
 description: AC Plumbers Ltd. offers comprehensive plumbing, heating, and gas services, including installation, maintenance, and repair. Our expert team ensures efficient and safe systems for residential and commercial properties.
 price: 0
-image: "/src/images/services/radiator-valve-installation-brass-fitting-hove.jpeg"
+image: "/images/services/radiator-valve-installation-brass-fitting-hove.jpeg"
 alt: "Radiator valve installation with brass fittings and tools beside cast iron radiator on wood floor"
 tags:
   [
