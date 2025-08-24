@@ -1,3 +1,14 @@
+media:
+  name: images
+  label: images
+  input: src/images/services
+  path: ""
+  extensions: [png, jpg, jpeg, webp, svg]
+
+settings:
+  content:
+    merge: true
+
 content:
   - name: services
     label: Services
