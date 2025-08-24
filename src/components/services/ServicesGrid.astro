@@ -13,9 +13,7 @@ const { services } = Astro.props;
 
         {service.data.image && (
           <div class="aspect-[3/2] overflow-hidden bg-neutral-100">
-            <img
-              src={service.data.image}
-              alt={service.data.title}
+            <img src={'/' + service.data.image.replace(/^\//, '')} alt={service.data.title}
               class="h-full aspect-[3/2] w-full object-cover transition-transform duration-300 group-hover:scale-105 shadow"
               loading="lazy"
               width="600"
