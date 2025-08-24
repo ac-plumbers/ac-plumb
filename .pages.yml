@@ -1,9 +1,9 @@
 media:
   name: images
-  label: images
+  label: Images
   input: src/images/services
   output: src/images/services
-  path: "images/services"
+  path: "content/images/services"
   extensions: [png, jpg, jpeg, webp, svg]
 
 settings:
