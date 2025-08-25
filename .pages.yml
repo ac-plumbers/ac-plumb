@@ -26,6 +26,7 @@ content:
       - name: features
         label: Features
         type: list
+        displayField: list
         fields:
           - { name: title, label: Feature Title, type: string }
           - { name: description, label: Feature Description, type: text }
