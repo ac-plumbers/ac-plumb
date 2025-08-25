@@ -148,6 +148,13 @@
                     Plumbing, Heating & Gas
                   </a>
                   <a
+                    href="/services/bathrooms-installation-rennovation"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    Bathrooms Installation & Renovation
+                  </a>
+                  <a
                     href="/services/gas-boiler-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
@@ -399,6 +406,19 @@
                   @click="closeMenu"
                 >
                   Plumbing, Heating & Gas
+                </a>
+                <a
+                  href="/services/bathrooms-installation-rennovation"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/services/bathrooms-installation-rennovation')
+                      ? 'bg-primary-600 text-background-00'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  Bathrooms Installation & Renovation
                 </a>
                 <a
                   href="/services/gas-boiler-installation"
