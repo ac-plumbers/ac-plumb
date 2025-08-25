@@ -16,58 +16,60 @@ content:
     type: collection
     path: src/content/services
 
-
     view:
     primary: title
-    fields: [title, image, price, category, featured, tags]  # omit features/steps/questions
+    fields: [title, image, price, category, featured, tags]
     sort: [title]
-     fields:
-      - { name: title, label: Title, type: string }
-      - { name: description, label: Description, type: text }
-      - { name: price, label: Price, type: number }
 
-      - name: image
-        label: Image
-        type: image
-        options:
-          media: images
-          path: .
+    fields:
+    - { name: title, label: Title, type: string }
+    - { name: description, label: Description, type: text }
+    - { name: price, label: Price, type: number }
 
-      # Tags MUST be a list of strings (not a textarea)
-      - name: tags
-        label: Tags
-        type: list
-        field:
-          name: tag
-          label: Tag
-          type: string
+    - name: image
+      label: Image
+      type: image
+      options: { media: images, path: . }
 
-      - { name: featured, label: Featured, type: boolean }
-      - { name: category, label: Category, type: string }
+    # ✅ list of primitives → use base type + list
+    - name: tags
+      label: Tags
+      type: string
+      list: true
 
-      # Features = list of objects; show the title in the UI
-      - name: features
-        label: Features
-        type: list
-        displayField: title
-        fields:
-          - { name: title, label: Feature Title, type: string }
-          - { name: description, label: Feature Description, type: text }
+    - { name: featured, label: Featured, type: boolean }
+    - { name: category, label: Category, type: string }
 
-      # Steps = list of objects; show the title in the UI
-      - name: steps
-        label: Steps
-        type: list
-        displayField: title
-        fields:
-          - { name: title, label: Step Title, type: string }
-          - { name: description, label: Step Description, type: text }
+    # ✅ list of objects → type: object + list + fields
+    - name: features
+      label: Features
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{fields.title}"
+      fields:
+        - { name: title, label: Feature Title, type: string }
+        - { name: description, label: Feature Description, type: text }
 
-      # FAQs = list of objects; show the question in the UI
-      - name: questions
-        label: FAQs
-        type: list
-        displayField: question
-        fields:
-          - { name: question, label: Question, type: string }
-          - { name: answer, label: Answer, type: text }
+    - name: steps
+      label: Steps
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{fields.title}"
+      fields:
+        - { name: title, label: Step Title, type: string }
+        - { name: description, label: Step Description, type: text }
+
+    - name: questions
+      label: FAQs
+      type: object
+      list:
+        collapsible:
+          collapsed: true
+          summary: "{fields.question}"
+      fields:
+        - { name: question, label: Question, type: string }
+        - { name: answer, label: Answer, type: text }
