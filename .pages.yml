@@ -15,7 +15,13 @@ content:
     label: Services
     type: collection
     path: src/content/services
-    fields:
+
+
+    view:
+    primary: title
+    fields: [title, image, price, category, featured, tags]  # omit features/steps/questions
+    sort: [title]
+     fields:
       - { name: title, label: Title, type: string }
       - { name: description, label: Description, type: text }
       - { name: price, label: Price, type: number }
