@@ -14,4 +14,30 @@ tags:
     "energy efficiency",
   ]
 featured: true
+category: Heating
+features:
+  - title: "High Efficiency"
+    description: "Our gas boilers are designed for maximum efficiency, helping you save on energy bills."
+  - title: "Smart Controls"
+    description: "We offer smart thermostat integration for optimal comfort and energy management."
+  - title: "Comprehensive Warranty"
+    description: "All our installations come with a comprehensive warranty for your peace of mind."
+steps:
+  - title: "Consultation"
+    description: "We assess your heating needs and recommend the best solutions."
+  - title: "Installation"
+    description: "Our team installs your new heating system with minimal disruption."
+  - title: "Testing"
+    description: "We thoroughly test the system to ensure optimal performance."
+  - title: "Maintenance"
+    description: "Regular maintenance checks to keep your system running efficiently."
+questions:
+  - question: "What types of gas boilers do you install?"
+    answer: "We install a variety of gas boilers, including combi boilers, system boilers, and conventional boilers."
+  - question: "How often should I service my gas boiler?"
+    answer: "It's recommended to service your gas boiler at least once a year to ensure optimal performance and safety."
+  - question: "What should I do if my gas boiler breaks down?"
+    answer: "If your gas boiler breaks down, contact us immediately for emergency repair services."
+  - question: "Do you offer financing options for new installations?"
+    answer: "Yes, we offer flexible financing options to help you manage the cost of new installations."
 ---
