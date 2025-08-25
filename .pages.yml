@@ -27,7 +27,7 @@ content:
           media: images
           path: .
 
-      # ✅ Tags = list of strings
+      # Tags MUST be a list of strings (not a textarea)
       - name: tags
         label: Tags
         type: list
@@ -39,7 +39,7 @@ content:
       - { name: featured, label: Featured, type: boolean }
       - { name: category, label: Category, type: string }
 
-      # ✅ Features = list of objects (show title)
+      # Features = list of objects; show the title in the UI
       - name: features
         label: Features
         type: list
@@ -48,7 +48,7 @@ content:
           - { name: title, label: Feature Title, type: string }
           - { name: description, label: Feature Description, type: text }
 
-      # ✅ Steps = list of objects (show title)
+      # Steps = list of objects; show the title in the UI
       - name: steps
         label: Steps
         type: list
@@ -57,7 +57,7 @@ content:
           - { name: title, label: Step Title, type: string }
           - { name: description, label: Step Description, type: text }
 
-      # ✅ FAQs = list of objects (show question)
+      # FAQs = list of objects; show the question in the UI
       - name: questions
         label: FAQs
         type: list
