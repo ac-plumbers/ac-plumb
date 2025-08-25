@@ -68,15 +68,18 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
       <div class="space-y-8">
         <Image
           src={logo}
-          width={48}
-          height={48}
+          width={68}
+          height={68}
           alt="AC Plumbers Ltd logo with water and flame icons"
           title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
           class="h-auto w-auto lg:scale-115"
         />
-        <p class="text-sm/6 text-balance text-white">
-          Expert Plumbing, Heating & Renewable Energy Services in Brighton &
-          Hove and surrounding areas. Trusted. Certified. Local.
+        <h3 class="font-lato text-lg text-balance text-white">
+          AC Plumbers Ltd.
+        </h3>
+        <p class="font-lato text-neutral-100">
+          Brighton & Hove, East Sussex <br />
+          Gas Safe Registered Engineers
         </p>
         <div class="flex gap-x-6">
           <!-- social links remain unchanged -->
@@ -89,14 +92,14 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
       >
         <!-- Services Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Services</h3>
-          <ul role="list" class="mt-6 space-y-4">
+          <h3 class="font-lato text-lg font-semibold text-white">Services</h3>
+          <ul role="list" class="mt-6 space-y-4 font-lato">
             {
               servicesLinks.map((link) => (
                 <li>
                   <a
                     href={link.href}
-                    class="text-sm/6 text-white hover:text-primary-600 focus-visible:text-primary-600"
+                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
                   >
                     {link.label}
                   </a>
@@ -108,14 +111,16 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
         <!-- NEW: Areas We Serve Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Areas We Serve</h3>
-          <ul role="list" class="mt-6 space-y-4">
+          <h3 class="font-lato text-lg font-semibold text-white">
+            Areas We Serve
+          </h3>
+          <ul role="list" class="mt-6 space-y-4 font-lato">
             {
               areasLinks.map((link) => (
                 <li>
                   <a
                     href={link.href}
-                    class="text-sm/6 text-white hover:text-primary-600 focus-visible:text-primary-600"
+                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
                   >
                     {link.label}
                   </a>
@@ -127,14 +132,14 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
         <!-- Company Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Company</h3>
-          <ul role="list" class="mt-6 space-y-4">
+          <h3 class="font-lato text-lg font-semibold text-white">Company</h3>
+          <ul role="list" class="mt-6 space-y-4 font-lato">
             {
               companyLinks.map((link) => (
                 <li>
                   <a
                     href={link.href}
-                    class="text-sm/6 text-white hover:text-primary-600 focus-visible:text-primary-600"
+                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
                   >
                     {link.label}
                   </a>
@@ -146,14 +151,14 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
         <!-- Legal Column -->
         <div>
-          <h3 class="text-sm/6 font-semibold text-white">Legal</h3>
-          <ul role="list" class="mt-6 space-y-4">
+          <h3 class="font-lato text-lg font-semibold text-white">Legal</h3>
+          <ul role="list" class="mt-6 space-y-4 font-lato">
             {
               legalLinks.map((link) => (
                 <li>
                   <a
                     href={link.href}
-                    class="text-sm/6 text-white hover:text-primary-600 focus-visible:text-primary-600"
+                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
                   >
                     {link.label}
                   </a>
@@ -168,7 +173,7 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
     <!-- Certifications Section -->
     <div class="mt-8 border-t border-white/10 pt-0 sm:mt-12 lg:mt-16">
       <h3
-        class="mb-1 text-center text-sm font-semibold tracking-wide text-white uppercase"
+        class="mb-2 text-center font-lato text-base font-semibold tracking-wide text-white uppercase"
       >
         Certified & Trusted
       </h3>
@@ -193,7 +198,7 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
         <!-- BPEC -->
         <div
-          class="flex items-center justify-center rounded-lg bg-white/5 p-4 transition-colors hover:bg-white/10"
+          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
         >
           <Image
             src={bpec}
@@ -209,7 +214,7 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
         <!-- Checkatrade -->
         <div
-          class="flex items-center justify-center rounded-lg bg-white/5 p-4 transition-colors hover:bg-white/10"
+          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
         >
           <Image
             src={checktrade}
@@ -225,7 +230,7 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
         <!-- OFTEC -->
         <div
-          class="flex items-center justify-center rounded-lg bg-white/5 p-4 transition-colors hover:bg-white/10"
+          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
         >
           <Image
             src={oftec}
@@ -243,10 +248,38 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
 
     <!-- Copyright section - Updated with color palette -->
     <div class="mt-8 border-t border-white/10 pt-4 sm:mt-12 lg:mt-16">
-      <p class="text-sm/6 text-white">
-        &copy; 2025 AC Plumbers Ltd. Serving Brighton, Hove, Lewes, and
-        surrounding areas. All rights reserved.
-      </p>
+      <div
+        class="flex items-center gap-2 font-inconsolata text-sm/6 text-white"
+      >
+        <span>
+          &copy; 2025 AC Plumbers Ltd. Serving Brighton, Hove, Lewes, and
+          surrounding areas. All rights reserved.
+        </span>
+        <span class="mx-2">|</span>
+        <a
+          href="https://agencyga.es"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-1 text-xs text-accent-300 transition hover:text-primary-400"
+          title="Website by agencyGA"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="inline h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <ellipse cx="12" cy="12" rx="8" ry="10" stroke-width="2"></ellipse>
+            <ellipse cx="9" cy="13" rx="1.5" ry="2.5" fill="#fff"></ellipse>
+            <ellipse cx="15" cy="13" rx="1.5" ry="2.5" fill="#fff"></ellipse>
+            <ellipse cx="9" cy="13" rx="0.8" ry="1.2" fill="#0ea5e9"></ellipse>
+            <ellipse cx="15" cy="13" rx="0.8" ry="1.2" fill="#0ea5e9"></ellipse>
+            <ellipse cx="12" cy="18" rx="2" ry="0.7" fill="#fff"></ellipse>
+          </svg>
+          AGA
+        </a>
+      </div>
     </div>
   </div>
 </footer>
