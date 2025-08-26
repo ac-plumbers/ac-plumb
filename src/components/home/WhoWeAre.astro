@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import img from "@/images/lavori/viessmann-boiler-closeup-brighton-installation.jpeg";
+import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
 ---
 
 <div class="overflow-hidden bg-primary-800 py-24 sm:py-32">
@@ -13,11 +14,19 @@ import img from "@/images/lavori/viessmann-boiler-closeup-brighton-installation.
           <!--   <h2 class="text-base/7 font-semibold text-secondary-400">
             Who We Are
           </h2> -->
-          <h2
-            class="mt-2 font-lato text-4xl font-semibold tracking-tight text-pretty text-background-50 sm:text-5xl"
-          >
-            Who We Are
-          </h2>
+          <div class="mt-4 flex items-center gap-8 sm:gap-12">
+            <Image
+              src={logo}
+              alt="AC Plumbers Ltd. Logo"
+              class="mt-6"
+              width={100}
+            />
+            <h2
+              class="mt-2 font-lato text-4xl font-semibold tracking-tight text-pretty text-background-50 sm:text-5xl"
+            >
+              Who We Are
+            </h2>
+          </div>
           <p class="mt-6 text-lg/8 text-neutral-300">
             Established in 2016, AC Plumbers Ltd. has been serving Brighton &
             Hove and surrounding area since. Based locally we are always on hand
@@ -25,6 +34,21 @@ import img from "@/images/lavori/viessmann-boiler-closeup-brighton-installation.
             service and high workmanship. We cover all aspects of Plumbing,
             Heating, Gas, Boilers and Air Source Heat Pump installation.
           </p>
+          <!-- Stats Row -->
+          <div class="mt-10 flex flex-wrap items-center justify-start gap-8">
+            <div class="flex flex-col items-center">
+              <span class="text-3xl font-bold text-primary-400">2016</span>
+              <span class="text-sm text-neutral-300">Established</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span class="text-3xl font-bold text-primary-400">500+</span>
+              <span class="text-sm text-neutral-300">Projects Completed</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span class="text-3xl font-bold text-primary-400">400+</span>
+              <span class="text-sm text-neutral-300">Happy Clients</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="flex items-start justify-end lg:order-first">
