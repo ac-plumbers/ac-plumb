@@ -66,7 +66,7 @@ const reviews = [
   <Carousel
     :opts="{ align: 'start', loop: true }"
     :plugins="[Autoplay({ delay: 3000 })]"
-    class="relative w-full max-w-5xl"
+    class="relative w-full max-w-6xl"
   >
     <CarouselContent class="-ml-4">
       <CarouselItem

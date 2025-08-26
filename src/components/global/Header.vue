@@ -14,7 +14,7 @@
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
         <nav
-          class="flex items-center justify-between space-x-4 py-1"
+          class="flex items-center justify-between space-x-2 py-1"
           aria-label="Global"
         >
           <!-- Logo link -->
@@ -265,7 +265,7 @@
             </a>
 
             <!-- Emergency Call Button -->
-            <a
+            <!--  <a
               href="tel:01273123456"
               class="flex items-center gap-x-2 rounded-md px-3 py-2 text-sm font-medium text-red-700 transition-colors duration-200 hover:bg-red-50 hover:text-red-800 focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:outline-none"
               title="24/7 Emergency Plumbing"
@@ -286,7 +286,7 @@
               <span class="hidden xl:inline">Emergency</span>
               <span class="xl:hidden">Call</span>
             </a>
-
+ -->
             <!-- Free Quote CTA -->
             <a
               href="/contact-us"

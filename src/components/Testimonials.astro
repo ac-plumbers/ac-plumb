@@ -137,7 +137,7 @@ const reviews = [
 
     <div class="relative">
       <Carousel client:load reviews={reviews} />
-      <div
+      <!-- <div
         class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
       >
         {
@@ -164,9 +164,9 @@ const reviews = [
             </div>
           ))
         }
-      </div>
-      <script is:inline>
-        // Animated entry for testimonial cards (repeat on every entry)
+      </div> -->
+      <!-- <script is:inline>
+
         window.addEventListener("DOMContentLoaded", () => {
           const cards = document.querySelectorAll(".testimonial-animate");
           const observer = new window.IntersectionObserver(
@@ -183,9 +183,9 @@ const reviews = [
           );
           cards.forEach((card) => observer.observe(card));
         });
-      </script>
+      </script> -->
     </div>
-    <style>
+    <!--  <style>
       .testimonial-animate {
         opacity: 0;
         transform: translateY(30px);
@@ -197,13 +197,13 @@ const reviews = [
         opacity: 1;
         transform: none;
       }
-    </style>
+    </style> -->
   </div>
 
   <!-- Call to Action -->
   <div class="mt-20 text-center">
     <Link href="/contact-us" variant="accent-button" size="md" class="inline">
-      <span class="text-xl uppercase sm:text-base">Chiamami</span>
+      <span class="text-xl uppercase sm:text-base">Contact Us</span>
     </Link>
   </div>
 </section>
