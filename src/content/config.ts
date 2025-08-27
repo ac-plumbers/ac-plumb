@@ -20,7 +20,11 @@ const services = defineCollection({
     // Optional: Astro usually derives slug from filename
     slug: z.string().optional(),
 
-    // Structured fields
+    // New fields for full CMS-driven content
+    intro: z.string().optional(),
+    benefits: z.array(z.string()).default([]),
+    specialties: z.array(z.string()).default([]),
+
     features: z
       .array(
         z.object({
@@ -30,7 +34,7 @@ const services = defineCollection({
       )
       .default([]),
 
-    steps: z
+    process: z
       .array(
         z.object({
           title: z.string(),
@@ -39,7 +43,7 @@ const services = defineCollection({
       )
       .default([]),
 
-    questions: z
+    faqs: z
       .array(
         z.object({
           question: z.string(),

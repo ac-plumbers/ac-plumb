@@ -14,6 +14,15 @@ tags:
   ]
 featured: true
 category: Renewable Energy
+intro: "Our air source heat pump installation service combines advanced technology with expert knowledge. We ensure your system is installed for maximum efficiency and performance."
+benefits:
+  - "Reduced energy bills through efficient heating and cooling"
+  - "Environmentally friendly solution using renewable energy"
+  - "Increased property value with modern heating technology"
+specialties:
+  - "Air source heat pump installation"
+  - "Heat pump maintenance and servicing"
+  - "Energy efficiency consultations"
 features:
   - title: "Energy Efficiency"
     description: "Our air source heat pumps are designed to maximize energy efficiency, helping you save on energy bills."
@@ -21,7 +30,7 @@ features:
     description: "ASHPs provide both heating and cooling, making them a versatile choice for year-round comfort."
   - title: "Sustainable Solution"
     description: "By using renewable energy, our heat pumps help reduce your carbon footprint."
-steps:
+process:
   - title: "Consultation"
     description: "We assess your heating needs and recommend the best solutions."
   - title: "Installation"
@@ -30,15 +39,13 @@ steps:
     description: "We thoroughly test the system to ensure optimal performance."
   - title: "Maintenance"
     description: "Regular maintenance checks to keep your system running efficiently."
-questions:
-  - question: "What is an air source heat pump?"
-    answer: "An air source heat pump is a renewable energy system that extracts heat from the outside air and transfers it indoors for heating and hot water."
-  - question: "How efficient are air source heat pumps?"
-    answer: "Air source heat pumps are highly efficient, often achieving efficiencies of 300% or more, meaning they produce three times more energy than they consume."
-  - question: "Can air source heat pumps provide cooling?"
-    answer: "Yes, air source heat pumps can provide both heating and cooling, making them a versatile solution for year-round comfort."
-  - question: "What maintenance do air source heat pumps require?"
-    answer: "Regular maintenance for air source heat pumps includes checking the outdoor unit, cleaning filters, and ensuring the system is operating efficiently."
+faqs:
+  - question: "What services do you offer?"
+    answer: "We offer a wide range of plumbing, heating, and gas services, including installation, maintenance, and repair."
+  - question: "Are your technicians qualified?"
+    answer: "Yes, all our technicians are fully qualified and Gas Safe registered."
+  - question: "Do you provide emergency services?"
+    answer: "Yes, we offer 24/7 emergency services for urgent plumbing and heating issues."
+  - question: "How can I schedule a consultation?"
+    answer: "You can schedule a consultation by contacting us through our website or giving us a call."
 ---
-
-Air source heat pumps (ASHPs) are an efficient and environmentally friendly way to heat and cool buildings. They extract heat from the outside air, even in cold temperatures, and transfer it indoors. ASHPs can also provide hot water, making them a versatile solution for residential and commercial properties. Installation requires professional expertise to ensure optimal performance and compliance with regulations. Regular maintenance is essential to keep the system running efficiently and to extend its lifespan. ASHPs are a key component of sustainable energy solutions, reducing reliance on fossil fuels and lowering carbon emissions.

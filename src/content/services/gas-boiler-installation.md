@@ -15,6 +15,17 @@ tags:
   ]
 featured: true
 category: Heating
+intro: "Our gas boiler installation service combines cutting-edge technology with decades of experience. We specialize in high-efficiency condensing boilers from leading manufacturers like Vaillant, Worcester Bosch, and Ideal, ensuring your home stays warm while reducing energy bills."
+benefits:
+  - "Gas Safe registered engineers"
+  - "10-year manufacturer warranties"
+  - "Energy efficiency ratings up to A++"
+  - "Same-day emergency replacements"
+specialties:
+  - "Combi, system & conventional boilers"
+  - "Smart thermostat integration"
+  - "PowerFlushing included"
+  - "Building regulations compliance"
 features:
   - title: "High Efficiency"
     description: "Our gas boilers are designed for maximum efficiency, helping you save on energy bills."
@@ -22,7 +33,7 @@ features:
     description: "We offer smart thermostat integration for optimal comfort and energy management."
   - title: "Comprehensive Warranty"
     description: "All our installations come with a comprehensive warranty for your peace of mind."
-steps:
+process:
   - title: "Consultation"
     description: "We assess your heating needs and recommend the best solutions."
   - title: "Installation"
@@ -31,7 +42,7 @@ steps:
     description: "We thoroughly test the system to ensure optimal performance."
   - title: "Maintenance"
     description: "Regular maintenance checks to keep your system running efficiently."
-questions:
+faqs:
   - question: "What types of gas boilers do you install?"
     answer: "We install a variety of gas boilers, including combi boilers, system boilers, and conventional boilers."
   - question: "How often should I service my gas boiler?"

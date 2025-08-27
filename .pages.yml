@@ -17,59 +17,71 @@ content:
     path: src/content/services
 
     view:
-    primary: title
-    fields: [title, image, price, category, featured, tags]
-    sort: [title]
+      primary: title
+      fields: [title, image, price, category, featured, tags]
+      sort: [title]
 
     fields:
-    - { name: title, label: Title, type: string }
-    - { name: description, label: Description, type: text }
-    - { name: price, label: Price, type: number }
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: price, label: Price, type: number }
 
-    - name: image
-      label: Image
-      type: image
-      options: { media: images, path: . }
+      - name: image
+        label: Image
+        type: image
+        options: { media: images, path: . }
 
-    # ✅ list of primitives → use base type + list
-    - name: tags
-      label: Tags
-      type: string
-      list: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
 
-    - { name: featured, label: Featured, type: boolean }
-    - { name: category, label: Category, type: string }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: category, label: Category, type: string }
 
-    # ✅ list of objects → type: object + list + fields
-    - name: features
-      label: Features
-      type: object
-      list:
-        collapsible:
-          collapsed: true
-          summary: "{fields.title}"
-      fields:
-        - { name: title, label: Feature Title, type: string }
-        - { name: description, label: Feature Description, type: text }
+      # New fields for richer content
+      - { name: intro, label: Intro, type: text }
+      - name: benefits
+        label: Benefits
+        type: string
+        list: true
+      - name: specialties
+        label: Specialties
+        type: string
+        list: true
 
-    - name: steps
-      label: Steps
-      type: object
-      list:
-        collapsible:
-          collapsed: true
-          summary: "{fields.title}"
-      fields:
-        - { name: title, label: Step Title, type: string }
-        - { name: description, label: Step Description, type: text }
+      # Features (list of objects)
+      - name: features
+        label: Features
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - { name: title, label: Feature Title, type: string }
+          - { name: description, label: Feature Description, type: text }
 
-    - name: questions
-      label: FAQs
-      type: object
-      list:
-        collapsible:
-          collapsed: true
-          summary: "{fields.question}"
-      fields:
-        - { name: question, label: Question, type: string }
-        - { name: answer, label: Answer, type: text }
+      # Process steps (list of objects)
+      - name: process
+        label: Process Steps
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - { name: title, label: Step Title, type: string }
+          - { name: description, label: Step Description, type: text }
+
+      # FAQs (list of objects)
+      - name: faqs
+        label: FAQs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.question}"
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
