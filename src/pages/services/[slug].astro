@@ -7,15 +7,12 @@ import Testimonials from "@/components/Testimonials.astro";
 import ServiceFaqList from "@/components/services/ServiceFaqList.astro";
 import ServiceCallToAction from "@/components/services/ServiceCallToAction.astro";
 import RelatedServicesList from "@/components/services/RelatedServicesList.astro";
-// Types
 import type {
   ServiceFeature,
   ServiceStep,
   ServiceFaq,
   ServiceFrontmatter,
 } from "@/lib/types";
-
-//Content
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -40,17 +37,14 @@ const { page, allServices } = Astro.props as {
 const service = page.data;
 const { Content } = await page.render();
 
-// Get related services (excluding current page)
 const relatedServices = allServices
   .filter((s) => s.slug !== page.slug)
   .filter((s) => {
-    // Find related services by matching tags
     if (!page.data.tags || !s.data.tags) return false;
     return page.data.tags.some((tag) => (s.data.tags ?? []).includes(tag));
   })
   .slice(0, 3);
 
-// Use only page.data for all content
 const intro = service.intro || "";
 const benefits = service.benefits || [];
 const specialties = service.specialties || [];
@@ -70,24 +64,35 @@ const process: ServiceStep[] = service.process || [];
   />
 
   <!-- Main Service Content -->
-  <section class="mt-12 bg-background-50 py-16 sm:py-20">
+  <main
+    id="main-content"
+    class="mt-12 bg-background-50 py-16 sm:py-20"
+    aria-label="Service details"
+  >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <!-- Main Content -->
-        <div class="lg:col-span-2">
-          <div class="rounded-xl bg-background-100 p-8 shadow-lg">
-            <div class="mb-8">
-              <h2 class="mb-4 font-lato text-2xl font-bold text-primary-900">
+        <section class="lg:col-span-2" aria-labelledby="about-service-heading">
+          <article class="rounded-xl bg-background-100 p-8 shadow-lg">
+            <header>
+              <h2
+                id="about-service-heading"
+                class="mb-4 font-lato text-2xl font-bold text-primary-900"
+              >
                 About This Service
               </h2>
-              <p class="text-lg leading-relaxed text-neutral-700">
-                {intro}
-              </p>
-            </div>
+            </header>
+            <p class="text-lg leading-relaxed text-neutral-700">
+              {intro}
+            </p>
 
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div class="rounded-lg bg-primary-50 p-6">
+            <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+              <section
+                aria-labelledby="why-choose-us-heading"
+                class="rounded-lg bg-primary-50 p-6"
+              >
                 <h3
+                  id="why-choose-us-heading"
                   class="mb-3 font-lato text-lg font-semibold text-primary-900"
                 >
                   Why Choose Us?
@@ -100,6 +105,8 @@ const process: ServiceStep[] = service.process || [];
                           class="mr-2 h-5 w-5 text-accent-500"
                           fill="currentColor"
                           viewBox="0 0 20 20"
+                          aria-hidden="true"
+                          focusable="false"
                         >
                           <path
                             fill-rule="evenodd"
@@ -112,10 +119,14 @@ const process: ServiceStep[] = service.process || [];
                     ))
                   }
                 </ul>
-              </div>
+              </section>
 
-              <div class="rounded-lg bg-accent-50 p-6">
+              <section
+                aria-labelledby="our-specialties-heading"
+                class="rounded-lg bg-accent-50 p-6"
+              >
                 <h3
+                  id="our-specialties-heading"
                   class="mb-3 font-lato text-lg font-semibold text-primary-900"
                 >
                   Our Specialties
@@ -127,19 +138,23 @@ const process: ServiceStep[] = service.process || [];
                     ))
                   }
                 </ul>
-              </div>
+              </section>
             </div>
-          </div>
-        </div>
+          </article>
+        </section>
 
         <!-- Sidebar -->
-        <div class="lg:col-span-1">
+        <aside
+          class="lg:col-span-1"
+          aria-label="Quick contact and service info"
+        >
           <div class="sticky top-8 rounded-xl bg-primary-900 p-6 text-white">
             <h3 class="mb-4 font-lato text-lg font-semibold">Quick Contact</h3>
             <p class="mb-4 text-primary-200">Need immediate assistance?</p>
             <a
               href="/contact-us"
               class="mb-4 block w-full rounded-lg bg-accent-500 px-4 py-3 text-center font-semibold text-white transition-colors duration-200 hover:bg-accent-400"
+              aria-label="Get a quote for this service"
             >
               Get Quote
             </a>
@@ -159,34 +174,48 @@ const process: ServiceStep[] = service.process || [];
               <a
                 href="tel:01273123456"
                 class="font-semibold text-accent-400 hover:text-accent-300"
+                aria-label="Call emergency plumbing service"
               >
                 01273 123 456
               </a>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
-  </section>
+  </main>
+
   <!-- Key Features/Benefits -->
-  <ServiceFeaturesList features={features} />
+  <section aria-labelledby="features-heading">
+    <ServiceFeaturesList features={features} />
+  </section>
 
   <!-- Service Process/Steps -->
-  <ServiceProcessSteps steps={steps} />
+  <section aria-labelledby="process-heading">
+    <ServiceProcessSteps steps={steps} />
+  </section>
 
   <!-- Service-Specific Testimonials -->
-  <Testimonials />
+  <section aria-labelledby="testimonials-heading">
+    <Testimonials />
+  </section>
 
   <!-- Service-Specific FAQs -->
-  <ServiceFaqList questions={faqs} />
+  <section aria-labelledby="faqs-heading">
+    <ServiceFaqList questions={faqs} />
+  </section>
 
   <!-- Related Services -->
-  <RelatedServicesList services={relatedServices} />
+  <nav aria-label="Related services">
+    <RelatedServicesList services={relatedServices} />
+  </nav>
 
   <!-- Call to Action -->
-  <ServiceCallToAction
-    title={`Ready to get started with ${page.data.title}?`}
-    buttonText="Book a Service"
-    buttonLink="/contact-us"
-  />
+  <section aria-labelledby="cta-heading">
+    <ServiceCallToAction
+      title={`Ready to get started with ${page.data.title}?`}
+      buttonText="Book a Service"
+      buttonLink="/contact-us"
+    />
+  </section>
 </ServicesLayout>
