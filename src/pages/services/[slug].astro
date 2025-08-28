@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import ServicesLayout from "@/layouts/ServicesLayout.astro";
 import ServiceHeroSection from "@/components/services/ServiceHeroSection.astro";
 import ServiceFeaturesList from "@/components/services/ServiceFeaturesList.astro";
@@ -8,6 +7,16 @@ import Testimonials from "@/components/Testimonials.astro";
 import ServiceFaqList from "@/components/services/ServiceFaqList.astro";
 import ServiceCallToAction from "@/components/services/ServiceCallToAction.astro";
 import RelatedServicesList from "@/components/services/RelatedServicesList.astro";
+// Types
+import type {
+  ServiceFeature,
+  ServiceStep,
+  ServiceFaq,
+  ServiceFrontmatter,
+} from "@/lib/types";
+
+//Content
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -16,39 +25,6 @@ export async function getStaticPaths() {
     props: { page, allServices: services },
   }));
 }
-
-type ServiceFeature = {
-  title: string;
-  description: string;
-};
-
-type ServiceStep = {
-  title: string;
-  description: string;
-};
-
-type ServiceFaq = {
-  question: string;
-  answer: string;
-};
-
-type ServiceFrontmatter = {
-  title: string;
-  description: string;
-  price: number;
-  image?: string;
-  category?: string;
-  tags?: string[];
-  featured?: boolean;
-  slug?: string;
-  alt?: string;
-  intro?: string;
-  benefits?: string[];
-  specialties?: string[];
-  features?: ServiceFeature[];
-  process?: ServiceStep[];
-  faqs?: ServiceFaq[];
-};
 
 const { page, allServices } = Astro.props as {
   page: {
@@ -61,6 +37,7 @@ const { page, allServices } = Astro.props as {
     slug: string;
   }>;
 };
+const service = page.data;
 const { Content } = await page.render();
 
 // Get related services (excluding current page)
@@ -74,21 +51,22 @@ const relatedServices = allServices
   .slice(0, 3);
 
 // Use only page.data for all content
-const intro = page.data.intro || "";
-const benefits = page.data.benefits || [];
-const specialties = page.data.specialties || [];
-const features = page.data.features || [];
-const steps = page.data.process || [];
-const faqs = page.data.faqs || [];
+const intro = service.intro || "";
+const benefits = service.benefits || [];
+const specialties = service.specialties || [];
+const steps = service.process || [];
+const faqs = service.faqs || [];
+const features: ServiceFeature[] = service.features || [];
+const process: ServiceStep[] = service.process || [];
 ---
 
-<ServicesLayout frontmatter={page.data}>
+<ServicesLayout frontmatter={service}>
   <!-- Hero Section with Service Overview -->
   <ServiceHeroSection
-    title={page.data.title}
-    description={page.data.description}
-    image={page.data.image ?? ""}
-    alt={page.data.alt ?? ""}
+    title={service.title}
+    description={service.description}
+    image={service.image ?? ""}
+    alt={service.alt ?? ""}
   />
 
   <!-- Main Service Content -->
@@ -99,7 +77,7 @@ const faqs = page.data.faqs || [];
         <div class="lg:col-span-2">
           <div class="rounded-xl bg-background-100 p-8 shadow-lg">
             <div class="mb-8">
-              <h2 class="mb-4 text-2xl font-bold text-primary-900">
+              <h2 class="mb-4 font-lato text-2xl font-bold text-primary-900">
                 About This Service
               </h2>
               <p class="text-lg leading-relaxed text-neutral-700">
@@ -109,7 +87,9 @@ const faqs = page.data.faqs || [];
 
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div class="rounded-lg bg-primary-50 p-6">
-                <h3 class="mb-3 text-lg font-semibold text-primary-900">
+                <h3
+                  class="mb-3 font-lato text-lg font-semibold text-primary-900"
+                >
                   Why Choose Us?
                 </h3>
                 <ul class="space-y-2">
@@ -135,7 +115,9 @@ const faqs = page.data.faqs || [];
               </div>
 
               <div class="rounded-lg bg-accent-50 p-6">
-                <h3 class="mb-3 text-lg font-semibold text-primary-900">
+                <h3
+                  class="mb-3 font-lato text-lg font-semibold text-primary-900"
+                >
                   Our Specialties
                 </h3>
                 <ul class="space-y-1 text-neutral-700">
@@ -153,7 +135,7 @@ const faqs = page.data.faqs || [];
         <!-- Sidebar -->
         <div class="lg:col-span-1">
           <div class="sticky top-8 rounded-xl bg-primary-900 p-6 text-white">
-            <h3 class="mb-4 text-lg font-semibold">Quick Contact</h3>
+            <h3 class="mb-4 font-lato text-lg font-semibold">Quick Contact</h3>
             <p class="mb-4 text-primary-200">Need immediate assistance?</p>
             <a
               href="/contact-us"
@@ -163,7 +145,7 @@ const faqs = page.data.faqs || [];
             </a>
 
             <div class="mt-4 border-t border-primary-700 pt-4">
-              <h4 class="mb-2 font-semibold">Service Hours</h4>
+              <h4 class="mb-2 font-lato font-semibold">Service Hours</h4>
               <p class="mb-2 text-sm text-primary-200">
                 Monday - Friday: 7AM - 6PM
               </p>
@@ -172,7 +154,7 @@ const faqs = page.data.faqs || [];
             </div>
 
             <div class="mt-4 border-t border-primary-700 pt-4">
-              <h4 class="mb-2 font-semibold">Emergency Service</h4>
+              <h4 class="mb-2 font-lato font-semibold">Emergency Service</h4>
               <p class="mb-2 text-sm text-primary-200">24/7 availability</p>
               <a
                 href="tel:01273123456"
