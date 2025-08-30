@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import lavori from "@/images/lavori/3.jpeg";
 import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumbers.jpg";
+
+import AboutHero from "@/components/about/AboutHero.astro";
 ---
 
 <BaseLayout>
@@ -17,74 +18,7 @@ import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumber
   <div class="bg-background-00">
     <main id="main-content" class="isolate">
       <!-- Hero section -->
-      <section
-        class="relative isolate overflow-hidden bg-gradient-to-br from-primary-50 via-background-00 to-accent-50 pt-14"
-        aria-labelledby="about-hero-title"
-      >
-        <div
-          class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-background-00 shadow-xl ring-1 shadow-primary-600/10 ring-primary-100 sm:-mr-80 lg:-mr-96"
-          aria-hidden="true"
-        >
-        </div>
-
-        <div class="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
-          <div
-            class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8"
-          >
-            <h1
-              id="about-hero-title"
-              class="max-w-2xl font-lato text-4xl font-bold tracking-tight text-balance text-primary-600 sm:text-6xl lg:col-span-2 xl:col-auto"
-            >
-              Expert Plumbing & Heating Services in Brighton
-            </h1>
-
-            <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-              <p class="text-lg leading-8 font-medium text-text-00 sm:text-xl">
-                At AC Plumbers Ltd, we've been serving Brighton and surrounding
-                areas with professional plumbing, heating, and gas services for
-                over a decade. Our certified engineers are committed to
-                delivering exceptional quality and reliability.
-              </p>
-
-              <div class="mt-8 flex items-center gap-x-6">
-                <a
-                  href="/contact-us"
-                  class="rounded-md bg-primary-600 px-6 py-3 text-sm font-semibold text-background-00 shadow-sm transition-colors duration-200 hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
-                  aria-describedby="contact-description"
-                >
-                  Get Free Quote
-                </a>
-                <span id="contact-description" class="sr-only"
-                  >Contact us for a free consultation and quote</span
-                >
-
-                <a
-                  href="tel:01273123456"
-                  class="rounded-md px-2 py-1 text-sm leading-6 font-semibold text-primary-600 hover:text-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
-                >
-                  Call: 01273 123 456 <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-
-            <Image
-              src={lavori}
-              alt="AC Plumbers team member working on a professional plumbing installation in Brighton"
-              class="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover shadow-lg sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
-              loading="eager"
-              width="640"
-              height="512"
-            />
-          </div>
-        </div>
-
-        <div
-          class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-background-00 sm:h-32"
-          aria-hidden="true"
-        >
-        </div>
-      </section>
-
+      <AboutHero />
       <!-- Company Story Timeline -->
       <section
         class="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 lg:px-8"
@@ -93,7 +27,7 @@ import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumber
         <div class="mx-auto mb-16 max-w-2xl lg:mx-0">
           <h2
             id="timeline-title"
-            class="mt-4 font-lato text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl"
+            class="mt-4 text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl"
           >
             Our Journey
           </h2>
@@ -239,7 +173,7 @@ import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumber
         >
           <h2
             id="certifications-title"
-            class="mx-auto max-w-2xl font-lato text-3xl font-bold tracking-tight text-background-00 sm:text-4xl"
+            class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-background-00 sm:text-4xl"
           >
             Trusted & Certified
           </h2>
@@ -338,7 +272,7 @@ import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumber
             <div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
               <h2
                 id="team-title"
-                class="font-lato text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl"
+                class="text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl"
               >
                 Our Expert Team
               </h2>
@@ -452,7 +386,7 @@ import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumber
         <div class="mx-auto max-w-2xl lg:mx-0">
           <h2
             id="stats-title"
-            class="font-lato text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl"
+            class="text-4xl font-bold tracking-tight text-primary-600 sm:text-5xl"
           >
             Trusted by Brighton Residents
           </h2>
@@ -538,7 +472,7 @@ import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumber
           <div class="w-full lg:max-w-lg lg:flex-auto">
             <h2
               id="contact-cta-title"
-              class="font-lato text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl"
+              class="text-3xl font-bold tracking-tight text-primary-600 sm:text-4xl"
             >
               Ready to Get Started?
             </h2>
