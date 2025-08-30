@@ -13,10 +13,7 @@
         class="border-b px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
-        <nav
-          class="flex items-center justify-between space-x-2 py-1"
-          aria-label="Global"
-        >
+        <nav class="flex items-center py-1" aria-label="Global">
           <!-- Logo link -->
           <a
             href="/"
@@ -33,10 +30,35 @@
             />
           </a>
 
-          <!-- Mobile menu button -->
+          <!-- Tagline: hidden on mobile, centered on tablet, left on desktop -->
+          <div
+            class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:flex-shrink-0 lg:justify-start"
+          >
+            <span
+              class="rounded-full bg-primary-600 px-4 py-2 text-base font-bold text-background-00 shadow-lg ring-2 ring-primary-300 lg:ml-4"
+            >
+              Plumbing • Heating • Renewable
+            </span>
+          </div>
+
+          <!-- Desktop nav links -->
+          <div
+            class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
+          >
+            <div class="text-md flex gap-x-4 font-medium xl:gap-x-6">
+              <!-- ...existing code... -->
+            </div>
+          </div>
+
+          <!-- CTA Actions -->
+          <div class="hidden items-center gap-x-3 lg:flex">
+            <!-- ...existing code... -->
+          </div>
+
+          <!-- Mobile menu button (always right-aligned) -->
           <button
             type="button"
-            class="-m-2.5 rounded-md p-2.5 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
+            class="-m-3 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -45,10 +67,10 @@
           >
             <span class="sr-only">Open main menu</span>
             <svg
-              class="size-6"
+              class="size-8"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              stroke-width="2"
               stroke="currentColor"
               aria-hidden="true"
             >
@@ -59,17 +81,6 @@
               />
             </svg>
           </button>
-          <!-- Tagline -->
-          <span
-            class="hidden text-sm font-semibold tracking-wide text-primary-700 md:inline-block"
-          >
-            Plumbing • Heating • Renewable
-          </span>
-          <span
-            class="hidden rounded-full bg-accent-100 px-3 py-1 text-xs font-medium text-accent-700 md:inline-block"
-          >
-            Plumbing • Heating • Renewable
-          </span>
 
           <!-- Desktop nav links -->
           <div
@@ -221,7 +232,7 @@
               >
                 About
               </a>
-              <a
+              <!--  <a
                 href="/testimonials"
                 :class="[
                   'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
@@ -231,7 +242,7 @@
                 ]"
               >
                 Testimonials
-              </a>
+              </a> -->
               <a
                 href="/contact-us"
                 :class="[
