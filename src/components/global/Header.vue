@@ -334,10 +334,10 @@
           <a href="/" class="default-link -m-1.5 p-1.5">
             <span class="sr-only">AC Plumbers Ltd.</span>
             <img
-              class="h-8 w-auto"
+              class="h-14 w-auto"
               src="/images/logo/ac-plumbers-logo-brighton.png"
-              width="48"
-              height="48"
+              width="72"
+              height="72"
               alt="AC Plumbers Ltd logo with water and flame icons"
               title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
             />
@@ -345,17 +345,17 @@
 
           <button
             type="button"
-            class="-m-2.5 rounded-md p-2.5 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+            class="-m-3 rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
             @click="closeMenu"
             aria-label="Close navigation menu"
             ref="closeMenuButton"
           >
             <span class="sr-only">Close menu</span>
             <svg
-              class="size-6"
+              class="size-8"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              stroke-width="2"
               stroke="currentColor"
               aria-hidden="true"
             >
