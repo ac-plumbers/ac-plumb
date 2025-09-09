@@ -166,141 +166,10 @@ import Button from "./fundations/elements/Button.astro";
     >
       <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
         <div class="grid grid-cols-1 gap-y-6">
-          <!-- Service Type -->
-          <div>
-            <label
-              for="service-type"
-              class="block text-sm/6 font-semibold text-white"
-              >Service Type</label
-            >
-            <div class="mt-2.5">
-              <select
-                name="service-type"
-                id="service-type"
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
-              >
-                <option value="">Select a service</option>
-                <option value="emergency">Emergency</option>
-                <option value="installation">Installation</option>
-                <option value="repair">Repair</option>
-                <option value="quote">Quote</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-          <!-- Preferred Contact Method -->
-          <div>
-            <span class="block text-sm/6 font-semibold text-white"
-              >Preferred Contact Method</span
-            >
-            <div class="mt-2.5 flex gap-6">
-              <label class="inline-flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="phone"
-                  class="accent-accent-500"
-                />
-                <span class="text-white">Phone</span>
-              </label>
-              <label class="inline-flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="email"
-                  class="accent-accent-500"
-                />
-                <span class="text-white">Email</span>
-              </label>
-              <label class="inline-flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="whatsapp"
-                  class="accent-accent-500"
-                />
-                <span class="text-white">WhatsApp</span>
-              </label>
-            </div>
-          </div>
-          <!-- Best Time to Contact -->
-          <div>
-            <label
-              for="best-time"
-              class="block text-sm/6 font-semibold text-white"
-              >Best Time to Contact</label
-            >
-            <div class="mt-2.5">
-              <select
-                name="best-time"
-                id="best-time"
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
-              >
-                <option value="">Select a time</option>
-                <option value="morning">Morning</option>
-                <option value="afternoon">Afternoon</option>
-                <option value="evening">Evening</option>
-              </select>
-            </div>
-          </div>
-          <!-- Address -->
-          <div>
-            <label
-              for="address"
-              class="block text-sm/6 font-semibold text-white">Address</label
-            >
-            <div class="mt-2.5">
-              <input
-                type="text"
-                name="address"
-                id="address"
-                autocomplete="street-address"
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
-                placeholder="Street, City, Postcode"
-              />
-            </div>
-          </div>
-          <!-- File Upload -->
-          <div>
-            <label for="photo" class="block text-sm/6 font-semibold text-white"
-              >Upload a photo (optional)</label
-            >
-            <div class="mt-2.5">
-              <input
-                type="file"
-                name="photo"
-                id="photo"
-                accept="image/*"
-                class="block w-full text-white file:mr-4 file:rounded-md file:border-0 file:bg-accent-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
-              />
-            </div>
-          </div>
-          <!-- How did you hear about us? -->
-          <div>
-            <label
-              for="referral"
-              class="block text-sm/6 font-semibold text-white"
-              >How did you hear about us?</label
-            >
-            <div class="mt-2.5">
-              <select
-                name="referral"
-                id="referral"
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
-              >
-                <option value="">Select an option</option>
-                <option value="google">Google</option>
-                <option value="referral">Referral</option>
-                <option value="social">Social Media</option>
-                <option value="website">Website</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
           <div>
             <label
               for="full-name"
-              class="block text-sm/6 font-semibold text-white">Full Name</label
+              class="block text-sm/6 font-semibold text-white">Name</label
             >
             <div class="mt-2.5">
               <input
@@ -308,6 +177,7 @@ import Button from "./fundations/elements/Button.astro";
                 name="full-name"
                 id="full-name"
                 autocomplete="name"
+                required
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
               />
             </div>
@@ -322,6 +192,7 @@ import Button from "./fundations/elements/Button.astro";
                 name="email"
                 id="email"
                 autocomplete="email"
+                required
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
               />
             </div>
@@ -338,8 +209,12 @@ import Button from "./fundations/elements/Button.astro";
                 name="phone-number"
                 id="phone-number"
                 autocomplete="tel"
+                aria-describedby="phone-helper"
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
               />
+              <p id="phone-helper" class="mt-1 text-xs text-gray-400">
+                Optional, but helps us contact you faster.
+              </p>
             </div>
           </div>
           <div>
@@ -351,7 +226,8 @@ import Button from "./fundations/elements/Button.astro";
               <textarea
                 name="message"
                 id="message"
-                rows="4"
+                rows="5"
+                required
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white"
               ></textarea>
             </div>
