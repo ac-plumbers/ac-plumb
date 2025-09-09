@@ -1,7 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
+
+import backgroundImg from "@/images/services/radiator-valve-installation-brass-fitting-hove.jpeg";
 ---
 
 <BaseLayout>
@@ -9,15 +12,16 @@ import Button from "@/components/fundations/elements/Button.astro";
   <section
     class="relative bg-primary-600 px-6 pt-32 pb-24 sm:pt-40 sm:pb-32 lg:px-8 lg:pt-44"
   >
-    <!-- Background Image -->
+    <!-- Background Image (more visible) -->
     <div class="absolute inset-0">
-      <img
-        src="/images/services/all-aspects-of-plumbing-heating-and-gas.jpeg"
-        alt="Professional plumbing tools and equipment"
+      <Image
+        src={backgroundImg}
+        alt="Radiator valve installation with brass fittings and tools beside cast iron radiator on wood floor"
+        title="Radiator Valve Fitting in Progress – AC Plumbers Cast Iron Radiator Installation in Hove"
         class="h-full w-full object-cover"
       />
       <div
-        class="absolute inset-0 bg-gradient-to-br from-primary-600/90 via-primary-700/85 to-primary-800/90"
+        class="absolute inset-0 bg-gradient-to-br from-primary-600/40 via-primary-700/30 to-primary-800/40"
       >
       </div>
     </div>
