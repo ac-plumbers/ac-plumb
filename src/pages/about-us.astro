@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import aboutUs from "@/images/lavori/gas-boiler-installation-brighton-ac-plumbers.jpg";
+import aboutUs from "@/images/team/gas-boiler-installation-brighton-ac-plumbers.jpg";
+import aboutUs1 from "@/images/team/gas-safe-check-boiler-brighton-ac-plumbers.png";
 
 import AboutHero from "@/components/about/AboutHero.astro";
 import AboutTimeline from "../components/about/AboutTimeline.astro";
@@ -118,8 +119,8 @@ import AboutContactCTA from "../components/about/AboutContactCTA.astro";
                 <div
                   class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none"
                 >
-                  <img
-                    src="/images/services/central-hesting-installation.jpeg"
+                  <Image
+                    src={aboutUs1}
                     alt="Central heating installation work being performed by AC Plumbers specialist"
                     class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover shadow-lg"
                     loading="lazy"
