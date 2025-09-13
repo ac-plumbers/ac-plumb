@@ -1,0 +1,11 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import QuoteHero from "@/components/quote/QuoteHero.astro";
+import QuoteForm from "@/components/quote/QuoteForm.vue";
+---
+
+<BaseLayout>
+  <QuoteHero />
+  <QuoteForm client:only="vue" />
+</BaseLayout>;
+

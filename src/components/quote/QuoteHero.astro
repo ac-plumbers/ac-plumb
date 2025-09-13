@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import GasSafeLogo from "@/images/brands/gas-safe-register-logo-certified-brighton.png";
+import CheckatradeLogo from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
+import { ArrowRight } from "@lucide/astro";
+---
+
+<section class="bg-background-00 py-16 sm:py-24">
+  <div class="mx-auto max-w-3xl px-4 text-center">
+    <h1 class="mb-4 font-lato text-4xl font-bold text-primary-600 sm:text-5xl">
+      Get Your Free Plumbing Quote
+    </h1>
+    <p class="mb-8 font-inconsolata text-lg text-text-00">
+      Fast, no-obligation estimates from Brighton’s trusted Gas Safe engineers.
+      Book online in minutes—no hidden fees, no hassle.
+    </p>
+    <div class="mb-8 flex flex-wrap justify-center gap-4">
+      <Image
+        src={GasSafeLogo}
+        alt="Gas Safe Registered"
+        class="h-10 w-auto object-contain"
+        loading="lazy"
+      />
+      <Image
+        src={CheckatradeLogo}
+        alt="Checkatrade Member"
+        class="h-10 w-auto object-contain"
+        loading="lazy"
+      />
+    </div>
+    <a
+      href="#quote-form"
+      class="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-background-00 shadow-md transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+    >
+      Start Your Quote
+      <ArrowRight class="h-5 w-5" />
+    </a>
+  </div>
+</section>
