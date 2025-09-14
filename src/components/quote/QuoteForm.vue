@@ -1,7 +1,10 @@
 <template>
   <form
+    v-if="!showSummary"
+    id="quote-form"
     class="mx-auto mt-12 max-w-lg rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
     @submit.prevent="handleSubmit"
+    autocomplete="off"
   >
     <div class="mb-6 flex items-center justify-between">
       <span class="font-bold text-primary-600">Step {{ step }} of 4</span>
@@ -210,7 +213,67 @@
         </button>
       </div>
     </div>
+    <!-- Netlify hidden form moved outside main form below -->
   </form>
+
+  <!-- Quote summary after submission -->
+  <!-- Netlify hidden form for submission (must be outside main form) -->
+  <form
+    name="quote"
+    netlify
+    netlify-honeypot="bot-field"
+    hidden
+    ref="netlifyForm"
+  >
+    <input name="form-name" value="quote" type="hidden" />
+    <input name="service" :value="service" />
+    <input name="postcode" :value="postcode" />
+    <input name="propertyType" :value="propertyType" />
+    <input name="bedrooms" :value="bedrooms" />
+    <input name="extras" :value="extras.join(', ')" />
+    <input name="name" :value="name" />
+    <input name="phone" :value="phone" />
+    <input name="email" :value="email" />
+    <input name="estimatedQuote" :value="estimatedQuote" />
+  </form>
+  <div
+    v-if="showSummary"
+    id="quote-form"
+    class="mx-auto mt-8 max-w-lg rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
+  >
+    <h2 class="mb-4 text-2xl font-bold text-primary-700">Your Quote Summary</h2>
+    <ul class="mb-4 space-y-2 text-lg">
+      <li><strong>Service:</strong> {{ service }}</li>
+      <li>
+        <strong>Property:</strong> {{ propertyType }}, {{ bedrooms }} bedrooms,
+        {{ postcode }}
+      </li>
+      <li>
+        <strong>Extras:</strong>
+        {{ extras.length ? extras.join(", ") : "None" }}
+      </li>
+      <li><strong>Name:</strong> {{ name }}</li>
+      <li><strong>Phone:</strong> {{ phone }}</li>
+      <li><strong>Email:</strong> {{ email }}</li>
+    </ul>
+    <div class="mt-6 rounded-lg bg-white p-4 text-center shadow">
+      <span class="text-lg font-semibold text-primary-700"
+        >Estimated Quote:</span
+      >
+      <div class="mt-2 text-3xl font-bold text-accent-500">
+        £{{ estimatedQuote }}
+      </div>
+      <p class="mt-2 text-sm text-gray-500">
+        This is an instant estimate. We’ll confirm your quote by email or phone.
+      </p>
+    </div>
+    <button
+      class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-background-00 shadow-md transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+      @click="resetForm"
+    >
+      Start a New Quote
+    </button>
+  </div>
 </template>
 
 <script>
@@ -227,6 +290,7 @@ export default {
       name: "",
       phone: "",
       email: "",
+      showSummary: false,
     };
   },
   computed: {
@@ -272,9 +336,46 @@ export default {
     back() {
       if (this.step > 1) this.step--;
     },
-    handleSubmit() {
-      // TODO: handle submission (API, email, etc.)
-      alert("Quote request submitted!");
+    async handleSubmit() {
+      // Build form data
+      const formData = new FormData();
+      formData.append("form-name", "quote");
+      formData.append("service", this.service);
+      formData.append("postcode", this.postcode);
+      formData.append("propertyType", this.propertyType);
+      formData.append("bedrooms", this.bedrooms);
+      formData.append("extras", this.extras.join(", "));
+      formData.append("name", this.name);
+      formData.append("phone", this.phone);
+      formData.append("email", this.email);
+      formData.append("estimatedQuote", this.estimatedQuote);
+
+      // Submit to Netlify via AJAX
+      await fetch("/", {
+        method: "POST",
+        headers: { Accept: "application/x-www-form-urlencoded" },
+        body: new URLSearchParams([...formData]),
+      });
+
+      // Show the quote summary to the user
+      this.showSummary = true;
+    },
+    resetForm() {
+      this.step = 1;
+      this.service = "";
+      this.postcode = "";
+      this.propertyType = "";
+      this.bedrooms = "";
+      this.extras = [];
+      this.name = "";
+      this.phone = "";
+      this.email = "";
+      this.showSummary = false;
+      // Optionally scroll to the form
+      this.$nextTick(() => {
+        const el = document.getElementById("quote-form");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
     },
   },
 };
