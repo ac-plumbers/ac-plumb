@@ -2,23 +2,49 @@
   <form
     v-if="!showSummary"
     id="quote-form"
-    class="mx-auto mt-12 max-w-lg rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
+    class="mx-auto mt-12 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
     @submit.prevent="handleSubmit"
     autocomplete="off"
   >
-    <div class="mb-6 flex items-center justify-between">
-      <span class="font-bold text-primary-600">Step {{ step }} of 4</span>
-      <div class="flex gap-2">
-        <span
+    <!-- Animated Stepper/Progress Bar -->
+    <div class="mb-8">
+      <ol class="mx-auto flex w-full max-w-lg items-center justify-between">
+        <li
           v-for="s in 4"
           :key="s"
-          :class="
-            s === step
-              ? 'inline-block h-2 w-6 rounded bg-primary-600'
-              : 'inline-block h-2 w-2 rounded bg-gray-300'
-          "
-        ></span>
-      </div>
+          class="relative flex flex-1 flex-col items-center"
+        >
+          <div
+            :class="[
+              'flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all duration-300',
+              step === s
+                ? 'scale-110 border-primary-600 bg-primary-600 text-white shadow-lg'
+                : step > s
+                  ? 'border-accent-500 bg-accent-500 text-white'
+                  : 'border-gray-300 bg-gray-100 text-gray-400',
+            ]"
+          >
+            <span class="font-bold">{{ s }}</span>
+          </div>
+          <span
+            class="mt-2 text-xs font-semibold"
+            :class="step === s ? 'text-primary-600' : 'text-gray-400'"
+          >
+            {{ stepLabels[s - 1] }}
+          </span>
+          <div
+            v-if="s < 4"
+            class="absolute top-5 left-full flex h-1 w-full items-center"
+          >
+            <div
+              :class="[
+                'h-1 w-full transition-all duration-300',
+                step > s ? 'bg-accent-500' : 'bg-gray-200',
+              ]"
+            ></div>
+          </div>
+        </li>
+      </ol>
     </div>
     <div v-if="step === 1">
       <label class="mb-3 block font-lato text-lg font-semibold text-primary-700"
@@ -220,7 +246,7 @@
   <div
     v-if="showSummary"
     id="quote-form"
-    class="mx-auto mt-8 max-w-lg rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
+    class="mx-auto mt-8 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
   >
     <h2 class="mb-4 text-2xl font-bold text-primary-700">Your Quote Summary</h2>
     <ul class="mb-4 space-y-2 text-lg">
@@ -272,6 +298,7 @@ export default {
       phone: "",
       email: "",
       showSummary: false,
+      stepLabels: ["Service", "Property", "Extras", "Contact"],
     };
   },
   computed: {
