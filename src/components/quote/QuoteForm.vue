@@ -217,26 +217,6 @@
   </form>
 
   <!-- Quote summary after submission -->
-  <!-- Netlify hidden form for submission (must be outside main form) -->
-  <form
-    name="quote"
-    netlify
-    data-netlify="true"
-    netlify-honeypot="bot-field"
-    hidden
-    ref="netlifyForm"
-  >
-    <input name="form-name" value="quote" type="hidden" />
-    <input name="service" :value="service" />
-    <input name="postcode" :value="postcode" />
-    <input name="propertyType" :value="propertyType" />
-    <input name="bedrooms" :value="bedrooms" />
-    <input name="extras" :value="extras.join(', ')" />
-    <input name="name" :value="name" />
-    <input name="phone" :value="phone" />
-    <input name="email" :value="email" />
-    <input name="estimatedQuote" :value="estimatedQuote" />
-  </form>
   <div
     v-if="showSummary"
     id="quote-form"
