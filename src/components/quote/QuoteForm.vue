@@ -221,6 +221,7 @@
   <form
     name="quote"
     netlify
+    data-netlify="true"
     netlify-honeypot="bot-field"
     hidden
     ref="netlifyForm"
