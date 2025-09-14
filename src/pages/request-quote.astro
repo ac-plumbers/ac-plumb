@@ -2,23 +2,12 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import QuoteHero from "@/components/quote/QuoteHero.astro";
 import QuoteForm from "@/components/quote/QuoteForm.vue";
+import NetlifyQuoteForm from "@/components/quote/NetlifyQuoteForm.astro";
 ---
 
 <BaseLayout>
   <QuoteHero />
   <QuoteForm client:only="vue" />
-  <!-- Netlify will detect this form at build time -->
-  <form name="quote" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="hidden" name="form-name" value="quote" />
-    <input type="text" name="service" />
-    <input type="text" name="postcode" />
-    <input type="text" name="propertyType" />
-    <input type="text" name="bedrooms" />
-    <input type="text" name="extras" />
-    <input type="text" name="name" />
-    <input type="text" name="phone" />
-    <input type="email" name="email" />
-    <input type="text" name="estimatedQuote" />
-  </form>
+  <NetlifyQuoteForm />
 </BaseLayout>;
 
