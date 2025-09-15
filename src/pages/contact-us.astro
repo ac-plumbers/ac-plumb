@@ -5,9 +5,15 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 
 import backgroundImg from "@/images/services/radiator-valve-installation-brass-fitting-hove.jpeg";
+//Content for SEO
+const title = "Contact AC Plumbers | Brighton's Trusted Plumbing Experts";
+const description =
+  "Get in touch with AC Plumbers for reliable plumbing services in Brighton. Our expert team is ready to assist you with all your plumbing needs.";
+const keywords =
+  "contact, AC Plumbers, plumbing services, Brighton, emergency plumbing, boiler repair, heating services";
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} keywords={keywords}>
   <!-- Hero Section -->
   <section
     class="relative bg-primary-600 px-6 pt-32 pb-24 sm:pt-40 sm:pb-32 lg:px-8 lg:pt-44"

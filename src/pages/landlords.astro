@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 import {
   ClipboardCheck,
   Home,
@@ -10,34 +10,39 @@ import {
   BadgeCheck,
   Receipt,
   HeartHandshake,
-} from '@lucide/astro';
+} from "@lucide/astro";
 
 // Import your landlord service image
-import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with appropriate image path
+import landlordImage from "@/images/logo/ACPL-Logo-Postive.png"; // Replace with appropriate image path
 ---
 
 <BaseLayout
-  title='Specialist Landlord Services | Gas Safety Certificates | AC Plumb'>
-  <section class='bg-gradient-to-b from-primary-200 to-background-00 py-24'>
-    <div class='max-w-7xl mx-auto px-4 md:px-8 text-center mt-24'>
-      <h1 class='text-4xl md:text-5xl font-bold text-primary-900 mb-6'>
+  title="Landlord Services in Brighton | AC Plumbers"
+  description="Specialist plumbing and heating services for landlords in Brighton & Hove. Gas safety certificates, boiler servicing, emergency repairs, and more."
+  keywords="landlord services, gas safety certificate, boiler servicing, emergency repairs, Brighton, AC Plumbers"
+>
+  <section class="bg-gradient-to-b from-primary-200 to-background-00 py-24">
+    <div class="mx-auto mt-24 max-w-7xl px-4 text-center md:px-8">
+      <h1 class="mb-6 text-4xl font-bold text-primary-900 md:text-5xl">
         Specialist Landlord Services in Brighton & Hove
       </h1>
-      <p class='text-lg md:text-xl text-text-00 max-w-3xl mx-auto mb-8'>
+      <p class="mx-auto mb-8 max-w-3xl text-lg text-text-00 md:text-xl">
         Complete property maintenance solutions for landlords. From legally
         required gas safety certificates to full heating system installations
         and emergency callouts.
       </p>
-      <div class='flex flex-col sm:flex-row gap-4 justify-center'>
+      <div class="flex flex-col justify-center gap-4 sm:flex-row">
         <a
-          href='#contact'
-          class='inline-block bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition duration-300 font-semibold shadow-lg hover:shadow-xl'>
+          href="#contact"
+          class="inline-block rounded-lg bg-primary-600 px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:bg-primary-700 hover:shadow-xl"
+        >
           Get a Free Quote
         </a>
         <a
-          href='tel:01273123456'
-          class='inline-block bg-white text-primary-700 border-2 border-primary-600 px-8 py-4 rounded-lg hover:bg-primary-50 transition duration-300 font-semibold'>
-          <span class='flex items-center justify-center gap-2'>
+          href="tel:01273123456"
+          class="inline-block rounded-lg border-2 border-primary-600 bg-white px-8 py-4 font-semibold text-primary-700 transition duration-300 hover:bg-primary-50"
+        >
+          <span class="flex items-center justify-center gap-2">
             <span>Call Us Today</span>
           </span>
         </a>
@@ -46,38 +51,40 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
   </section>
 
   <!-- Key Services for Landlords -->
-  <section class='py-16 bg-neutral-100'>
-    <div class='max-w-7xl mx-auto px-4 md:px-8'>
-      <div class='text-center mb-16'>
-        <h2 class='text-3xl font-bold text-primary-800 mb-4'>
+  <section class="bg-neutral-100 py-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-8">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold text-primary-800">
           Complete Landlord Services
         </h2>
-        <p class='text-lg text-text-00 max-w-3xl mx-auto'>
+        <p class="mx-auto max-w-3xl text-lg text-text-00">
           Everything you need to ensure your rental properties are safe, legal,
           and well-maintained.
         </p>
       </div>
 
-      <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <!-- Gas Safety Certificate -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-primary-300'>
-          <div class='flex items-start'>
-            <div class='bg-primary-100 p-3 rounded-lg'>
-              <ClipboardCheck class='h-6 w-6 text-primary-600' />
+          class="rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <div class="flex items-start">
+            <div class="rounded-lg bg-primary-100 p-3">
+              <ClipboardCheck class="h-6 w-6 text-primary-600" />
             </div>
-            <div class='ml-4'>
-              <h3 class='font-bold text-xl text-primary-800 mb-2'>
+            <div class="ml-4">
+              <h3 class="mb-2 text-xl font-bold text-primary-800">
                 Gas Safety Certificates (CP12)
               </h3>
-              <p class='text-text-00'>
+              <p class="text-text-00">
                 Annual gas safety inspections and certificates to meet your
                 legal obligations as a landlord.
               </p>
               <a
-                href='/gas-safe-2'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
+                href="/gas-safe-2"
+                class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-800"
+              >
+                Learn more <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -85,23 +92,25 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Boiler Services -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-primary-300'>
-          <div class='flex items-start'>
-            <div class='bg-primary-100 p-3 rounded-lg'>
-              <Home class='h-6 w-6 text-primary-600' />
+          class="rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <div class="flex items-start">
+            <div class="rounded-lg bg-primary-100 p-3">
+              <Home class="h-6 w-6 text-primary-600" />
             </div>
-            <div class='ml-4'>
-              <h3 class='font-bold text-xl text-primary-800 mb-2'>
+            <div class="ml-4">
+              <h3 class="mb-2 text-xl font-bold text-primary-800">
                 Boiler Servicing & Repairs
               </h3>
-              <p class='text-text-00'>
+              <p class="text-text-00">
                 Regular maintenance and rapid repairs to keep tenants
                 comfortable and prevent costly breakdowns.
               </p>
               <a
-                href='/boilers'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
+                href="/boilers"
+                class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-800"
+              >
+                Learn more <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -109,23 +118,25 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Emergency Repairs -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-primary-300'>
-          <div class='flex items-start'>
-            <div class='bg-primary-100 p-3 rounded-lg'>
-              <Shield class='h-6 w-6 text-primary-600' />
+          class="rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <div class="flex items-start">
+            <div class="rounded-lg bg-primary-100 p-3">
+              <Shield class="h-6 w-6 text-primary-600" />
             </div>
-            <div class='ml-4'>
-              <h3 class='font-bold text-xl text-primary-800 mb-2'>
+            <div class="ml-4">
+              <h3 class="mb-2 text-xl font-bold text-primary-800">
                 Emergency Callouts
               </h3>
-              <p class='text-text-00'>
+              <p class="text-text-00">
                 Fast response to urgent issues like boiler breakdowns, water
                 leaks, and heating failures.
               </p>
               <a
-                href='/contact-us'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
+                href="/contact-us"
+                class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-800"
+              >
+                Learn more <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -133,23 +144,25 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- New Installations -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-primary-300'>
-          <div class='flex items-start'>
-            <div class='bg-primary-100 p-3 rounded-lg'>
-              <Calendar class='h-6 w-6 text-primary-600' />
+          class="rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <div class="flex items-start">
+            <div class="rounded-lg bg-primary-100 p-3">
+              <Calendar class="h-6 w-6 text-primary-600" />
             </div>
-            <div class='ml-4'>
-              <h3 class='font-bold text-xl text-primary-800 mb-2'>
+            <div class="ml-4">
+              <h3 class="mb-2 text-xl font-bold text-primary-800">
                 New Installations
               </h3>
-              <p class='text-text-00'>
+              <p class="text-text-00">
                 Professional installation of energy-efficient boilers, smart
                 thermostats, and heating systems.
               </p>
               <a
-                href='/heating'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
+                href="/heating"
+                class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-800"
+              >
+                Learn more <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -157,23 +170,25 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Property Maintenance -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-primary-300'>
-          <div class='flex items-start'>
-            <div class='bg-primary-100 p-3 rounded-lg'>
-              <BadgeCheck class='h-6 w-6 text-primary-600' />
+          class="rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <div class="flex items-start">
+            <div class="rounded-lg bg-primary-100 p-3">
+              <BadgeCheck class="h-6 w-6 text-primary-600" />
             </div>
-            <div class='ml-4'>
-              <h3 class='font-bold text-xl text-primary-800 mb-2'>
+            <div class="ml-4">
+              <h3 class="mb-2 text-xl font-bold text-primary-800">
                 Property Maintenance
               </h3>
-              <p class='text-text-00'>
+              <p class="text-text-00">
                 Comprehensive plumbing and heating maintenance services to keep
                 your property in top condition.
               </p>
               <a
-                href='/plumbing'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
+                href="/plumbing"
+                class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-800"
+              >
+                Learn more <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -181,23 +196,25 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Landlord Packages -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-primary-300'>
-          <div class='flex items-start'>
-            <div class='bg-primary-100 p-3 rounded-lg'>
-              <HeartHandshake class='h-6 w-6 text-primary-600' />
+          class="rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg"
+        >
+          <div class="flex items-start">
+            <div class="rounded-lg bg-primary-100 p-3">
+              <HeartHandshake class="h-6 w-6 text-primary-600" />
             </div>
-            <div class='ml-4'>
-              <h3 class='font-bold text-xl text-primary-800 mb-2'>
+            <div class="ml-4">
+              <h3 class="mb-2 text-xl font-bold text-primary-800">
                 Landlord Care Packages
               </h3>
-              <p class='text-text-00'>
+              <p class="text-text-00">
                 Customized service plans for landlords with multiple properties,
                 offering priority service and discounted rates.
               </p>
               <a
-                href='#contact'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Contact us <span aria-hidden='true'>&rarr;</span>
+                href="#contact"
+                class="mt-4 inline-flex items-center text-primary-600 hover:text-primary-800"
+              >
+                Contact us <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -207,32 +224,33 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
   </section>
 
   <!-- Why Choose Us -->
-  <section class='py-16 bg-primary-200'>
-    <div class='max-w-7xl mx-auto px-4 md:px-8'>
-      <div class='text-center mb-16'>
-        <h2 class='text-3xl font-bold text-primary-900 mb-4'>
+  <section class="bg-primary-200 py-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-8">
+      <div class="mb-16 text-center">
+        <h2 class="mb-4 text-3xl font-bold text-primary-900">
           Why Landlords Choose AC Plumb
         </h2>
-        <p class='text-lg text-text-00 max-w-3xl mx-auto font-medium'>
+        <p class="mx-auto max-w-3xl text-lg font-medium text-text-00">
           We understand the unique challenges landlords face and provide
           reliable solutions to help you maintain compliant, safe rental
           properties.
         </p>
       </div>
 
-      <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
         <!-- Fast Service -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-sm border border-primary-400'>
-          <div class='flex items-center gap-4 mb-4'>
-            <div class='bg-accent-300 p-2 rounded-full'>
-              <Clock class='h-6 w-6 text-text-00' />
+          class="rounded-xl border border-primary-400 bg-background-00 p-6 shadow-sm"
+        >
+          <div class="mb-4 flex items-center gap-4">
+            <div class="rounded-full bg-accent-300 p-2">
+              <Clock class="h-6 w-6 text-text-00" />
             </div>
-            <h3 class='font-bold text-xl text-primary-800'>
+            <h3 class="text-xl font-bold text-primary-800">
               Fast Response Times
             </h3>
           </div>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             We prioritize landlord calls to ensure tenant issues are resolved
             quickly, minimizing complaints and void periods.
           </p>
@@ -240,16 +258,17 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Compliance Expertise -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-sm border border-primary-400'>
-          <div class='flex items-center gap-4 mb-4'>
-            <div class='bg-accent-300 p-2 rounded-full'>
-              <ClipboardCheck class='h-6 w-6 text-text-00' />
+          class="rounded-xl border border-primary-400 bg-background-00 p-6 shadow-sm"
+        >
+          <div class="mb-4 flex items-center gap-4">
+            <div class="rounded-full bg-accent-300 p-2">
+              <ClipboardCheck class="h-6 w-6 text-text-00" />
             </div>
-            <h3 class='font-bold text-xl text-primary-800'>
+            <h3 class="text-xl font-bold text-primary-800">
               Compliance Expertise
             </h3>
           </div>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             Our team stays up-to-date with all landlord regulations to ensure
             your properties meet all legal requirements.
           </p>
@@ -257,16 +276,17 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Quality Workmanship -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-sm border border-primary-400'>
-          <div class='flex items-center gap-4 mb-4'>
-            <div class='bg-accent-300 p-2 rounded-full'>
-              <BadgeCheck class='h-6 w-6 text-text-00' />
+          class="rounded-xl border border-primary-400 bg-background-00 p-6 shadow-sm"
+        >
+          <div class="mb-4 flex items-center gap-4">
+            <div class="rounded-full bg-accent-300 p-2">
+              <BadgeCheck class="h-6 w-6 text-text-00" />
             </div>
-            <h3 class='font-bold text-xl text-primary-800'>
+            <h3 class="text-xl font-bold text-primary-800">
               Quality Workmanship
             </h3>
           </div>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             All work is performed by certified professionals and backed by our
             satisfaction guarantee for your peace of mind.
           </p>
@@ -274,16 +294,17 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
 
         <!-- Competitive Pricing -->
         <div
-          class='bg-background-00 p-6 rounded-xl shadow-sm border border-primary-400'>
-          <div class='flex items-center gap-4 mb-4'>
-            <div class='bg-accent-300 p-2 rounded-full'>
-              <Receipt class='h-6 w-6 text-text-00' />
+          class="rounded-xl border border-primary-400 bg-background-00 p-6 shadow-sm"
+        >
+          <div class="mb-4 flex items-center gap-4">
+            <div class="rounded-full bg-accent-300 p-2">
+              <Receipt class="h-6 w-6 text-text-00" />
             </div>
-            <h3 class='font-bold text-xl text-primary-800'>
+            <h3 class="text-xl font-bold text-primary-800">
               Competitive Pricing
             </h3>
           </div>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             Special rates for landlords with multiple properties and transparent
             pricing with no hidden fees.
           </p>
@@ -293,87 +314,88 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
   </section>
 
   <!-- Contact Us -->
-  <section id='contact' class='py-16 bg-background-00'>
-    <div class='max-w-6xl mx-auto px-4 md:px-8'>
-      <div class='bg-primary-700 rounded-2xl overflow-hidden shadow-xl'>
-        <div class='md:flex'>
+  <section id="contact" class="bg-background-00 py-16">
+    <div class="mx-auto max-w-6xl px-4 md:px-8">
+      <div class="overflow-hidden rounded-2xl bg-primary-700 shadow-xl">
+        <div class="md:flex">
           <!-- Left side: Contact Form -->
-          <div class='md:w-3/5 p-8 md:p-12'>
-            <h2 class='text-2xl md:text-3xl font-bold text-white mb-6'>
+          <div class="p-8 md:w-3/5 md:p-12">
+            <h2 class="mb-6 text-2xl font-bold text-white md:text-3xl">
               Get a Landlord Service Quote
             </h2>
-            <p class='text-primary-100 mb-8'>
+            <p class="mb-8 text-primary-100">
               Complete the form below and we'll get back to you with a
               customized solution for your rental properties.
             </p>
 
-            <form class='space-y-6'>
-              <div class='grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6'>
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6">
                 <div>
                   <label
-                    for='first-name'
-                    class='block text-sm font-medium text-white'
+                    for="first-name"
+                    class="block text-sm font-medium text-white"
                     >First name</label
                   >
                   <input
-                    type='text'
-                    id='first-name'
-                    class='mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400'
+                    type="text"
+                    id="first-name"
+                    class="mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                   />
                 </div>
                 <div>
                   <label
-                    for='last-name'
-                    class='block text-sm font-medium text-white'
+                    for="last-name"
+                    class="block text-sm font-medium text-white"
                     >Last name</label
                   >
                   <input
-                    type='text'
-                    id='last-name'
-                    class='mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400'
+                    type="text"
+                    id="last-name"
+                    class="mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                   />
                 </div>
               </div>
 
               <div>
-                <label for='email' class='block text-sm font-medium text-white'
+                <label for="email" class="block text-sm font-medium text-white"
                   >Email</label
                 >
                 <input
-                  type='email'
-                  id='email'
-                  class='mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400'
+                  type="email"
+                  id="email"
+                  class="mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                 />
               </div>
 
               <div>
-                <label for='phone' class='block text-sm font-medium text-white'
+                <label for="phone" class="block text-sm font-medium text-white"
                   >Phone</label
                 >
                 <input
-                  type='tel'
-                  id='phone'
-                  class='mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400'
+                  type="tel"
+                  id="phone"
+                  class="mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                 />
               </div>
 
               <div>
                 <label
-                  for='message'
-                  class='block text-sm font-medium text-white'
+                  for="message"
+                  class="block text-sm font-medium text-white"
                   >Tell us about your properties</label
                 >
                 <textarea
-                  id='message'
-                  rows='4'
-                  class='mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400'
+                  id="message"
+                  rows="4"
+                  class="mt-1 block w-full rounded-md border-border-50 shadow-sm focus:border-accent-400 focus:ring-accent-400"
                 ></textarea>
               </div>
 
               <div>
                 <button
-                  type='submit'
-                  class='inline-flex justify-center rounded-md border border-transparent bg-accent-500 py-3 px-6 text-base font-medium text-text-00 shadow-sm hover:bg-accent-600 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2'>
+                  type="submit"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-accent-500 px-6 py-3 text-base font-medium text-text-00 shadow-sm hover:bg-accent-600 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:outline-none"
+                >
                   Submit
                 </button>
               </div>
@@ -381,98 +403,104 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
           </div>
 
           <!-- Right side: Benefits -->
-          <div class='bg-primary-800 md:w-2/5 p-8 md:p-12'>
-            <h3 class='text-xl font-semibold text-white mb-6'>
+          <div class="bg-primary-800 p-8 md:w-2/5 md:p-12">
+            <h3 class="mb-6 text-xl font-semibold text-white">
               Landlord Benefits
             </h3>
-            <ul class='space-y-4'>
-              <li class='flex items-start'>
+            <ul class="space-y-4">
+              <li class="flex items-start">
                 <svg
-                  class='h-6 w-6 text-accent-400 mr-2 flex-shrink-0'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'>
+                  class="mr-2 h-6 w-6 flex-shrink-0 text-accent-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class='text-white'
+                <span class="text-white"
                   >Priority response for emergency calls</span
                 >
               </li>
-              <li class='flex items-start'>
+              <li class="flex items-start">
                 <svg
-                  class='h-6 w-6 text-accent-400 mr-2 flex-shrink-0'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'>
+                  class="mr-2 h-6 w-6 flex-shrink-0 text-accent-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class='text-white'
+                <span class="text-white"
                   >Discount rates for multiple properties</span
                 >
               </li>
-              <li class='flex items-start'>
+              <li class="flex items-start">
                 <svg
-                  class='h-6 w-6 text-accent-400 mr-2 flex-shrink-0'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'>
+                  class="mr-2 h-6 w-6 flex-shrink-0 text-accent-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class='text-white'
+                <span class="text-white"
                   >Free annual reminder for gas safety checks</span
                 >
               </li>
-              <li class='flex items-start'>
+              <li class="flex items-start">
                 <svg
-                  class='h-6 w-6 text-accent-400 mr-2 flex-shrink-0'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'>
+                  class="mr-2 h-6 w-6 flex-shrink-0 text-accent-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class='text-white'
+                <span class="text-white"
                   >Digital certificates and documentation</span
                 >
               </li>
-              <li class='flex items-start'>
+              <li class="flex items-start">
                 <svg
-                  class='h-6 w-6 text-accent-400 mr-2 flex-shrink-0'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'>
+                  class="mr-2 h-6 w-6 flex-shrink-0 text-accent-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class='text-white'>Dedicated account manager</span>
+                <span class="text-white">Dedicated account manager</span>
               </li>
             </ul>
 
-            <div class='mt-10'>
-              <h4 class='text-lg font-semibold text-white mb-3'>
+            <div class="mt-10">
+              <h4 class="mb-3 text-lg font-semibold text-white">
                 Need immediate assistance?
               </h4>
               <a
-                href='tel:01273123456'
-                class='inline-block bg-white text-primary-700 font-bold py-3 px-6 rounded-lg hover:bg-primary-50 transition duration-300'>
+                href="tel:01273123456"
+                class="inline-block rounded-lg bg-white px-6 py-3 font-bold text-primary-700 transition duration-300 hover:bg-primary-50"
+              >
                 01273 123 456
               </a>
             </div>
@@ -483,24 +511,25 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
   </section>
 
   <!-- FAQ Section -->
-  <section class='py-16 bg-neutral-200'>
-    <div class='max-w-3xl mx-auto px-4 md:px-8'>
-      <div class='text-center mb-12'>
-        <h2 class='text-3xl font-bold text-primary-900 mb-4'>
+  <section class="bg-neutral-200 py-16">
+    <div class="mx-auto max-w-3xl px-4 md:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="mb-4 text-3xl font-bold text-primary-900">
           Frequently Asked Questions
         </h2>
-        <p class='text-lg text-text-00 font-medium'>
+        <p class="text-lg font-medium text-text-00">
           Common questions from our landlord clients
         </p>
       </div>
 
-      <div class='space-y-6'>
+      <div class="space-y-6">
         <div
-          class='bg-background-00 rounded-lg shadow-sm p-6 border border-primary-300'>
-          <h3 class='text-xl font-semibold text-primary-800 mb-3'>
+          class="rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm"
+        >
+          <h3 class="mb-3 text-xl font-semibold text-primary-800">
             How often do I need to get a gas safety certificate?
           </h3>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             Gas safety certificates (CP12) must be renewed annually. It's a
             legal requirement for all rental properties with gas appliances. We
             provide automatic reminders to ensure you never miss a renewal.
@@ -508,11 +537,12 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
         </div>
 
         <div
-          class='bg-background-00 rounded-lg shadow-sm p-6 border border-primary-300'>
-          <h3 class='text-xl font-semibold text-primary-800 mb-3'>
+          class="rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm"
+        >
+          <h3 class="mb-3 text-xl font-semibold text-primary-800">
             What happens if my tenant reports a boiler breakdown?
           </h3>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             Our landlord clients receive priority service for emergency
             callouts. We'll contact both you and the tenant to arrange a
             convenient time for the repair, keeping you informed throughout the
@@ -521,11 +551,12 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
         </div>
 
         <div
-          class='bg-background-00 rounded-lg shadow-sm p-6 border border-primary-300'>
-          <h3 class='text-xl font-semibold text-primary-800 mb-3'>
+          class="rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm"
+        >
+          <h3 class="mb-3 text-xl font-semibold text-primary-800">
             Do you offer discounts for multiple properties?
           </h3>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             Yes, we offer special rates for landlords with multiple properties.
             The more properties you have with us, the greater the discount.
             Contact us for a customized quote for your property portfolio.
@@ -533,11 +564,12 @@ import landlordImage from '@/images/logo/ACPL-Logo-Postive.png'; // Replace with
         </div>
 
         <div
-          class='bg-background-00 rounded-lg shadow-sm p-6 border border-primary-300'>
-          <h3 class='text-xl font-semibold text-primary-800 mb-3'>
+          class="rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm"
+        >
+          <h3 class="mb-3 text-xl font-semibold text-primary-800">
             Can you work directly with my letting agent?
           </h3>
-          <p class='text-text-00'>
+          <p class="text-text-00">
             Absolutely. We regularly work with letting agents across Brighton
             and Hove to coordinate maintenance, safety checks, and emergency
             repairs. We can establish a streamlined process with your preferred

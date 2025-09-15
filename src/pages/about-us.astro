@@ -12,9 +12,22 @@ import AboutTimeline from "@/components/about/AboutTimeline.astro";
 import AboutCertification from "@/components/about/AboutCertification.astro";
 import AboutStats from "@/components/about/AboutStats.astro";
 import AboutContactCTA from "@/components/about/AboutContactCTA.astro";
+// Content for SEO
+const title =
+  "About AC Plumbers Ltd. | Brighton's Trusted Plumbing & Heating Experts";
+const description =
+  "Learn about AC Plumbers Ltd., Brighton's leading plumbing and heating company. Discover our history, values, and commitment to quality service.";
+const keywords =
+  "about AC Plumbers Ltd., Brighton plumbers, heating experts, plumbing company, trusted service";
+const author = "AC Plumbers Ltd.";
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+>
   <!-- Skip to main content link for accessibility -->
   <a
     href="#main-content"

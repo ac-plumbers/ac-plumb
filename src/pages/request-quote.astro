@@ -3,9 +3,15 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import QuoteHero from "@/components/quote/QuoteHero.astro";
 import QuoteForm from "@/components/quote/QuoteForm.vue";
 import NetlifyQuoteForm from "@/components/quote/NetlifyQuoteForm.astro";
+// SEO Content
+const title = "Request a Quote | AC Plumbers Ltd. Brighton";
+const description =
+  "Request a quote for plumbing and heating services from AC Plumbers Ltd. in Brighton. Get expert advice and competitive pricing.";
+const keywords =
+  "request quote, plumbing quote, heating services quote, AC Plumbers, Brighton";
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} keywords={keywords}>
   <QuoteHero />
   <QuoteForm client:only="vue" />
   <NetlifyQuoteForm />
