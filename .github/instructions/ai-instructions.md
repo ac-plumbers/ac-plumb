@@ -1,8 +1,22 @@
-# AC Plumb AI Assistant Instructions
+# AC Plumbers AI Assistant Instructions
+
+## Quick Checklist (Lintable Rules)
+
+- ✅ Use **Text** for all headings/paragraphs, **Link** for all links.
+- ✅ Maintain correct heading hierarchy (h1 → h2 → h3).
+- ✅ No raw `<h*>` or `<a>` in components/pages.
+- ✅ Tailwind tokens only from `src/styles/global.css` (no ad‑hoc colors).
+- ✅ Mobile‑first, responsive (`sm:` `md:` `lg:`).
+- ✅ Semantic HTML and accessibility checks (labels, ARIA, focus states).
+- ✅ No inline styles (use Tailwind or theme tokens).
+- ✅ TypeScript only; no `any`.
+- ✅ Keep functions/components descriptive and camelCase.
 
 ## Overview
 
-You are an AI assistant for the AC Plumbers website project. Your purpose is to help developers and designers maintain, extend, and improve this codebase. The project is built with Astro, TypeScript, and Tailwind CSS v4, and emphasizes accessibility, semantic HTML, and a consistent component-driven approach.
+You are an AI assistant for the AC Plumbers Ltd. website project. Your purpose is to help developers and designers maintain, extend, and improve this codebase. The project is built with Astro, TypeScript, and Tailwind CSS v4, and emphasizes accessibility, semantic HTML, and a consistent component-driven approach.
+Help me ship fast with **Astro + Vue 3 `<script setup lang="ts">` + TailwindCSS + Supabase**.
+Prefer **small, safe, diff-style edits** over big rewrites.
 
 ## Key Principles
 
@@ -18,7 +32,7 @@ You are an AI assistant for the AC Plumbers website project. Your purpose is to 
 src/
   components/
     global/         # Site-wide components (Header, Footer, etc.)
-    fundations/
+    foundations/
       elements/     # Core UI atoms (Text, Link, etc.)
     test/           # Page-specific or experimental components
   content/
@@ -46,7 +60,7 @@ src/
 | Variant    | Tailwind Classes Example                         | Usage          |
 | ---------- | ------------------------------------------------ | -------------- |
 | display6XL | text-4xl sm:text-7xl md:text-9xl lg:text-[12rem] | Hero headlines |
-| displayLG  | text-3xl sm:text-3xl md:text-4xl lg:text-5xl     | Section titles |
+| displayLG  | text-3xl sm:text-4xl md:text-5xl lg:text-6xl     | Section titles |
 | textBase   | text-base                                        | Body text      |
 | textXS     | text-xs                                          | Fine print     |
 
@@ -54,11 +68,11 @@ src/
 
 ### Color System
 
-- **Primary:** Blue shades (primary-700 for dark, primary-100 for light)
-- **Accent:** Yellow/orange (accent-600 for dark, accent-00 for light)
-- **Text:** Neutral tones (text-00 for dark, text-50 for medium)
-- **Background:** Near-white (background-00)
-- **Neutral:** Grays for borders/dividers
+- **Primary:** `text-primary-700`, `bg-primary-700`, `bg-primary-100`
+- **Accent:** `text-accent-600`, `bg-accent-600`, `bg-accent-100`
+- **Text:** `text-text-900` (default), `text-text-600` (medium), `text-text-50` (light)
+- **Background:** `bg-background-50` (light), `bg-background-100` (base)
+- **Neutral:** `border-neutral-200`, `text-neutral-700`
 
 **Icons:** Use `fill="currentColor"` and Tailwind text color classes to match headings.
 
@@ -93,21 +107,92 @@ src/
 
 - **Service Card:**
   ```astro
-  <div class="rounded-xl border border-primary-300 bg-background-00 p-6">
+  <div class="rounded-xl border border-primary-300 bg-background-100 p-6">
     <div class="flex items-start">
       <div class="rounded-lg bg-primary-100 p-3">
         <Icon class="h-6 w-6 text-primary-600" />
       </div>
       <div class="ml-4">
-        <Text tag="h3" class="text-xl font-bold text-primary-800"
-          >Service Title</Text
+        <Text
+          tag="h3"
+          variant="displayLG"
+          class="text-xl font-bold text-primary-800"
         >
-        <Text tag="p" class="text-text-50">Service description</Text>
+          Service Title
+        </Text>
+        <Text tag="p" variant="textBase" class="text-text-50"
+          >Service description</Text
+        >
       </div>
     </div>
   </div>
   ```
+
+## Stack & Conventions
+
+- **Language:** TypeScript everywhere; no `any`.
+
+- **Vue:** Always use `<script setup lang="ts">` followed by a `<template>` Composition API, emits/props typed.
+- Script block comes **first**, template comes **after**.
+- ✅ Example Vue 3 Component
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+
+const count = ref(0);
+function increment() {
+  count.value++;
+}
+</script>
+
+<template>
+  <button class="rounded bg-blue-500 px-4 py-2 text-white" @click="increment">
+    Count is: {{ count }}
+  </button>
+</template>
+```
+
+- **Astro:** Vue islands for interactivity; keep pages lean.
+- ✅ Example 2: Astro Component with Props
+
+---
+
+const { title, description } = Astro.props;
+import Text from "@components/foundations/elements/Text.vue";
+
+---
+
+<section>
+  <Text tag="h2" variant="displayLG" class="text-primary-700">{title}</Text>
+  <Text tag="p" variant="textBase" class="text-text-50">{description}</Text>
+</section>
+
+- **Styling:** Tailwind utilities with tokens from `src/styles/global.css`. No inline styles.
+- **Data/Auth:** Supabase JS client. Assume RLS on. Use typed queries and narrow selects.
+- **Testing:** Vitest + Vue Test Utils when asked.
 - **Contact Form:** Use labels, ARIA attributes, keyboard navigation, and clear error messages.
+
+## Output Rules
+
+- Be **concise**: bullets over prose, max one short paragraph before code.
+- Prefer **patches/diffs** or **minimal code blocks**. Explain risky changes in 1–2 bullets.
+- If assumptions are needed, **state them in one line**, then proceed.
+
+## Accessibility & UX
+
+- Label form controls, manage focus, and provide keyboard support.
+- Use semantic HTML; avoid div soup.
+
+## Performance
+
+- Avoid heavy deps; propose lightweight first.
+- Tree-shakable imports; defer non-critical JS.
+
+## Tailwind
+
+- Consolidate classes; avoid duplicates.
+- Suggest reusable patterns (variants/util classes) based on existing tokens.
 
 ## Workflow
 
@@ -140,9 +225,17 @@ When writing code, reviewing PRs, or answering questions:
 
 ## Project Reference
 
-- **Company:** AC Plumbers, Brighton & Hove, UK
+- **Company:** AC Plumbers Ltd., Brighton & Hove, UK
 - **Phone:** 01273 123 456
 - **Services:** Plumbing, heating, gas safety, boilers, heat pumps
 - **Audience:** Homeowners, landlords
 - **Colors:** Blue primary, yellow/orange accent
 - **Style:** Modern, professional, accessible
+
+## 🚫 Constraints
+
+- Do not use legacy Vue options API.
+- Avoid inline styles unless necessary.
+- Keep function and component names **descriptive** and **camelCase**.
+- Avoid hardcoded values; use props or config instead.
+- Code should follow **DRY (Don't Repeat Yourself)** and **KISS (Keep It Simple, Stupid)** principles.
