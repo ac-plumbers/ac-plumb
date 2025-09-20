@@ -6,6 +6,8 @@ export interface Props {
   description?: string;
   canonical?: string;
   noindex?: boolean;
+  ogImage?: string;
+  ogType?: string;
 }
 
 const {
@@ -13,6 +15,8 @@ const {
   description = "AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.",
   canonical = "https://acplumb.co.uk",
   noindex = false,
+  ogImage = "https://acplumb.co.uk/images/ac-plumbers-hero.jpg",
+  ogType = "website",
 } = Astro.props;
 ---
 
@@ -27,7 +31,7 @@ const {
     description: description,
     images: [
       {
-        url: "https://acplumb.co.uk/images/ac-plumbers-hero.jpg",
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: "AC Plumbers Ltd - Professional Plumbing Services",
@@ -35,13 +39,55 @@ const {
       },
     ],
     site_name: "AC Plumbers Ltd",
-    type: "website",
+    type: ogType,
+    locale: "en_GB",
   }}
   twitter={{
     handle: "@acplumbersltd",
     site: "@acplumbersltd",
     cardType: "summary_large_image",
-    title: title,
-    description: description,
   }}
 />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "AC Plumbers Ltd",
+    "description": "Professional plumbing, heating, and renewable energy services in Brighton",
+    "url": "https://acplumb.co.uk",
+    "telephone": "+44 7535 653 850",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "21j Campbell Road",
+      "addressLocality": "Brighton",
+      "postalCode": "BN1 4QD",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.8225",
+      "longitude": "-0.1372"
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "50.8225",
+        "longitude": "-0.1372"
+      },
+      "geoRadius": "50000"
+    },
+    "services": [
+      "Emergency Plumbing",
+      "Boiler Installation",
+      "Central Heating",
+      "Gas Safety Checks",
+      "Landlord Services"
+    ],
+    "priceRange": "££",
+    "image": "https://acplumb.co.uk/images/ac-plumbers-hero.jpg"
+  }
+</script>
