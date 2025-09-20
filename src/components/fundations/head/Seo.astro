@@ -1,5 +1,10 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
+import {
+  BUSINESS_CONFIG,
+  getFullAddress,
+  formatPhoneForTel,
+} from "@/utils/businessConfig";
 
 export interface Props {
   title?: string;
@@ -11,13 +16,54 @@ export interface Props {
 }
 
 const {
-  title = "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
-  description = "AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.",
-  canonical = "https://acplumb.co.uk",
+  title = `${BUSINESS_CONFIG.name} | Plumbing, Heating & Renewable Services in Brighton`,
+  description = `${BUSINESS_CONFIG.name} provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.`,
+  canonical = BUSINESS_CONFIG.website,
   noindex = false,
-  ogImage = "https://acplumb.co.uk/images/ac-plumbers-hero.jpg",
+  ogImage = `${BUSINESS_CONFIG.website}/images/ac-plumbers-hero.jpg`,
   ogType = "website",
 } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: BUSINESS_CONFIG.name,
+  description:
+    "Professional plumbing, heating, and renewable energy services in Brighton",
+  url: BUSINESS_CONFIG.website,
+  telephone: formatPhoneForTel(BUSINESS_CONFIG.phone),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: BUSINESS_CONFIG.address.street,
+    addressLocality: BUSINESS_CONFIG.address.city,
+    postalCode: BUSINESS_CONFIG.address.postcode,
+    addressCountry: "GB",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: BUSINESS_CONFIG.geo.latitude,
+    longitude: BUSINESS_CONFIG.geo.longitude,
+  },
+  openingHours: "Mo-Su 00:00-23:59",
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: BUSINESS_CONFIG.geo.latitude,
+      longitude: BUSINESS_CONFIG.geo.longitude,
+    },
+    geoRadius: BUSINESS_CONFIG.serviceRadius,
+  },
+  services: [
+    "Emergency Plumbing",
+    "Boiler Installation",
+    "Central Heating",
+    "Gas Safety Checks",
+    "Landlord Services",
+  ],
+  priceRange: "££",
+  image: ogImage,
+};
 ---
 
 <AstroSeo
@@ -34,55 +80,15 @@ const {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: "AC Plumbers Ltd - Professional Plumbing Services",
+        alt: `${BUSINESS_CONFIG.name} - Professional Plumbing Services`,
         type: "image/jpeg",
       },
     ],
-    site_name: "AC Plumbers Ltd",
+    site_name: BUSINESS_CONFIG.name,
     type: ogType,
     locale: "en_GB",
   }}
 />
 
 <!-- Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "AC Plumbers Ltd",
-    "description": "Professional plumbing, heating, and renewable energy services in Brighton",
-    "url": "https://acplumb.co.uk",
-    "telephone": "+44 7535 653 850",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "21j Campbell Road",
-      "addressLocality": "Brighton",
-      "postalCode": "BN1 4QD",
-      "addressCountry": "GB"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "50.8225",
-      "longitude": "-0.1372"
-    },
-    "openingHours": "Mo-Su 00:00-23:59",
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": "50.8225",
-        "longitude": "-0.1372"
-      },
-      "geoRadius": "50000"
-    },
-    "services": [
-      "Emergency Plumbing",
-      "Boiler Installation",
-      "Central Heating",
-      "Gas Safety Checks",
-      "Landlord Services"
-    ],
-    "priceRange": "££",
-    "image": "https://acplumb.co.uk/images/ac-plumbers-hero.jpg"
-  }
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
