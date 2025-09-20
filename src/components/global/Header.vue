@@ -35,7 +35,7 @@
             class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:flex-shrink-0 lg:justify-start"
           >
             <span
-              class="rounded-full bg-primary-600 px-4 py-2 text-base font-bold text-background-00 shadow-lg ring-2 ring-primary-300 lg:ml-4"
+              class="rounded-full bg-primary-600 px-4 py-2 text-base font-bold text-background-100 shadow-lg ring-2 ring-primary-300 lg:ml-4"
             >
               Plumbing • Heating • Renewable
             </span>
@@ -58,7 +58,7 @@
           <!-- Mobile menu button (always right-aligned) -->
           <button
             type="button"
-            class="-m-3 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
+            class="text-text-00 -m-3 ml-auto rounded-md p-3 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -92,7 +92,7 @@
                 :class="[
                   'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
                   isActiveLink('/')
-                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    ? 'bg-primary-600 text-background-100 shadow-sm'
                     : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
                 ]"
               >
@@ -110,7 +110,7 @@
                   :class="[
                     'flex items-center gap-x-1 rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
                     isInServicesSection()
-                      ? 'bg-primary-600 text-background-00 shadow-sm'
+                      ? 'bg-primary-600 text-background-100 shadow-sm'
                       : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
                   ]"
                   aria-expanded="false"
@@ -141,7 +141,7 @@
                 >
                   <a
                     href="/services"
-                    class="block border-b border-gray-100 px-4 py-2 text-sm font-medium text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block border-b border-gray-100 px-4 py-2 text-sm font-medium hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     📋 All Services
@@ -153,28 +153,28 @@
                   </div>
                   <a
                     href="/services/all-aspects-of-plumbing-heating-and-gas"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Plumbing, Heating & Gas
                   </a>
                   <a
                     href="/services/bathrooms-installation-rennovation"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Bathrooms Installation & Renovation
                   </a>
                   <a
                     href="/services/gas-boiler-installation"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Gas Boiler Installation
                   </a>
                   <a
                     href="/services/central-heating-installation"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Central Heating Installation
@@ -188,21 +188,21 @@
                   </div>
                   <a
                     href="/services/gas-safety-checks-cp12"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Gas Safety Checks (CP12)
                   </a>
                   <a
                     href="/services/smart-thermostats"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Smart Thermostats
                   </a>
                   <a
                     href="/services/renewable-air-source-heat-pump"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Air Source Heat Pumps
@@ -226,7 +226,7 @@
                 :class="[
                   'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
                   isActiveLink('/about-us')
-                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    ? 'bg-primary-600 text-background-100 shadow-sm'
                     : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
                 ]"
               >
@@ -248,7 +248,7 @@
                 :class="[
                   'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
                   isActiveLink('/contact-us')
-                    ? 'bg-primary-600 text-background-00 shadow-sm'
+                    ? 'bg-primary-600 text-background-100 shadow-sm'
                     : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
                 ]"
               >
@@ -301,7 +301,7 @@
             <!-- Free Quote CTA -->
             <a
               href="/contact-us"
-              class="rounded-md bg-primary-600 px-3 py-2 text-sm font-medium text-background-00 shadow-sm transition-colors duration-200 hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+              class="rounded-md bg-primary-600 px-3 py-2 text-sm font-medium text-background-100 shadow-sm transition-colors duration-200 hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
             >
               <span class="hidden xl:inline">Free Quote</span>
               <span class="xl:hidden">Quote</span>
@@ -345,7 +345,7 @@
 
           <button
             type="button"
-            class="-m-3 rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+            class="text-text-00 -m-3 rounded-md p-3 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
             @click="closeMenu"
             aria-label="Close navigation menu"
             ref="closeMenuButton"
@@ -376,7 +376,7 @@
                 :class="[
                   '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
                   isActiveLink('/')
-                    ? 'bg-primary-600 text-background-00'
+                    ? 'bg-primary-600 text-background-100'
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
@@ -397,7 +397,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium focus:outline-none',
                     isActiveLink('/services')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                   ]"
                   role="listitem"
@@ -410,7 +410,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/plumbing')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -423,7 +423,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/bathrooms-installation-rennovation')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -436,7 +436,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/gas-boiler-installation')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -449,7 +449,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/central-heating-installation')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -464,7 +464,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/gas-safety-checks-cp12')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -477,7 +477,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/smart-thermostats')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -490,7 +490,7 @@
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
                     isActiveLink('/services/renewable-air-source-heat-pump')
-                      ? 'bg-primary-600 text-background-00'
+                      ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
@@ -505,7 +505,7 @@
                 :class="[
                   '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
                   isActiveLink('/about-us')
-                    ? 'bg-primary-600 text-background-00'
+                    ? 'bg-primary-600 text-background-100'
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
@@ -518,7 +518,7 @@
                 :class="[
                   '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
                   isActiveLink('/testimonials')
-                    ? 'bg-primary-600 text-background-00'
+                    ? 'bg-primary-600 text-background-100'
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
@@ -531,7 +531,7 @@
                 :class="[
                   '-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold focus:outline-none',
                   isActiveLink('/contact-us')
-                    ? 'bg-primary-600 text-background-00'
+                    ? 'bg-primary-600 text-background-100'
                     : 'text-text-00 hover:bg-accent-500/10 focus:bg-accent-500/10',
                 ]"
                 role="listitem"
