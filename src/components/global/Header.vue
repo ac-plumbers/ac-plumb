@@ -6,7 +6,6 @@
   >
     Skip to main content
   </a>
-
   <header class="fixed inset-x-0 top-0 z-50 w-full transition-all duration-300">
     <div class="w-full">
       <div
@@ -58,7 +57,7 @@
           <!-- Mobile menu button (always right-aligned) -->
           <button
             type="button"
-            class="text-text-00 -m-3 ml-auto rounded-md p-3 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
+            class="-m-3 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -141,7 +140,7 @@
                 >
                   <a
                     href="/services"
-                    class="text-text-00 block border-b border-gray-100 px-4 py-2 text-sm font-medium hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block border-b border-gray-100 px-4 py-2 text-sm font-medium text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     📋 All Services
@@ -153,28 +152,28 @@
                   </div>
                   <a
                     href="/services/all-aspects-of-plumbing-heating-and-gas"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Plumbing, Heating & Gas
                   </a>
                   <a
                     href="/services/bathrooms-installation-rennovation"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Bathrooms Installation & Renovation
                   </a>
                   <a
                     href="/services/gas-boiler-installation"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Gas Boiler Installation
                   </a>
                   <a
                     href="/services/central-heating-installation"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Central Heating Installation
@@ -188,21 +187,21 @@
                   </div>
                   <a
                     href="/services/gas-safety-checks-cp12"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Gas Safety Checks (CP12)
                   </a>
                   <a
                     href="/services/smart-thermostats"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Smart Thermostats
                   </a>
                   <a
                     href="/services/renewable-air-source-heat-pump"
-                    class="text-text-00 block px-4 py-2 text-sm hover:bg-accent-500/10 hover:text-primary-600"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Air Source Heat Pumps
@@ -345,7 +344,7 @@
 
           <button
             type="button"
-            class="text-text-00 -m-3 rounded-md p-3 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+            class="-m-3 rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
             @click="closeMenu"
             aria-label="Close navigation menu"
             ref="closeMenuButton"
