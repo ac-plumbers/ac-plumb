@@ -1,6 +1,7 @@
 export interface BusinessContact {
   name: string;
-  phone: string;
+  mobilePhone: string;
+  landline: string;
   email: string;
   address: {
     street: string;
@@ -18,7 +19,8 @@ export interface BusinessContact {
 
 export const BUSINESS_CONFIG: BusinessContact = {
   name: "AC Plumbers Ltd.",
-  phone: "+44 7535 653 850",
+  mobilePhone: "+44 7535 653 850",
+  landline: "+44 1273 680 731",
   email: "info@acplumb.co.uk",
   address: {
     street: "21j Campbell Road",

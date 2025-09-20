@@ -1,6 +1,11 @@
 ---
 import Text from "./fundations/elements/Text.astro";
 import Button from "./fundations/elements/Button.astro";
+import {
+  BUSINESS_CONFIG,
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+} from "@/utils/businessConfig";
 ---
 
 <div class="relative isolate bg-gradient-to-b from-primary-600 to-neutral-900">
@@ -78,7 +83,11 @@ import Button from "./fundations/elements/Button.astro";
                 ></path>
               </svg>
             </dt>
-            <dd>21j Campbell Road<br />Brighton, Bn1 4QD</dd>
+            <dd>
+              {BUSINESS_CONFIG.address.street}<br />{
+                BUSINESS_CONFIG.address.city
+              }, {BUSINESS_CONFIG.address.postcode}
+            </dd>
           </div>
           <div class="flex gap-x-4">
             <dt class="flex-none">
@@ -100,9 +109,12 @@ import Button from "./fundations/elements/Button.astro";
               </svg>
             </dt>
             <dd>
-              <a class="hover:text-white" href="tel:004401273680731"
-                >01273 680 731</a
+              <a
+                class="hover:text-white"
+                href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.landline)}`}
               >
+                {formatPhoneForDisplay(BUSINESS_CONFIG.landline)}
+              </a>
             </dd>
           </div>
           <div class="flex gap-x-4">
@@ -125,8 +137,11 @@ import Button from "./fundations/elements/Button.astro";
               </svg>
             </dt>
             <dd>
-              <a class="hover:text-white" href="tel:004407535653850"
-                >07535 653 850</a
+              <a
+                class="hover:text-white"
+                href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+              >
+                {formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}</a
               >
             </dd>
           </div>
@@ -151,7 +166,7 @@ import Button from "./fundations/elements/Button.astro";
             </dt>
             <dd>
               <a class="hover:text-white" href="mailto:info@acplumb.co.uk"
-                >info@acplumb.co.uk</a
+                >{BUSINESS_CONFIG.email}</a
               >
             </dd>
           </div>
