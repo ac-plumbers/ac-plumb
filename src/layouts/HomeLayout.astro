@@ -1,7 +1,45 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BaseLayout from "./BaseLayout.astro";
+// Dynamic canonical URL for every page
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  author?: string;
+  themeColor?: string;
+  canonical?: string;
+  noindex?: boolean;
+  schemaType?: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  author,
+  themeColor,
+  canonical,
+  noindex = false,
+  schemaType = "WebPage",
+  datePublished,
+  dateModified,
+} = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  themeColor={themeColor}
+  canonical={canonicalURL}
+  noindex={noindex}
+  schemaType={schemaType}
+  datePublished={datePublished}
+  dateModified={dateModified}
+>
   <slot />
 </BaseLayout>

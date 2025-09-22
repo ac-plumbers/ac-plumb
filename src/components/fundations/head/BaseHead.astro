@@ -12,6 +12,9 @@ export interface Props {
   themeColor?: string;
   canonical?: string;
   noindex?: boolean;
+  schemaType?: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
 const {
@@ -22,14 +25,24 @@ const {
   themeColor,
   canonical,
   noindex = false,
+  schemaType = "WebPage",
+  datePublished,
+  dateModified,
 } = Astro.props;
+
+// Canonical URL logic with fallback for static pages
+const canonicalURL =
+  canonical ||
+  (Astro.url
+    ? new URL(Astro.url.pathname, Astro.site).href
+    : String(Astro.site));
 ---
 
 <!-- SEO with title, description, and canonical URL -->
 <Seo
   title={title}
   description={description}
-  canonical={canonical}
+  canonical={canonicalURL}
   noindex={noindex}
 />
 
@@ -37,7 +50,14 @@ const {
 <Meta keywords={keywords} author={author} themeColor={themeColor} />
 
 <!-- Schema -->
-<AstroSchema />
+<AstroSchema
+  type={schemaType}
+  title={title}
+  url={canonicalURL}
+  description={description}
+  datePublished={datePublished}
+  dateModified={dateModified}
+/>
 
 <!-- Favicons -->
 <Favicons />

@@ -7,7 +7,19 @@ import BaseHead from "@/components/fundations/head/BaseHead.astro";
 import HeaderVue from "@/components/global/Header.vue";
 import StickyCallButton from "@/components/global/StickyCallButton.vue";
 import Footer from "@/components/global/Footer.astro";
-const { title, description, keywords, author, themeColor } = Astro.props;
+
+const {
+  title,
+  description,
+  keywords,
+  author,
+  themeColor,
+  canonical,
+  noindex = false,
+  schemaType = "WebPage",
+  datePublished,
+  dateModified,
+} = Astro.props;
 
 // Get current path for active link highlighting
 const currentPath = Astro.url.pathname;
@@ -17,11 +29,15 @@ const currentPath = Astro.url.pathname;
 <html lang="en-GB" class="h-full scroll-smooth">
   <head>
     <BaseHead
-      title={title}
       description={description}
       keywords={keywords}
       author={author}
       themeColor={themeColor}
+      canonical={canonical}
+      noindex={noindex}
+      schemaType={schemaType}
+      datePublished={datePublished}
+      dateModified={dateModified}
     />
   </head>
   <body class="h-full">

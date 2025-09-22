@@ -1,286 +1,426 @@
 <template>
-  <form
-    v-if="!showSummary"
-    id="quote-form"
-    class="mx-auto mt-12 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
-    @submit.prevent="handleSubmit"
-    autocomplete="off"
-  >
-    <!-- Animated Stepper/Progress Bar -->
-    <div class="mb-8">
-      <ol class="mx-auto flex w-full max-w-lg items-center justify-between">
-        <li
-          v-for="s in 4"
-          :key="s"
-          class="relative flex flex-1 flex-col items-center"
-        >
-          <div
-            :class="[
-              'flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all duration-300',
-              step === s
-                ? 'scale-110 border-primary-600 bg-primary-600 text-white shadow-lg'
-                : step > s
-                  ? 'border-accent-500 bg-accent-500 text-white'
-                  : 'border-gray-300 bg-gray-100 text-gray-400',
-            ]"
-          >
-            <span class="font-bold">{{ s }}</span>
-          </div>
-          <span
-            class="mt-2 text-xs font-semibold"
-            :class="step === s ? 'text-primary-600' : 'text-gray-400'"
-          >
-            {{ stepLabels[s - 1] }}
-          </span>
-          <div
-            v-if="s < 4"
-            class="absolute top-5 left-full flex h-1 w-full items-center"
+  <section aria-labelledby="quote-form-heading">
+    <!-- SEO-friendly heading always visible -->
+    <h2 id="quote-form-heading" class="sr-only">
+      Request a Quote for Plumbing Services
+    </h2>
+
+    <form
+      v-if="!showSummary"
+      id="quote-form"
+      class="mx-auto mt-12 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
+      @submit.prevent="handleSubmit"
+      autocomplete="on"
+      role="form"
+      aria-label="Multi-step quote request form"
+    >
+      <!-- Progress indicator with proper ARIA -->
+      <nav aria-label="Form progress" class="mb-8">
+        <ol class="mx-auto flex w-full max-w-lg items-center justify-between">
+          <li
+            v-for="(label, index) in stepLabels"
+            :key="index + 1"
+            class="relative flex flex-1 flex-col items-center"
           >
             <div
               :class="[
-                'h-1 w-full transition-all duration-300',
-                step > s ? 'bg-accent-500' : 'bg-gray-200',
+                'flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all duration-300',
+                step === index + 1
+                  ? 'scale-110 border-primary-600 bg-primary-600 text-white shadow-lg'
+                  : step > index + 1
+                    ? 'border-accent-500 bg-accent-500 text-white'
+                    : 'border-gray-300 bg-gray-100 text-gray-400',
               ]"
-            ></div>
-          </div>
-        </li>
-      </ol>
-    </div>
-    <div v-if="step === 1">
-      <label class="mb-3 block font-lato text-lg font-semibold text-primary-700"
-        >What service do you need?</label
-      >
-      <select
-        class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        v-model="service"
-        required
-      >
-        <option value="">Select a service</option>
-        <option>Boiler Installation</option>
-        <option>Bathroom Plumbing</option>
-        <option>Emergency Callout</option>
-        <option>Heating Repair</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div v-if="step === 2">
-      <label class="mb-2 block font-semibold">Property Details</label>
-      <input
-        class="mb-2 w-full rounded border p-2"
-        placeholder="Postcode"
-        v-model="postcode"
-        required
-      />
-      <input
-        class="mb-2 w-full rounded border p-2"
-        placeholder="Property Type (e.g. Flat, House)"
-        v-model="propertyType"
-        required
-      />
-      <input
-        class="w-full rounded border p-2"
-        placeholder="Bedrooms"
-        type="number"
-        min="1"
-        v-model="bedrooms"
-        required
-      />
-    </div>
-    <div v-if="step === 2">
-      <label class="mb-3 block font-lato text-lg font-semibold text-primary-700"
-        >Property Details</label
-      >
-      <input
-        class="mb-3 w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        placeholder="Postcode"
-        v-model="postcode"
-        required
-      />
-      <input
-        class="mb-3 w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        placeholder="Property Type (e.g. Flat, House)"
-        v-model="propertyType"
-        required
-      />
-      <input
-        class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        placeholder="Bedrooms"
-        type="number"
-        min="1"
-        v-model="bedrooms"
-        required
-      />
-    </div>
-    <div v-if="step === 3">
-      <label class="mb-2 block font-semibold">Any extras?</label>
-      <div class="flex flex-col gap-2">
-        <label
-          ><input type="checkbox" value="Smart Thermostat" v-model="extras" />
-          Smart Thermostat</label
-        >
-        <label
-          ><input type="checkbox" value="Powerflush" v-model="extras" />
-          Powerflush</label
-        >
-        <label
-          ><input type="checkbox" value="Radiator Install" v-model="extras" />
-          Radiator Install</label
-        >
-      </div>
-    </div>
-    <div v-if="step === 3">
-      <label class="mb-3 block font-lato text-lg font-semibold text-primary-700"
-        >Any extras?</label
-      >
-      <div class="flex flex-col gap-3">
-        <label class="flex cursor-pointer items-center gap-2">
-          <input
-            type="checkbox"
-            value="Smart Thermostat"
-            v-model="extras"
-            class="h-5 w-5 rounded accent-accent-500 focus:ring-accent-500"
-          />
-          <span class="font-inconsolata text-base">Smart Thermostat</span>
-        </label>
-        <label class="flex cursor-pointer items-center gap-2">
-          <input
-            type="checkbox"
-            value="Powerflush"
-            v-model="extras"
-            class="h-5 w-5 rounded accent-accent-500 focus:ring-accent-500"
-          />
-          <span class="font-inconsolata text-base">Powerflush</span>
-        </label>
-        <label class="flex cursor-pointer items-center gap-2">
-          <input
-            type="checkbox"
-            value="Radiator Install"
-            v-model="extras"
-            class="h-5 w-5 rounded accent-accent-500 focus:ring-accent-500"
-          />
-          <span class="font-inconsolata text-base">Radiator Install</span>
-        </label>
-      </div>
-    </div>
-    <div v-if="step === 4">
-      <label class="mb-2 block font-semibold">Contact Details</label>
-      <input
-        class="mb-2 w-full rounded border p-2"
-        placeholder="Name"
-        v-model="name"
-        required
-      />
-      <input
-        class="mb-2 w-full rounded border p-2"
-        placeholder="Phone"
-        v-model="phone"
-        required
-      />
-      <input
-        class="w-full rounded border p-2"
-        placeholder="Email"
-        type="email"
-        v-model="email"
-        required
-      />
-    </div>
-    <div v-if="step === 4">
-      <label class="mb-3 block font-lato text-lg font-semibold text-primary-700"
-        >Contact Details</label
-      >
-      <input
-        class="mb-3 w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        placeholder="Name"
-        v-model="name"
-        required
-      />
-      <input
-        class="mb-3 w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        placeholder="Phone"
-        v-model="phone"
-        required
-      />
-      <input
-        class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-        placeholder="Email"
-        type="email"
-        v-model="email"
-        required
-      />
-    </div>
-    <div class="mt-8 flex flex-col items-center border-t pt-6">
-      <div class="mb-4 text-lg font-bold text-primary-700">
-        Estimated Quote:
-        <span class="text-accent-500">£{{ estimatedQuote }}</span>
-      </div>
-      <div class="flex w-full justify-between">
-        <button
-          type="button"
-          class="rounded-lg bg-gray-100 px-5 py-2 font-semibold text-gray-700 shadow-sm transition hover:bg-gray-200 focus:ring-2 focus:ring-primary-300 focus:outline-none"
-          :disabled="step === 1"
-          @click="back"
-        >
-          Back
-        </button>
-        <button
-          v-if="step < 4"
-          type="button"
-          class="rounded-lg bg-primary-600 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 focus:outline-none"
-          @click="next"
-        >
-          Next
-        </button>
-        <button
-          v-else
-          type="submit"
-          class="rounded-lg bg-accent-500 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-accent-600 focus:ring-2 focus:ring-accent-300 focus:outline-none"
-        >
-          Submit
-        </button>
-      </div>
-    </div>
-    <!-- Netlify hidden form moved outside main form below -->
-  </form>
+              :aria-current="step === index + 1 ? 'step' : false"
+            >
+              <span class="font-bold" aria-hidden="true">{{ index + 1 }}</span>
+            </div>
+            <span
+              class="mt-2 text-xs font-semibold"
+              :class="step === index + 1 ? 'text-primary-600' : 'text-gray-400'"
+              :id="`step-${index + 1}-label`"
+            >
+              {{ label }}
+            </span>
+            <div
+              v-if="index < 3"
+              class="absolute top-5 left-full flex h-1 w-full items-center"
+              aria-hidden="true"
+            >
+              <div
+                :class="[
+                  'h-1 w-full transition-all duration-300',
+                  step > index + 1 ? 'bg-accent-500' : 'bg-gray-200',
+                ]"
+              ></div>
+            </div>
+          </li>
+        </ol>
+      </nav>
 
-  <!-- Quote summary after submission -->
-  <div
-    v-if="showSummary"
-    id="quote-form"
-    class="mx-auto mt-8 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
-  >
-    <h2 class="mb-4 text-2xl font-bold text-primary-700">Your Quote Summary</h2>
-    <ul class="mb-4 space-y-2 text-lg">
-      <li><strong>Service:</strong> {{ service }}</li>
-      <li>
-        <strong>Property:</strong> {{ propertyType }}, {{ bedrooms }} bedrooms,
-        {{ postcode }}
-      </li>
-      <li>
-        <strong>Extras:</strong>
-        {{ extras.length ? extras.join(", ") : "None" }}
-      </li>
-      <li><strong>Name:</strong> {{ name }}</li>
-      <li><strong>Phone:</strong> {{ phone }}</li>
-      <li><strong>Email:</strong> {{ email }}</li>
-    </ul>
-    <div class="mt-6 rounded-lg bg-white p-4 text-center shadow">
-      <span class="text-lg font-semibold text-primary-700"
-        >Estimated Quote:</span
-      >
-      <div class="mt-2 text-3xl font-bold text-accent-500">
-        £{{ estimatedQuote }}
+      <!-- Step 1: Service Selection -->
+      <fieldset v-if="step === 1" class="border-0">
+        <legend
+          class="mb-3 block font-lato text-lg font-semibold text-primary-700"
+        >
+          What service do you need?
+        </legend>
+        <label for="service-select" class="sr-only"
+          >Select a plumbing service</label
+        >
+        <select
+          id="service-select"
+          class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+          v-model="service"
+          required
+          autocomplete="off"
+          aria-describedby="service-help"
+        >
+          <option value="">Select a service</option>
+          <option value="Boiler Installation">Boiler Installation</option>
+          <option value="Bathroom Plumbing">Bathroom Plumbing</option>
+          <option value="Emergency Callout">Emergency Callout</option>
+          <option value="Heating Repair">Heating Repair</option>
+          <option value="Other">Other</option>
+        </select>
+        <div id="service-help" class="mt-1 text-sm text-gray-600">
+          Choose the type of plumbing service you need
+        </div>
+      </fieldset>
+
+      <!-- Step 2: Property Details -->
+      <fieldset v-if="step === 2" class="border-0">
+        <legend
+          class="mb-3 block font-lato text-lg font-semibold text-primary-700"
+        >
+          Property Details
+        </legend>
+        <div class="space-y-3">
+          <div>
+            <label
+              for="postcode"
+              class="mb-1 block text-sm font-medium text-gray-700"
+            >
+              Postcode *
+            </label>
+            <input
+              id="postcode"
+              class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+              placeholder="e.g. BN1 1AA"
+              v-model="postcode"
+              required
+              autocomplete="postal-code"
+              aria-describedby="postcode-help"
+            />
+            <div id="postcode-help" class="mt-1 text-sm text-gray-600">
+              Enter your property's postcode for accurate pricing
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="property-type"
+              class="mb-1 block text-sm font-medium text-gray-700"
+            >
+              Property Type *
+            </label>
+            <input
+              id="property-type"
+              class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+              placeholder="e.g. Flat, House, Maisonette"
+              v-model="propertyType"
+              required
+              autocomplete="off"
+              aria-describedby="property-help"
+            />
+            <div id="property-help" class="mt-1 text-sm text-gray-600">
+              Specify if it's a flat, house, or other property type
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="bedrooms"
+              class="mb-1 block text-sm font-medium text-gray-700"
+            >
+              Number of Bedrooms *
+            </label>
+            <input
+              id="bedrooms"
+              class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+              placeholder="e.g. 2"
+              type="number"
+              min="1"
+              max="10"
+              v-model="bedrooms"
+              required
+              autocomplete="off"
+              aria-describedby="bedrooms-help"
+            />
+            <div id="bedrooms-help" class="mt-1 text-sm text-gray-600">
+              Number of bedrooms affects pricing for some services
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Step 3: Extras -->
+      <fieldset v-if="step === 3" class="border-0">
+        <legend
+          class="mb-3 block font-lato text-lg font-semibold text-primary-700"
+        >
+          Any additional services?
+        </legend>
+        <div
+          class="flex flex-col gap-3"
+          role="group"
+          aria-describedby="extras-help"
+        >
+          <label
+            class="flex cursor-pointer items-center gap-3 rounded-lg border border-gray-200 p-3 hover:bg-gray-50"
+          >
+            <input
+              type="checkbox"
+              value="Smart Thermostat"
+              v-model="extras"
+              class="h-5 w-5 rounded accent-accent-500 focus:ring-accent-500"
+              aria-describedby="thermostat-price"
+            />
+            <span class="flex-1">
+              <span class="font-inconsolata text-base font-medium"
+                >Smart Thermostat</span
+              >
+              <span id="thermostat-price" class="block text-sm text-gray-600"
+                >+£180</span
+              >
+            </span>
+          </label>
+
+          <label
+            class="flex cursor-pointer items-center gap-3 rounded-lg border border-gray-200 p-3 hover:bg-gray-50"
+          >
+            <input
+              type="checkbox"
+              value="Powerflush"
+              v-model="extras"
+              class="h-5 w-5 rounded accent-accent-500 focus:ring-accent-500"
+              aria-describedby="powerflush-price"
+            />
+            <span class="flex-1">
+              <span class="font-inconsolata text-base font-medium"
+                >Powerflush</span
+              >
+              <span id="powerflush-price" class="block text-sm text-gray-600"
+                >+£350</span
+              >
+            </span>
+          </label>
+
+          <label
+            class="flex cursor-pointer items-center gap-3 rounded-lg border border-gray-200 p-3 hover:bg-gray-50"
+          >
+            <input
+              type="checkbox"
+              value="Radiator Install"
+              v-model="extras"
+              class="h-5 w-5 rounded accent-accent-500 focus:ring-accent-500"
+              aria-describedby="radiator-price"
+            />
+            <span class="flex-1">
+              <span class="font-inconsolata text-base font-medium"
+                >Radiator Install</span
+              >
+              <span id="radiator-price" class="block text-sm text-gray-600"
+                >+£120</span
+              >
+            </span>
+          </label>
+        </div>
+        <div id="extras-help" class="mt-2 text-sm text-gray-600">
+          Select any additional services you need (optional)
+        </div>
+      </fieldset>
+
+      <!-- Step 4: Contact Details -->
+      <fieldset v-if="step === 4" class="border-0">
+        <legend
+          class="mb-3 block font-lato text-lg font-semibold text-primary-700"
+        >
+          Contact Details
+        </legend>
+        <div class="space-y-3">
+          <div>
+            <label
+              for="customer-name"
+              class="mb-1 block text-sm font-medium text-gray-700"
+            >
+              Full Name *
+            </label>
+            <input
+              id="customer-name"
+              class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+              placeholder="Your full name"
+              v-model="name"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div>
+            <label
+              for="customer-phone"
+              class="mb-1 block text-sm font-medium text-gray-700"
+            >
+              Phone Number *
+            </label>
+            <input
+              id="customer-phone"
+              class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+              placeholder="Your phone number"
+              type="tel"
+              v-model="phone"
+              required
+              autocomplete="tel"
+            />
+          </div>
+
+          <div>
+            <label
+              for="customer-email"
+              class="mb-1 block text-sm font-medium text-gray-700"
+            >
+              Email Address *
+            </label>
+            <input
+              id="customer-email"
+              class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
+              placeholder="Your email address"
+              type="email"
+              v-model="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Quote Display and Navigation -->
+      <div class="mt-8 flex flex-col items-center border-t pt-6">
+        <div
+          class="mb-4 text-lg font-bold text-primary-700"
+          role="status"
+          aria-live="polite"
+        >
+          Estimated Quote:
+          <span class="text-accent-500">£{{ estimatedQuote }}</span>
+        </div>
+        <div class="flex w-full justify-between gap-4">
+          <button
+            type="button"
+            class="rounded-lg bg-gray-100 px-5 py-2 font-semibold text-gray-700 shadow-sm transition hover:bg-gray-200 focus:ring-2 focus:ring-primary-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            :disabled="step === 1"
+            @click="back"
+            :aria-label="
+              step > 1
+                ? `Go back to step ${step - 1}: ${stepLabels[step - 2]}`
+                : 'Cannot go back'
+            "
+          >
+            Back
+          </button>
+          <button
+            v-if="step < 4"
+            type="button"
+            class="rounded-lg bg-primary-600 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 focus:outline-none"
+            @click="next"
+            :aria-label="`Continue to step ${step + 1}: ${stepLabels[step]}`"
+          >
+            Next
+          </button>
+          <button
+            v-else
+            type="submit"
+            class="rounded-lg bg-accent-500 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-accent-600 focus:ring-2 focus:ring-accent-300 focus:outline-none"
+            aria-label="Submit quote request"
+          >
+            Get My Quote
+          </button>
+        </div>
       </div>
-      <p class="mt-2 text-sm text-gray-500">
-        This is an instant estimate. We’ll confirm your quote by email or phone.
-      </p>
-    </div>
-    <button
-      class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-background-00 shadow-md transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
-      @click="resetForm"
+    </form>
+
+    <!-- Quote Summary -->
+    <div
+      v-if="showSummary"
+      id="quote-form"
+      class="mx-auto mt-8 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
+      role="region"
+      aria-labelledby="quote-summary-heading"
     >
-      Start a New Quote
-    </button>
-  </div>
+      <h2
+        id="quote-summary-heading"
+        class="mb-4 text-2xl font-bold text-primary-700"
+      >
+        Your Quote Summary
+      </h2>
+      <!-- Summary content remains the same but with proper semantic structure -->
+      <dl class="mb-4 space-y-2 text-lg">
+        <div>
+          <dt class="inline font-semibold">Service:</dt>
+          <dd class="inline">{{ service }}</dd>
+        </div>
+        <div>
+          <dt class="inline font-semibold">Property:</dt>
+          <dd class="inline">
+            {{ propertyType }}, {{ bedrooms }} bedrooms, {{ postcode }}
+          </dd>
+        </div>
+        <div>
+          <dt class="inline font-semibold">Extras:</dt>
+          <dd class="inline">
+            {{ extras.length ? extras.join(", ") : "None" }}
+          </dd>
+        </div>
+        <div>
+          <dt class="inline font-semibold">Name:</dt>
+          <dd class="inline">{{ name }}</dd>
+        </div>
+        <div>
+          <dt class="inline font-semibold">Phone:</dt>
+          <dd class="inline">{{ phone }}</dd>
+        </div>
+        <div>
+          <dt class="inline font-semibold">Email:</dt>
+          <dd class="inline">{{ email }}</dd>
+        </div>
+      </dl>
+
+      <div
+        class="mt-6 rounded-lg bg-white p-4 text-center shadow"
+        role="region"
+        aria-labelledby="final-quote"
+      >
+        <div id="final-quote" class="text-lg font-semibold text-primary-700">
+          Estimated Quote:
+        </div>
+        <div class="mt-2 text-3xl font-bold text-accent-500">
+          £{{ estimatedQuote }}
+        </div>
+        <p class="mt-2 text-sm text-gray-500">
+          This is an instant estimate. We'll confirm your quote by email or
+          phone.
+        </p>
+      </div>
+
+      <button
+        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-background-00 shadow-md transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+        @click="resetForm"
+        aria-label="Start a new quote request"
+      >
+        Start a New Quote
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>

@@ -10,9 +10,15 @@ const description =
   "Browse all plumbing, heating, and renewable services offered by AC Plumbers in Brighton. Book, compare, and learn more about each service.";
 const keywords =
   "plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
-<BaseLayout title={title} description={description} keywords={keywords}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical={canonicalURL}
+>
   <section class="relative overflow-hidden">
     <Wrapper variant="prose">
       <slot />
