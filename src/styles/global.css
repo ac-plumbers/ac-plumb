@@ -161,6 +161,11 @@ body {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
   }
+
+  /* Custom background position utility for footer image */
+  .bg-center-60 {
+    background-position: center 65%;
+  }
 }
 @layer components {
   html {
