@@ -15,6 +15,10 @@ content:
     label: Services
     type: collection
     path: src/content/services
+    
+    
+    create: true
+    filename: "{{fields.slug}}"  
 
     view:
       primary: title
@@ -23,6 +27,12 @@ content:
 
     fields:
       - { name: title, label: Title, type: string }
+      - name: slug
+        label: URL slug
+        type: string
+        required: true
+        hint: "URL-friendly version (e.g., 'gas-boiler-installation'). Use lowercase letters, numbers, and hyphens only."
+      - { name: description, label: Description, type: text }
       - { name: slug, label: URL Slug, type: string }
       - { name: price, label: Price, type: number }
 
