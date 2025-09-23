@@ -23,6 +23,7 @@ content:
 
     fields:
       - { name: title, label: Title, type: string }
+      - { name: slug, label: URL Slug, type: string }
       - { name: description, label: Description, type: text }
       - { name: price, label: Price, type: number }
 
