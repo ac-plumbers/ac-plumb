@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { getCollection } from "astro:content";
 import {
   MapPin,
   Phone,
@@ -24,134 +26,89 @@ import hoveBg from "@/images/lavori/radiator-valve-installation-brass-fitting-ho
 import lewesBg from "@/images/lavori/vaillant-air-source-heat-pump-brighton-installation.jpeg";
 import portsladeBg from "@/images/lavori/compact-cast-iron-radiator-bee-valve-saltdean.jpeg";
 
-// Define area data
-const areaData = {
-  brighton: {
-    name: "Brighton",
-    title: "Plumbing & Heating Services in Brighton",
-    description:
-      "Professional plumbing and heating services in Brighton. Local engineers, competitive prices, reliable service.",
-    backgroundImage: brightonBg,
-    neighborhoods: [
-      "Brighton City Centre",
-      "The Lanes",
-      "North Laine",
-      "Preston",
-      "Seven Dials",
-      "Kemp Town",
-      "Hanover",
-      "Round Hill",
-    ],
-    postcodes: ["BN1", "BN2", "BN3"],
-    specialties: [
-      "Historic property plumbing",
-      "Victorian house heating",
-      "City centre emergency calls",
-      "Apartment block services",
-    ],
-    localInfo:
-      "Brighton's mix of historic and modern properties requires specialized knowledge. Our local engineers understand the unique challenges of Victorian terraces, seafront apartments, and city centre buildings.",
-  },
-  hove: {
-    name: "Hove",
-    title: "Plumbing & Heating Services in Hove",
-    description:
-      "Expert plumbing and heating services in Hove. Trusted local engineers serving all areas of Hove.",
-    backgroundImage: hoveBg,
-    neighborhoods: [
-      "Hove Centre",
-      "Aldrington",
-      "Goldstone",
-      "Hangleton",
-      "West Blatchington",
-      "Knoll",
-      "Brunswick",
-      "Portland Road",
-    ],
-    postcodes: ["BN3"],
-    specialties: [
-      "Period property heating",
-      "Seafront apartment plumbing",
-      "Family home installations",
-      "Hove park area services",
-    ],
-    localInfo:
-      "Hove's beautiful Regency and Victorian properties require careful, expert attention. We specialize in maintaining and upgrading heating systems while preserving the character of these historic homes.",
-  },
-  lewes: {
-    name: "Lewes",
-    title: "Plumbing & Heating Services in Lewes",
-    description:
-      "Reliable plumbing and heating services in Lewes. Local engineers covering the historic town and surrounding areas.",
-    backgroundImage: lewesBg,
-    neighborhoods: [
-      "Lewes Town Centre",
-      "Southover",
-      "Cliffe",
-      "South Malling",
-      "Landport",
-      "Nevill",
-      "Wallands Park",
-      "Barcombe",
-    ],
-    postcodes: ["BN7", "BN8"],
-    specialties: [
-      "Historic building heating",
-      "Rural property services",
-      "Oil to gas conversions",
-      "Listed building compliance",
-    ],
-    localInfo:
-      "Lewes combines historic charm with modern living needs. Our experienced team handles everything from listed building compliance to rural property challenges with care and expertise.",
-  },
-  portslade: {
-    name: "Portslade",
-    title: "Plumbing & Heating Services in Portslade",
-    description:
-      "Professional plumbing and heating services in Portslade. Fast, reliable service for homes and businesses.",
-    backgroundImage: portsladeBg,
-    neighborhoods: [
-      "Portslade Village",
-      "Mile Oak",
-      "Southwick",
-      "Fishersgate",
-      "Portslade Station",
-      "North Portslade",
-      "South Portslade",
-      "West Hove",
-    ],
-    postcodes: ["BN41", "BN42"],
-    specialties: [
-      "Family home heating",
-      "New build installations",
-      "Commercial properties",
-      "Coastal area maintenance",
-    ],
-    localInfo:
-      "Portslade's growing community of families and professionals needs reliable, affordable plumbing services. We provide comprehensive coverage from traditional homes to modern developments.",
-  },
+const backgroundImages: Record<string, ImageMetadata> = {
+  brighton: brightonBg,
+  hove: hoveBg,
+  lewes: lewesBg,
+  portslade: portsladeBg,
 };
 
-// Dynamic routing
-export async function getStaticPaths() {
-  const areas = [
-    { slug: "brighton" },
-    { slug: "hove" },
-    { slug: "lewes" },
-    { slug: "portslade" },
-  ];
+const serviceLabels: Record<string, string> = {
+  "gas-boiler-installation": "Gas Boiler Installation",
+  "central-heating-installation": "Central Heating Installation",
+  "bathrooms-installation-rennovation": "Bathroom Installation & Renovation",
+  "gas-safety-checks-cp12": "Gas Safety Checks (CP12)",
+  "smart-thermostats": "Smart Thermostat Upgrades",
+  "renewable-air-source-heat-pump": "Heat Pumps & Electric Boilers",
+  "all-aspects-of-plumbing-heating-and-gas": "All Plumbing & Heating Services",
+};
 
-  return areas.map((area) => ({
+export async function getStaticPaths() {
+  const areaEntries = await getCollection("areas");
+
+  return areaEntries.map((area) => ({
     params: { slug: area.slug },
   }));
 }
 
 const { slug } = Astro.params;
-const area = areaData[slug as keyof typeof areaData];
+const areaEntries = await getCollection("areas");
+const areaEntry = areaEntries.find((entry) => entry.slug === slug);
 
-if (!area) {
+if (!areaEntry) {
   throw new Error(`Area ${slug} not found`);
 }
+
+const areaData = areaEntry.data;
+const areaName =
+  areaData.title?.split(" in ").pop() || areaEntry.slug.replace(/-/g, " ");
+const heroTitle =
+  areaData.title || `Plumbing & Heating Services in ${areaName}`;
+const heroDescription =
+  areaData.description ||
+  `Professional plumbing, heating, and gas services in ${areaName}.`;
+const neighborhoods = areaData.neighborhoods ?? [];
+const postcodes = areaData.postcode
+  ? areaData.postcode.split(",").map((code) => code.trim())
+  : [];
+const localInfo =
+  areaData.specificContent ||
+  `Trusted local engineers providing plumbing, heating, and gas services across ${areaName}.`;
+const featuredServices =
+  areaData.services?.map((service) => ({
+    slug: service,
+    label: serviceLabels[service] || service.replace(/-/g, " "),
+  })) ?? [];
+const backgroundImage =
+  backgroundImages[areaEntry.slug] ?? backgroundImages["brighton"];
+const defaultHighlights = [
+  {
+    slug: "gas-boiler-installation",
+    label: serviceLabels["gas-boiler-installation"],
+  },
+  {
+    slug: "central-heating-installation",
+    label: serviceLabels["central-heating-installation"],
+  },
+  {
+    slug: "bathrooms-installation-rennovation",
+    label: serviceLabels["bathrooms-installation-rennovation"],
+  },
+];
+
+const area = {
+  name: areaName,
+  title: heroTitle,
+  description: heroDescription,
+  localInfo,
+  neighborhoods: neighborhoods.length
+    ? neighborhoods
+    : [`${areaName} and surrounding communities`],
+  postcodes: postcodes.length ? postcodes.join(", ") : "All BN postcodes",
+  responseTime: areaData.responseTime || "30 minutes",
+  services: featuredServices.length ? featuredServices : defaultHighlights,
+  backgroundImage,
+};
 
 const services = [
   {
@@ -275,7 +232,7 @@ const whyChooseUs = [
             </div>
             <div class="flex items-center gap-2">
               <CheckCircle class="h-4 w-4 text-primary-100" />
-              Same day service available
+              Average response time: {area.responseTime}
             </div>
           </div>
         </div>
@@ -290,7 +247,7 @@ const whyChooseUs = [
               </h3>
               <div class="grid grid-cols-2 gap-3">
                 {
-                  area.neighborhoods.map((neighborhood) => (
+                  area.neighborhoods.map((neighborhood: string) => (
                     <div class="flex items-center gap-2 text-sm text-gray-700">
                       <span class="h-1.5 w-1.5 rounded-full bg-primary-600" />
                       {neighborhood}
@@ -301,7 +258,7 @@ const whyChooseUs = [
               <div class="mt-4 border-t border-gray-200 pt-4">
                 <p class="text-sm text-gray-600">
                   <strong>Postcodes:</strong>
-                  {area.postcodes.join(", ")}
+                  {area.postcodes}
                 </p>
               </div>
             </div>
@@ -349,20 +306,23 @@ const whyChooseUs = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
-          {area.name} Specialties
+          Featured Services in {area.name}
         </h2>
         <p class="mt-4 text-lg text-gray-600">
-          Specialized services for {area.name}'s unique properties and needs
+          Popular plumbing and heating services chosen by {area.name} customers
         </p>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {
-          area.specialties.map((specialty) => (
-            <div class="rounded-lg bg-white p-6 text-center shadow-sm">
+          area.services.map((service) => (
+            <a
+              href={`/services/${service.slug}`}
+              class="block rounded-lg bg-white p-6 text-center shadow-sm transition hover:shadow-md"
+            >
               <Star class="mx-auto mb-3 h-8 w-8 text-primary-600" />
-              <h3 class="font-semibold text-gray-900">{specialty}</h3>
-            </div>
+              <h3 class="font-semibold text-gray-900">{service.label}</h3>
+            </a>
           ))
         }
       </div>
