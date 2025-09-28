@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import img from "@/images/lavori/viessmann-boiler-closeup-brighton-installation.jpeg";
 import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
-import AnimatedNumber from "@/components/ui/AnimatedNumber.astro";
 ---
 
 <div class="overflow-hidden bg-primary-800 py-24 sm:py-32">
@@ -12,9 +11,6 @@ import AnimatedNumber from "@/components/ui/AnimatedNumber.astro";
     >
       <div class="lg:ml-auto lg:pt-4 lg:pl-4">
         <div class="lg:max-w-lg">
-          <!--   <h2 class="text-base/7 font-semibold text-secondary-400">
-            Who We Are
-          </h2> -->
           <div class="mt-4 flex items-center gap-8 sm:gap-12">
             <Image
               src={logo}
@@ -35,27 +31,6 @@ import AnimatedNumber from "@/components/ui/AnimatedNumber.astro";
             service and high workmanship. We cover all aspects of Plumbing,
             Heating, Gas, Boilers and Air Source Heat Pump installation.
           </p>
-          <!-- Stats Row -->
-          <div class="mt-10 flex flex-wrap items-center justify-start gap-8">
-            <div class="flex flex-col items-center">
-              <span class="text-3xl font-bold text-primary-400">
-                <AnimatedNumber value={2016} duration={1000} />
-              </span>
-              <span class="text-sm text-neutral-300">Established</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="text-3xl font-bold text-primary-400">
-                <AnimatedNumber value={500} duration={1200} suffix="+" />
-              </span>
-              <span class="text-sm text-neutral-300">Projects Completed</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span class="text-3xl font-bold text-primary-400">
-                <AnimatedNumber value={400} duration={1200} suffix="+" />
-              </span>
-              <span class="text-sm text-neutral-300">Happy Clients</span>
-            </div>
-          </div>
         </div>
       </div>
       <div class="flex items-start justify-end lg:order-first">

@@ -7,6 +7,7 @@ const services = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     price: z.number().optional(),
+    sortedOrder: z.number().optional(),
 
     // Stores plain URL like "/images/services/bathroom-hero.jpeg"
     image: z.string().optional(),

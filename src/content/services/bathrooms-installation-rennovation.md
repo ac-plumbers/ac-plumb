@@ -2,6 +2,7 @@
 title: Bathrooms Installation & Renovation
 description: Professional bathroom installation and renovation services in Brighton & Hove. We specialize in transforming bathrooms with high-quality fixtures, fittings, and finishes. Our experienced team handles everything from initial design consultation to final installation, ensuring a seamless process. Whether you're looking to update an existing bathroom or create a new one, we provide tailored solutions to meet your needs and budget.
 price: 0
+sortedOrder: 6
 image: "/images/services/freestanding-bathtub-installation-brighton.jpeg"
 alt: "Freestanding bathtub installation in a modern bathroom"
 tags:

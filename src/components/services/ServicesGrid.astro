@@ -1,12 +1,11 @@
 ---
-// src/components/services/ServicesGrid.astro
-import { Image } from 'astro:assets';
-
 const { services } = Astro.props;
+// Sort services by 'sortedOrder' frontmatter, defaulting to 999 if not set
+const sortedServices = [...services].sort((a, b) => (a.data.sortedOrder || 999) - (b.data.sortedOrder || 999));
 ---
 
 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-  {services.map((service: any) => (
+  {sortedServices.map((service: any) => (
     <div class="service-card group relative overflow-hidden rounded-xl bg-white border border-neutral-200 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300">
       <a href={`/services/${service.slug}`} class="block h-full">
 
