@@ -21,8 +21,7 @@ import Text from "@/components/fundations/elements/Text.astro";
       variant="textXL"
       class="mb-10 font-lato text-lg text-primary-700 sm:text-xl"
     >
-      Find answers to common questions about our plumbing services, pricing, and
-      availability.
+      Find answers to common questions about our plumbing services.
     </Text>
 
     <!-- Two-column layout container with absolute positioning -->
@@ -40,7 +39,8 @@ import Text from "@/components/fundations/elements/Text.astro";
         </Text>
         <Text tag="p" variant="textBase" class="mb-4 text-primary-600">
           We're here to help! Our team is ready to assist you with any plumbing
-          concerns. We offer personalized consultations and expert advice.
+          & heating concerns. We offer personalized consultations and expert
+          advice.
         </Text>
         <Text
           tag="h4"
@@ -60,7 +60,7 @@ import Text from "@/components/fundations/elements/Text.astro";
           <div>
             <p class="font-bold text-primary-800">
               Antonio Catalano<br /><span class="font-normal text-primary-600"
-                >Master Plumber & Customer Service</span
+                >Director / Owner</span
               >
             </p>
             <p class="mt-2 text-sm text-primary-700">
@@ -72,8 +72,8 @@ import Text from "@/components/fundations/elements/Text.astro";
             </p>
             <p class="text-sm text-primary-700">
               Phone: <a
-                href="tel:+15555551234"
-                class="text-accent-500 hover:text-accent-600">(555) 555-1234</a
+                href="tel:+4407535653850"
+                class="text-accent-500 hover:text-accent-600">07535653850</a
               >
             </p>
           </div>
@@ -86,29 +86,29 @@ import Text from "@/components/fundations/elements/Text.astro";
         {
           [
             {
-              question: "What services do you offer?",
+              question: "Why is my tap leaking?",
               answer:
-                "We offer a comprehensive range of plumbing services including emergency repairs, leak detection, fixture installation, bathroom and kitchen renovations, water heater installation and repair, pipe repair and replacement, drain cleaning, and preventative maintenance.",
+                "Leaky taps can be caused by a worn-out washer, a faulty O-ring, or other issues with the tap's internal components.",
             },
             {
-              question: "How quickly can you respond to emergency calls?",
+              question: "Why is my toilet constantly running?",
               answer:
-                "Our emergency response time is typically within 1-2 hours for urgent situations such as burst pipes or major leaks. We maintain a dedicated emergency team available 24/7, 365 days a year, including holidays and weekends. We prioritize calls based on severity to minimize property damage.",
+                "A running toilet can be caused by a faulty fill valve, a worn-out flapper, or other issues with the toilet's internal mechanisms.",
             },
             {
-              question: "Do you provide upfront pricing before starting work?",
+              question: "What should I do if I have a burst pipe?",
               answer:
-                "Yes, we believe in complete transparency with our pricing. After assessing the job, we provide a detailed written estimate before beginning any work. There are never any hidden fees or surprise charges. For standard services like drain cleaning or leak repair, we can often quote prices over the phone.",
+                "Turn off the water supply immediately and contact a plumber to repair the burst pipe.",
             },
             {
               question: "How can I prevent frozen pipes in winter?",
               answer:
-                "To prevent frozen pipes, insulate exposed pipes in unheated areas like basements and garages using foam pipe insulation. When temperatures drop below freezing, allow faucets to drip slightly to relieve pressure and keep water moving. Keep cabinet doors open to allow warm air circulation around pipes under sinks. We also offer professional winterization services for complete protection.",
+                "Insulate exposed piepes, especially in unheated areas like attics and crawl spaces. You can also kepp your thermostat set to a minimum temperature during cold weather.",
             },
             {
-              question: "What payment methods do you accept?",
+              question: "What is a boiler service, and why is it important?",
               answer:
-                "We accept multiple payment methods for your convenience, including all major credit cards (Visa, Mastercard, American Express, Discover), cash, checks, and digital payment options like Apple Pay and Google Pay. For larger renovation projects, we also offer financing options with flexible payment plans through our financing partners.",
+                "A boiler service is a thorough check and maintenance of your boiler to ensure it's running safely and efficiently. Regular servicing can prevent breakdowns, extend your boiler's lifespan, and potentially save you money on energy bills.",
             },
           ].map((faq) => (
             <div class="faq-item overflow-hidden rounded-xl border-2 border-neutral-200 bg-white/90 shadow-sm transition-all duration-200">
