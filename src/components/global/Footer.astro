@@ -48,10 +48,6 @@ const legalLinks = [
 ];
 // Images
 import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
-import bpec from "@/images/brands/bpec-certification-logo-gas-plumbing.png";
-import checktrade from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
-import oftec from "@/images/brands/oftec-registered-logo-heating-certification.jpg";
-import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.png";
 ---
 
 <footer class="relative bg-neutral-900">
@@ -79,7 +75,7 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
         </h3>
         <p class="font-lato text-neutral-100">
           Brighton & Hove, East Sussex <br />
-          Gas Safe Registered Engineers
+          Gas Safe and Oftec Registered Engineers
         </p>
         <div class="flex gap-x-6">
           <!-- social links remain unchanged -->
@@ -171,80 +167,6 @@ import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.p
     </div>
 
     <!-- Certifications Section -->
-    <div class="mt-8 border-t border-white/10 pt-0 sm:mt-12 lg:mt-16">
-      <h3
-        class="mb-2 text-center font-lato text-base font-semibold tracking-wide text-white uppercase"
-      >
-        Certified & Trusted
-      </h3>
-      <div
-        class="mx-auto grid max-w-lg grid-cols-2 gap-8 sm:max-w-xl sm:grid-cols-4 sm:gap-12"
-      >
-        <!-- Gas Safe -->
-        <div
-          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
-        >
-          <Image
-            src={gasSafe}
-            alt="Gas Safe Register logo – official gas safety certification"
-            title="Gas Safe Registered – Certified Gas Engineers in Brighton | AC Plumbers Ltd."
-            width={120}
-            height={60}
-            class="h-12 w-auto object-contain opacity-90 transition-opacity hover:opacity-100"
-            format="webp"
-            quality={90}
-          />
-        </div>
-
-        <!-- BPEC -->
-        <div
-          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
-        >
-          <Image
-            src={bpec}
-            alt="BPEC Certification Ltd logo – plumbing and gas accreditation"
-            title="BPEC Certification – Recognised Plumbing and Gas Training Body in the UK"
-            width={120}
-            height={60}
-            class="h-12 w-auto object-contain opacity-90 transition-opacity hover:opacity-100"
-            format="webp"
-            quality={90}
-          />
-        </div>
-
-        <!-- Checkatrade -->
-        <div
-          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
-        >
-          <Image
-            src={checktrade}
-            alt="Checkatrade logo with tagline 'Where reputation matters’"
-            title="AC Plumbers Ltd. on Checkatrade – Trusted Plumbers in Brighton with Verified Reviews"
-            width={120}
-            height={60}
-            class="h-12 w-auto object-contain opacity-90 transition-opacity hover:opacity-100"
-            format="webp"
-            quality={90}
-          />
-        </div>
-
-        <!-- OFTEC -->
-        <div
-          class="flex items-center justify-center rounded-lg bg-white p-4 transition-colors hover:bg-white/10"
-        >
-          <Image
-            src={oftec}
-            alt="OFTEC Registered Business logo for oil and heating certification"
-            title="OFTEC Registered – Certified Oil Heating and Boiler Engineers | AC Plumbers Ltd. Brighton"
-            width={120}
-            height={60}
-            class="h-12 w-auto object-contain opacity-90 transition-opacity hover:opacity-100"
-            format="webp"
-            quality={90}
-          />
-        </div>
-      </div>
-    </div>
 
     <!-- Copyright section - Updated with color palette -->
     <div class="mt-8 border-t border-white/10 pt-4 sm:mt-12 lg:mt-16">

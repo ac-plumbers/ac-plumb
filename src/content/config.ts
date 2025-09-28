@@ -55,6 +55,30 @@ const services = defineCollection({
   }),
 });
 
+const areas = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    image: z.string().optional(),
+    sortOrder: z.number().optional().default(999),
+    featured: z.boolean().optional().default(false),
+    services: z.array(z.string()).optional(),
+    postcode: z.string().optional(),
+    responseTime: z.string().optional(),
+    level: z.enum(["Priority", "Standard", "Extended"]).optional(),
+    region: z.string().optional().default("East Sussex"),
+    neighborhoods: z.array(z.string()).optional(),
+    testimonials: z.array(z.string()).optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string()
+    })).optional(),
+    specificContent: z.string().optional()
+  })
+});
+
 export const collections = {
   services,
+  areas
 };
