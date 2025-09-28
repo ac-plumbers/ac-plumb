@@ -4,6 +4,21 @@ import { Image } from "astro:assets";
 import imgHero from "@/images/lavori/6.jpeg";
 import Link from "@/components/fundations/elements/Link.astro";
 import Text from "../fundations/elements/Text.astro";
+// Content for the hero section
+const heroContent = {
+  heading:
+    "Welcome to AC Plumbers, your trusted local experts in plumbing, heating, gas and renewable energy.",
+  description:
+    "We specialise in boiler installation, repair, and maintenance, central heating systems, and air source heat pump installations. Proudly serving homeowners across Brighton & Hove and the surrounding areas with reliable and professional service.",
+  cta: {
+    text: "Get A Quote",
+    href: "/contact-us",
+  },
+  image: {
+    src: imgHero,
+    alt: "AC Plumbers Ltd. team at work in Brighton",
+  },
+};
 ---
 
 <section id="hero">
@@ -25,20 +40,21 @@ import Text from "../fundations/elements/Text.astro";
             <!-- Hero heading and text -->
             <Text tag="h1" variant="displayLG">
               <span slot="left-icon"> </span>
-              Certified Plumbing, Heating & Boiler Experts in Brighton & Sussex
+              {heroContent.heading}
             </Text>
             <p
               class="mt-8 text-lg font-medium text-pretty text-text-100/80 sm:text-xl/8"
             >
-              Specialising in gas boiler installation, air source heat pumps,
-              smart thermostats, and full-service plumbing. Trusted by
-              homeowners across Brighton, Hove, Lewes, Worthing, and surrounding
-              areas.
+              {heroContent.description}
             </p>
             <div class="mt-10 flex items-center gap-x-4 sm:gap-x-6">
-              <Link href="/contact-us" variant="accent-button" size="lg">
+              <Link
+                href={heroContent.cta.href}
+                variant="accent-button"
+                size="lg"
+              >
                 <span class="text-2xl uppercase sm:text-base"
-                  >Get A Quote
+                  >{heroContent.cta.text}
                 </span>
               </Link>
             </div>
@@ -49,8 +65,8 @@ import Text from "../fundations/elements/Text.astro";
     <div class="bg-neutral-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
       <Image
         class="aspect-[3/2] object-cover lg:aspect-auto lg:size-full"
-        src={imgHero}
-        alt=""
+        src={heroContent.image.src}
+        alt={heroContent.image.alt}
       />
     </div>
   </div>
