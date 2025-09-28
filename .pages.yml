@@ -18,13 +18,19 @@ content:
 
     view:
       primary: title
-      fields: [title, image, price, category, featured, tags]
-      sort: [title]
+      fields: [title, sortOrder, image, price, category, featured, tags]
+      sort: [sortOrder, title]
 
     fields:
       - { name: title, label: Title, type: string }
       - { name: slug, label: URL Slug, type: string }
-      - { name: description, label: Description, type: text}
+      - { name: description, label: Description, type: text }
+      - {
+          name: sortOrder,
+          label: Display Order,
+          type: number,
+          description: "Lower numbers appear first (1, 2, 3...)",
+        }
       - { name: price, label: Price, type: number }
 
       - name: image
