@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import Hero from "../components/home/Hero.astro";
-import WhoWeAre from "../components/home/WhoWeAre.astro";
+import Hero from "@components/home/Hero.astro";
+import WhoWeAre from "@/components/home/WhoWeAre.astro";
 import LogoCloud from "@/components/LogoCloud.astro";
 import Services from "@components/home/Services.astro";
 import Faq from "@/components/home/Faq.astro";
@@ -12,9 +12,9 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 ---
 
 <HomeLayout>
+  <LogoCloud />
   <Hero />
   <WhoWeAre />
-  <!--  <LogoCloud /> -->
   <Services />
   <Faq />
   <Testimonials />
