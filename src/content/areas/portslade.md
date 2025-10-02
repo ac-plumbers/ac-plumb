@@ -1,4 +1,5 @@
 ---
+area: "Portslade"
 title: "Plumbing & Heating Services in Portslade"
 description: "Dependable plumbing, heating, and gas support for Portslade homes and businesses. We handle everything from emergency leaks to planned boiler replacements with clear communication."
 sortOrder: 8

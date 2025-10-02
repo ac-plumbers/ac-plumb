@@ -1,4 +1,5 @@
 ---
+area: "Brighton"
 title: "Plumbing & Heating Services in Brighton"
 description: "Professional plumbing, heating and gas services in Brighton. Gas Safe registered engineers providing boiler installations, bathroom renovations, and general plumbing across Brighton."
 image: "/images/areas/brighton-plumbing-services.jpg"

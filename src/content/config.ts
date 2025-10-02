@@ -67,6 +67,7 @@ const areas = defineCollection({
     postcode: z.string().optional(),
     responseTime: z.string().optional(),
     level: z.enum(["Priority", "Standard", "Extended"]).optional(),
+    area: z.string().optional(),
     region: z.string().optional().default("East Sussex"),
     neighborhoods: z.array(z.string()).optional(),
     testimonials: z.array(z.string()).optional(),

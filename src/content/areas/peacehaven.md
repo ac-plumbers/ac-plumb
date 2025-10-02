@@ -1,4 +1,5 @@
 ---
+area: "Peacehaven"
 title: "Plumbing & Heating Services in Peacehaven"
 description: "Comprehensive plumbing, heating, and gas solutions for Peacehaven households and commercial premises. We cover emergency callouts, boiler care, and planned improvements with transparent pricing."
 sortOrder: 5

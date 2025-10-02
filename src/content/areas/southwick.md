@@ -1,4 +1,5 @@
 ---
+area: "Southwick"
 title: "Plumbing & Heating Services in Southwick"
 description: "Comprehensive plumbing and heating services throughout Southwick. We offer prompt repairs, annual servicing, and installation projects for homes and local businesses."
 sortOrder: 9

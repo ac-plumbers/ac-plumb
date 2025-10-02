@@ -1,4 +1,5 @@
 ---
++area: "Hassocks"
 title: "Plumbing & Heating Services in Hassocks"
 description: "Local plumbing and heating experts serving Hassocks and the surrounding villages. We deliver responsive repairs, modern boiler upgrades, and bathroom refurbishments tailored to family homes."
 sortOrder: 7
