@@ -1,139 +1,107 @@
 ---
 import { Image } from "astro:assets";
-
 import vaillant from "@/images/brands/vaillant-installer-logo-brighton-boilers.jpg";
 import viesmann from "@/images/brands/viessmann-logo-boiler-installation-brighton.jpg";
 import bpec from "@/images/brands/bpec-certification-logo-gas-plumbing.png";
 import checktrade from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
-/* import oftec from "@/images/brands/oftec-registered-logo-heating-certification.png"; */
+import gasSafe from "@/images/brands/gas-safe-register-logo-certified-brighton.png";
+import oftec1 from "@/images/brands/oftec-registered-logo-heating-certification-1.png";
+import oftec2 from "@/images/brands/oftec-registered-logo-heating-certification.jpg";
+
 import Text from "./fundations/elements/Text.astro";
 ---
 
-<div
-  class="bg-gradient-to-b from-neutral-50 to-primary-700 py-24 sm:py-32"
-  id="logo-cloud"
+<section
+  class="bg-gray-50 py-16"
+  id="certifications"
+  aria-labelledby="certifications-heading"
 >
-  PROVA LOGOCLOUD
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <Text
+    <!-- <Text
       tag="h2"
-      variant="displayLG"
-      class="mb-8 text-center font-lato font-semibold text-accent-600"
+      variant="textLG"
+      class="mb-12 text-center font-medium text-gray-600"
+      id="certifications-heading"
     >
-      Trusted by Leading Brands
-    </Text>
+      Certified & Trusted Partners
+    </Text> -->
 
-    <div
-      class="mx-auto grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-12 lg:grid-cols-5"
-    >
-      <!-- Vaillant -->
+    <div class="relative overflow-x-hidden">
       <div
-        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+        class="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent animate-logo-scroll flex snap-x snap-mandatory gap-6 py-2 md:animate-none md:gap-7 md:overflow-visible md:py-0"
+        tabindex="0"
+        aria-label="Brand certifications and partners"
       >
-        <Image
-          class="h-16 w-auto object-contain md:h-20"
-          src={vaillant}
-          alt="Vaillant Advance Installer logo featuring rabbit icon"
-          title="Vaillant Advance Installer – Trusted Boiler Installers in Brighton | AC Plumbers Ltd."
-          width={200}
-          height={100}
-          format="webp"
-          quality={90}
-        />
+        {/* Logo row, duplicated for seamless scroll */}
+        {
+          /* Seamless infinite scroll: duplicate the logo set, animate by one set's width */
+        }
+        {
+          (() => {
+            const logos = [
+              {
+                src: vaillant,
+                alt: "Vaillant Advance Installer certification",
+              },
+              { src: viesmann, alt: "Viessmann certified installer" },
+              {
+                src: bpec,
+                alt: "BPEC certified gas and plumbing professional",
+              },
+              { src: checktrade, alt: "Checkatrade verified tradesperson" },
+              { src: gasSafe, alt: "Gas Safe Register certified engineer" },
+              {
+                src: oftec1,
+                alt: "OFTEC registered heating certification (variant 1)",
+              },
+            ];
+            // Render two sets for seamless scroll
+            return [...logos, ...logos].map((logo, i) => (
+              <div
+                class="flex h-16 w-36 flex-shrink-0 snap-start items-center justify-center overflow-hidden rounded-xl bg-white/90 p-3 shadow transition-all duration-200 hover:scale-105 hover:shadow-lg md:h-20 md:w-44"
+                aria-hidden={i >= logos.length ? "true" : "false"}
+              >
+                <Image
+                  class="h-auto max-h-full w-full max-w-full object-contain object-center opacity-80 transition-opacity hover:opacity-100"
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={200}
+                  height={100}
+                  format="webp"
+                  quality={90}
+                />
+              </div>
+            ));
+          })()
+        }
       </div>
-
-      <!-- Viesmann -->
+      {/* Gradient fade left/right for scroll hint */}
       <div
-        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+        class="pointer-events-none absolute top-0 left-0 h-full w-8 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent md:hidden"
+        aria-hidden="true"
       >
-        <Image
-          class="h-16 w-auto object-contain md:h-20"
-          src={viesmann}
-          alt="Viessmann logo for high-efficiency boiler systems"
-          title="Viessmann Boiler Installers in Brighton – AC Plumbers Certified Partner"
-          width={200}
-          height={100}
-          format="webp"
-          quality={90}
-        />
       </div>
-
-      <!-- BPEC -->
       <div
-        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
+        class="pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent md:hidden"
+        aria-hidden="true"
       >
-        <Image
-          class="h-16 w-auto object-contain md:h-20"
-          src={bpec}
-          alt="BPEC Certification Ltd logo – plumbing and gas accreditation"
-          title="BPEC Certification – Recognised Plumbing and Gas Training Body in the UK"
-          width={200}
-          height={100}
-          format="webp"
-          quality={90}
-        />
       </div>
-
-      <!-- Checkatrade -->
-      <div
-        class="backlight relative flex items-center justify-center rounded-lg bg-white p-4 shadow-md"
-      >
-        <Image
-          class="h-16 w-auto object-contain md:h-20"
-          src={checktrade}
-          alt="Checkatrade logo with tagline 'Where reputation matters’"
-          title="AC Plumbers Ltd. on Checkatrade – Trusted Plumbers in Brighton with Verified Reviews"
-          width={200}
-          height={100}
-          format="webp"
-          quality={90}
-        />
-      </div>
-
-      <!-- OFTEC -->
-      <!-- <div
-        class="backlight relative col-span-2 flex items-center justify-center rounded-lg bg-white p-4 shadow-md md:col-span-1"
-      >
-        <Image
-          class="h-16 w-auto object-contain md:h-20"
-          src={oftec}
-          alt="OFTEC Registered Business logo for oil and heating certification"
-          title="OFTEC Registered Business logo for oil and heating certification "
-          width={200}
-          height={100}
-          format="webp"
-          quality={90}
-        />
-      </div> -->
+      <style>
+        @media (max-width: 767px) {
+          .animate-logo-scroll {
+            animation: logo-scroll 16s linear infinite;
+            width: max-content;
+          }
+          @keyframes logo-scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+        }
+      </style>
     </div>
   </div>
-</div>
-
-<style>
-  /*  #logo-cloud {
-    background: var(--color-primary-600);
-    position: relative;
-    overflow: hidden;
-  } */
-
-  /*  .backlight {
-    overflow: visible;
-    position: relative;
-    z-index: 1;
-  } */
-
-  .backlight::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0; /* Added left:0 */
-    background: inherit; /* Explicit background */
-    filter: blur(20px) brightness(150);
-    transform: scale(1.1);
-    z-index: -1;
-    opacity: 0.7;
-    border-radius: 8px; /* Match your rounded-lg */
-  }
-</style>
+</section>
