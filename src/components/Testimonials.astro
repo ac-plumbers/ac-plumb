@@ -109,19 +109,23 @@ const reviews = [
         <Image
           src={google}
           alt="Google Reviews"
-          width={120}
-          height={40}
-          class="h-8 w-auto object-contain"
+          width={180}
+          height={60}
+          class="h-12 w-auto object-contain"
         />
         <span class="font-semibold">Rated 5.0 ★ on Google</span>
       </a>
-      <Image
-        src={checkaTrade}
-        alt="Checkatrade"
-        width={120}
-        height={40}
-        class="w-auto object-contain"
-      />
+      <span
+        class="flex h-12 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow"
+      >
+        <Image
+          src={checkaTrade}
+          alt="Checkatrade"
+          width={180}
+          height={60}
+          class="block h-12 w-auto object-contain object-center"
+        />
+      </span>
     </div>
 
     <!-- Testimonials Grid with Animated Entry -->
