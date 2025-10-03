@@ -34,7 +34,7 @@
             class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:flex-shrink-0 lg:justify-start"
           >
             <span
-              class="rounded-full px-4 py-2 text-base font-bold text-primary-600 lg:ml-4"
+              class="rounded-full px-4 py-2 text-xl font-bold text-primary-600 lg:ml-4"
             >
               Plumbing • Heating • Renewable
             </span>
