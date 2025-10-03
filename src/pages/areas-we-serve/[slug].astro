@@ -16,7 +16,6 @@ import {
   Users,
   Award,
   Home,
-  Building,
   Zap,
 } from "@lucide/astro";
 
@@ -178,8 +177,12 @@ const whyChooseUs = [
         src={area.backgroundImage}
         alt={`Plumbing and heating work in ${area.name}`}
         class="h-full w-full object-cover"
-        quality={90}
+        quality={70}
+        width={1600}
+        height={800}
         format="webp"
+        loading="eager"
+        decoding="async"
       />
       <!-- Overlay -->
       <div
