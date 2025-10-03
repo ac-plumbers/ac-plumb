@@ -34,7 +34,11 @@
             class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:flex-shrink-0 lg:justify-start"
           >
             <span
-              class="rounded-full px-4 py-2 text-xl font-bold text-primary-600 lg:ml-4"
+              :class="[
+                'rounded-full px-4 py-2 text-xl font-bold lg:ml-4',
+                taglineColorClass,
+              ]"
+              ref="taglineRef"
             >
               Plumbing • Heating • Renewable
             </span>
@@ -548,12 +552,43 @@
 
 <script setup>
 import { ref, nextTick, onMounted, onBeforeUnmount, computed } from "vue";
+// Tagline color switching logic
+const taglineRef = ref(null);
+const taglineColorClass = ref("text-primary-600");
 const scrolled = ref(false);
 const handleScroll = () => {
   scrolled.value = window.scrollY > 50;
 };
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
+
+  // Intersection Observer for section background detection
+  // Each section should have data-bg="dark" or data-bg="light"
+  const header = document.querySelector("header");
+  const sections = document.querySelectorAll("[data-bg]");
+  function updateTaglineColor() {
+    let found = false;
+    const headerRect = header.getBoundingClientRect();
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      // Check if section is under the header (top of section is at or above header bottom, and bottom is below header top)
+      if (rect.top < headerRect.bottom && rect.bottom > headerRect.top) {
+        const bg = section.getAttribute("data-bg");
+        if (bg === "dark") {
+          taglineColorClass.value = "text-white";
+        } else {
+          taglineColorClass.value = "text-primary-600";
+        }
+        found = true;
+      }
+    });
+    if (!found) {
+      taglineColorClass.value = "text-primary-600";
+    }
+  }
+  window.addEventListener("scroll", updateTaglineColor, { passive: true });
+  window.addEventListener("resize", updateTaglineColor);
+  nextTick(updateTaglineColor);
 });
 
 onBeforeUnmount(() => {
