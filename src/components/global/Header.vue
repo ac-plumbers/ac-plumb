@@ -52,7 +52,6 @@
               <!-- ...existing code... -->
             </div>
           </div>
-
           <!-- CTA Actions -->
           <div class="hidden items-center gap-x-3 lg:flex">
             <!-- ...existing code... -->
@@ -212,18 +211,6 @@
                   </a>
                 </div>
               </div>
-
-              <!--   <a
-                href="/landlords"
-                :class="[
-                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
-                  isActiveLink('/landlords')
-                    ? 'bg-primary-600 text-background-00 shadow-sm'
-                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
-                ]"
-              >
-                Landlords
-              </a> -->
               <a
                 href="/about-us"
                 :class="[
@@ -235,17 +222,6 @@
               >
                 About
               </a>
-              <!--  <a
-                href="/testimonials"
-                :class="[
-                  'rounded-md px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none',
-                  isActiveLink('/testimonials')
-                    ? 'bg-primary-600 text-background-00 shadow-sm'
-                    : 'text-text-00 hover:text-primary-600 focus:text-primary-600',
-                ]"
-              >
-                Testimonials
-              </a> -->
               <a
                 href="/contact-us"
                 :class="[
@@ -259,7 +235,6 @@
               </a>
             </div>
           </div>
-
           <!-- CTA Actions -->
           <div class="hidden items-center gap-x-3 lg:flex">
             <!-- WhatsApp Button -->
@@ -311,9 +286,9 @@
             </a>
           </div>
         </nav>
+        <slot name="after-nav" />
       </div>
     </div>
-
     <!-- Mobile menu -->
     <nav
       v-if="isOpen"

@@ -12,11 +12,11 @@ import Text from "./fundations/elements/Text.astro";
 ---
 
 <section
-  class="bg-gray-50 py-16"
+  class="py-3 backdrop-blur-sm transition-all duration-300"
   id="certifications"
   aria-labelledby="certifications-heading"
 >
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="border-t- mx-auto max-w-7xl px-6 lg:px-8">
     <!-- <Text
       tag="h2"
       variant="textLG"
@@ -28,7 +28,7 @@ import Text from "./fundations/elements/Text.astro";
 
     <div class="relative overflow-x-hidden">
       <div
-        class="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent animate-logo-scroll flex snap-x snap-mandatory gap-6 py-2 md:animate-none md:gap-7 md:overflow-visible md:py-0"
+        class="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent animate-logo-scroll flex snap-x snap-mandatory gap-4 py-1 md:animate-none md:gap-6 md:overflow-visible md:py-0"
         tabindex="0"
         aria-label="Brand certifications and partners"
       >
@@ -58,7 +58,7 @@ import Text from "./fundations/elements/Text.astro";
             // Render two sets for seamless scroll
             return [...logos, ...logos].map((logo, i) => (
               <div
-                class="flex h-16 w-36 flex-shrink-0 snap-start items-center justify-center overflow-hidden rounded-xl bg-white/90 p-3 shadow transition-all duration-200 hover:scale-105 hover:shadow-lg md:h-20 md:w-44"
+                class="flex h-12 w-28 flex-shrink-0 snap-start items-center justify-center overflow-hidden p-2 shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-md md:h-14 md:w-32"
                 aria-hidden={i >= logos.length ? "true" : "false"}
               >
                 <Image
@@ -77,12 +77,12 @@ import Text from "./fundations/elements/Text.astro";
       </div>
       {/* Gradient fade left/right for scroll hint */}
       <div
-        class="pointer-events-none absolute top-0 left-0 h-full w-8 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent md:hidden"
+        class="pointer-events-none absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:hidden"
         aria-hidden="true"
       >
       </div>
       <div
-        class="pointer-events-none absolute top-0 right-0 h-full w-8 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent md:hidden"
+        class="pointer-events-none absolute top-0 right-0 h-full w-6 bg-gradient-to-l from-white/95 via-white/80 to-transparent md:hidden"
         aria-hidden="true"
       >
       </div>
@@ -104,4 +104,59 @@ import Text from "./fundations/elements/Text.astro";
       </style>
     </div>
   </div>
+
+  <script is:inline>
+    // Optimized scroll handler - logo cloud disappears smoothly
+    let isScrolled = false;
+    let ticking = false;
+    let certificationSection = null;
+
+    function updateVisibility() {
+      if (!certificationSection) {
+        certificationSection = document.getElementById("certifications");
+        if (!certificationSection) return;
+      }
+
+      const shouldHide = window.scrollY > 50;
+
+      if (shouldHide !== isScrolled) {
+        isScrolled = shouldHide;
+
+        if (shouldHide) {
+          // Fade out and collapse height smoothly
+          certificationSection.style.opacity = "0";
+          certificationSection.style.maxHeight = "0";
+          certificationSection.style.paddingTop = "0";
+          certificationSection.style.paddingBottom = "0";
+          certificationSection.style.overflow = "hidden";
+        } else {
+          // Fade in and restore height
+          certificationSection.style.opacity = "1";
+          certificationSection.style.maxHeight = "200px"; // Adjust based on your content height
+          certificationSection.style.paddingTop = "0.75rem"; // py-3
+          certificationSection.style.paddingBottom = "0.75rem"; // py-3
+          certificationSection.style.overflow = "visible";
+        }
+      }
+      ticking = false;
+    }
+
+    function handleScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateVisibility);
+        ticking = true;
+      }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        updateVisibility();
+      });
+    } else {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      updateVisibility();
+    }
+  </script>
 </section>
