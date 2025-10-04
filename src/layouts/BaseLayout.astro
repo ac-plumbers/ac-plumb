@@ -30,6 +30,7 @@ const currentPath = Astro.url.pathname;
 <html lang="en-GB" class="h-full scroll-smooth">
   <head>
     <BaseHead
+      title={title}
       description={description}
       keywords={keywords}
       author={author}
@@ -45,7 +46,10 @@ const currentPath = Astro.url.pathname;
     <HeaderVue client:load currentPath={currentPath}>
       <LogoCloud slot="after-nav" />
     </HeaderVue>
-    <main id="main-content" class="mx-auto flex flex-col pt-28">
+    <main
+      id="main-content"
+      class="mx-auto flex flex-col pt-32 transition-all duration-300"
+    >
       <slot />
     </main>
     <Footer />

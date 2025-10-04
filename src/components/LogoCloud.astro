@@ -106,57 +106,71 @@ import Text from "./fundations/elements/Text.astro";
   </div>
 
   <script is:inline>
-    // Optimized scroll handler - logo cloud disappears smoothly
-    let isScrolled = false;
-    let ticking = false;
-    let certificationSection = null;
-
-    function updateVisibility() {
+    // Wait for everything to be loaded including Vue components
+    function initScrollHandler() {
+      const certificationSection = document.getElementById("certifications");
       if (!certificationSection) {
-        certificationSection = document.getElementById("certifications");
-        if (!certificationSection) return;
+        // Retry after a short delay if element not found
+        setTimeout(initScrollHandler, 100);
+        return;
       }
 
-      const shouldHide = window.scrollY > 50;
+      let isScrolled = false;
+      let ticking = false;
 
-      if (shouldHide !== isScrolled) {
-        isScrolled = shouldHide;
+      function updateVisibility() {
+        const shouldHide = window.scrollY > 50;
 
-        if (shouldHide) {
-          // Fade out and collapse height smoothly
-          certificationSection.style.opacity = "0";
-          certificationSection.style.maxHeight = "0";
-          certificationSection.style.paddingTop = "0";
-          certificationSection.style.paddingBottom = "0";
-          certificationSection.style.overflow = "hidden";
-        } else {
-          // Fade in and restore height
-          certificationSection.style.opacity = "1";
-          certificationSection.style.maxHeight = "200px"; // Adjust based on your content height
-          certificationSection.style.paddingTop = "0.75rem"; // py-3
-          certificationSection.style.paddingBottom = "0.75rem"; // py-3
-          certificationSection.style.overflow = "visible";
+        if (shouldHide !== isScrolled) {
+          isScrolled = shouldHide;
+
+          if (shouldHide) {
+            // Fade out and collapse height smoothly
+            certificationSection.style.transition = "all 0.3s ease-in-out";
+            certificationSection.style.opacity = "0";
+            certificationSection.style.maxHeight = "0";
+            certificationSection.style.paddingTop = "0";
+            certificationSection.style.paddingBottom = "0";
+            certificationSection.style.marginTop = "0";
+            certificationSection.style.marginBottom = "0";
+            certificationSection.style.overflow = "hidden";
+          } else {
+            // Fade in and restore height
+            certificationSection.style.transition = "all 0.3s ease-in-out";
+            certificationSection.style.opacity = "1";
+            certificationSection.style.maxHeight = "100px";
+            certificationSection.style.paddingTop = "0.75rem";
+            certificationSection.style.paddingBottom = "0.75rem";
+            certificationSection.style.marginTop = "";
+            certificationSection.style.marginBottom = "";
+            certificationSection.style.overflow = "visible";
+          }
+        }
+        ticking = false;
+      }
+
+      function handleScroll() {
+        if (!ticking) {
+          requestAnimationFrame(updateVisibility);
+          ticking = true;
         }
       }
-      ticking = false;
-    }
 
-    function handleScroll() {
-      if (!ticking) {
-        requestAnimationFrame(updateVisibility);
-        ticking = true;
-      }
-    }
-
-    // Initialize when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", function () {
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        updateVisibility();
-      });
-    } else {
+      // Add scroll listener
       window.addEventListener("scroll", handleScroll, { passive: true });
+
+      // Initial check
       updateVisibility();
     }
+
+    // Start initialization with multiple fallbacks
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initScrollHandler);
+    } else {
+      initScrollHandler();
+    }
+
+    // Also try after a delay to ensure Vue component is mounted
+    setTimeout(initScrollHandler, 500);
   </script>
 </section>
