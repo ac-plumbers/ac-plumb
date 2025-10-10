@@ -27,15 +27,12 @@ import Text from "./fundations/elements/Text.astro";
     </Text> -->
 
     <div class="relative overflow-x-hidden">
+      {/* Mobile: seamless scroll with duplicated logos */}
       <div
-        class="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent animate-logo-scroll flex snap-x snap-mandatory gap-4 py-1 md:animate-none md:gap-6 md:overflow-visible md:py-0"
+        class="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent animate-logo-scroll flex snap-x snap-mandatory gap-4 py-1 md:hidden"
         tabindex="0"
         aria-label="Brand certifications and partners"
       >
-        {/* Logo row, duplicated for seamless scroll */}
-        {
-          /* Seamless infinite scroll: duplicate the logo set, animate by one set's width */
-        }
         {
           (() => {
             const logos = [
@@ -58,9 +55,49 @@ import Text from "./fundations/elements/Text.astro";
             // Render two sets for seamless scroll
             return [...logos, ...logos].map((logo, i) => (
               <div
-                class="flex h-12 w-28 flex-shrink-0 snap-start items-center justify-center overflow-hidden p-2 shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-md md:h-14 md:w-32"
+                class="flex h-12 w-28 flex-shrink-0 snap-start items-center justify-center overflow-hidden p-2 shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-md"
                 aria-hidden={i >= logos.length ? "true" : "false"}
               >
+                <Image
+                  class="h-auto max-h-full w-full max-w-full object-contain object-center opacity-80 transition-opacity hover:opacity-100"
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={200}
+                  height={100}
+                  format="webp"
+                  quality={90}
+                />
+              </div>
+            ));
+          })()
+        }
+      </div>
+      {/* Desktop: single logo row, no duplicates */}
+      <div
+        class="hidden md:flex md:gap-6 md:overflow-visible md:py-0"
+        aria-label="Brand certifications and partners"
+      >
+        {
+          (() => {
+            const logos = [
+              {
+                src: vaillant,
+                alt: "Vaillant Advance Installer certification",
+              },
+              { src: viesmann, alt: "Viessmann certified installer" },
+              {
+                src: bpec,
+                alt: "BPEC certified gas and plumbing professional",
+              },
+              { src: checktrade, alt: "Checkatrade verified tradesperson" },
+              { src: gasSafe, alt: "Gas Safe Register certified engineer" },
+              {
+                src: oftec1,
+                alt: "OFTEC registered heating certification (variant 1)",
+              },
+            ];
+            return logos.map((logo) => (
+              <div class="flex h-14 w-32 flex-shrink-0 snap-start items-center justify-center overflow-hidden p-2 shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-md">
                 <Image
                   class="h-auto max-h-full w-full max-w-full object-contain object-center opacity-80 transition-opacity hover:opacity-100"
                   src={logo.src}
