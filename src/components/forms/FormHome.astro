@@ -1,0 +1,84 @@
+---
+import Button from '@components/fundations/elements/Button.astro';
+---
+
+<form
+  name='AC-Plumbers Home'
+  action='/success'
+  method='POST'
+  class='px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48'
+  netlify-honeypot='bot-field'
+  data-netlify='true'>
+  <div class='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
+    <div class='grid grid-cols-1 gap-y-6'>
+      <div>
+        <label for='full-name' class='block text-sm/6 font-semibold text-white'
+          >Name</label
+        >
+        <div class='mt-2.5'>
+          <input
+            type='text'
+            name='full-name'
+            id='full-name'
+            autocomplete='name'
+            required
+            class='block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:-outline-offset-2 focus:outline-white'
+          />
+        </div>
+      </div>
+      <div>
+        <label for='email' class='block text-sm/6 font-semibold text-white'
+          >Email</label
+        >
+        <div class='mt-2.5'>
+          <input
+            type='email'
+            name='email'
+            id='email'
+            autocomplete='email'
+            required
+            class='block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:-outline-offset-2 focus:outline-white'
+          />
+        </div>
+      </div>
+      <div>
+        <label
+          for='phone-number'
+          class='block text-sm/6 font-semibold text-white'>Phone number</label
+        >
+        <div class='mt-2.5'>
+          <input
+            type='tel'
+            name='phone-number'
+            id='phone-number'
+            autocomplete='tel'
+            aria-describedby='phone-helper'
+            class='block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:-outline-offset-2 focus:outline-white'
+          />
+          <p id='phone-helper' class='mt-1 text-xs text-gray-400'>
+            Optional, but helps us contact you faster.
+          </p>
+        </div>
+      </div>
+      <div>
+        <label for='message' class='block text-sm/6 font-semibold text-white'
+          >Message</label
+        >
+        <div class='mt-2.5'>
+          <textarea
+            name='message'
+            id='message'
+            rows='5'
+            required
+            class='block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline focus:-outline-offset-2 focus:outline-white'
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class='mt-8 flex justify-end'>
+      <Button type='submit' variant='accent' size='lg' class='uppercase'
+        >Send message</Button
+      >
+    </div>
+  </div>
+</form>

@@ -1,0 +1,26 @@
+---
+import BaseHead from '@/components/fundations/head/BaseHead.astro';
+import '@/styles/global.css';
+import '@fontsource-variable/inconsolata';
+import '@fontsource/lato';
+---
+
+<!doctype html>
+<html lang='en-GB' class='h-full scroll-smooth'>
+  <head>
+    <BaseHead {...Astro.props} />
+  </head>
+  <body class='h-full bg-primary-600'>
+    <main
+      id='main-content'
+      class='mx-auto flex flex-col transition-all duration-300'>
+      <slot />
+    </main>
+  </body>
+</html>
+<style>
+  main {
+    padding: 0;
+    margin: 0;
+  }
+</style>
