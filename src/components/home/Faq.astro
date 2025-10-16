@@ -1,79 +1,80 @@
 ---
-import { Image } from "astro:assets";
-import antonio from "@/images/Antonio.png";
-import Text from "@/components/fundations/elements/Text.astro";
+import { Image } from 'astro:assets';
+import antonio from '@/images/Antonio.png';
+import Text from '@/components/fundations/elements/Text.astro';
+/* Contento for SEO */
+import {
+  BUSINESS_CONFIG,
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+} from '@/utils/businessConfig';
 ---
 
-<section id="faq" class="bg-background-50 px-4 py-16 sm:px-6 lg:px-8">
+<section id='faq' class='bg-background-50 px-4 py-16 sm:px-6 lg:px-8'>
   <div
-    class="mx-auto max-w-6xl rounded-2xl border-2 bg-white/60 p-8 shadow-xl backdrop-blur-xl"
-  >
+    class='mx-auto max-w-6xl rounded-2xl border-2 bg-white/60 p-8 shadow-xl backdrop-blur-xl'>
     <!-- Unified Heading (visible on all devices) -->
     <Text
-      tag="h2"
-      variant="displayLG"
-      class="mb-6 font-lato text-4xl font-extrabold text-primary-800 sm:text-5xl"
-    >
+      tag='h2'
+      variant='displayLG'
+      class='mb-6 font-lato text-4xl font-extrabold text-primary-800 sm:text-5xl'>
       Frequently Asked Questions
     </Text>
     <Text
-      tag="p"
-      variant="textXL"
-      class="mb-10 font-lato text-lg text-primary-700 sm:text-xl"
-    >
+      tag='p'
+      variant='textXL'
+      class='mb-10 font-lato text-lg text-primary-700 sm:text-xl'>
       Find answers to common questions about our plumbing services.
     </Text>
 
     <!-- Two-column layout container with absolute positioning -->
-    <div class="grid grid-cols-1 items-start gap-10 md:grid-cols-2">
+    <div class='grid grid-cols-1 items-start gap-10 md:grid-cols-2'>
       <!-- Left Column: Heading and Contact Section - Absolute position on desktop -->
       <div
-        class="flex flex-col justify-between rounded-xl bg-primary-200 p-6 shadow-md"
-      >
+        class='flex flex-col justify-between rounded-xl bg-primary-200 p-6 shadow-md'>
         <Text
-          tag="h3"
-          variant="displayMD"
-          class="mb-2 font-lato text-2xl font-bold text-primary-700"
-        >
+          tag='h3'
+          variant='displayMD'
+          class='mb-2 font-lato text-2xl font-bold text-primary-700'>
           Have more questions?
         </Text>
-        <Text tag="p" variant="textBase" class="mb-4 text-primary-600">
+        <Text tag='p' variant='textBase' class='mb-4 text-primary-600'>
           We're here to help! Our team is ready to assist you with any plumbing
           & heating concerns. We offer personalized consultations and expert
           advice.
         </Text>
         <Text
-          tag="h4"
-          variant="displaySM"
-          class="mb-3 font-lato text-lg font-semibold text-primary-800"
-        >
+          tag='h4'
+          variant='displaySM'
+          class='mb-3 font-lato text-lg font-semibold text-primary-800'>
           Your Contact Person
         </Text>
-        <div class="flex items-center gap-4">
+        <div class='flex items-center gap-4'>
           <Image
             src={antonio}
-            alt="Antonio Catalano"
+            alt='Antonio Catalano'
             width={64}
             height={64}
-            class="h-16 w-16 rounded-full object-cover shadow"
+            class='h-16 w-16 rounded-full object-cover shadow'
           />
           <div>
-            <p class="font-bold text-primary-800">
-              Antonio Catalano<br /><span class="font-normal text-primary-600"
+            <p class='font-bold text-primary-800'>
+              Antonio Catalano<br /><span class='font-normal text-primary-600'
                 >Director / Owner</span
               >
             </p>
-            <p class="mt-2 text-sm text-primary-700">
+            <p class='mt-2 text-sm text-primary-700'>
               Email: <a
-                href="mailto:info@acplumb.co.uk"
-                class="text-accent-500 hover:text-accent-600"
-                >info@acplumb.co.uk</a
+                href='mailto:info@acplumb.co.uk'
+                class='text-accent-500 hover:text-accent-600'
+                >{BUSINESS_CONFIG.email}</a
               >
             </p>
-            <p class="text-sm text-primary-700">
+            <p class='text-sm text-primary-700'>
               Phone: <a
-                href="tel:+4407535653850"
-                class="text-accent-500 hover:text-accent-600">07535653850</a
+                href='tel:+447535653850'
+                class='text-accent-500 hover:text-accent-600'
+                >{BUSINESS_CONFIG.mobilePhone}</a
               >
             </p>
           </div>
@@ -81,59 +82,57 @@ import Text from "@/components/fundations/elements/Text.astro";
       </div>
 
       <!-- Right Column: Accordion -->
-      <div class="space-y-4">
+      <div class='space-y-4'>
         {/* FAQ Items */}
         {
           [
             {
-              question: "Why is my tap leaking?",
+              question: 'Why is my tap leaking?',
               answer:
                 "Leaky taps can be caused by a worn-out washer, a faulty O-ring, or other issues with the tap's internal components.",
             },
             {
-              question: "Why is my toilet constantly running?",
+              question: 'Why is my toilet constantly running?',
               answer:
                 "A running toilet can be caused by a faulty fill valve, a worn-out flapper, or other issues with the toilet's internal mechanisms.",
             },
             {
-              question: "What should I do if I have a burst pipe?",
+              question: 'What should I do if I have a burst pipe?',
               answer:
-                "Turn off the water supply immediately and contact a plumber to repair the burst pipe.",
+                'Turn off the water supply immediately and contact a plumber to repair the burst pipe.',
             },
             {
-              question: "How can I prevent frozen pipes in winter?",
+              question: 'How can I prevent frozen pipes in winter?',
               answer:
-                "Insulate exposed piepes, especially in unheated areas like attics and crawl spaces. You can also kepp your thermostat set to a minimum temperature during cold weather.",
+                'Insulate exposed piepes, especially in unheated areas like attics and crawl spaces. You can also kepp your thermostat set to a minimum temperature during cold weather.',
             },
             {
-              question: "What is a boiler service, and why is it important?",
+              question: 'What is a boiler service, and why is it important?',
               answer:
                 "A boiler service is a thorough check and maintenance of your boiler to ensure it's running safely and efficiently. Regular servicing can prevent breakdowns, extend your boiler's lifespan, and potentially save you money on energy bills.",
             },
-          ].map((faq) => (
-            <div class="faq-item overflow-hidden rounded-xl border-2 border-neutral-200 bg-white/90 shadow-sm transition-all duration-200">
+          ].map(faq => (
+            <div class='faq-item overflow-hidden rounded-xl border-2 border-neutral-200 bg-white/90 shadow-sm transition-all duration-200'>
               <h3>
                 <button
-                  class="faq-toggle flex w-full items-center justify-between p-5 text-lg font-semibold text-primary-800 transition hover:bg-background-50 focus:outline-none"
-                  aria-expanded="false"
-                >
+                  class='faq-toggle flex w-full items-center justify-between p-5 text-lg font-semibold text-primary-800 transition hover:bg-background-50 focus:outline-none'
+                  aria-expanded='false'>
                   <span>{faq.question}</span>
                   <svg
-                    class="h-5 w-5 text-accent-500 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                    class='h-5 w-5 text-accent-500 transition-transform'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'>
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M19 9l-7 7-7-7'
                     />
                   </svg>
                 </button>
               </h3>
-              <div class="faq-content hidden px-5 pb-5 text-primary-700">
+              <div class='faq-content hidden px-5 pb-5 text-primary-700'>
                 {faq.answer}
               </div>
             </div>
@@ -145,45 +144,45 @@ import Text from "@/components/fundations/elements/Text.astro";
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggles = document.querySelectorAll(".faq-toggle");
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('.faq-toggle');
 
-    toggles.forEach((toggle) => {
-      toggle.addEventListener("click", () => {
-        const faqItem = toggle.closest(".faq-item");
-        const content = faqItem ? faqItem.querySelector(".faq-content") : null;
-        const arrow = toggle.querySelector("svg");
-        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const faqItem = toggle.closest('.faq-item');
+        const content = faqItem ? faqItem.querySelector('.faq-content') : null;
+        const arrow = toggle.querySelector('svg');
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
         // Close all other items
-        toggles.forEach((otherToggle) => {
+        toggles.forEach(otherToggle => {
           if (
             otherToggle !== toggle &&
-            otherToggle.getAttribute("aria-expanded") === "true"
+            otherToggle.getAttribute('aria-expanded') === 'true'
           ) {
-            const otherFaqItem = otherToggle.closest(".faq-item");
+            const otherFaqItem = otherToggle.closest('.faq-item');
             const otherContent = otherFaqItem
-              ? otherFaqItem.querySelector(".faq-content")
+              ? otherFaqItem.querySelector('.faq-content')
               : null;
-            if (otherContent) otherContent.classList.add("hidden");
-            const otherArrow = otherToggle.querySelector("svg");
-            if (otherArrow) otherArrow.style.transform = "";
-            otherToggle.classList.remove("bg-neutral-50");
-            otherToggle.setAttribute("aria-expanded", "false");
+            if (otherContent) otherContent.classList.add('hidden');
+            const otherArrow = otherToggle.querySelector('svg');
+            if (otherArrow) otherArrow.style.transform = '';
+            otherToggle.classList.remove('bg-neutral-50');
+            otherToggle.setAttribute('aria-expanded', 'false');
           }
         });
 
         // Toggle the clicked item
         if (isExpanded) {
-          toggle.setAttribute("aria-expanded", "false");
-          if (content) content.classList.add("hidden");
-          if (arrow) arrow.style.transform = "";
-          toggle.classList.remove("bg-neutral-50");
+          toggle.setAttribute('aria-expanded', 'false');
+          if (content) content.classList.add('hidden');
+          if (arrow) arrow.style.transform = '';
+          toggle.classList.remove('bg-neutral-50');
         } else {
-          toggle.setAttribute("aria-expanded", "true");
-          if (content) content.classList.remove("hidden");
-          if (arrow) arrow.style.transform = "rotate(180deg)";
-          toggle.classList.add("bg-neutral-50");
+          toggle.setAttribute('aria-expanded', 'true');
+          if (content) content.classList.remove('hidden');
+          if (arrow) arrow.style.transform = 'rotate(180deg)';
+          toggle.classList.add('bg-neutral-50');
         }
       });
     });

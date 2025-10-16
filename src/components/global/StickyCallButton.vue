@@ -1,4 +1,3 @@
---- // src/components/global/StickyCallButton.vue
 <template>
   <Transition
     enter-active-class="transition-all duration-300"
@@ -10,9 +9,9 @@
   >
     <div v-if="showButton" class="fixed right-4 bottom-4 z-40">
       <a
-        href="tel:01273123456"
+        href="tel:+447535653850"
         class="flex items-center gap-2 rounded-full bg-primary-600 px-4 py-3 text-background-50 shadow-lg transition-all duration-200 hover:scale-105 hover:bg-primary-700"
-        aria-label="Call AC Plumbers now at 01273 123 456"
+        aria-label="Call AC Plumbers Ltd. now at +447535653850"
       >
         <svg
           class="h-5 w-5"
