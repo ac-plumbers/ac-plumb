@@ -1,110 +1,114 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
 // Services Links
 const servicesLinks = [
-  { href: "/services/gas-boiler-installation", label: "Gas Boilers" },
-  { href: "/services/gas-safety-checks-cp12", label: "Gas Safety (CP12)" },
-  { href: "/services/central-heating-installation", label: "Heating" },
+  { href: '/services/gas-boiler-installation', label: 'Gas Boilers' },
+  { href: '/services/gas-safety-checks-cp12', label: 'Gas Safety (CP12)' },
+  { href: '/services/central-heating-installation', label: 'Heating' },
   {
-    href: "/services/all-aspects-of-plumbing-heating-and-gas",
-    label: "General Plumbing",
+    href: '/services/all-aspects-of-plumbing-heating-and-gas',
+    label: 'General Plumbing',
   },
   {
-    href: "/services/bathrooms-installation-rennovation",
-    label: "Bathrooms Installation & Renovation",
+    href: '/services/bathrooms-installation-rennovation',
+    label: 'Bathrooms Installation & Renovation',
   },
   {
-    href: "/services/renewable-air-source-heat-pump",
-    label: "Heat Pumps & Electric Boilers",
+    href: '/services/renewable-air-source-heat-pump',
+    label: 'Heat Pumps & Electric Boilers',
   },
-  { href: "/services/smart-thermostats", label: "Smart Thermostats" },
-  { href: "/landlords", label: "Landlord Services" },
+  { href: '/services/smart-thermostats', label: 'Smart Thermostats' },
+  { href: '/landlords', label: 'Landlord Services' },
 ];
 
 const areasLinks = [
-  { href: "/areas-we-serve/brighton", label: "Brighton" },
-  { href: "/areas-we-serve/hove", label: "Hove" },
-  { href: "/areas-we-serve/rottingdean", label: "Rottingdean" },
-  { href: "/areas-we-serve/saltdean", label: "Saltdean" },
-  { href: "/areas-we-serve/peacehaven", label: "Peacehaven" },
-  { href: "/areas-we-serve/lewes", label: "Lewes" },
-  { href: "/areas-we-serve/hassocks", label: "Hassocks" },
-  { href: "/areas-we-serve/portslade", label: "Portslade" },
-  { href: "/areas-we-serve/southwick", label: "Southwick" },
-  { href: "/areas-we-serve/shoreham-by-sea", label: "Shoreham by Sea" },
-  { href: "/areas-we-serve/lancing", label: "Lancing" },
-  { href: "/areas-we-serve", label: "See All Areas" },
+  { href: '/areas-we-serve/brighton', label: 'Brighton' },
+  { href: '/areas-we-serve/hove', label: 'Hove' },
+  { href: '/areas-we-serve/rottingdean', label: 'Rottingdean' },
+  { href: '/areas-we-serve/saltdean', label: 'Saltdean' },
+  { href: '/areas-we-serve/peacehaven', label: 'Peacehaven' },
+  { href: '/areas-we-serve/lewes', label: 'Lewes' },
+  { href: '/areas-we-serve/hassocks', label: 'Hassocks' },
+  { href: '/areas-we-serve/portslade', label: 'Portslade' },
+  { href: '/areas-we-serve/southwick', label: 'Southwick' },
+  { href: '/areas-we-serve/shoreham-by-sea', label: 'Shoreham by Sea' },
+  { href: '/areas-we-serve/lancing', label: 'Lancing' },
+  { href: '/areas-we-serve', label: 'See All Areas' },
 ];
 
 const companyLinks = [
-  { href: "/about-us", label: "About Us" },
-  { href: "/gallery", label: "Our Work" },
-  { href: "/certifications", label: "Certifications" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact-us", label: "Contact Us" },
-  { href: "/testimonials", label: "Customer Reviews" },
-  { href: "/faq", label: "FAQs" },
+  { href: '/about-us', label: 'About Us' },
+  { href: '/gallery', label: 'Our Work' },
+  { href: '/certifications', label: 'Certifications' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact-us', label: 'Contact Us' },
+  { href: '/testimonials', label: 'Customer Reviews' },
+  { href: '/faq', label: 'FAQs' },
 ];
 
 const legalLinks = [
-  { href: "/terms-and-conditions", label: "Terms and Conditions" },
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/cookie-policy", label: "Cookie Policy" },
-  { href: "/ai-policy", label: "AI Policy" },
+  { href: '/terms-and-conditions', label: 'Terms and Conditions' },
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/cookie-policy', label: 'Cookie Policy' },
+  { href: '/ai-policy', label: 'AI Policy' },
 ];
 // Images
-import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
+import logo from '@/images/logo/ac-plumbers-logo-brighton.png';
+import Text from '../fundations/elements/Text.astro';
 ---
 
-<footer class="relative bg-neutral-900" data-bg="dark">
+<footer
+  class='relative bg-neutral-900'
+  data-bg='dark'
+  aria-labelledby='footer-company-heading'>
   <div
-    class="bg-center-60 absolute inset-0 h-full w-full bg-[url('/images/services/freestanding-bathtub-installation-brighton.jpeg')] bg-cover"
-  >
+    class="bg-center-60 absolute inset-0 h-full w-full bg-[url('/images/services/freestanding-bathtub-installation-brighton.jpeg')] bg-cover">
   </div>
-  <div class="absolute inset-0 h-full w-full bg-black/20"></div>
+  <div class='absolute inset-0 h-full w-full bg-black/20'></div>
   <div
-    class="relative mx-auto max-w-7xl px-6 pt-8 pb-4 sm:pt-12 lg:px-8 lg:pt-16"
-  >
-    <div class="xl:grid xl:grid-cols-5 xl:gap-8">
+    class='relative mx-auto max-w-7xl px-6 pt-8 pb-4 sm:pt-12 lg:px-8 lg:pt-16'>
+    <div class='xl:grid xl:grid-cols-5 xl:gap-8'>
       <!-- Company Info Column -->
-      <div class="space-y-8">
+      <div class='space-y-8'>
         <Image
           src={logo}
           width={68}
           height={68}
-          alt="AC Plumbers Ltd logo with water and flame icons"
-          title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
-          class="h-auto w-auto lg:scale-115"
+          alt='AC Plumbers Ltd logo with water and flame icons'
+          title='AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton'
+          class='h-auto w-auto lg:scale-115'
         />
-        <h3 class="font-lato text-lg text-balance text-white">
+        <Text
+          tag='h3'
+          variant='displayLG'
+          id='footer-company-heading'
+          class='text-balance text-white'>
           AC Plumbers Ltd.
-        </h3>
-        <p class="font-lato text-neutral-100">
+        </Text>
+        <p class='font-lato text-neutral-100'>
           Brighton & Hove, East Sussex <br />
           Gas Safe and Oftec Registered Engineers
         </p>
 
-        <div class="flex gap-x-6">
+        <div class='flex gap-x-6'>
           <!-- social links remain unchanged -->
         </div>
       </div>
 
       <!-- Main Links Section - Now spans 4 columns -->
       <div
-        class="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4 xl:col-span-4 xl:mt-0"
-      >
+        class='mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4 xl:col-span-4 xl:mt-0'>
         <!-- Services Column -->
         <div>
-          <h3 class="font-lato text-lg font-semibold text-white">Services</h3>
-          <ul role="list" class="mt-6 space-y-4 font-lato">
+          <h3 class='font-lato text-lg font-semibold text-white'>Services</h3>
+          <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
-              servicesLinks.map((link) => (
+              servicesLinks.map(link => (
                 <li>
                   <a
                     href={link.href}
-                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
-                  >
+                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
                   </a>
                 </li>
@@ -115,17 +119,16 @@ import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
 
         <!-- NEW: Areas We Serve Column -->
         <div>
-          <h3 class="font-lato text-lg font-semibold text-white">
+          <h3 class='font-lato text-lg font-semibold text-white'>
             Areas We Serve
           </h3>
-          <ul role="list" class="mt-6 space-y-4 font-lato">
+          <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
-              areasLinks.map((link) => (
+              areasLinks.map(link => (
                 <li>
                   <a
                     href={link.href}
-                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
-                  >
+                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
                   </a>
                 </li>
@@ -136,15 +139,14 @@ import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
 
         <!-- Company Column -->
         <div>
-          <h3 class="font-lato text-lg font-semibold text-white">Company</h3>
-          <ul role="list" class="mt-6 space-y-4 font-lato">
+          <h3 class='font-lato text-lg font-semibold text-white'>Company</h3>
+          <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
-              companyLinks.map((link) => (
+              companyLinks.map(link => (
                 <li>
                   <a
                     href={link.href}
-                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
-                  >
+                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
                   </a>
                 </li>
@@ -155,15 +157,14 @@ import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
 
         <!-- Legal Column -->
         <div>
-          <h3 class="font-lato text-lg font-semibold text-white">Legal</h3>
-          <ul role="list" class="mt-6 space-y-4 font-lato">
+          <h3 class='font-lato text-lg font-semibold text-white'>Legal</h3>
+          <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
-              legalLinks.map((link) => (
+              legalLinks.map(link => (
                 <li>
                   <a
                     href={link.href}
-                    class="font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600"
-                  >
+                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
                   </a>
                 </li>
@@ -177,32 +178,31 @@ import logo from "@/images/logo/ac-plumbers-logo-brighton.png";
     <!-- Certifications Section -->
 
     <!-- Copyright section - Updated with color palette -->
-    <div class="mt-8 border-t border-white/10 pt-4 sm:mt-12 lg:mt-16">
+    <div class='mt-8 border-t border-white/10 pt-4 sm:mt-12 lg:mt-16'>
       <div
-        class="flex flex-wrap items-center justify-center gap-2 text-center font-inconsolata text-sm/6 text-white sm:flex-nowrap"
-      >
+        class='flex flex-wrap items-center justify-center gap-2 text-center font-inconsolata text-sm/6 text-white sm:flex-nowrap'>
         <span>&copy; 2025 AC Plumbers Ltd. All rights reserved.</span>
-        <span class="hidden sm:inline">|</span>
+        <span class='hidden sm:inline'>|</span>
         <a
-          href="https://agencyga.es"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center justify-center gap-1 text-xs text-accent-300 transition hover:text-primary-400"
-          title="Website by agencyGA"
-        >
+          href='https://agencyga.es'
+          target='_blank'
+          rel='noopener'
+          class='flex items-center justify-center gap-1 text-xs text-accent-300 transition hover:text-primary-400'
+          title='Website by agencyGA'>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="inline h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <ellipse cx="12" cy="12" rx="8" ry="10" stroke-width="2"></ellipse>
-            <ellipse cx="9" cy="13" rx="1.5" ry="2.5" fill="#fff"></ellipse>
-            <ellipse cx="15" cy="13" rx="1.5" ry="2.5" fill="#fff"></ellipse>
-            <ellipse cx="9" cy="13" rx="0.8" ry="1.2" fill="#0ea5e9"></ellipse>
-            <ellipse cx="15" cy="13" rx="0.8" ry="1.2" fill="#0ea5e9"></ellipse>
-            <ellipse cx="12" cy="18" rx="2" ry="0.7" fill="#fff"></ellipse>
+            xmlns='http://www.w3.org/2000/svg'
+            class='inline h-4 w-4'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            aria-hidden='true'
+            focusable='false'>
+            <ellipse cx='12' cy='12' rx='8' ry='10' stroke-width='2'></ellipse>
+            <ellipse cx='9' cy='13' rx='1.5' ry='2.5' fill='#fff'></ellipse>
+            <ellipse cx='15' cy='13' rx='1.5' ry='2.5' fill='#fff'></ellipse>
+            <ellipse cx='9' cy='13' rx='0.8' ry='1.2' fill='#0ea5e9'></ellipse>
+            <ellipse cx='15' cy='13' rx='0.8' ry='1.2' fill='#0ea5e9'></ellipse>
+            <ellipse cx='12' cy='18' rx='2' ry='0.7' fill='#fff'></ellipse>
           </svg>
           AGA
         </a>
