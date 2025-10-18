@@ -1,139 +1,134 @@
 ---
-import Text from "@components/fundations/elements/Text.astro";
-import TestimonialsCard from "../global/TestimonialsCard.astro";
-import Link from "../fundations/elements/Link.astro";
-import Button from "../fundations/elements/Button.astro";
-import Carousel from "../home/Carousel.vue";
+import Text from '@components/fundations/elements/Text.astro';
+import TestimonialsCard from '../global/TestimonialsCard.astro';
+import Link from '../fundations/elements/Link.astro';
+import Button from '../fundations/elements/Button.astro';
+import Carousel from '../home/Carousel.vue';
 
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
 // Images
-import checkaTrade from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
-import google from "@/images/brands/g.webp";
+import checkaTrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
+import google from '@/images/brands/g.webp';
 // Use static review data for now to ensure compatibility
 const reviews = [
   {
-    rating: "10/10",
-    title: "Excellent Boiler Service",
-    date: "January 2025",
+    rating: '10/10',
+    title: 'Excellent Boiler Service',
+    date: 'January 2025',
     content:
-      "AC Plumbers provided an outstanding boiler service. The engineer was professional, punctual, and explained everything clearly. Very impressed with the quality of work and attention to detail. Would definitely recommend to anyone in Brighton.",
-    location: "Brighton",
+      'AC Plumbers provided an outstanding boiler service. The engineer was professional, punctual, and explained everything clearly. Very impressed with the quality of work and attention to detail. Would definitely recommend to anyone in Brighton.',
+    location: 'Brighton',
   },
   {
-    rating: "10/10",
-    title: "Emergency Plumbing Response",
-    date: "December 2024",
+    rating: '10/10',
+    title: 'Emergency Plumbing Response',
+    date: 'December 2024',
     content:
-      "Called AC Plumbers for an emergency leak on a Sunday. They responded quickly and fixed the problem efficiently. Excellent customer service and fair pricing. Saved us from potential water damage.",
-    location: "Hove",
+      'Called AC Plumbers for an emergency leak on a Sunday. They responded quickly and fixed the problem efficiently. Excellent customer service and fair pricing. Saved us from potential water damage.',
+    location: 'Hove',
   },
   {
-    rating: "9/10",
-    title: "Gas Safety Certificate",
-    date: "December 2024",
+    rating: '9/10',
+    title: 'Gas Safety Certificate',
+    date: 'December 2024',
     content:
-      "Needed a gas safety certificate for my rental property. The service was quick, thorough, and professional. Clear documentation provided and competitive pricing. Will use again next year.",
-    location: "Brighton",
+      'Needed a gas safety certificate for my rental property. The service was quick, thorough, and professional. Clear documentation provided and competitive pricing. Will use again next year.',
+    location: 'Brighton',
   },
   {
-    rating: "10/10",
-    title: "Bathroom Installation",
-    date: "November 2024",
+    rating: '10/10',
+    title: 'Bathroom Installation',
+    date: 'November 2024',
     content:
-      "Complete bathroom renovation done to a very high standard. The team was clean, tidy, and professional throughout. Finished on time and within budget. Very happy with the results.",
-    location: "Brighton",
+      'Complete bathroom renovation done to a very high standard. The team was clean, tidy, and professional throughout. Finished on time and within budget. Very happy with the results.',
+    location: 'Brighton',
   },
   {
-    rating: "10/10",
-    title: "Central Heating Repair",
-    date: "November 2024",
+    rating: '10/10',
+    title: 'Central Heating Repair',
+    date: 'November 2024',
     content:
-      "My heating system broke down during the cold spell. AC Plumbers diagnosed and fixed the issue same day. Excellent technical knowledge and customer care. Highly recommended.",
-    location: "Hove",
+      'My heating system broke down during the cold spell. AC Plumbers diagnosed and fixed the issue same day. Excellent technical knowledge and customer care. Highly recommended.',
+    location: 'Hove',
   },
   {
-    rating: "9/10",
-    title: "Landlord Services",
-    date: "October 2024",
+    rating: '9/10',
+    title: 'Landlord Services',
+    date: 'October 2024',
     content:
-      "Regular maintenance and certification services for my rental properties. Always reliable, professional, and provides clear reports. Great value for money and peace of mind.",
-    location: "Brighton",
+      'Regular maintenance and certification services for my rental properties. Always reliable, professional, and provides clear reports. Great value for money and peace of mind.',
+    location: 'Brighton',
   },
 ];
 ---
 
 <!-- Modern Bento-Style Layout -->
 <section
-  id="testimonials"
-  class="relative overflow-hidden bg-neutral-100 pt-24 pb-48 sm:py-32"
->
+  id='testimonials'
+  aria-labelledby='testimonials-heading'
+  class='relative overflow-hidden bg-neutral-100 pt-24 pb-48 sm:py-32'>
   <!-- Decorative Elements -->
-  <div class="absolute inset-0 overflow-hidden opacity-10">
+  <div class='absolute inset-0 overflow-hidden opacity-10'>
     <div
-      class="absolute -top-24 -right-20 h-64 w-64 rounded-full bg-accent-400 blur-3xl"
-    >
+      class='absolute -top-24 -right-20 h-64 w-64 rounded-full bg-accent-400 blur-3xl'>
     </div>
     <div
-      class="absolute top-1/2 left-10 h-96 w-96 rounded-full bg-accent-300 blur-3xl"
-    >
+      class='absolute top-1/2 left-10 h-96 w-96 rounded-full bg-accent-300 blur-3xl'>
     </div>
   </div>
 
-  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+  <div class='relative mx-auto max-w-7xl px-6 lg:px-8'>
     <!-- Header -->
-    <div class="mx-auto mb-20 max-w-2xl text-center">
+    <div class='mx-auto mb-20 max-w-2xl text-center'>
       <p
-        class="font-lato text-base font-semibold tracking-wide text-accent-400 uppercase"
-      >
+        class='font-lato text-base font-semibold tracking-wide text-accent-400 uppercase'>
         Customer Stories
       </p>
       <Text
-        tag="h2"
-        variant="displayXL"
-        class="mt-2 font-lato font-bold text-balance text-text-00"
-      >
+        tag='h2'
+        id='testimonials-heading'
+        variant='displayXL'
+        class='mt-2 font-lato font-bold text-balance text-text-00'>
         What our clients say
       </Text>
-      <p class="mt-6 font-lato text-lg leading-8 text-text-00">
+      <p class='mt-6 font-lato text-lg leading-8 text-text-00'>
         Discover why our customers trust us for their plumbing and heating needs
       </p>
     </div>
 
     <!-- Social Proof Logos -->
-    <div class="mb-10 flex flex-wrap items-center justify-center gap-6">
+    <div class='mb-10 flex flex-wrap items-center justify-center gap-6'>
       <a
-        href="https://www.google.com/search?sca_esv=ce44fb6aa5ce43e4&tbm=lcl&sxsrf=AE3TifO3vHBTlpVY5ucEmmsRCKq7gtAlvA:1755861284723&q=AC+Plumbing+Heating+%26+Bathrooms+Services+Limited+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDawNDYzNTI2NzA1tzA1MzIwNtrAyPiK0cLRWSEgpzQ3KTMvXcEjNbEERKspOCWWZBTl5-cWKwSnFpVlJqcWK_hk5maWpKYoBKWWZaaWFy9iJVsrAPIqeh6RAAAA&rldimm=13093652370578562032&hl=en-ES&sa=X&ved=2ahUKEwisjpqBpZ6PAxVTQfEDHWZKHe4Q9fQKegQIOhAF&biw=1920&bih=934&dpr=1#"
-        target="_blank"
-        rel="noopener"
-        class="flex h-10 items-center gap-3 rounded-xl border border-neutral-200 bg-background-100 px-4 py-2 text-neutral-800 shadow transition hover:shadow-md"
-        aria-label="Read our reviews on Google"
-      >
+        href='https://www.google.com/search?sca_esv=ce44fb6aa5ce43e4&tbm=lcl&sxsrf=AE3TifO3vHBTlpVY5ucEmmsRCKq7gtAlvA:1755861284723&q=AC+Plumbing+Heating+%26+Bathrooms+Services+Limited+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDawNDYzNTI2NzA1tzA1MzIwNtrAyPiK0cLRWSEgpzQ3KTMvXcEjNbEERKspOCWWZBTl5-cWKwSnFpVlJqcWK_hk5maWpKYoBKWWZaaWFy9iJVsrAPIqeh6RAAAA&rldimm=13093652370578562032&hl=en-ES&sa=X&ved=2ahUKEwisjpqBpZ6PAxVTQfEDHWZKHe4Q9fQKegQIOhAF&biw=1920&bih=934&dpr=1#'
+        target='_blank'
+        rel='noopener'
+        class='flex h-10 items-center gap-3 rounded-xl border border-neutral-200 bg-background-100 px-4 py-2 text-neutral-800 shadow transition hover:shadow-md'
+        aria-label='Read our reviews on Google'>
         <Image
           src={google}
-          alt="Google Reviews"
+          alt='Google Reviews'
           width={180}
           height={60}
-          class="h-12 w-auto object-contain"
+          class='h-12 w-auto object-contain'
         />
-        <span class="font-semibold">Rated 5.0 ★ on Google</span>
+        <span class='font-semibold'>Rated 5.0 ★ on Google</span>
       </a>
       <span
-        class="flex h-12 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow"
-      >
+        class='flex h-12 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow'>
         <Image
           src={checkaTrade}
-          alt="Checkatrade"
+          alt='Checkatrade'
           width={180}
           height={60}
-          class="block h-12 w-auto object-contain object-center"
+          class='block h-12 w-auto object-contain object-center'
         />
       </span>
     </div>
 
     <!-- Testimonials Grid with Animated Entry -->
 
-    <div class="relative">
+    <div class='relative'>
       <Carousel client:load reviews={reviews} />
       <!-- <div
         class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
@@ -199,9 +194,9 @@ const reviews = [
   </div>
 
   <!-- Call to Action -->
-  <div class="mt-20 text-center">
-    <Link href="/contact-us" variant="accent-button" size="md" class="inline">
-      <span class="text-xl uppercase sm:text-base">Contact Us</span>
+  <div class='mt-20 text-center'>
+    <Link href='/contact-us' variant='accent-button' size='md' class='inline'>
+      <span class='text-xl uppercase sm:text-base'>Contact Us</span>
     </Link>
   </div>
 </section>

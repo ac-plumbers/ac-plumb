@@ -2,6 +2,7 @@
 // src/components/home/Services.astro
 import ServicesGrid from '@/components/services/ServicesGrid.astro';
 import { getCollection } from 'astro:content';
+import Text from '../fundations/elements/Text.astro';
 
 // Get featured services for homepage
 const allServices = await getCollection('services');
@@ -10,18 +11,24 @@ const featuredServices = allServices
   .slice(0, 6); // Show only 6 featured services on homepage
 ---
 
-<section id='services' class='bg-white py-16 sm:py-24'>
+<section
+  id='services'
+  class='bg-white py-16 sm:py-24'
+  aria-labbelledby='services-heading'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
     <!-- Section Header -->
     <div class='mx-auto mb-16 max-w-2xl text-center'>
-      <h2
-        class='text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl'>
+      <Text
+        tag='h2'
+        variant='displayLG'
+        id='services-heading'
+        class='font-bold tracking-tight text-neutral-900'>
         Our Expert Services
-      </h2>
-      <p class='mt-4 text-lg leading-8 text-neutral-600'>
+      </Text>
+      <Text tag='p' variant='textBase' class='mt-4 text-neutral-600'>
         Professional plumbing, heating, and gas services across Brighton & Hove.
         From emergency repairs to complete installations.
-      </p>
+      </Text>
     </div>
 
     <!-- Services Grid -->
@@ -34,6 +41,8 @@ const featuredServices = allServices
         class='inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-primary-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary-600'>
         View All Services
         <svg
+          aria-hidden='true'
+          focusable='false'
           class='h-5 w-5'
           fill='none'
           stroke='currentColor'
