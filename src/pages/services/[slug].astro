@@ -1,23 +1,23 @@
 ---
-import ServicesLayout from "@/layouts/ServicesLayout.astro";
-import ServiceHeroSection from "@/components/services/ServiceHeroSection.astro";
-import ServiceFeaturesList from "@/components/services/ServiceFeaturesList.astro";
-import ServiceProcessSteps from "@/components/services/ServiceProcessSteps.astro";
-import Testimonials from "@/components/home/Testimonials.astro";
-import ServiceFaqList from "@/components/services/ServiceFaqList.astro";
-import ServiceCallToAction from "@/components/services/ServiceCallToAction.astro";
-import RelatedServicesList from "@/components/services/RelatedServicesList.astro";
+import ServicesLayout from '@/layouts/ServicesLayout.astro';
+import ServiceHeroSection from '@/components/services/ServiceHeroSection.astro';
+import ServiceFeaturesList from '@/components/services/ServiceFeaturesList.astro';
+import ServiceProcessSteps from '@/components/services/ServiceProcessSteps.astro';
+import Testimonials from '@/components/home/Testimonials.astro';
+import ServiceFaqList from '@/components/services/ServiceFaqList.astro';
+import ServiceCallToAction from '@/components/services/ServiceCallToAction.astro';
+import RelatedServicesList from '@/components/services/RelatedServicesList.astro';
 import type {
   ServiceFeature,
   ServiceStep,
   ServiceFaq,
   ServiceFrontmatter,
-} from "@/lib/types";
-import { getCollection } from "astro:content";
+} from '@/lib/types';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const services = await getCollection("services");
-  return services.map((page) => ({
+  const services = await getCollection('services');
+  return services.map(page => ({
     params: { slug: page.slug },
     props: { page, allServices: services },
   }));
@@ -38,14 +38,14 @@ const service = page.data;
 const { Content } = await page.render();
 
 const relatedServices = allServices
-  .filter((s) => s.slug !== page.slug)
-  .filter((s) => {
+  .filter(s => s.slug !== page.slug)
+  .filter(s => {
     if (!page.data.tags || !s.data.tags) return false;
-    return page.data.tags.some((tag) => (s.data.tags ?? []).includes(tag));
+    return page.data.tags.some(tag => (s.data.tags ?? []).includes(tag));
   })
   .slice(0, 3);
 
-const intro = service.intro || "";
+const intro = service.intro || '';
 const benefits = service.benefits || [];
 const specialties = service.specialties || [];
 const steps = service.process || [];
@@ -59,163 +59,145 @@ const process: ServiceStep[] = service.process || [];
   <ServiceHeroSection
     title={service.title}
     description={service.description}
-    image={service.image ?? ""}
-    alt={service.alt ?? ""}
+    image={service.image ?? ''}
+    alt={service.alt ?? ''}
   />
 
   <!-- Main Service Content -->
-  <main
-    id="main-content"
-    class="mt-12 bg-background-50 py-16 sm:py-20"
-    aria-label="Service details"
-  >
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <!-- Main Content -->
-        <section class="lg:col-span-2" aria-labelledby="about-service-heading">
-          <article class="rounded-xl bg-background-100 p-8 shadow-lg">
-            <header>
-              <h2
-                id="about-service-heading"
-                class="mb-4 font-lato text-2xl font-bold text-primary-900"
-              >
-                About This Service
-              </h2>
-            </header>
-            <p class="text-lg leading-relaxed text-neutral-700">
-              {intro}
-            </p>
+  <section
+    id='main-content'
+    class='mx-auto mt-12 max-w-7xl bg-background-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
+    aria-label='Service details'>
+    <div class='grid grid-cols-1 gap-8 lg:grid-cols-3'>
+      <!-- Main Content -->
+      <section class='lg:col-span-2' aria-labelledby='about-service-heading'>
+        <article class='rounded-xl bg-background-100 p-8 shadow-lg'>
+          <header>
+            <h2
+              id='about-service-heading'
+              class='mb-4 font-lato text-2xl font-bold text-primary-900'>
+              About This Service
+            </h2>
+          </header>
+          <p class='text-lg leading-relaxed text-neutral-700'>
+            {intro}
+          </p>
 
-            <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <section
-                aria-labelledby="why-choose-us-heading"
-                class="rounded-lg bg-primary-50 p-6"
-              >
-                <h3
-                  id="why-choose-us-heading"
-                  class="mb-3 font-lato text-lg font-semibold text-primary-900"
-                >
-                  Why Choose Us?
-                </h3>
-                <ul class="space-y-2">
-                  {
-                    benefits.map((benefit: string) => (
-                      <li class="flex items-center text-neutral-700">
-                        <svg
-                          class="mr-2 h-5 w-5 text-accent-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          aria-hidden="true"
-                          focusable="false"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                        {benefit}
-                      </li>
-                    ))
-                  }
-                </ul>
-              </section>
+          <div class='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'>
+            <section
+              aria-labelledby='why-choose-us-heading'
+              class='rounded-lg bg-primary-50 p-6'>
+              <h3
+                id='why-choose-us-heading'
+                class='mb-3 font-lato text-lg font-semibold text-primary-900'>
+                Why Choose Us?
+              </h3>
+              <ul class='space-y-2'>
+                {
+                  benefits.map((benefit: string) => (
+                    <li class='flex items-center text-neutral-700'>
+                      <svg
+                        class='mr-2 h-5 w-5 text-accent-500'
+                        fill='currentColor'
+                        viewBox='0 0 20 20'
+                        aria-hidden='true'
+                        focusable='false'>
+                        <path
+                          fill-rule='evenodd'
+                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                          clip-rule='evenodd'
+                        />
+                      </svg>
+                      {benefit}
+                    </li>
+                  ))
+                }
+              </ul>
+            </section>
 
-              <section
-                aria-labelledby="our-specialties-heading"
-                class="rounded-lg bg-accent-50 p-6"
-              >
-                <h3
-                  id="our-specialties-heading"
-                  class="mb-3 font-lato text-lg font-semibold text-primary-900"
-                >
-                  Our Specialties
-                </h3>
-                <ul class="space-y-1 text-neutral-700">
-                  {
-                    specialties.map((specialty: string) => (
-                      <li>• {specialty}</li>
-                    ))
-                  }
-                </ul>
-              </section>
-            </div>
-          </article>
-        </section>
-
-        <!-- Sidebar -->
-        <aside
-          class="lg:col-span-1"
-          aria-label="Quick contact and service info"
-        >
-          <div class="sticky top-8 rounded-xl bg-primary-900 p-6 text-white">
-            <h3 class="mb-4 font-lato text-lg font-semibold">Quick Contact</h3>
-            <p class="mb-4 text-primary-200">Need immediate assistance?</p>
-            <a
-              href="/contact-us"
-              class="mb-4 block w-full rounded-lg bg-accent-500 px-4 py-3 text-center font-semibold text-white transition-colors duration-200 hover:bg-accent-400"
-              aria-label="Get a quote for this service"
-            >
-              Get Quote
-            </a>
-
-            <div class="mt-4 border-t border-primary-700 pt-4">
-              <h4 class="mb-2 font-lato font-semibold">Service Hours</h4>
-              <p class="mb-2 text-sm text-primary-200">
-                Monday - Friday: 7AM - 6PM
-              </p>
-              <p class="mb-2 text-sm text-primary-200">Saturday: 8AM - 4PM</p>
-              <p class="text-sm text-primary-200">Sunday: Emergency only</p>
-            </div>
-
-            <div class="mt-4 border-t border-primary-700 pt-4">
-              <h4 class="mb-2 font-lato font-semibold">Emergency Service</h4>
-              <p class="mb-2 text-sm text-primary-200">24/7 availability</p>
-              <a
-                href="tel:01273123456"
-                class="font-semibold text-accent-400 hover:text-accent-300"
-                aria-label="Call emergency plumbing service"
-              >
-                01273 123 456
-              </a>
-            </div>
+            <section
+              aria-labelledby='our-specialties-heading'
+              class='rounded-lg bg-accent-50 p-6'>
+              <h3
+                id='our-specialties-heading'
+                class='mb-3 font-lato text-lg font-semibold text-primary-900'>
+                Our Specialties
+              </h3>
+              <ul class='space-y-1 text-neutral-700'>
+                {specialties.map((specialty: string) => <li>• {specialty}</li>)}
+              </ul>
+            </section>
           </div>
-        </aside>
-      </div>
+        </article>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class='lg:col-span-1' aria-label='Quick contact and service info'>
+        <div class='sticky top-8 rounded-xl bg-primary-900 p-6 text-white'>
+          <h3 class='mb-4 font-lato text-lg font-semibold'>Quick Contact</h3>
+          <p class='mb-4 text-primary-200'>Need immediate assistance?</p>
+          <a
+            href='/contact-us'
+            class='mb-4 block w-full rounded-lg bg-accent-500 px-4 py-3 text-center font-semibold text-white transition-colors duration-200 hover:bg-accent-400'
+            aria-label='Get a quote for this service'>
+            Get Quote
+          </a>
+
+          <div class='mt-4 border-t border-primary-700 pt-4'>
+            <h4 class='mb-2 font-lato font-semibold'>Service Hours</h4>
+            <p class='mb-2 text-sm text-primary-200'>
+              Monday - Friday: 7AM - 6PM
+            </p>
+            <p class='mb-2 text-sm text-primary-200'>Saturday: 8AM - 4PM</p>
+            <p class='text-sm text-primary-200'>Sunday: Emergency only</p>
+          </div>
+
+          <div class='mt-4 border-t border-primary-700 pt-4'>
+            <h4 class='mb-2 font-lato font-semibold'>Emergency Service</h4>
+            <p class='mb-2 text-sm text-primary-200'>24/7 availability</p>
+            <a
+              href='tel:01273123456'
+              class='font-semibold text-accent-400 hover:text-accent-300'
+              aria-label='Call emergency plumbing service'>
+              01273 123 456
+            </a>
+          </div>
+        </div>
+      </aside>
     </div>
-  </main>
+  </section>
 
   <!-- Key Features/Benefits -->
-  <section aria-labelledby="features-heading">
+  <section aria-labelledby='features-heading'>
     <ServiceFeaturesList features={features} />
   </section>
 
   <!-- Service Process/Steps -->
-  <section aria-labelledby="process-heading">
+  <section aria-labelledby='process-heading'>
     <ServiceProcessSteps steps={steps} />
   </section>
 
   <!-- Service-Specific Testimonials -->
-  <section aria-labelledby="testimonials-heading">
+  <section aria-labelledby='testimonials-heading'>
     <Testimonials />
   </section>
 
   <!-- Service-Specific FAQs -->
-  <section aria-labelledby="faqs-heading">
+  <section aria-labelledby='faqs-heading'>
     <ServiceFaqList questions={faqs} />
   </section>
 
   <!-- Related Services -->
-  <nav aria-label="Related services">
+  <nav aria-label='Related services'>
     <RelatedServicesList services={relatedServices} />
   </nav>
 
   <!-- Call to Action -->
-  <section aria-labelledby="cta-heading">
+  <section aria-labelledby='cta-heading'>
     <ServiceCallToAction
       title={`Ready to get started with ${page.data.title}?`}
-      buttonText="Book a Service"
-      buttonLink="/contact-us"
+      buttonText='Book a Service'
+      buttonLink='/contact-us'
     />
   </section>
 </ServicesLayout>

@@ -1,15 +1,15 @@
 ---
 // src/pages/services/index.astro
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-import Text from "@/components/fundations/elements/Text.astro";
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+import Text from '@/components/fundations/elements/Text.astro';
 
 // Custom meta for the services home page
-const title = "Our Plumbing & Heating Services | AC Plumbers";
+const title = 'Our Plumbing & Heating Services | AC Plumbers';
 const description =
-  "Browse all plumbing, heating, and renewable services offered by AC Plumbers in Brighton. Book, compare, and learn more about each service.";
+  'Browse all plumbing, heating, and renewable services offered by AC Plumbers Ltd. in Brighton. Book, compare, and learn more about each service.';
 const keywords =
-  "plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers";
+  'plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers Ltd.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
@@ -17,11 +17,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
   title={title}
   description={description}
   keywords={keywords}
-  canonical={canonicalURL}
->
-  <section class="relative overflow-hidden">
-    <Wrapper variant="prose">
-      <slot />
-    </Wrapper>
-  </section>
+  canonical={canonicalURL}>
+  <!--  <section class='relative overflow-hidden'> -->
+  <!-- <Wrapper variant='prose'> -->
+  <slot />
+  <!--  </Wrapper> -->
+  <!-- </section> -->
 </BaseLayout>
