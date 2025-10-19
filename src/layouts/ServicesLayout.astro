@@ -18,9 +18,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
   description={description}
   keywords={keywords}
   canonical={canonicalURL}>
-  <!--  <section class='relative overflow-hidden'> -->
-  <!-- <Wrapper variant='prose'> -->
   <slot />
-  <!--  </Wrapper> -->
-  <!-- </section> -->
 </BaseLayout>

@@ -8,41 +8,39 @@ type Props = {
 const { title, description, image, alt } = Astro.props;
 
 // Provide fallback alt text for better accessibility
-const imageAlt = alt || `${title} service background image`;
+const imageAlt =
+  alt && alt.trim() !== '' ? alt : `${title} service background image`;
 ---
 
 <section
-  id="service-hero"
-  class="relative bg-gradient-to-r from-primary-900 to-primary-800 pt-32 pb-16 sm:pt-40 sm:pb-24"
-  role="banner"
-  aria-labelledby="service-hero-title"
->
-  <div class="absolute inset-0 opacity-50" aria-hidden="true">
+  id='service-hero'
+  class='relative bg-gradient-to-r from-primary-900 to-primary-800 pt-32 pb-16 sm:pt-40 sm:pb-24'
+  role='banner'
+  aria-labelledby='service-hero-title'>
+  <div class='absolute inset-0 opacity-50' aria-hidden='true'>
     <img
       src={image}
-      alt=""
-      class="h-full w-full object-cover"
-      role="presentation"
-      loading="eager"
+      alt={imageAlt}
+      class='h-full w-full object-cover'
+      role='presentation'
+      loading='eager'
     />
   </div>
-  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="md:w-2/3">
+  <div class='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <div class='md:w-2/3'>
       <h1
-        id="service-hero-title"
-        class="font-lato mt-8 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
-      >
+        id='service-hero-title'
+        class='mt-8 font-lato text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl'>
         {title}
       </h1>
-      <p class="mt-6 max-w-3xl font-inconsolata text-xl text-neutral-200">
+      <p class='mt-6 max-w-3xl font-inconsolata text-xl text-neutral-200'>
         {description}
       </p>
-      <div class="mt-10 flex items-center gap-x-6">
+      <div class='mt-10 flex items-center gap-x-6'>
         <a
-          href="/contact-us"
-          class="font-lato rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-accent-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
-          aria-describedby="service-hero-title"
-        >
+          href='/contact-us'
+          class='rounded-md bg-accent-500 px-6 py-3 font-lato text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-accent-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400'
+          aria-describedby='service-hero-title'>
           Get a Quote
         </a>
         <!--  <a
