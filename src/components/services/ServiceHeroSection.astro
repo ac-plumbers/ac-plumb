@@ -1,4 +1,6 @@
 ---
+import Text from '../fundations/elements/Text.astro';
+
 type Props = {
   title: string;
   description: string;
@@ -28,27 +30,26 @@ const imageAlt =
   </div>
   <div class='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
     <div class='md:w-2/3'>
-      <h1
+      <Text
+        tag='h1'
+        variant='displayXL'
         id='service-hero-title'
-        class='mt-8 font-lato text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl'>
+        class='mt-8 font-bold tracking-tight text-white'>
         {title}
-      </h1>
-      <p class='mt-6 max-w-3xl font-inconsolata text-xl text-neutral-200'>
+      </Text>
+      <Text
+        tag='p'
+        variant='displayBASE'
+        class='mt-6 max-w-3xl text-neutral-200'>
         {description}
-      </p>
+      </Text>
       <div class='mt-10 flex items-center gap-x-6'>
         <a
           href='/contact-us'
-          class='rounded-md bg-accent-500 px-6 py-3 font-lato text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-accent-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400'
+          class='rounded-md bg-accent-500 px-6 py-3 font-lato text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-accent-400 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-accent-400'
           aria-describedby='service-hero-title'>
           Get a Quote
         </a>
-        <!--  <a
-          href="#service-details"
-          class="text-base leading-6 font-semibold text-white hover:text-accent-200"
-        >
-          Learn more <span aria-hidden="true">→</span>
-        </a> -->
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 ---
-// src/pages/services/index.astro
+import Text from '@/components/fundations/elements/Text.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ServicesGrid from '@/components/services/ServicesGrid.astro';
 import { getCollection } from 'astro:content';
@@ -12,7 +12,7 @@ const services = allServices.sort((a, b) => {
   return a.data.title.localeCompare(b.data.title);
 });
 
-const title = 'Professional Plumbing Services in Brighton - AC Plumbers Ltd';
+const title = 'Professional Plumbing Services in Brighton - AC Plumbers Ltd.';
 const description =
   'From emergency repairs to complete installations, our Gas Safe certified engineers deliver professional plumbing, heating, and gas services across Brighton & Hove.';
 ---
@@ -22,13 +22,16 @@ const description =
   <section class='mt-24 bg-primary-600 py-16 sm:py-20' data-bg='dark'>
     <div class='mx-auto max-w-7xl px-6 lg:px-8'>
       <div class='mx-auto max-w-2xl text-center'>
-        <h1 class='text-4xl font-bold tracking-tight text-white sm:text-5xl'>
+        <Text
+          tag='h1'
+          variant='displayXL'
+          class='font-bold tracking-tight text-white'>
           Our Services
-        </h1>
-        <p class='mt-6 text-lg leading-8 text-primary-100'>
+        </Text>
+        <Text tag='p' class='mt-6 text-lg leading-8 text-primary-100'>
           Comprehensive plumbing, heating, and gas services for homes and
           businesses across Brighton & Hove. Available 24/7 for emergencies.
-        </p>
+        </Text>
       </div>
     </div>
   </section>
