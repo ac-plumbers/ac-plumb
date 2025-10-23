@@ -1,4 +1,10 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "workbench.colorCustomizations": {
     "activityBar.background": "#176776", // primary-500 from your palette
     "activityBar.foreground": "#ffffff", // white
