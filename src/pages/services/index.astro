@@ -1,6 +1,7 @@
 ---
-import Text from '@/components/fundations/elements/Text.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Text from '@/components/fundations/elements/Text.astro';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import ServicesGrid from '@/components/services/ServicesGrid.astro';
 import { getCollection } from 'astro:content';
 
@@ -24,11 +25,11 @@ const description =
       <div class='mx-auto max-w-2xl text-center'>
         <Text
           tag='h1'
-          variant='displayXL'
+          variant='display2XL'
           class='font-bold tracking-tight text-white'>
           Our Services
         </Text>
-        <Text tag='p' class='mt-6 text-lg leading-8 text-primary-100'>
+        <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
           Comprehensive plumbing, heating, and gas services for homes and
           businesses across Brighton & Hove. Available 24/7 for emergencies.
         </Text>
@@ -71,26 +72,26 @@ const description =
       <div
         class='mt-16 rounded-2xl bg-primary-600 px-6 py-12 text-center sm:px-12'
         data-bg='dark'>
-        <h2 class='text-3xl font-bold text-white'>
+        <Text tag='h2' variant='displayMD' class='font-bold text-white'>
           Need Help Choosing the Right Service?
-        </h2>
-        <p class='mt-4 text-lg text-primary-100'>
+        </Text>
+        <Text tag='p' variant='textBASE' class='mt-4 text-primary-100'>
           Our expert team is here to help you find the perfect solution for your
           needs.
-        </p>
+        </Text>
         <div class='mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center'>
           <a
-            href='tel:01273123456'
+            href='tel:00447535653850'
             class='inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-semibold text-primary-600 shadow-sm transition-colors duration-200 hover:bg-neutral-50 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white'>
             <svg class='h-5 w-5' fill='currentColor' viewBox='0 0 20 20'>
               <path
                 d='M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z'
               ></path>
             </svg>
-            Call Now: 01273 123 456
+            Call Now: {BUSINESS_CONFIG.mobilePhone}
           </a>
           <a
-            href='/contact'
+            href='/contact-us'
             class='inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-primary-600 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white'>
             Get Free Quote
             <svg

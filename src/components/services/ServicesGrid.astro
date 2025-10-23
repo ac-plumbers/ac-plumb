@@ -2,6 +2,7 @@
 const { services } = Astro.props;
 // Sort services by 'sortedOrder' frontmatter, defaulting to 999 if not set
 const sortedServices = [...services].sort((a, b) => (a.data.sortedOrder || 999) - (b.data.sortedOrder || 999));
+import Text from "../fundations/elements/Text.astro";
 ---
 
 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -24,14 +25,14 @@ const sortedServices = [...services].sort((a, b) => (a.data.sortedOrder || 999) 
         <!-- Card Content -->
         <div class="p-6 space-y-4">
           <!-- Service Title -->
-          <h3 class="text-xl font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-200 leading-tight">
+          <Text tag="h3" variant="displayXS" class="text-xl font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-200 leading-tight">
             {service.data.title}
-          </h3>
+          </Text>
 
           <!-- Service Description -->
-          <p class="text-neutral-600 text-sm leading-relaxed line-clamp-3">
+          <Text tag="p" variant="textBASE" class="text-neutral-700 leading-relaxed line-clamp-3">
             {service.data.description}
-          </p>
+          </Text>
 
           {/* <!-- Tags -->
           {service.data.tags && service.data.tags.length > 0 && (
