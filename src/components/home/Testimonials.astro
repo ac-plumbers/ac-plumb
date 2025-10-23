@@ -114,7 +114,9 @@ const reviews = [
           height={60}
           class='h-12 w-auto object-contain'
         />
-        <span class='font-semibold'>Rated 5.0 ★ on Google</span>
+        <Text tag='span' variant='textSM' class='font-semibold'>
+          Rated 5.0 ★ on Google
+        </Text>
       </a>
       <span
         class='flex h-12 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow'>
@@ -127,78 +129,17 @@ const reviews = [
         />
       </span>
     </div>
-
     <!-- Testimonials Grid with Animated Entry -->
-
     <div class='relative'>
       <Carousel client:load reviews={reviews} />
-      <!-- <div
-        class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-      >
-        {
-          reviews.slice(0, 6).map((review: any, index: number) => (
-            <div
-              class={`testimonial-animate $${
-                index === 0
-                  ? "md:col-span-2 md:row-span-1"
-                  : index === 3
-                    ? "lg:col-span-2 lg:row-span-1"
-                    : ""
-              }`}
-              style={`transition-delay: ${index * 120}ms;`}
-            >
-              <TestimonialsCard
-                title={review.title}
-                review={{
-                  rating: review.rating,
-                  content: review.content,
-                  date: review.date,
-                  location: review.location,
-                }}
-              />
-            </div>
-          ))
-        }
-      </div> -->
-      <!-- <script is:inline>
-
-        window.addEventListener("DOMContentLoaded", () => {
-          const cards = document.querySelectorAll(".testimonial-animate");
-          const observer = new window.IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("testimonial-in");
-                } else {
-                  entry.target.classList.remove("testimonial-in");
-                }
-              });
-            },
-            { threshold: 0.2 },
-          );
-          cards.forEach((card) => observer.observe(card));
-        });
-      </script> -->
     </div>
-    <!--  <style>
-      .testimonial-animate {
-        opacity: 0;
-        transform: translateY(30px);
-        transition:
-          opacity 0.7s cubic-bezier(0.4, 2, 0.3, 1),
-          transform 0.7s cubic-bezier(0.4, 2, 0.3, 1);
-      }
-      .testimonial-in {
-        opacity: 1;
-        transform: none;
-      }
-    </style> -->
   </div>
-
   <!-- Call to Action -->
   <div class='mt-20 text-center'>
     <Link href='/contact-us' variant='accent-button' size='md' class='inline'>
-      <span class='text-xl uppercase sm:text-base'>Contact Us</span>
+      <Text tag='span' variant='textXL' class='uppercase sm:text-base'>
+        Contact Us
+      </Text>
     </Link>
   </div>
 </section>

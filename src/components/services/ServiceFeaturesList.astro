@@ -18,14 +18,16 @@ import Text from '../fundations/elements/Text.astro';
   <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:text-center'>
       <Text
-        tag='h2'
+        tag='span'
+        variant='textBASE'
         class='text-base font-semibold tracking-wide text-primary-600 uppercase'>
         Benefits
       </Text>
       <Text
-        tag='p'
-        class='mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl'>
-        Why Choose Our {features[0]?.title ? 'Service' : 'Services'}
+        tag='h3'
+        variant='displayLG'
+        class='mt-2 font-bold tracking-tight text-neutral-900'>
+        Why Choose Our {features.length === 1 ? 'Service' : 'Services'}
       </Text>
     </div>
     <div class='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
@@ -52,7 +54,7 @@ import Text from '../fundations/elements/Text.astro';
                 </div>
                 {feature.title}
               </dt>
-              <dd class='mt-2 text-base text-neutral-600'>
+              <dd class='mt-2 text-base text-neutral-800'>
                 {feature.description}
               </dd>
             </div>

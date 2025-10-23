@@ -17,16 +17,18 @@ import Text from '../fundations/elements/Text.astro';
   <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
     <div class='mx-auto max-w-2xl lg:text-center'>
       <Text
-        tag='h2'
+        tag='span'
+        variant='textBASE'
         class='text-base font-semibold tracking-wide text-primary-600 uppercase'>
         Our Process
       </Text>
       <Text
-        tag='p'
-        class='mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl'>
+        tag='h3'
+        variant='displayLG'
+        class='mt-2 font-bold tracking-tight text-neutral-900'>
         How We Work
       </Text>
-      <Text tag='p' class='mt-4 text-lg text-neutral-600'>
+      <Text tag='p' variant='textBASE' class='mt-4 text-neutral-700'>
         Our proven process ensures quality results and complete satisfaction
       </Text>
     </div>
@@ -40,11 +42,13 @@ import Text from '../fundations/elements/Text.astro';
                 {index + 1}
               </span>
               <Text
-                tag='h3'
+                tag='h4'
                 class='mb-1 text-xl font-semibold text-neutral-900'>
                 {step.title}
               </Text>
-              <p class='text-neutral-600'>{step.description}</p>
+              <Text tag='p' variant='textBASE' class='text-neutral-600'>
+                {step.description}
+              </Text>
             </li>
           ))
         }
