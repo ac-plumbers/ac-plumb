@@ -4,7 +4,7 @@ import Text from '@/components/fundations/elements/Text.astro';
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import ServicesGrid from '@/components/services/ServicesGrid.astro';
 import { getCollection } from 'astro:content';
-
+import SchemaServices from '@/components/fundations/schema-services/SchemaServices.astro';
 // Get all services and sort (featured first, then alphabetically)
 const allServices = await getCollection('services');
 const services = allServices.sort((a, b) => {
@@ -19,6 +19,11 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
+  <SchemaServices
+    services={services}
+    providerName='AC Plumbers Ltd.'
+    providerUrl='https://acplumb.co.uk'
+  />
   <!-- Page Header -->
   <section class='mt-24 bg-primary-600 py-16 sm:py-20' data-bg='dark'>
     <div class='mx-auto max-w-7xl px-6 lg:px-8'>

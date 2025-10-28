@@ -1,0 +1,31 @@
+---
+// Props: services (array), providerName (string), providerUrl (string)
+const { services = [], providerName = "AC Plumbers Ltd.", providerUrl = "https://acplumb.co.uk" } = Astro.props;
+
+const catalog = {
+	"@context": "https://schema.org",
+	"@type": "ServiceCatalog",
+	"name": "Our Services",
+	"description": "Comprehensive plumbing, heating, and gas services for homes and businesses across Brighton & Hove.",
+	"provider": {
+		"@type": "Organization",
+		"name": providerName,
+		"url": providerUrl
+	},
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Service List",
+		"itemListElement": services.map(service => ({
+			"@type": "Offer",
+			"itemOffered": {
+				"@type": "Service",
+				"name": service.data.title,
+				"description": service.data.description,
+				"url": providerUrl + "/services/" + service.slug,
+				"image": providerUrl + service.data.image
+			}
+		}))
+	}
+};
+---
+<script type="application/ld+json">{JSON.stringify(catalog, null, 2)}</script>
