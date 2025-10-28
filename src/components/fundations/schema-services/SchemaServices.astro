@@ -29,12 +29,6 @@ const catalog = {
 };
 ---
 <script type="application/ld+json">
-	{(() => {
-		try {
-			return JSON.stringify(catalog, null, 2);
-		} catch (e) {
-			return `{"@error": "JSON.stringify failed: ${e}"}`;
-		}
-	})()}
+	{JSON.stringify(catalog, null, 2)}
 </script>
 
