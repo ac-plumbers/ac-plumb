@@ -12,28 +12,29 @@ const validServices = services.filter(service =>
 
 const catalog = {
 	"@context": "https://schema.org",
-	"@type": "ServiceCatalog",
+	"@type": "ItemList",
 	"name": "Our Services",
 	"description": "Comprehensive plumbing, heating, and gas services for homes and businesses across Brighton & Hove.",
-	"provider": {
-		"@type": "Organization",
-		"name": providerName,
-		"url": providerUrl
-	},
-	"hasOfferCatalog": {
-		"@type": "OfferCatalog",
-		"name": "Service List",
-		"itemListElement": validServices.map(service => ({
-			"@type": "Offer",
-			"itemOffered": {
-				"@type": "Service",
-				"name": String(service.data.title),
-				"description": String(service.data.description),
-				"url": providerUrl + "/services/" + String(service.slug),
-				"image": providerUrl + String(service.data.image)
-			}
-		}))
-	}
+	"itemListElement": validServices.map((service, idx) => ({
+		"@type": "ListItem",
+		"position": idx + 1,
+		"item": {
+			"@type": "Service",
+			"name": String(service.data.title),
+			"description": String(service.data.description),
+			"url": providerUrl + "/services/" + String(service.slug),
+			"image": providerUrl + String(service.data.image)
+		}
+	}))
 };
 ---
-<script type="application/ld+json">{JSON.stringify(catalog, null, 2)}</script>
+<script type="application/ld+json">
+	{(() => {
+		try {
+			return JSON.stringify(catalog, null, 2);
+		} catch (e) {
+			return `{"@error": "JSON.stringify failed: ${e}"}`;
+		}
+	})()}
+</script>
+
