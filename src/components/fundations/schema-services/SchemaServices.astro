@@ -2,6 +2,14 @@
 // Props: services (array), providerName (string), providerUrl (string)
 const { services = [], providerName = "AC Plumbers Ltd.", providerUrl = "https://acplumb.co.uk" } = Astro.props;
 
+const validServices = services.filter(service =>
+	service &&
+	typeof service.data?.title === 'string' &&
+	typeof service.data?.description === 'string' &&
+	typeof service.slug === 'string' &&
+	typeof service.data?.image === 'string'
+);
+
 const catalog = {
 	"@context": "https://schema.org",
 	"@type": "ServiceCatalog",
@@ -15,14 +23,14 @@ const catalog = {
 	"hasOfferCatalog": {
 		"@type": "OfferCatalog",
 		"name": "Service List",
-		"itemListElement": services.map(service => ({
+		"itemListElement": validServices.map(service => ({
 			"@type": "Offer",
 			"itemOffered": {
 				"@type": "Service",
-				"name": service.data.title,
-				"description": service.data.description,
-				"url": providerUrl + "/services/" + service.slug,
-				"image": providerUrl + service.data.image
+				"name": String(service.data.title),
+				"description": String(service.data.description),
+				"url": providerUrl + "/services/" + String(service.slug),
+				"image": providerUrl + String(service.data.image)
 			}
 		}))
 	}
