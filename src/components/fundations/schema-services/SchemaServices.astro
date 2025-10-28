@@ -1,34 +1,41 @@
 ---
 // Props: services (array), providerName (string), providerUrl (string)
-const { services = [], providerName = "AC Plumbers Ltd.", providerUrl = "https://acplumb.co.uk" } = Astro.props;
+const {
+  services = [],
+  providerName = 'AC Plumbers Ltd.',
+  providerUrl = 'https://acplumb.co.uk',
+} = Astro.props;
 
-const validServices = services.filter(service =>
-	service &&
-	typeof service.data?.title === 'string' &&
-	typeof service.data?.description === 'string' &&
-	typeof service.slug === 'string' &&
-	typeof service.data?.image === 'string'
+const validServices = services.filter(
+  service =>
+    service &&
+    typeof service.data?.title === 'string' &&
+    typeof service.data?.description === 'string' &&
+    typeof service.slug === 'string' &&
+    typeof service.data?.image === 'string'
 );
 
 const catalog = {
-	"@context": "https://schema.org",
-	"@type": "ItemList",
-	"name": "Our Services",
-	"description": "Comprehensive plumbing, heating, and gas services for homes and businesses across Brighton & Hove.",
-	"itemListElement": validServices.map((service, idx) => ({
-		"@type": "ListItem",
-		"position": idx + 1,
-		"item": {
-			"@type": "Service",
-			"name": String(service.data.title),
-			"description": String(service.data.description),
-			"url": providerUrl + "/services/" + String(service.slug),
-			"image": providerUrl + String(service.data.image)
-		}
-	}))
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Our Services',
+  description:
+    'Comprehensive plumbing, heating, and gas services for homes and businesses across Brighton & Hove.',
+  itemListElement: validServices.map((service, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'Service',
+      name: String(service.data.title),
+      description: String(service.data.description),
+      url: providerUrl + '/services/' + String(service.slug),
+      image: providerUrl + String(service.data.image),
+    },
+  })),
 };
 ---
-<script type="application/ld+json">
-	{JSON.stringify(catalog, null, 2)}
-</script>
 
+<script
+  type='application/ld+json'
+  set:html={JSON.stringify(catalog, null, 2)}
+/>
