@@ -17,6 +17,7 @@ import type {
   ServiceFrontmatter,
 } from '@/lib/types';
 import { getCollection } from 'astro:content';
+import SingleSchemaService from '@/components/fundations/schema-services/SingleSchemaService.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -58,6 +59,12 @@ const process: ServiceStep[] = service.process || [];
 ---
 
 <ServicesLayout frontmatter={service}>
+  <SingleSchemaService
+    service={page}
+    providerName='AC Plumbers Ltd.'
+    providerUrl='https://acplumb.co.uk'
+  />
+
   <!-- Hero Section with Service Overview -->
   <ServiceHeroSection
     title={service.title}
