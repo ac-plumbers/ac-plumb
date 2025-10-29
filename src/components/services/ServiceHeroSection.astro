@@ -21,21 +21,24 @@ const imageAlt =
   role='banner'
   aria-labelledby='service-hero-title'>
   <div class='absolute inset-0 opacity-50' aria-hidden='true'>
-    <img
-      src={image}
-      srcset={`
-        ${image.replace(/\.(jpg|jpeg|png)$/i, '.webp')} 1200w,
-        ${image} 800w
-      `}
-      sizes='(max-width: 768px) 100vw, 50vw'
-      alt={imageAlt}
-      class='h-full w-full object-cover'
-      role='presentation'
-      loading='lazy'
-      width='1200'
-      height='800'
-      decoding='async'
-    />
+    <picture>
+      <source
+        srcset={image
+          .replace('/images/services/', '/images/services/optimized/')
+          .replace(/\.(jpg|jpeg|png)$/i, '-400w.webp')}
+        type='image/webp'
+      />
+      <img
+        src={image}
+        alt={imageAlt}
+        class='h-full w-full object-cover'
+        role='presentation'
+        loading='lazy'
+        width='400'
+        height='540'
+        decoding='async'
+      />
+    </picture>
   </div>
   <div class='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
     <div class='md:w-2/3'>
