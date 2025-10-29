@@ -1,0 +1,55 @@
+---
+const { service, providerName, providerUrl } = Astro.props;
+
+const _providerName = providerName || 'AC Plumbers Ltd.';
+const _providerUrl = providerUrl || 'https://acplumb.co.uk';
+
+if (!service || !service.data) {
+  throw new Error('SingleSchemaService: service prop is required');
+}
+
+const canonicalUrl = _providerUrl + '/services/' + String(service.slug);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: String(service.data.title),
+  description: String(service.data.description),
+  image: {
+    '@type': 'ImageObject',
+    url: _providerUrl + String(service.data.image),
+    caption: service.data.alt || service.data.title || '',
+    inLanguage: 'en-GB',
+  },
+  provider: {
+    '@type': 'Organization',
+    name: _providerName,
+    url: _providerUrl,
+  },
+  url: canonicalUrl,
+  mainEntityOfPage: canonicalUrl,
+  serviceType: service.data.category || undefined,
+  keywords: Array.isArray(service.data.tags)
+    ? service.data.tags.join(', ')
+    : undefined,
+  offers:
+    typeof service.data.price === 'number' && service.data.price > 0
+      ? {
+          '@type': 'Offer',
+          price: service.data.price,
+          priceCurrency: 'GBP',
+          availability: 'https://schema.org/InStock',
+          url: canonicalUrl,
+        }
+      : undefined,
+  additionalProperty: Array.isArray(service.data.features)
+    ? service.data.features.map(f => ({
+        '@type': 'PropertyValue',
+        name: f.title,
+        value: f.description,
+      }))
+    : undefined,
+};
+---
+
+<script type='application/ld+json' set:html={JSON.stringify(schema, null, 2)} />
