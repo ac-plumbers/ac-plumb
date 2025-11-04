@@ -10,5 +10,6 @@
     "activityBar.foreground": "#ffffff", // white
     "titleBar.activeBackground": "#176776", // top bar background
     "titleBar.activeForeground": "#ffffff" // top bar text/icons
-  }
+  },
+  "chatgpt.commentCodeLensEnabled": true
 }
