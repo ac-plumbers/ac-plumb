@@ -8,16 +8,48 @@ const description =
   "Learn about AC Plumbers Ltd.'s policy on the use of AI and Large Language Models (LLMs) in relation to our website content.";
 const keywords =
   'AI policy, Large Language Models, AC Plumbers Ltd., Brighton, website content';
+// Define canonical URL for this page
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
+  <script
+    type='application/ld+json'
+    set:html={JSON.stringify(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'AI & Large Language Model Policy',
+        description:
+          "Learn about AC Plumbers Ltd.'s policy on the use of AI and Large Language Models (LLMs) in relation to our website content.",
+        url: canonicalUrl,
+        mainEntity: {
+          '@type': 'Organization',
+          name: BUSINESS_CONFIG.name,
+          url: BUSINESS_CONFIG.website || canonicalUrl,
+          email: BUSINESS_CONFIG.email,
+          telephone: BUSINESS_CONFIG.mobilePhone,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: BUSINESS_CONFIG.address.street,
+            addressLocality: BUSINESS_CONFIG.address.city,
+            postalCode: BUSINESS_CONFIG.address.postcode,
+            addressCountry: 'GB',
+          },
+        },
+      },
+      null,
+      2
+    )}
+  />
   <section class='relative mt-10 bg-white/90 px-4 py-20 sm:px-6 lg:px-8'>
     <div class='mx-auto max-w-3xl'>
       <div class='mb-10 text-center'>
         <h1 class='mb-2 font-lato text-4xl font-bold text-primary-600'>
           AI & Large Language Model Policy
         </h1>
-        <p class='text-base text-primary-400'>Last updated: 16 August 2025</p>
+        <p class='text-base text-primary-400'>Last updated: 05 November 2025</p>
         <p class='mt-4 font-inconsolata text-lg text-primary-700'>
           This policy explains how AC Plumbers Ltd. permits the use of our
           website content by Artificial Intelligence (AI) systems, including
