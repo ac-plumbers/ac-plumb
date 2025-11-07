@@ -55,11 +55,3 @@ const currentPath = Astro.url.pathname;
     <StickyCallButton client:load />
   </body>
 </html>
-<style is:global>
-  /* Only enable cross-page transitions for users who allow motion */
-  @media (prefers-reduced-motion: no-preference) {
-    @view-transition {
-      navigation: auto; /* cross-document VT on */
-    }
-  }
-</style>
