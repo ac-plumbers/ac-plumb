@@ -56,9 +56,6 @@ const currentPath = Astro.url.pathname;
   </body>
 </html>
 <style is:global>
-  @view-transition {
-    navigation: auto;
-  }
   /* Only enable cross-page transitions for users who allow motion */
   @media (prefers-reduced-motion: no-preference) {
     @view-transition {
