@@ -18,9 +18,23 @@ import '@fontsource/lato';
     </main>
   </body>
 </html>
-<style>
+<!-- <style>
   main {
     padding: 0;
     margin: 0;
   }
+</style> -->
+<style is:global>
+  main {
+    padding: 0;
+    margin: 0;
+  }
+  @view-transition {
+    navigation: auto;
+  }
+  /* Only enable cross-page transitions for users who allow motion */
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto; /* cross-document VT on */
+    }
 </style>

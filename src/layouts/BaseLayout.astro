@@ -1,13 +1,13 @@
 ---
-import "@/styles/global.css";
-import "@fontsource-variable/inconsolata";
-import "@fontsource/lato";
+import '@/styles/global.css';
+import '@fontsource-variable/inconsolata';
+import '@fontsource/lato';
 
-import BaseHead from "@/components/fundations/head/BaseHead.astro";
-import LogoCloud from "@/components/LogoCloud.astro";
-import HeaderVue from "@/components/global/Header.vue";
-import StickyCallButton from "@/components/global/StickyCallButton.vue";
-import Footer from "@/components/global/Footer.astro";
+import BaseHead from '@/components/fundations/head/BaseHead.astro';
+import LogoCloud from '@/components/LogoCloud.astro';
+import HeaderVue from '@/components/global/Header.vue';
+import StickyCallButton from '@/components/global/StickyCallButton.vue';
+import Footer from '@/components/global/Footer.astro';
 
 const {
   title,
@@ -17,7 +17,7 @@ const {
   themeColor,
   canonical,
   noindex = false,
-  schemaType = "WebPage",
+  schemaType = 'WebPage',
   datePublished,
   dateModified,
 } = Astro.props;
@@ -27,7 +27,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en-GB" class="h-full scroll-smooth">
+<html lang='en-GB' class='h-full scroll-smooth'>
   <head>
     <BaseHead
       title={title}
@@ -42,17 +42,27 @@ const currentPath = Astro.url.pathname;
       dateModified={dateModified}
     />
   </head>
-  <body class="h-full">
+  <body class='h-full'>
     <HeaderVue client:load currentPath={currentPath}>
-      <LogoCloud slot="after-nav" />
+      <LogoCloud slot='after-nav' />
     </HeaderVue>
     <main
-      id="main-content"
-      class="mx-auto flex flex-col pt-32 transition-all duration-300"
-    >
+      id='main-content'
+      class='mx-auto flex flex-col pt-32 transition-all duration-300'>
       <slot />
     </main>
     <Footer />
     <StickyCallButton client:load />
   </body>
 </html>
+<style is:global>
+  @view-transition {
+    navigation: auto;
+  }
+  /* Only enable cross-page transitions for users who allow motion */
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto; /* cross-document VT on */
+    }
+  }
+</style>

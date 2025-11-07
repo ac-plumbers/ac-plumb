@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-
+import Text from '@/components/fundations/elements/Text.astro';
 // Content for SEO
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 const title = 'AI & Large Language Model Policy – AC Plumbers Ltd. Brighton';
@@ -46,9 +46,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
   <section class='relative mt-10 bg-white/90 px-4 py-20 sm:px-6 lg:px-8'>
     <div class='mx-auto max-w-3xl'>
       <div class='mb-10 text-center'>
-        <h1 class='mb-2 font-lato text-4xl font-bold text-primary-600'>
+        <Text
+          tag='h1'
+          variant='displayXL'
+          class='mb-2 font-bold text-primary-600'>
           AI & Large Language Model Policy
-        </h1>
+        </Text>
         <p class='text-base text-primary-400'>Last updated: 05 November 2025</p>
         <p class='mt-4 font-inconsolata text-lg text-primary-700'>
           This policy explains how AC Plumbers Ltd. permits the use of our

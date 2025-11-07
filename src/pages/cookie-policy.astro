@@ -1,19 +1,21 @@
 ---
-import Wrapper from "../components/fundations/containers/Wrapper.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Wrapper from '../components/fundations/containers/Wrapper.astro';
+import Text from '@/components/fundations/elements/Text.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 // Content for SEO
-const title = "Cookie Policy | AC Plumbers Ltd. Brighton";
+const title = 'Cookie Policy | AC Plumbers Ltd. Brighton';
 const description =
-  "Learn about the cookies we use on our website and your choices regarding their use.";
-const keywords = "cookie policy, AC Plumbers, Brighton, cookies";
+  'Learn about the cookies we use on our website and your choices regarding their use.';
+const keywords = 'cookie policy, AC Plumbers, Brighton, cookies';
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
   <Wrapper
-    variant="prose"
-    class="mx-auto mt-8 max-w-3xl space-y-4 px-4 py-16 sm:px-6 lg:px-8"
-  >
-    <h1 class="text-primary-600">Cookie Policy</h1>
+    variant='prose'
+    class='mx-auto mt-14 max-w-3xl space-y-4 px-4 py-16 sm:px-6 lg:px-8'>
+    <Text tag='h1' variant='displayXL' class='text-primary-600'
+      >Cookie Policy</Text
+    >
     <p>Last updated: [Insert Date]</p>
 
     <p>
@@ -50,9 +52,9 @@ const keywords = "cookie policy, AC Plumbers, Brighton, cookies";
     </p>
     <p>
       For detailed instructions, visit <a
-        href="https://www.aboutcookies.org"
-        target="_blank"
-        rel="noopener noreferrer">aboutcookies.org</a
+        href='https://www.aboutcookies.org'
+        target='_blank'
+        rel='noopener noreferrer'>aboutcookies.org</a
       >.
     </p>
 
