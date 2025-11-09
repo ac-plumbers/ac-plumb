@@ -206,3 +206,15 @@ import Text from './fundations/elements/Text.astro';
     setTimeout(initScrollHandler, 500);
   </script>
 </section>
+<style>
+  #certifications {
+    view-transition-name: logo-cloud;
+  }
+
+  /* Disable animation during page transitions */
+  @media (prefers-reduced-motion: no-preference) {
+    #certifications {
+      animation-play-state: running;
+    }
+  }
+</style>
