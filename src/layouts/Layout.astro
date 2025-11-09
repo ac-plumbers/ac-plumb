@@ -22,6 +22,11 @@ import '@fontsource/lato';
   @view-transition {
     navigation: auto;
   }
+  ::view-transition-old(logo-cloud),
+  ::view-transition-new(logo-cloud) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
 
   main {
     padding: 0;
