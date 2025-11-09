@@ -44,6 +44,21 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
+@view-transition {
+  navigation: auto;
+}
+
+/* Prevent LogoCloud animation during transitions */
+::view-transition-old(logo-cloud),
+::view-transition-new(logo-cloud) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Ensure the element maintains its state */
+#certifications {
+  view-transition-name: logo-cloud;
+}
 
 body {
   font-family: "Inconsolata", monospace;

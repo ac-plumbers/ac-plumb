@@ -55,13 +55,3 @@ const currentPath = Astro.url.pathname;
     <StickyCallButton client:load />
   </body>
 </html>
-<style is:global>
-  @view-transition {
-    navigation: auto;
-  }
-  ::view-transition-old(logo-cloud),
-  ::view-transition-new(logo-cloud) {
-    animation: none;
-    mix-blend-mode: normal;
-  }
-</style>
