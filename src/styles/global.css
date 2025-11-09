@@ -44,27 +44,6 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
-/* Prevent LogoCloud animation during transitions */
-::view-transition-old(logo-cloud),
-::view-transition-new(logo-cloud) {
-  animation: none !important;
-  mix-blend-mode: normal;
-  overflow: hidden;
-}
-
-::view-transition-group(logo-cloud) {
-  animation-duration: 0ms;
-}
-
-::view-transition-image-pair(logo-cloud) {
-  isolation: auto;
-}
-
-/* Ensure the element maintains its state */
-#certifications {
-  view-transition-name: logo-cloud;
-  contain: layout style paint;
-}
 
 body {
   font-family: "Inconsolata", monospace;
@@ -164,6 +143,7 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    line-clamp: 1;
   }
 
   .line-clamp-2 {
@@ -171,6 +151,7 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   .line-clamp-3 {
@@ -178,6 +159,7 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 
   .line-clamp-4 {
@@ -185,6 +167,7 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 
   /* Custom background position utility for footer image */
