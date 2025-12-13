@@ -3,12 +3,14 @@ import BaseHead from '@/components/fundations/head/BaseHead.astro';
 import '@/styles/global.css';
 import '@fontsource-variable/inconsolata';
 import '@fontsource/lato';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
 <html lang='en-GB' class='h-full scroll-smooth'>
   <head>
     <BaseHead {...Astro.props} />
+    <ClientRouter />
   </head>
   <body class='h-full bg-primary-600'>
     <main
