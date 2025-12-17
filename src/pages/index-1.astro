@@ -9,141 +9,140 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
 
 <Layout>
   <section
-    class='fixed inset-0 m-0 flex h-screen w-screen items-center justify-center overflow-x-hidden p-0'>
-    <div class='m-0 h-full w-full p-0 px-2 sm:px-0'>
-      <div
-        class='xs:gap-6 m-0 inline-flex h-full w-full flex-col items-center justify-center gap-4 rounded-none bg-primary-700 p-0 sm:justify-end sm:gap-10 md:gap-16'>
+    class='relative flex min-h-screen w-full flex-col items-center justify-center bg-primary-700 px-2 sm:px-0'>
+    <div
+      class='mx-auto flex min-h-[80vh] w-full max-w-2xl flex-col items-center justify-center gap-8 py-8 sm:py-16'>
+      <Image
+        src={logo}
+        alt='AC Plumbers Ltd. logo'
+        width={220}
+        height={220}
+        format='webp'
+        class='mb-2 drop-shadow-lg sm:mb-4'
+      />
+      <div class='flex w-full flex-col items-center justify-center gap-8'>
+        <div class='flex w-full flex-col items-center gap-3'>
+          <h1
+            class='font-manrope text-center text-2xl leading-tight font-bold text-accent-500 sm:text-3xl md:text-5xl'>
+            We're Building Something New
+          </h1>
+          <p
+            class='max-w-lg px-2 text-center text-sm text-gray-200 sm:text-base'>
+            We're working hard to bring you a new online experience for AC
+            Plumbers Ltd. For urgent plumbing, heating, or gas services in
+            Brighton & Hove, please contact us below.
+          </p>
+        </div>
         <div
-          class='xs:gap-6 flex flex-col items-center justify-center gap-4 sm:justify-end sm:gap-10 lg:gap-16'>
-          <Image
-            src={logo}
-            alt='AC Plumbers logo'
-            width={300}
-            height={300}
-            format='webp'
-          />
-          <div class='flex flex-col items-center justify-center gap-10'>
-            <div class='flex flex-col items-center justify-start gap-2.5'>
-              <h2
-                class='font-manrope xs:text-2xl text-center text-xl leading-normal font-bold text-accent-500 sm:text-3xl md:text-5xl md:leading-normal'>
-                Website Under Construction
-              </h2>
-              <p
-                class='xs:px-2 xs:text-sm max-w-lg px-1 text-center text-xs leading-relaxed font-normal text-gray-200 sm:px-0 sm:text-base'>
-                We're working hard to bring you a new online experience for AC
-                Plumbers Ltd. For urgent plumbing, heating, or gas services in
-                Brighton & Hove, please contact us below.
-              </p>
-            </div>
-            <div
-              class='count-down-main xs:gap-2 flex w-full flex-wrap items-start justify-center gap-1 sm:gap-4'>
-              <div class='timer flex flex-col gap-0.5'>
-                <div class=''>
-                  <h3
-                    class='countdown-element days font-manrope text-center text-2xl leading-9 font-bold text-white'>
-                  </h3>
-                </div>
-                <p
-                  class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
-                  DAYS
-                </p>
-              </div>
+          class='count-down-main flex w-full flex-wrap items-start justify-center gap-2 sm:gap-4'>
+          <div class='timer flex flex-col gap-0.5'>
+            <div class=''>
               <h3
-                class='font-manrope w-3 text-center text-2xl leading-9 font-medium text-gray-300'>
-                :
+                class='countdown-element days font-manrope text-center text-2xl leading-9 font-bold text-white'>
               </h3>
-              <div class='timer flex flex-col gap-0.5'>
-                <div class=''>
-                  <h3
-                    class='countdown-element hours font-manrope text-center text-2xl leading-9 font-bold text-white'>
-                  </h3>
-                </div>
-                <p
-                  class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
-                  HRS
-                </p>
-              </div>
-              <h3
-                class='font-manrope w-3 text-center text-2xl leading-9 font-medium text-gray-300'>
-                :
-              </h3>
-              <div class='timer flex flex-col gap-0.5'>
-                <div class=''>
-                  <h3
-                    class='countdown-element minutes font-manrope text-center text-2xl leading-9 font-bold text-white'>
-                  </h3>
-                </div>
-                <p
-                  class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
-                  MINS
-                </p>
-              </div>
-              <h3
-                class='font-manrope w-3 text-center text-2xl leading-9 font-medium text-gray-300'>
-                :
-              </h3>
-              <div class='timer flex flex-col gap-0.5'>
-                <div class=''>
-                  <h3
-                    class='countdown-element seconds font-manrope text-center text-2xl leading-9 font-bold text-white'>
-                  </h3>
-                </div>
-                <p
-                  class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
-                  SECS
-                </p>
-              </div>
             </div>
-            <div
-              class='xs:gap-3 flex w-full flex-col items-center justify-center gap-2 sm:gap-5'>
-              <h6
-                class='xs:text-sm text-center text-xs leading-relaxed font-semibold text-accent-500 sm:text-base'>
-                Estimated Launch: January 1, 2026
-              </h6>
-              <form
-                name='launch-notification'
-                method='POST'
-                data-netlify='true'
-                class='xs:gap-2 flex w-full flex-col items-center justify-center gap-1 sm:flex-row'>
-                <input
-                  type='hidden'
-                  name='form-name'
-                  value='launch-notification'
-                />
-                <input
-                  type='email'
-                  name='email'
-                  required
-                  class='xs:px-3 xs:text-sm inline-flex h-10 w-80 max-w-full items-center justify-start gap-1 rounded-lg border border-gray-200 bg-white px-2 py-2 text-xs leading-relaxed font-normal text-gray-900 placeholder-gray-400 shadow focus:outline-none sm:w-80'
-                  placeholder='Your email for updates...'
-                />
-                <button
-                  type='submit'
-                  class='xs:px-3 mt-4 flex w-fit items-center justify-center rounded-lg bg-accent-500 px-2 py-2 shadow transition-all duration-700 ease-in-out hover:bg-accent-600 sm:w-fit'>
-                  <span
-                    class='xs:px-1 xs:text-sm px-0.5 text-xs leading-6 font-medium whitespace-nowrap text-white'
-                    >Notify Me</span
-                  >
-                </button>
-              </form>
+            <p
+              class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
+              DAYS
+            </p>
+          </div>
+          <h3
+            class='font-manrope w-3 text-center text-2xl leading-9 font-medium text-gray-300'>
+            :
+          </h3>
+          <div class='timer flex flex-col gap-0.5'>
+            <div class=''>
+              <h3
+                class='countdown-element hours font-manrope text-center text-2xl leading-9 font-bold text-white'>
+              </h3>
             </div>
+            <p
+              class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
+              HRS
+            </p>
+          </div>
+          <h3
+            class='font-manrope w-3 text-center text-2xl leading-9 font-medium text-gray-300'>
+            :
+          </h3>
+          <div class='timer flex flex-col gap-0.5'>
+            <div class=''>
+              <h3
+                class='countdown-element minutes font-manrope text-center text-2xl leading-9 font-bold text-white'>
+              </h3>
+            </div>
+            <p
+              class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
+              MINS
+            </p>
+          </div>
+          <h3
+            class='font-manrope w-3 text-center text-2xl leading-9 font-medium text-gray-300'>
+            :
+          </h3>
+          <div class='timer flex flex-col gap-0.5'>
+            <div class=''>
+              <h3
+                class='countdown-element seconds font-manrope text-center text-2xl leading-9 font-bold text-white'>
+              </h3>
+            </div>
+            <p
+              class='w-full text-center text-xs leading-normal font-normal text-gray-300'>
+              SECS
+            </p>
           </div>
         </div>
-        <p class='text-center text-sm leading-snug font-normal text-gray-200'>
-          Get in touch with us: <a
-            href='mailto:info@acplumb.co.uk'
-            class='transition-all duration-700 ease-in-out hover:text-white'>
-            info@acplumb.co.uk</a
-          >
-        </p>
+        <div class='flex w-full flex-col items-center justify-center gap-3'>
+          <h6
+            class='text-center text-sm font-semibold text-accent-500 sm:text-base'>
+            Estimated Launch: February 28, 2026
+          </h6>
+          <form
+            name='launch-notification'
+            method='POST'
+            data-netlify='true'
+            netlify-honeypot='bot-field'
+            class='mx-auto flex w-full max-w-md flex-col items-center justify-center gap-2 sm:flex-row'>
+            <input type='hidden' name='form-name' value='launch-notification' />
+            <p class='sr-only'>
+              <label>
+                Don’t fill this out if you’re human:
+                <input name='bot-field' />
+              </label>
+            </p>
+            <input
+              type='email'
+              name='email'
+              required
+              class='inline-flex h-10 w-full max-w-full items-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 shadow focus:outline-none sm:w-80'
+              placeholder='Your email for updates...'
+            />
+            <button
+              type='submit'
+              class='mt-2 flex w-fit items-center justify-center rounded-lg bg-accent-500 px-4 py-2 shadow transition-all duration-700 ease-in-out hover:bg-accent-600 sm:mt-0'>
+              <span class='text-sm font-medium whitespace-nowrap text-white'
+                >Notify Me</span
+              >
+            </button>
+          </form>
+        </div>
       </div>
     </div>
+    <p class='mt-6 w-full text-center text-sm font-normal text-gray-200'>
+      Get in touch with us:
+      <a
+        href='mailto:info@acplumb.co.uk'
+        class='underline transition-all duration-700 ease-in-out hover:text-white'>
+        info@acplumb.co.uk
+      </a>
+    </p>
   </section>
 </Layout>
+
 <!--Javascript-->
 <script>
   // count-down timer
-  let dest = new Date('jan 1, 2026 00:00:00').getTime();
+  let dest = new Date('feb 28, 2026 00:00:00').getTime();
   let x = setInterval(function () {
     let now = new Date().getTime();
     let diff = dest - now;
