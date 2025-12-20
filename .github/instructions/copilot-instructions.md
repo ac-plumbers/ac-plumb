@@ -30,7 +30,7 @@ This### St- **Color usage**: Use direct Tailwind CSS color classes (e.g., `text-
 ### Styling System
 
 - **Color usage**: Use \`[--color-primary-600]\` syntax in Tailwind classes, not direct color names
-- **Typography**: Poppins font for headings, Inconsolata fonts for body text
+- **Typography**: Lato font for headings, Inconsolata fonts for body text
 - **Component styling**: Mix of Tailwind utility classes and CSS custom properties
 
 ### Service Page Structure
