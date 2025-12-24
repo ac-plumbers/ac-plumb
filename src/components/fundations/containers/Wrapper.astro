@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'standard' | 'prose' | 'hero'; // Define any variants you need
+  variant?: 'standard' | 'prose' | 'hero' | 'prose' | 'narrow' | 'legal'; // Define any variants you need
   class?: string; // Optional prop for additional classes
   id?: string; // Optional prop for additional classes
 }
@@ -9,6 +9,25 @@ const { variant = 'standard', class: extraClass = '' } = Astro.props;
 const variantClasses = {
   hero: 'pt-32 pb-24 lg:pt-64 px-8 mx-auto md:px-12 lg:px-36 max-w-7xl relative',
   standard: 'px-8 mx-auto md:px-12 lg:px-36 max-w-7xl relative',
+  narrow: 'max-w-2xl 2xl:max-w-4xl',
+  paddingLess: 'max-w-screen mx-auto w-full 2xl:max-w-[110rem]',
+  legal: [
+    'prose prose-lg max-w-none',
+    'prose-headings:text-primary-600 prose-headings:font-semibold',
+    'prose-p:text-gray-700 prose-p:leading-relaxed',
+    'prose-a:text-primary-600 hover:prose-a:text-primary-700 prose-a:font-semibold',
+    'prose-strong:text-gray-900 prose-strong:font-semibold',
+    'prose-ul:text-gray-700 prose-ol:text-gray-700',
+    'prose-li:mb-2',
+    'prose-pre:bg-gray-100 prose-pre:border prose-pre:border-gray-300',
+    'prose-code:text-primary-600 prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded',
+    'prose-blockquote:text-gray-600 prose-blockquote:border-primary-300',
+    'prose-blockquote:italic',
+    'prose-img:rounded-lg prose-img:border prose-img:border-gray-300',
+    'prose-table:border-collapse prose-table:w-full',
+    'prose-th:bg-gray-100 prose-th:text-gray-900 prose-th:font-semibold prose-th:border prose-th:border-gray-300',
+    'prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-2',
+  ].join(' '),
   prose: [
     'text-text-00 hover:prose-a:text-white prose',
     'prose-a:font-semibold prose-a:text-accent-300',

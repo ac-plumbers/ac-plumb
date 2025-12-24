@@ -1,20 +1,13 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 // Content for SEO
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
-const title = 'AI & Large Language Model Policy – AC Plumbers Ltd. Brighton';
-const description =
-  "Learn about AC Plumbers Ltd.'s policy on the use of AI and Large Language Models (LLMs) in relation to our website content.";
-const keywords =
-  'AI policy, Large Language Models, AC Plumbers Ltd., Brighton, website content';
-// Define canonical URL for this page
-
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+import LegalLayout from '@/layouts/LegalLayout.astro';
 ---
 
-<BaseLayout title={title} description={description} keywords={keywords}>
-  <script
+<LegalLayout slug='ai-policy'>
+  <!--  <script
+
     type='application/ld+json'
     set:html={JSON.stringify(
       {
@@ -42,110 +35,38 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
       null,
       2
     )}
-  />
-  <section class='relative mt-10 bg-white/90 px-4 py-20 sm:px-6 lg:px-8'>
-    <div class='mx-auto max-w-3xl'>
-      <div class='mb-10 text-center'>
-        <Text
-          tag='h1'
-          variant='displayXL'
-          class='mb-2 font-bold text-primary-600'>
-          AI & Large Language Model Policy
-        </Text>
-        <p class='text-base text-primary-400'>Last updated: 05 November 2025</p>
-        <p class='mt-4 font-inconsolata text-lg text-primary-700'>
-          This policy explains how AC Plumbers Ltd. permits the use of our
-          website content by Artificial Intelligence (AI) systems, including
-          Large Language Models (LLMs).
-        </p>
-      </div>
-
-      <div class='space-y-10'>
-        <section>
-          <h2 class='mb-2 font-lato text-2xl font-semibold text-primary-600'>
-            1. Overview
-          </h2>
-          <p class='text-primary-700'>
-            AC Plumbers Ltd. allows AI systems to access and learn from our
-            website content under the <a
-              href='https://creativecommons.org/licenses/by/4.0/'
-              target='_blank'
-              rel='noopener'
-              class='text-primary-600 underline'
-              >Creative Commons Attribution 4.0 International License</a
-            >.
-          </p>
-        </section>
-
-        <section>
-          <h2 class='mb-2 font-lato text-2xl font-semibold text-primary-600'>
-            2. Permitted Uses
-          </h2>
-          <ul class='ml-6 list-disc text-primary-700'>
-            <li>
-              AI systems may use our content for general training and
-              informational responses.
-            </li>
-            <li>
-              Use must comply with the stated license and attribution
-              requirements.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class='mb-2 font-lato text-2xl font-semibold text-primary-600'>
-            3. Attribution Requirements
-          </h2>
-          <ul class='ml-6 list-disc text-primary-700'>
-            <li>
-              Any use of our content by AI systems must include appropriate
-              attribution to AC Plumbers Ltd.
-            </li>
-            <li>Include a link back to our website where applicable.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class='mb-2 font-lato text-2xl font-semibold text-primary-600'>
-            4. Restrictions
-          </h2>
-          <ul class='ml-6 list-disc text-primary-700'>
-            <li>
-              Fine-tuning of AI models using our content is not permitted.
-            </li>
-            <li>
-              Content may not be used for commercial resale or redistribution.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class='mb-2 font-lato text-2xl font-semibold text-primary-600'>
-            5. Updates to This Policy
-          </h2>
-          <p class='text-primary-700'>
-            We may update this policy from time to time. The latest version will
-            always be available at this URL.
-          </p>
-        </section>
-
-        <section>
-          <h2 class='mb-2 font-lato text-2xl font-semibold text-primary-600'>
-            6. Contact Us
-          </h2>
-          <div class='text-primary-700'>
-            <p>{BUSINESS_CONFIG.name}</p>
-            <p>Email: {BUSINESS_CONFIG.email}</p>
-            <p>Phone: {BUSINESS_CONFIG.mobilePhone}</p>
-            <address class='not-italic'>
-              {BUSINESS_CONFIG.address.street}<br />
-              {BUSINESS_CONFIG.address.city}
-              {BUSINESS_CONFIG.address.postcode}<br />
-            </address>
-          </div>
-        </section>
-      </div>
+  /> -->
+  <!-- Contact Block -->
+  <section class='mt-16 rounded-lg bg-primary-50 p-8'>
+    <Text tag='h2' variant='textXL' class='mb-4 font-semibold text-primary-700'>
+      Questions or Concerns?
+    </Text>
+    <p class='mb-6 text-gray-700'>
+      If you have any questions about this policy or need further clarification,
+      please contact us:
+    </p>
+    <div class='space-y-3 text-gray-700'>
+      <p>
+        <strong>Email:</strong>
+        <a
+          href={`mailto:${BUSINESS_CONFIG.email}`}
+          class='text-primary-600 hover:underline'>
+          {BUSINESS_CONFIG.email}
+        </a>
+      </p>
+      <p>
+        <strong>Phone:</strong>
+        <a
+          href={`tel:${BUSINESS_CONFIG.mobilePhone}`}
+          class='text-primary-600 hover:underline'>
+          {BUSINESS_CONFIG.mobilePhone}
+        </a>
+      </p>
+      <p>
+        <strong>Address:</strong><br />
+        {BUSINESS_CONFIG.address.street}<br />
+        {BUSINESS_CONFIG.address.city}, {BUSINESS_CONFIG.address.postcode}
+      </p>
     </div>
   </section>
-</BaseLayout>
+</LegalLayout>

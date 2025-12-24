@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -123,6 +124,7 @@ body {
   --color-text-00: oklch(0.1 0.02 0);
   --color-text-50: oklch(0.15 0.02 0);
   --color-text-100: oklch(0.2 0.02 0);
+  --color-white-00: oklch(0.98 0.01 0);
 
   /* Border Color Palette */
   /* #cccccc - Light Gray */

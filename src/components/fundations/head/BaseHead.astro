@@ -37,11 +37,13 @@ const PRIMARY_ORIGIN = 'https://acplumb.co.uk';
 const baseOrigin = (() => {
   // Prefer Astro.site if it exists, but always normalize to the apex primary domain.
   try {
-    const site = Astro.site ? new URL(String(Astro.site)) : new URL(PRIMARY_ORIGIN);
+    const site = Astro.site
+      ? new URL(String(Astro.site))
+      : new URL(PRIMARY_ORIGIN);
     return new URL(PRIMARY_ORIGIN, site).origin;
   } catch {
     return new URL(PRIMARY_ORIGIN).origin;
-  }s
+  }
 })();
 
 const toCanonical = (input?: string) => {
@@ -64,7 +66,8 @@ const toCanonical = (input?: string) => {
 
   // Normalize trailing slash for "pretty" URLs (skip files like ".xml", ".pdf", etc.)
   const lastSegment = url.pathname.split('/').filter(Boolean).pop() || '';
-  const looksLikeFile = lastSegment.includes('.') && !lastSegment.endsWith('.html');
+  const looksLikeFile =
+    lastSegment.includes('.') && !lastSegment.endsWith('.html');
   if (!looksLikeFile && !url.pathname.endsWith('/')) url.pathname += '/';
 
   return url.toString();

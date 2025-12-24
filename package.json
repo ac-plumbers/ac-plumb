@@ -41,6 +41,7 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "glob": "^11.0.3",
     "netlify-cli": "^23.7.3",
     "prettier": "^3.6.2",

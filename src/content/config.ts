@@ -79,7 +79,22 @@ const areas = defineCollection({
   })
 });
 
+const legal = defineCollection({
+  type: "content",
+  schema: z.object({
+    page: z.string(),
+    pubDate: z.date(),
+    title: z.string(),
+    description: z.string(),
+    keywords: z.string().optional(),
+    author: z.string().optional(),
+    datePublished: z.string().optional(),
+    dateModified: z.string().optional(),
+  }),
+});
+
 export const collections = {
   services,
-  areas
+  areas,
+  legal,
 };
