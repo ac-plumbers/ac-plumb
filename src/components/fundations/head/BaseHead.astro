@@ -30,12 +30,47 @@ const {
   dateModified,
 } = Astro.props;
 
-// Canonical URL logic with fallback for static pages
-const canonicalURL =
-  canonical ||
-  (Astro.url
-    ? new URL(Astro.url.pathname, Astro.site).href
-    : String(Astro.site));
+// Canonical URL logic (normalize to the primary origin + strip query/hash)
+// Note: make sure `site` in astro.config.mjs is set to "https://acplumb.co.uk"
+const PRIMARY_ORIGIN = 'https://acplumb.co.uk';
+
+const baseOrigin = (() => {
+  // Prefer Astro.site if it exists, but always normalize to the apex primary domain.
+  try {
+    const site = Astro.site ? new URL(String(Astro.site)) : new URL(PRIMARY_ORIGIN);
+    return new URL(PRIMARY_ORIGIN, site).origin;
+  } catch {
+    return new URL(PRIMARY_ORIGIN).origin;
+  }s
+})();
+
+const toCanonical = (input?: string) => {
+  const base = new URL(baseOrigin);
+
+  // Build the URL (accept absolute or relative canonicals)
+  const url = input
+    ? new URL(input, base)
+    : Astro.url
+      ? new URL(Astro.url.pathname, base)
+      : base;
+
+  // Enforce https + apex host
+  url.protocol = 'https:';
+  url.hostname = new URL(baseOrigin).hostname;
+
+  // Strip query/hash (avoid UTM canonicals)
+  url.search = '';
+  url.hash = '';
+
+  // Normalize trailing slash for "pretty" URLs (skip files like ".xml", ".pdf", etc.)
+  const lastSegment = url.pathname.split('/').filter(Boolean).pop() || '';
+  const looksLikeFile = lastSegment.includes('.') && !lastSegment.endsWith('.html');
+  if (!looksLikeFile && !url.pathname.endsWith('/')) url.pathname += '/';
+
+  return url.toString();
+};
+
+const canonicalURL = toCanonical(canonical);
 ---
 
 <!-- SEO with title, description, and canonical URL -->

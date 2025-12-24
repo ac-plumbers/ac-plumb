@@ -8,7 +8,7 @@ import vue from "@astrojs/vue";
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  site: "https://ac-plumb.netlify.app",
+  site: "https://ac-plumb.co.uk",
   vite: {
     plugins: [tailwindcss()],
   },
