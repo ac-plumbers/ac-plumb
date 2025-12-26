@@ -37,36 +37,4 @@ import LegalLayout from '@/layouts/LegalLayout.astro';
     )}
   /> -->
   <!-- Contact Block -->
-  <section class='mt-16 rounded-lg bg-primary-50 p-8'>
-    <Text tag='h2' variant='textXL' class='mb-4 font-semibold text-primary-700'>
-      Questions or Concerns?
-    </Text>
-    <p class='mb-6 text-gray-700'>
-      If you have any questions about this policy or need further clarification,
-      please contact us:
-    </p>
-    <div class='space-y-3 text-gray-700'>
-      <p>
-        <strong>Email:</strong>
-        <a
-          href={`mailto:${BUSINESS_CONFIG.email}`}
-          class='text-primary-600 hover:underline'>
-          {BUSINESS_CONFIG.email}
-        </a>
-      </p>
-      <p>
-        <strong>Phone:</strong>
-        <a
-          href={`tel:${BUSINESS_CONFIG.mobilePhone}`}
-          class='text-primary-600 hover:underline'>
-          {BUSINESS_CONFIG.mobilePhone}
-        </a>
-      </p>
-      <p>
-        <strong>Address:</strong><br />
-        {BUSINESS_CONFIG.address.street}<br />
-        {BUSINESS_CONFIG.address.city}, {BUSINESS_CONFIG.address.postcode}
-      </p>
-    </div>
-  </section>
 </LegalLayout>

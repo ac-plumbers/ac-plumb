@@ -31,7 +31,7 @@ Most browsers allow you to view, block, or delete cookies. You can usually confi
 
 We may update this Cookie Notice from time to time to reflect changes in technology, legal requirements, or how we use cookies. The published date above indicates the most recent revision.
 
-## Contact
+<!-- ## Contact
 
 If you have questions or concerns about our use of cookies, contact us at
-[info@acplumb.co.uk](mailto:info@acplumb.co.uk).
+[info@acplumb.co.uk](mailto:info@acplumb.co.uk). -->
