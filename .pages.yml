@@ -99,7 +99,6 @@ content:
 
     view:
       primary: page
-      fields: [page, title, dateModified]
       sort: [page]
 
     fields:
