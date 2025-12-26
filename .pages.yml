@@ -32,11 +32,10 @@ content:
           description: "Lower numbers appear first (1, 2, 3...)",
         }
       - { name: price, label: Price, type: number }
-
       - name: image
         label: Image
         type: image
-        options: { media: images, path: . }
+        options: { media: images, path: "." }
 
       - name: tags
         label: Tags
