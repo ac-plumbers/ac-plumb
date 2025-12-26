@@ -5,36 +5,4 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import LegalLayout from '@/layouts/LegalLayout.astro';
 ---
 
-<LegalLayout slug='ai-policy'>
-  <!--  <script
-
-    type='application/ld+json'
-    set:html={JSON.stringify(
-      {
-        '@context': 'https://schema.org',
-        '@type': 'AboutPage',
-        name: 'AI & Large Language Model Policy',
-        description:
-          "Learn about AC Plumbers Ltd.'s policy on the use of AI and Large Language Models (LLMs) in relation to our website content.",
-        url: canonicalUrl,
-        mainEntity: {
-          '@type': 'Organization',
-          name: BUSINESS_CONFIG.name,
-          url: BUSINESS_CONFIG.website || canonicalUrl,
-          email: BUSINESS_CONFIG.email,
-          telephone: BUSINESS_CONFIG.mobilePhone,
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: BUSINESS_CONFIG.address.street,
-            addressLocality: BUSINESS_CONFIG.address.city,
-            postalCode: BUSINESS_CONFIG.address.postcode,
-            addressCountry: 'GB',
-          },
-        },
-      },
-      null,
-      2
-    )}
-  /> -->
-  <!-- Contact Block -->
-</LegalLayout>
+<LegalLayout slug='ai-policy' />
