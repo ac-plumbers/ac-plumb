@@ -110,3 +110,4 @@ content:
       - { name: author, label: Author, type: string }
       - { name: datePublished, label: Date Published, type: datetime }
       - { name: dateModified, label: Date Modified, type: datetime }
+      - { name: body, label: Content, type: text }
