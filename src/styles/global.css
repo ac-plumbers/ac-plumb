@@ -47,7 +47,7 @@
 }
 
 body {
-  font-family: "Inconsolata", monospace;
+  font-family: "Inconsolata Variable", "Inconsolata", monospace;
   background-color: var(--color-neutral-50);
   color: var(--color-text-00);
   margin: 0;
