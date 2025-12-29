@@ -11,45 +11,6 @@ settings:
     merge: true
 
 content:
-  # FAQ singleton must be first for visibility in PagesCMS
-  - name: frequently-asked-questions
-    label: Frequently Asked Questions
-    type: singleton
-    path: src/pages/frequently-asked-questions.astro
-    fields:
-      - {
-          name: title,
-          label: Title,
-          type: string,
-          default: "Frequently Asked Questions",
-        }
-      - {
-          name: intro,
-          label: Intro,
-          type: text,
-          default: "AC Plumbers Ltd. Brighton is here to help! Browse our most common questions below, or contact our team for expert advice or urgent support.",
-        }
-      - name: faqs
-        label: FAQs
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.question}"
-        fields:
-          - { name: question, label: Question, type: string }
-          - { name: answer, label: Answer, type: text }
-        default:
-          - question: "What services do you offer?"
-            answer: "We offer plumbing, heating, and gas services: installations, repairs, and maintenance for homes and businesses in Brighton, Hove, Lewes, Worthing, and nearby."
-          - question: "Are your plumbers certified?"
-            answer: "Yes! All AC Plumbers engineers are fully certified, insured, and regularly trained to meet the latest UK standards and safety regulations."
-          - question: "Do you offer emergency services?"
-            answer: "Absolutely. We provide 24/7 emergency plumbing response. Call us any time for urgent leaks, blockages, or heating breakdowns."
-          - question: "How can I get a quote for a job?"
-            answer: "Request a quote by phone, email, or our online form. We’ll arrange a visit and provide a clear, competitive estimate—no obligation."
-          - question: "What areas do you serve?"
-            answer: "We serve Brighton, Hove, Lewes, Worthing, and the surrounding Sussex areas. Unsure if we cover your postcode? Ask us!"
   - name: services
     label: Services
     type: collection
@@ -57,24 +18,19 @@ content:
 
     view:
       primary: title
-      fields: [title, sortOrder, image, price, category, featured, tags]
-      sort: [sortOrder, title]
+      fields: [title, image, price, category, featured, tags]
+      sort: [title]
 
     fields:
       - { name: title, label: Title, type: string }
       - { name: slug, label: URL Slug, type: string }
       - { name: description, label: Description, type: text }
-      - {
-          name: sortOrder,
-          label: Display Order,
-          type: number,
-          description: "Lower numbers appear first (1, 2, 3...)",
-        }
       - { name: price, label: Price, type: number }
+
       - name: image
         label: Image
         type: image
-        options: { media: images, path: "." }
+        options: { media: images, path: . }
 
       - name: tags
         label: Tags
@@ -130,23 +86,3 @@ content:
         fields:
           - { name: question, label: Question, type: string }
           - { name: answer, label: Answer, type: text }
-
-  - name: legal
-    label: Legal Pages
-    type: collection
-    path: src/content/legal
-
-    view:
-      primary: page
-      sort: [page]
-
-    fields:
-      - { name: page, label: Page Name, type: string }
-      - { name: pubDate, label: Publish Date, type: datetime }
-      - { name: title, label: Page Title, type: string }
-      - { name: description, label: Description, type: text }
-      - { name: keywords, label: Keywords, type: string }
-      - { name: author, label: Author, type: string }
-      - { name: datePublished, label: Date Published, type: datetime }
-      - { name: dateModified, label: Date Modified, type: datetime }
-      - { name: body, label: Content, type: text }
