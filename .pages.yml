@@ -129,7 +129,7 @@ content:
           - question: "How can I get a quote for a job?"
             answer: "Request a quote by phone, email, or our online form. We’ll arrange a visit and provide a clear, competitive estimate—no obligation."
           - question: "What areas do you serve?"
-            answer: "We serve Brighton, Hove, Lewes, Worthing, and surrounding Sussex areas. Unsure if we cover your postcode? Ask us!"
+            answer: "We serve Brighton, Hove, Lewes, Worthing, and the surrounding Sussex areas. Unsure if we cover your postcode? Ask us!"
   - name: legal
     label: Legal Pages
     type: collection
