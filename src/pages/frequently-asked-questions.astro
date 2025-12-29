@@ -1,23 +1,23 @@
 ---
 import HomeLayout from '@/layouts/HomeLayout.astro';
+import Text from '@/components/fundations/elements/Text.astro';
 ---
 
 <HomeLayout>
-  <div class='bg-primary-40 mt-40'>
+  <div class='bg-primary-40 mt-20'>
     <div class='mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8'>
       <div class='mx-auto max-w-2xl text-center'>
-        <h2
-          class='text-4xl font-extrabold tracking-tight text-primary-700 sm:text-5xl'>
+        <Text tag='h1' variant='displayLG' class='text-primary-700'>
           Frequently Asked Questions
-        </h2>
-        <p class='mt-6 text-lg text-primary-600'>
+        </Text>
+        <Text tag='p' variant='textLG' class='mt-6 text-primary-600'>
           AC Plumbers Ltd. Brighton is here to help! Browse our most common
           questions below, or <a
             href='/contact-us'
             class='font-semibold text-accent-500 underline hover:text-accent-700'
             >contact our team</a
           > for expert advice or urgent support.
-        </p>
+        </Text>
       </div>
       <div class='mt-20'>
         <dl
