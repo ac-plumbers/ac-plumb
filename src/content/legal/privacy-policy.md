@@ -22,6 +22,12 @@ AC Plumbers Ltd. is a registered plumbing and heating business located in Bright
 - Usage data (such as pages visited, time spent on our website, and interactions)
 - Information you provide via forms (e.g., service requests, quote forms, or feedback)
 
+## Website analytics (Umami)
+
+We use Umami Analytics to understand how visitors use our website and to improve its performance and content. Umami is designed to be privacy-focused: it does not use cookies in the tracking code and does not collect personally identifiable information. Data is anonymized and visitors are not tracked across different websites.
+
+Lawful basis: Legitimate interests (website measurement and improvement).
+
 ## 3. Why We Collect Your Data
 
 - To respond to your enquiries and provide requested services

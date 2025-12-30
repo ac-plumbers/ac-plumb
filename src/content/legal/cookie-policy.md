@@ -20,8 +20,8 @@ Cookies are small text files stored on your device when you visit a website. The
 **Essential cookies**
 These are required for core functionality such as security, authentication, and basic site operations. Without them, the site will not work properly. Essential cookies are always enabled.
 
-**Analytics cookies (optional)**
-These help us understand how the site is used—what pages are visited, what features perform well, and where improvements are needed. Analytics data is aggregated and not used to personally identify you. You can disable these through your browser settings or opt out when controls are available.
+**Analytics (Umami)**
+We use Umami Analytics to understand how our website is used (for example: pages viewed, referrers, and general device/browser information). Umami does not use cookies in its tracking code, so we do not set analytics cookies for this purpose.
 
 ## Your choices and controls
 
