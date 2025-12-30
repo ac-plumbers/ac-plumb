@@ -9,7 +9,6 @@ import LogoCloud from '@/components/LogoCloud.astro';
 import HeaderVue from '@/components/global/Header.vue';
 import StickyCallButton from '@/components/global/StickyCallButton.vue';
 import Footer from '@/components/global/Footer.astro';
-import Umami from '@/components/fundations/scripts/Umami.astro';
 
 const {
   title,
@@ -44,8 +43,6 @@ const currentPath = Astro.url.pathname;
       dateModified={dateModified}
     />
     <ClientRouter />
-    <!-- Umami   -->
-    <Umami />
   </head>
   <body class='h-full'>
     <HeaderVue client:load currentPath={currentPath}>
