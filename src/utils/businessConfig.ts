@@ -15,6 +15,7 @@ export interface BusinessContact {
   };
   serviceRadius: string; // in meters
   website: string;
+
 }
 
 export const BUSINESS_CONFIG: BusinessContact = {
@@ -44,7 +45,13 @@ export const formatPhoneForTel = (phone: string): string => {
   return phone;
 };
 
+
 export const getFullAddress = (): string => {
   const { address } = BUSINESS_CONFIG;
   return `${address.street}, ${address.city}, ${address.postcode}`;
+};
+
+// Get the current year as a string
+export const fullYear = (): string => {
+  return new Date().getFullYear().toString();
 };

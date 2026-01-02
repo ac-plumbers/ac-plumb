@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 
+// Busineess Config
+import { BUSINESS_CONFIG, fullYear } from '@/utils/businessConfig';
+
 // Services Links
 const servicesLinks = [
   { href: '/services/gas-boiler-installation', label: 'Gas Boilers' },
@@ -84,7 +87,7 @@ import Text from '../fundations/elements/Text.astro';
           variant='displayMD'
           id='footer-company-heading'
           class='text-balance text-white'>
-          AC Plumbers Ltd.
+          {BUSINESS_CONFIG.name}
         </Text>
         <p class='font-lato text-neutral-100'>
           Brighton & Hove, East Sussex <br />
@@ -181,7 +184,10 @@ import Text from '../fundations/elements/Text.astro';
     <div class='mt-8 border-t border-white/10 pt-4 sm:mt-12 lg:mt-16'>
       <div
         class='flex flex-wrap items-center justify-center gap-2 text-center font-inconsolata text-sm/6 text-white sm:flex-nowrap'>
-        <span>&copy; 2025 AC Plumbers Ltd. All rights reserved.</span>
+        <span
+          >&copy; {fullYear()}
+          {BUSINESS_CONFIG.name} All rights reserved.</span
+        >
         <span class='hidden sm:inline'>|</span>
         <a
           href='https://agencyga.es'
