@@ -13,11 +13,11 @@ For the purposes of these Terms of Business (hereinafter, "Terms"), "us" or "we"
 
 ## 1. Estimate
 
-The value of the estimate is what we expect to charge you for the works, based on our initial discussions. In the event of unforeseen circumstances or unexpected issues arising, it may be necessary to review the original price and provide you with a new estimate. You have the right to accept or decline the revised price.
+The estimate represents our expected charge for the works, based on our initial assessment and discussions. If unforeseen circumstances or unexpected issues arise, it may be necessary to review the original price and either provide a revised estimate or discuss the changes verbally in person. You will always have the right to accept or decline the revised price before any additional work is carried out.
 
 ## 2. Written Quotation
 
-The written quotation follows the estimate and is the final price for the agreed works, including labour, materials, additional costs (if any), and VAT. Any subsequent variation to the works (for example, if you change the scope or if unforeseen circumstances arise) will likely result in a new quotation. Should you decline the revised quotation, all works will cease, and you must pay in full for all works already completed in accordance with the original quotation.
+The written quotation is the final price for the agreed works, including labour, materials, additional costs (if any), and VAT. Any subsequent variation to the works (for example, if you change the scope or if unforeseen circumstances arise) will likely result in a new quotation. Should you decline the revised quotation, all works will cease, and you must pay in full for all works already completed in accordance with the original quotation.
 
 ## 3. Client Obligations
 
@@ -31,9 +31,9 @@ The written quotation follows the estimate and is the final price for the agreed
 ## 4. Our Obligations
 
 - We will carry out the works with due care, skill, and diligence and comply with all relevant laws and regulations.
-- We will supply quality materials/products and replace any that prove faulty or substandard (unless provided by you).
+- We will supply approved and quality materials/products and replace any that prove faulty or substandard (unless provided by you).
 - We will take care of your property and remove waste materials on completion.
-- We will supply qualified engineers or plumbers to carry out the works. The individual may differ from the person who prepared your quotation.
+- We will dispatch qualified engineers or plumbers to undertake the repairs. The individual you quoted may be different.
 - We confirm that we hold valid Public Liability Insurance and Employers Liability Insurance (where relevant).
 
 ## 5. Materials and Products
@@ -50,7 +50,7 @@ In line with the Consumer Contract Regulations 2013, you have the right to cance
 
 ## 8. Payments
 
-Payment terms are set out in your quotation. All invoices must be settled in full upon completion of works. Late payments may incur interest at 5% above the Bank of England base rate until payment is received.
+All invoices must be settled in full upon the completion of the works.Payment details will be provided on the invoice for your bank transfer payment. We typically offer a grace period of seven days for payment. Late payments may incur interest at a rate of 5% above the Bank of England base rate until payment is received.
 
 ## 9. Complaints
 
@@ -58,4 +58,4 @@ We aim to provide a high-quality service at all times. If you have any concerns,
 
 ---
 
-Thank you for choosing AC Plumbers Ltd. We are proud to serve Brighton, Hove, and the surrounding areas with trusted plumbing, heating, and renewable energy services.
+Thank you for choosing AC Plumbers Ltd. We are proud to serve Brighton & Hove, and the surrounding areas with trusted plumbing, heating, gas and renewable energy services.

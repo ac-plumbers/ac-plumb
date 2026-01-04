@@ -13,7 +13,7 @@ At AC Plumbers Ltd., your privacy is important to us. We are a plumbing and heat
 
 ## 1. Who We Are
 
-AC Plumbers Ltd. is a registered plumbing and heating business located in Brighton, UK. We provide plumbing, heating, and related services to residential and commercial customers throughout Sussex.
+AC Plumbers Ltd. is a registered plumbing and heating business based in Brighton, United Kingdom. We offer a comprehensive range of plumbing, heating, and related services to residential customers within the Brighton and Hove area.
 
 ## 2. What Data We Collect
 
