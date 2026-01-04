@@ -279,20 +279,7 @@
             ref="closeMenuButton"
           >
             <span class="sr-only">Close menu</span>
-            <svg
-              class="size-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <IconCloseMenu />
           </button>
         </div>
 
@@ -476,9 +463,12 @@
 </template>
 
 <script setup>
+// Import icons
+import IconCloseMenu from "../icons/IconCloseMenu.vue";
 import IconMenu from "../icons/IconMenu.vue";
 import IconMenuServices from "../icons/IconMenuServices.vue";
 import IconWhatsAppMenu from "../icons/IconWhatsAppMenu.vue";
+
 import { ref, nextTick, onMounted, onBeforeUnmount, computed } from "vue";
 // Tagline color switching logic
 const taglineRef = ref(null);
