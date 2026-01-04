@@ -15,6 +15,9 @@ export interface BusinessContact {
   };
   serviceRadius: string; // in meters
   website: string;
+  vatNumber?: string;
+  companyNumber?: string;
+  paymentMethods?: string[];
 
 }
 
@@ -34,7 +37,10 @@ export const BUSINESS_CONFIG: BusinessContact = {
     longitude: "-0.1372"
   },
   serviceRadius: "50000",
-  website: "https://acplumb.co.uk"
+  website: "https://acplumb.co.uk",
+  vatNumber: "300995607",
+  companyNumber: "10187057",
+  paymentMethods: [ "Bank Transfer"]
 };
 // Helper functions for accessibility and consistency
 export const formatPhoneForDisplay = (phone: string): string => {
