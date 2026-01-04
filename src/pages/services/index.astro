@@ -25,9 +25,9 @@ const description =
     providerUrl='https://acplumb.co.uk'
   />
   <!-- Page Header -->
-  <section class='mt-24 bg-primary-600 py-16 sm:py-20' data-bg='dark'>
+  <section class='mt-24 bg-primary-600 py-16 sm:py-20' data-bg='light'>
     <div class='mx-auto max-w-7xl px-6 lg:px-8'>
-      <div class='mx-auto max-w-2xl text-center'>
+      <div class='mx-auto max-w-2xl text-center' data-bg='dark'>
         <Text
           tag='h1'
           variant='display2XL'
@@ -43,7 +43,7 @@ const description =
   </section>
 
   <!-- Services Section -->
-  <section class='py-16 sm:py-20'>
+  <section class='py-16 sm:py-20' data-bg='light'>
     <div class='mx-auto max-w-7xl px-6 lg:px-8'>
       <!-- Stats Bar -->
       <div class='mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3'>
@@ -76,8 +76,12 @@ const description =
       <!-- Contact CTA -->
       <div
         class='mt-16 rounded-2xl bg-primary-600 px-6 py-12 text-center sm:px-12'
-        data-bg='dark'>
-        <Text tag='h2' variant='displayMD' class='font-bold text-white'>
+        data-bg='light'>
+        <Text
+          tag='h2'
+          variant='displayMD'
+          class='font-bold text-white'
+          data-bg='dark'>
           Need Help Choosing the Right Service?
         </Text>
         <Text tag='p' variant='textBase' class='mt-4 text-primary-100'>

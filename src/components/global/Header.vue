@@ -13,37 +13,11 @@
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
         <nav class="flex items-center py-1" aria-label="Global">
-          <!-- Logo link -->
-          <a
-            href="/"
-            class="default-link ml-4 inline-flex shrink-0 items-center p-2"
-          >
-            <span class="sr-only">AC Plumbers Ltd.</span>
-            <img
-              src="/images/logo/ac-plumbers-logo-brighton.png"
-              alt="AC Plumbers Ltd logo with water and flame icons"
-              width="300"
-              height="300"
-              title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
-              class="h-auto w-20 object-contain sm:w-28 md:w-32 lg:w-28"
-            />
-          </a>
-
-          <!-- Tagline: hidden on mobile, centered on tablet, left on desktop -->
-          <div
-            class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:shrink-0 lg:justify-start"
-          >
-            <span
-              :class="[
-                'rounded-full px-4 py-2 text-xl font-bold lg:ml-4',
-                taglineColorClass,
-              ]"
-              ref="taglineRef"
-            >
-              Plumbing • Heating • Renewable
-            </span>
-          </div>
-
+          <!-- Logo link and tagline-->
+          <HeaderLogo
+            :taglineColorClass="taglineColorClass"
+            :taglineRef="taglineRef"
+          />
           <!-- Desktop nav links -->
           <!-- <div
             class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
@@ -470,6 +444,7 @@ import IconMenuServices from "../icons/IconMenuServices.vue";
 import IconWhatsAppMenu from "../icons/IconWhatsAppMenu.vue";
 
 import { ref, nextTick, onMounted, onBeforeUnmount, computed } from "vue";
+import HeaderLogo from "./headerBits/HeaderLogo.vue";
 // Tagline color switching logic
 const taglineRef = ref(null);
 const taglineColorClass = ref("text-primary-600");
