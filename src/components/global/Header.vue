@@ -2,7 +2,7 @@
   <!-- Skip to main content link -->
   <a
     href="#main-content"
-    class="default-button sr-only z-[100] focus:not-sr-only focus:absolute focus:top-2 focus:left-2"
+    class="default-button sr-only z-100 focus:not-sr-only focus:absolute focus:top-2 focus:left-2"
   >
     Skip to main content
   </a>
@@ -16,7 +16,7 @@
           <!-- Logo link -->
           <a
             href="/"
-            class="default-link ml-4 inline-flex flex-shrink-0 items-center p-2"
+            class="default-link ml-4 inline-flex shrink-0 items-center p-2"
           >
             <span class="sr-only">AC Plumbers Ltd.</span>
             <img
@@ -31,7 +31,7 @@
 
           <!-- Tagline: hidden on mobile, centered on tablet, left on desktop -->
           <div
-            class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:flex-shrink-0 lg:justify-start"
+            class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:shrink-0 lg:justify-start"
           >
             <span
               :class="[
