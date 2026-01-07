@@ -1,7 +1,13 @@
 ---
 import HomeLayout from '@/layouts/HomeLayout.astro';
 import Text from '@/components/fundations/elements/Text.astro';
-import Contact from '@/components/Contact.astro';
+import FormFaqPage from '@/components/forms/FormFaqPage.astro';
+import ContactSupportCTA from '@/components/ContactSupportCTA.astro';
+import Button from '@/components/fundations/elements/Button.astro';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import Logo from '@/images/logo/ac-plumbers-logo-brighton.png';
+import { Image } from 'astro:assets';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 ---
 
 <HomeLayout>
@@ -102,15 +108,49 @@ import Contact from '@/components/Contact.astro';
             </div>
           </dl>
         </section>
+        <!-- Contact Support CTA -->
+        <Wrapper variant='standard'>
+          <section class='mt-16' aria-labelledby='contact-support-heading'>
+            <ContactSupportCTA
+              heading='Still have questions?'
+              message="If you can't find the answer you're looking for, our team is ready to help."
+              buttonText='Contact Support'
+              buttonHref='/contact-us'
+              sectionClass='mt-16'
+              containerClass='bg-white rounded-lg shadow p-8'
+            />
+          </section>
+        </Wrapper>
       </div>
-    </section>
-    <div>
-      <!-- Spacer to separate footer from main content -->
-      <div class='h-20 lg:h-32'></div>
-      <!-- Contact box -->
-      <section class='mx-auto' aria-labelledby='contact-box-title'>
-        <Contact />
+      <section class='mt-16'>
+        <div
+          class='flex flex-col gap-8 rounded border-2 border-red-700 bg-primary-900 p-8 lg:flex-row lg:items-end lg:justify-between'>
+          <div class='max-w-xl text-balance'>
+            <Image src={Logo} alt='AC Plumbers Logo' />
+
+            <Text tag='p' variant='textLG' class='mt-24 font-medium text-white'>
+              Building with precision, dependable delivery, and clear
+              communication from preconstruction through handover.
+            </Text>
+          </div>
+          <div class='flex flex-wrap gap-2 sm:items-center'>
+            <Button
+              isLink
+              size='xs'
+              variant='default'
+              href={`mailto:${BUSINESS_CONFIG.email}`}>
+              {BUSINESS_CONFIG.email}
+            </Button>
+            <Button
+              isLink
+              size='xs'
+              variant='muted'
+              href={`tel:${BUSINESS_CONFIG.companyNumber.replace(/[^\d+]/g, '')}`}>
+              {BUSINESS_CONFIG.phone}
+            </Button>
+          </div>
+        </div>
       </section>
-    </div>
+    </section>
   </main>
 </HomeLayout>

@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets';
+// Busineess Config
+import { BUSINESS_CONFIG, fullYear } from '@/utils/businessConfig';
+// Fundations
+import Text from '@/components/fundations/elements/Text.astro';
+import Button from '@/components/fundations/elements/Button.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+// Content
+import { getCollection } from 'astro:content';
+
+// Services Links
+const servicesLinks = [
+  { href: '/services/gas-boiler-installation', label: 'Gas Boilers' },
+  { href: '/services/gas-safety-checks-cp12', label: 'Gas Safety (CP12)' },
+  { href: '/services/central-heating-installation', label: 'Heating' },
+  {
+    href: '/services/all-aspects-of-plumbing-heating-and-gas',
+    label: 'General Plumbing',
+  },
+  {
+    href: '/services/bathrooms-installation-rennovation',
+    label: 'Bathrooms Installation & Renovation',
+  },
+  {
+    href: '/services/renewable-air-source-heat-pump',
+    label: 'Heat Pumps & Electric Boilers',
+  },
+  { href: '/services/smart-thermostats', label: 'Smart Thermostats' },
+  { href: '/landlords', label: 'Landlord Services' },
+];
+
+const areasLinks = [
+  { href: '/areas-we-serve/brighton', label: 'Brighton' },
+  { href: '/areas-we-serve/hove', label: 'Hove' },
+  { href: '/areas-we-serve/rottingdean', label: 'Rottingdean' },
+  { href: '/areas-we-serve/saltdean', label: 'Saltdean' },
+  { href: '/areas-we-serve/peacehaven', label: 'Peacehaven' },
+  { href: '/areas-we-serve/lewes', label: 'Lewes' },
+  { href: '/areas-we-serve/hassocks', label: 'Hassocks' },
+  { href: '/areas-we-serve/portslade', label: 'Portslade' },
+  { href: '/areas-we-serve/southwick', label: 'Southwick' },
+  { href: '/areas-we-serve/shoreham-by-sea', label: 'Shoreham by Sea' },
+  { href: '/areas-we-serve/lancing', label: 'Lancing' },
+  { href: '/areas-we-serve', label: 'See All Areas' },
+];
+
+const companyLinks = [
+  { href: '/about-us', label: 'About Us' },
+  { href: '/gallery', label: 'Our Work' },
+  { href: '/certifications', label: 'Certifications' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact-us', label: 'Contact Us' },
+  { href: '/testimonials', label: 'Customer Reviews' },
+  { href: '/frequently-asked-questions', label: 'FAQs' },
+];
+
+const legalLinks = [
+  { href: '/terms-and-conditions', label: 'Terms and Conditions' },
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/cookie-policy', label: 'Cookie Policy' },
+  { href: '/ai-policy', label: 'AI Policy' },
+];
+// Images
+import logo from '@/images/logo/ac-plumbers-logo-brighton.png';
+---
+
+
+<footer class='text-base-100 relative isolate overflow-hidden bg-accent-950' aria-labelledby='footer-company-heading'>
+  <div class='pointer-events-none absolute inset-0 z-0'>
+    <video autoplay muted loop playsinline class='size-full object-cover'>
+      <source src='/videos/brighton.mp4' type='video/mp4' />
+    </video>
+    <div class='absolute inset-0 bg-primary-700/60'></div>
+  </div>
+
+  <Wrapper variant='standard' class='relative z-10 border-b py-8 lg:border-x lg:border-white/15'>
+    <div class='flex flex-col gap-8 rounded bg-primary-700 p-8 lg:flex-row lg:items-end lg:justify-between'>
+      <div class='max-w-xl text-balance'>
+        <Image
+          src={logo}
+          width={68}
+          height={68}
+          alt='AC Plumbers Ltd logo with water and flame icons'
+          title='AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton'
+          class='h-auto w-auto lg:scale-115'
+        />
+        <Text tag='h3' variant='displayMD' id='footer-company-heading' class='text-balance text-white mt-4'>
+          {BUSINESS_CONFIG.name}
+        </Text>
+        <Text tag='p' variant='textLG' class='mt-4 font-medium text-white'>
+          Brighton & Hove, East Sussex <br />
+          Gas Safe and Oftec Registered Engineers
+        </Text>
+      </div>
+    </div>
+  </Wrapper>
+
+  <Wrapper variant='standard' class='relative z-10 space-y-12 py-8 lg:border-x lg:border-white/15'>
+    <div class='grid gap-x-8 gap-y-24 sm:grid-cols-2 lg:grid-cols-4'>
+      <!-- Services Column -->
+      <div>
+        <Text tag='p' variant='textXS' class='font-medium text-white uppercase'>Services</Text>
+        <ul class='mt-6 space-y-4'>
+          {servicesLinks.map(link => (
+            <li>
+              <a href={link.href} class='text-base-200 block w-fit transition hover:text-accent-300'>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Areas We Serve Column -->
+      <div>
+        <Text tag='p' variant='textXS' class='font-medium text-white uppercase'>Areas We Serve</Text>
+        <ul class='mt-6 space-y-4'>
+          {areasLinks.map(link => (
+            <li>
+              <a href={link.href} class='text-base-200 block w-fit transition hover:text-accent-300'>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Company Column -->
+      <div>
+        <Text tag='p' variant='textXS' class='font-medium text-white uppercase'>Company</Text>
+        <ul class='mt-6 space-y-4'>
+          {companyLinks.map(link => (
+            <li>
+              <a href={link.href} class='text-base-200 block w-fit transition hover:text-accent-300'>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Legal Column -->
+      <div>
+        <Text tag='p' variant='textXS' class='font-medium text-white uppercase'>Legal</Text>
+        <ul class='mt-6 space-y-4'>
+          {legalLinks.map(link => (
+            <li>
+              <a href={link.href} class='text-base-200 block w-fit transition hover:text-accent-300'>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class='border-t border-white/10 pt-8 mt-8'>
+      <div class='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
+        <Text tag='p' variant='textSM' class='text-base-300'>
+          © {fullYear()} {BUSINESS_CONFIG.name} All rights reserved.
+        </Text>
+        <div class='flex flex-wrap gap-4 text-sm text-white'>
+          {legalLinks.map(link => (
+            <a href={link.href} class='transition hover:text-accent-300'>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</footer>

@@ -1,0 +1,29 @@
+---
+const {
+  heading = 'Still have questions?',
+  message = "If you can't find the answer you're looking for, our team is ready to help.",
+  buttonText = 'Contact Support',
+  buttonHref = '/contact-us',
+  sectionClass = '',
+  containerClass = '',
+} = Astro.props;
+---
+
+<section
+  class={`mt-16 ${sectionClass}`}
+  aria-labelledby='contact-support-heading'>
+  <div
+    class={`mx-auto max-w-2xl text-center bg-primary-40 rounded-lg shadow p-8 ${containerClass}`}>
+    <h2
+      id='contact-support-heading'
+      class='mb-4 text-2xl font-bold text-primary-700'>
+      {heading}
+    </h2>
+    <p class='mb-6 text-primary-800'>{message}</p>
+    <a
+      href={buttonHref}
+      class='inline-block rounded bg-accent-500 px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-accent-700 focus:outline-2 focus:outline-accent-700 focus-visible:outline-2 focus-visible:outline-accent-700'
+      aria-label={buttonText}>{buttonText}</a
+    >
+  </div>
+</section>
