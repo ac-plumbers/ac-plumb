@@ -1,100 +1,111 @@
-## Project Overview
+# AC Plumbers Copilot Instructions
 
-This### St- **Color usage**: Use direct Tailwind CSS color classes (e.g., `text-primary-600`, `bg-accent-500`) that reference the @theme colors defined in `src/styles/global.css`. Do NOT use CSS custom property syntax like `[--color-primary-600]`ling System
+## Overview
 
-- **Color usage**: Use direct Tailwind CSS color classes (e.g., `text-primary-600`, `bg-accent-500`) that reference the @theme colors defined in `src/styles/global.css`. Do NOT use CSS custom property syntax like `[--color-primary-600]`
-- **Typography**: Lato font for headings, Inconsolata fonts for body text
-- **Component styling**: Mix of Tailwind utility classes referencing the global @theme color systemect is a plumbing service management application built with modern web technologies. It allows users to book plumbing services, manage appointments, and process payments seamlessly. The application is designed to be user-friendly and efficient, catering to both customers and service providers.
+AC Plumbers is a plumbing service website built with Astro, Vue 3, TypeScript, and Tailwind CSS v4. The codebase prioritizes semantic HTML, accessibility, and a consistent foundation component system.
 
-## Architecture & Key Patterns
+## Stack and Conventions
 
-### Content Management
+- **Astro + Vue 3**: Vue components use `<script setup lang="ts">` with the script block first.
+- **TypeScript**: Prefer typed props, no `any`.
+- **Content collections**: Services live in `src/content/services/*.md` and are accessed via `getCollection("services")`.
+- **Icons**: Use Lucide via `@lucide/astro`.
 
-- **Service pages**: Defined in \`src/content/services/\*.md\` with frontmatter schema including \`title\`, \`description\`, \`price\`, \`image\`, \`tags\`, \`featured\`, \`category\`
-- **Content collections**: Configured in \`src/content/config.ts\` - use \`getCollection('services')\` to fetch all services
-- **Dynamic routing**: Service pages use \`[slug].astro\` pattern in \`src/pages/services/\` with \`getStaticPaths()\`
+## Project Structure
 
-### Layout System
+- **Layouts**: `src/layouts/BaseLayout.astro` is the main wrapper.
+- **Foundations**: Reusable primitives in `src/components/fundations/`.
+  - **Elements**: `Text`, `Link`, `Button`, `Kicker` in `src/components/fundations/elements/`.
+  - **Containers**: `Wrapper` in `src/components/fundations/containers/`.
+  - **Head/SEO**: `BaseHead`, `Seo`, `Schema` in `src/components/fundations/head/`.
+  - **Schema services**: `SchemaServices`, `SingleSchemaService` in `src/components/fundations/schema-services/`.
+- **Global**: Site-wide components in `src/components/global/`.
+- **Pages**: Astro pages in `src/pages/`.
 
-- **BaseLayout**: Primary wrapper (\`src/layouts/BaseLayout.astro\`) - includes Header, Footer, and global styles
-- **ServicesLayout**: Specialized layout for service content pages with hero sections
-- **Page composition**: Most pages follow Hero → LogoCloud → Services → Prices → FAQ → Testimonials → Contact pattern
+## Import Aliases
 
-### Component Architecture
+- `@/` -> `src/`
+- `@components/` -> `src/components/`
+- `@utils/` -> `src/utils/`
+- `@lib/` -> `src/lib/`
 
-- **Foundations**: Reusable primitives in \`src/components/fundations/\` (Text, containers, head components)
-- **Global**: Site-wide components (Header, Footer, TestimonialsCard)
-- **Home**: Homepage-specific components (Hero, Services, FAQ)
-- **Services**: Service page components (ServiceHeroSection, ServiceFeaturesList, ServiceProcessSteps, etc.)
+Prefer aliases over relative imports when available.
 
-### Styling System
+## Vue Islands
 
-- **Color usage**: Use \`[--color-primary-600]\` syntax in Tailwind classes, not direct color names
-- **Typography**: Lato font for headings, Inconsolata fonts for body text
-- **Component styling**: Mix of Tailwind utility classes and CSS custom properties
+Use Astro client directives for Vue islands:
+- `client:load` for interactive header/sticky buttons.
+- `client:only="vue"` for Vue-only forms or widgets.
 
-### Service Page Structure
+## Styling System
 
-Service pages automatically render:
+- **Tailwind tokens only**: Use classes derived from `src/styles/global.css` tokens.
+- **Color usage**: Prefer direct classes like `text-primary-600`, `bg-accent-500`, `border-neutral-200`.
+- **CSS variables**: Use arbitrary values like `border-[--color-border-50]` only when a token class does not exist.
+- **Typography**: Headings use Lato, body uses Inconsolata (wired in global styles).
 
-1. ServiceHeroSection (title, description, image, CTA)
-2. ServiceFeaturesList (if \`features\` array in frontmatter)
-3. ServiceProcessSteps (if \`steps\` array in frontmatter)
-4. Testimonials (global component)
-5. ServiceFaqList (if \`questions\` array in frontmatter)
-6. ServiceCallToAction
-7. RelatedServicesList (auto-filtered by category)
+## Content Schema (Services)
 
-### Development Commands
+Match `src/content/config.ts`:
 
-\`\`\`bash
-npm run dev # Start development server
-npm run build # Build for production
-npm run preview # Preview production build
-npm run astro # Access Astro CLI
-\`\`\`
-
-### Key File Patterns
-
-- **Icons**: Use Lucide icons imported from \`@lucide/astro\`
-- **Images**: Store in \`src/images/\` with organized subdirectories (brands, lavori, etc.)
-- **SEO**: Managed via \`@astrolib/seo\` and custom Schema.astro component
-- **Contact info**: Hardcoded phone numbers (01273 123 456), Brighton location references
-
-### Content Frontmatter Schema
-
-\`\`\`yaml
-title: \"Service Name\"
-description: \"Brief description\"
-price: 0 # Starting price or 0 for quote-based
-image: \"/path/to/image.jpg\"
-tags: [\"tag1\", \"tag2\"]
-featured: true/false
-category: \"category-name\"
+```yaml
+title: "Service Name"
+description: "Brief description"
+price: 0
+sortedOrder: 1
+image: "/path/to/image.jpg"
+alt: "Image description"
+category: "category-name"
+tags: ["tag1", "tag2"]
+featured: true
+slug: "service-slug"
+intro: "Short intro text"
+benefits:
+  - "Benefit one"
+specialties:
+  - "Specialty one"
 features:
+  - title: "Feature Name"
+    description: "Feature description"
+process:
+  - title: "Step Name"
+    description: "Step description"
+faqs:
+  - question: "FAQ Question"
+    answer: "FAQ Answer"
+```
 
-- title: \"Feature Name\"
-  description: \"Feature description\"
-  steps:
-- title: \"Step Name\"
-  description: \"Step description\"
-  questions:
-- question: \"FAQ Question\"
-  answer: \"FAQ Answer\"
-  \`\`\`
+## Business Configuration
 
-### Common Patterns
+Use `src/utils/businessConfig.ts` for all business data:
+- `BUSINESS_CONFIG` (name, phone, email, address, geo, website).
+- Helpers: `formatPhoneForDisplay`, `formatPhoneForTel`, `getFullAddress`, `fullYear`.
+- Canonical domain is `https://acplumb.co.uk` (use this in schema, links, and metadata).
 
-- **Service filtering**: Use \`filter()\` methods on service collections for related services, featured services, etc.
-- **Color theming**: Consistent use of primary blue color scheme throughout
-- **Responsive design**: Mobile-first approach with \`sm:\`, \`md:\`, \`lg:\` breakpoints
-- **Contact CTAs**: Every service page should include contact information and booking CTAs
+## Utilities and Types
 
-### Important Conventions
+- `cn()` utility in `src/lib/utils.ts` for class merging.
+- Service types in `src/lib/types.ts` (`ServiceFrontmatter`, etc.).
 
-- Use semantic HTML with proper ARIA labels
-- Maintain consistent spacing with Tailwind's spacing scale
-- Include alt text for all images
-- Use TypeScript for all new components
-- Follow existing component prop patterns for consistency
-- **Color system**: Always use direct Tailwind classes (e.g., `text-primary-600`, `bg-accent-500`) that reference the @theme definitions in `src/styles/global.css`" > .github/copilot-instructions.md
+## Accessibility and SEO
+
+- Follow `.github/instructions/a11y.instructions.md`.
+- Keep heading order correct and use semantic landmarks.
+- Skip link pattern uses `href="#main-content"` (see `src/components/global/Header.astro`).
+- Use `src/components/fundations/head/Schema.astro` and `Seo.astro` for metadata.
+- Use `SchemaServices` / `SingleSchemaService` for service schema on listings/detail pages.
+
+## Common Mistakes to Avoid
+
+- Typo `aria-labbelledby` exists in `src/components/home/Services.astro`; always use `aria-labelledby`.
+- Avoid hardcoded contact details; use `BUSINESS_CONFIG` helpers.
+- There are two footer components (`Footer.astro`, `Footer-1.astro`); be explicit about which one a layout should use.
+
+## Development Commands
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run astro
+```
