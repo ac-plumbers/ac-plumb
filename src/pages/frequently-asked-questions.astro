@@ -1,156 +1,234 @@
 ---
+// Layout
 import HomeLayout from '@/layouts/HomeLayout.astro';
+// Components
 import Text from '@/components/fundations/elements/Text.astro';
-import FormFaqPage from '@/components/forms/FormFaqPage.astro';
 import ContactSupportCTA from '@/components/ContactSupportCTA.astro';
-import Button from '@/components/fundations/elements/Button.astro';
+// Utils
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
-import Logo from '@/images/logo/ac-plumbers-logo-brighton.png';
-import { Image } from 'astro:assets';
+import {
+  Phone,
+  Mail,
+  ShieldAlert,
+  Info,
+  CirclePoundSterling,
+  Wrench,
+} from '@lucide/astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+
+// Organized FAQ data by category
+const faqCategories = [
+  {
+    category: 'General Services',
+    icon: Info,
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We provide comprehensive plumbing, heating, and gas services including installations, repairs, and maintenance. Our services cover boiler installation, central heating, bathroom fitting, emergency plumbing, gas safety checks, air source heat pumps, and smart thermostats for residential and commercial properties.',
+      },
+      {
+        question: 'Are your plumbers certified?',
+        answer:
+          'Yes! All AC Plumbers engineers are fully Gas Safe registered, professionally qualified, and insured. Our team undergoes regular training to stay current with the latest UK standards, safety regulations, and best practices in the industry.',
+      },
+      {
+        question: 'What areas do you serve?',
+        answer:
+          'We serve Brighton, Hove, and surrounding Sussex areas including Rottingdean, Saltdean, Peacehaven, Lewes, Hassocks, Portslade, Southwick, Shoreham by Sea, and Lancing. Response times typically range from 15-40 minutes depending on your location. Not sure if we cover your area? Contact us to check!',
+      },
+    ],
+  },
+  {
+    category: 'Emergency & Response',
+    icon: ShieldAlert,
+    faqs: [
+      {
+        question: 'Do you offer emergency services?',
+        answer:
+          'Absolutely. We provide 24/7 emergency plumbing response for urgent issues like burst pipes, major leaks, blocked drains, and heating system failures. Call us any time for immediate assistance.',
+      },
+      {
+        question: 'How quickly can you respond?',
+        answer:
+          'For our primary service areas (Brighton & Hove), we typically respond within 15-20 minutes for emergencies. For surrounding areas, response times range from 20-40 minutes depending on location and current demand.',
+      },
+      {
+        question: 'What should I do if I have a burst pipe?',
+        answer:
+          'Turn off the water supply immediately at the main stopcock (usually under the kitchen sink or where the water pipe enters your property). Turn off electricity if water is near electrical fittings. Move valuables away from the leak and call us immediately for emergency assistance.',
+      },
+    ],
+  },
+  {
+    category: 'Pricing & Quotes',
+    icon: CirclePoundSterling,
+    faqs: [
+      {
+        question: 'How can I get a quote?',
+        answer:
+          "Request a quote by phone, email, or our online contact form. For most jobs, we'll arrange a free site visit to assess the work and provide a clear, competitive, no-obligation estimate. For emergency work, we provide transparent pricing before starting.",
+      },
+      {
+        question: 'Do you charge for call-outs?',
+        answer:
+          'We do not charge hidden travel fees within our primary service areas. For emergency call-outs, there is a standard call-out fee which is clearly communicated upfront and can be offset against the final repair cost.',
+      },
+      {
+        question: 'What payment methods do you accept?',
+        answer:
+          'We accept bank transfers for your convenience. Payment terms will be clearly outlined in your quote and invoice.',
+      },
+    ],
+  },
+  {
+    category: 'Installations & Maintenance',
+    icon: Wrench,
+    faqs: [
+      {
+        question: 'How long does a boiler installation take?',
+        answer:
+          'A standard boiler replacement typically takes 1-2 days depending on the complexity. This includes removing the old boiler, installing the new system, connecting all pipework, and testing. We´ll provide a clear timeline during your free consultation.',
+      },
+      {
+        question: 'What is a boiler service and why is it important?',
+        answer:
+          "A boiler service is a thorough check and maintenance of your boiler to ensure it's running safely and efficiently. Annual servicing can prevent breakdowns, extend your boiler's lifespan, maintain warranty validity, improve efficiency, and ensure safety by detecting potential carbon monoxide risks.",
+      },
+      {
+        question: 'Do you provide guarantees on your work?',
+        answer:
+          'Yes, we provide guarantees on all our work and use only quality parts from reputable manufacturers. Specific warranty details vary by job type and will be clearly outlined in your quote.',
+      },
+    ],
+  },
+];
 ---
 
-<HomeLayout>
+<HomeLayout
+  title='Frequently Asked Questions - AC Plumbers Ltd. Brighton'
+  description='Find answers to common questions about our plumbing, heating, and gas services in Brighton & Hove. Expert advice on emergency repairs, installations, and maintenance.'>
   <main id='maincontent' tabindex='-1'>
-    <section class='bg-primary-40 mt-20' aria-labelledby='faq-title'>
-      <div class='mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8'>
-        <header class='mx-auto max-w-2xl text-center'>
-          <Text
-            tag='h1'
-            variant='displayLG'
-            class='text-primary-700'
-            id='faq-title'>
+    <!-- Hero Section -->
+    <section
+      class='mt-24 bg-linear-to-b from-primary-600 to-white py-16 md:py-20'>
+      <Wrapper variant='standard'>
+        <div class='mx-auto max-w-3xl text-center'>
+          <Text tag='h1' variant='displayLG' class='text-primary-900'>
             Frequently Asked Questions
           </Text>
-          <Text tag='p' variant='textLG' class='mt-6 text-primary-600'>
-            AC Plumbers Ltd. Brighton is here to help! Browse our most common
-            questions below, or <a
+          <Text tag='p' variant='textXL' class='mt-6 text-primary-700'>
+            Find answers to common questions about our plumbing, heating, and
+            gas services. Can't find what you're looking for?{' '}
+            <a
               href='/contact-us'
-              class='font-semibold text-accent-500 underline hover:text-accent-700'
-              >contact our team</a
-            > for expert advice or urgent support.
+              class='font-semibold text-accent-600 underline hover:text-accent-700'>
+              Contact our team
+            </a>{' '}
+            for expert advice.
           </Text>
-        </header>
-        <section class='mt-20' aria-label='Frequently Asked Questions List'>
-          <dl
-            class='space-y-16 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-6 sm:gap-y-16 lg:grid-cols-3 lg:gap-x-10'>
-            <div>
-              <dt
-                class='text-lg font-semibold text-primary-800'
-                id='faq1-question'>
-                What services do you offer?
-              </dt>
-              <dd
-                class='mt-2 text-base text-primary-700'
-                aria-labelledby='faq1-question'>
-                We offer plumbing, heating, and gas services: installations,
-                repairs, and maintenance for homes and businesses in Brighton,
-                Hove, Lewes, Worthing, and nearby.
-              </dd>
-            </div>
-            <div>
-              <dt
-                class='text-lg font-semibold text-primary-800'
-                id='faq2-question'>
-                Are your plumbers certified?
-              </dt>
-              <dd
-                class='mt-2 text-base text-primary-700'
-                aria-labelledby='faq2-question'>
-                Yes! All AC Plumbers engineers are fully certified, insured, and
-                regularly trained to meet the latest UK standards and safety
-                regulations.
-              </dd>
-            </div>
-            <div>
-              <dt
-                class='text-lg font-semibold text-primary-800'
-                id='faq3-question'>
-                Do you offer emergency services?
-              </dt>
-              <dd
-                class='mt-2 text-base text-primary-700'
-                aria-labelledby='faq3-question'>
-                Absolutely. We provide 24/7 emergency plumbing response. Call us
-                any time for urgent leaks, blockages, or heating breakdowns.
-              </dd>
-            </div>
-            <div>
-              <dt
-                class='text-lg font-semibold text-primary-800'
-                id='faq4-question'>
-                How can I get a quote for a job?
-              </dt>
-              <dd
-                class='mt-2 text-base font-(--font-inconsolata) text-primary-700'
-                aria-labelledby='faq4-question'>
-                Request a quote by phone, email, or our online form. We’ll
-                arrange a visit and provide a clear, competitive estimate—no
-                obligation.
-              </dd>
-            </div>
-            <div>
-              <dt
-                class='text-lg font-semibold text-primary-800'
-                id='faq5-question'>
-                What areas do you serve?
-              </dt>
-              <dd
-                class='mt-2 text-base text-primary-700'
-                aria-labelledby='faq5-question'>
-                We serve Brighton, Hove, Lewes, Worthing, and surrounding Sussex
-                areas. Unsure if we cover your postcode? <a
-                  href='/contact-us'
-                  class='font-semibold text-accent-500 underline hover:text-accent-700'
-                  >Ask us!</a
-                >
-              </dd>
-            </div>
-          </dl>
-        </section>
-        <!-- Contact Support CTA -->
-        <Wrapper variant='standard'>
-          <section class='mt-16' aria-labelledby='contact-support-heading'>
-            <ContactSupportCTA
-              heading='Still have questions?'
-              message="If you can't find the answer you're looking for, our team is ready to help."
-              buttonText='Contact Support'
-              buttonHref='/contact-us'
-              sectionClass='mt-16'
-              containerClass='bg-white rounded-lg shadow p-8'
-            />
-          </section>
-        </Wrapper>
-      </div>
-      <section class='mt-16'>
-        <div
-          class='flex flex-col gap-8 rounded border-2 border-red-700 bg-primary-900 p-8 lg:flex-row lg:items-end lg:justify-between'>
-          <div class='max-w-xl text-balance'>
-            <Image src={Logo} alt='AC Plumbers Logo' />
 
-            <Text tag='p' variant='textLG' class='mt-24 font-medium text-white'>
-              Building with precision, dependable delivery, and clear
-              communication from preconstruction through handover.
-            </Text>
-          </div>
-          <div class='flex flex-wrap gap-2 sm:items-center'>
-            <Button
-              isLink
-              size='xs'
-              variant='default'
-              href={`mailto:${BUSINESS_CONFIG.email}`}>
-              {BUSINESS_CONFIG.email}
-            </Button>
-            <Button
-              isLink
-              size='xs'
-              variant='muted'
-              href={`tel:${BUSINESS_CONFIG.companyNumber.replace(/[^\d+]/g, '')}`}>
-              {BUSINESS_CONFIG.phone}
-            </Button>
+          <!-- Quick Contact Cards -->
+          <div class='mt-10 grid gap-4 sm:grid-cols-2'>
+            <a
+              href={`tel:${BUSINESS_CONFIG.mobilePhone.replace(/\s+/g, '')}`}
+              class='flex items-center gap-3 rounded-lg border-2 border-primary-200 bg-white p-4 transition-all hover:border-primary-400 hover:shadow-md'>
+              <div class='rounded-lg bg-primary-100 p-3'>
+                <Phone class='h-5 w-5 text-primary-600' />
+              </div>
+              <div class='text-left'>
+                <div class='text-sm font-medium text-primary-600'>Call Us</div>
+                <div class='font-semibold text-primary-900'>
+                  {BUSINESS_CONFIG.mobilePhone}
+                </div>
+              </div>
+            </a>
+
+            <a
+              href={`mailto:${BUSINESS_CONFIG.email}`}
+              class='flex items-center gap-3 rounded-lg border-2 border-primary-200 bg-white p-4 transition-all hover:border-primary-400 hover:shadow-md'>
+              <div class='rounded-lg bg-accent-100 p-3'>
+                <Mail class='h-5 w-5 text-accent-600' />
+              </div>
+              <div class='text-left'>
+                <div class='text-sm font-medium text-primary-600'>Email Us</div>
+                <div class='font-semibold text-primary-900'>
+                  {BUSINESS_CONFIG.email}
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-      </section>
+      </Wrapper>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class='bg-white py-16' aria-label='FAQ Categories'>
+      <Wrapper variant='standard'>
+        <div class='space-y-12'>
+          {
+            faqCategories.map(({ category, icon: Icon, faqs }) => (
+              <div class='rounded-2xl border border-neutral-200 bg-linear-to-br from-neutral-50 to-white p-8 shadow-sm'>
+                {/* Category Header */}
+                <div class='mb-6 flex items-center gap-3'>
+                  <div class='rounded-lg bg-primary-100 p-2'>
+                    <Icon class='h-6 w-6 text-primary-600' />
+                  </div>
+                  <Text tag='h2' variant='displayMD' class='text-primary-900'>
+                    {category}
+                  </Text>
+                </div>
+
+                {/* FAQ Items */}
+                <div class='space-y-4'>
+                  {faqs.map(faq => (
+                    <details class='group overflow-hidden rounded-xl border border-neutral-200 bg-white transition-all duration-200'>
+                      <summary class='flex cursor-pointer items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden'>
+                        <span class='text-lg font-semibold text-primary-900'>
+                          {faq.question}
+                        </span>
+                        <svg
+                          class='h-5 w-5 shrink-0 text-primary-600 transition-transform duration-200 group-open:rotate-180'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                          aria-hidden='true'>
+                          <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            stroke-width='2'
+                            d='M19 9l-7 7-7-7'
+                          />
+                        </svg>
+                      </summary>
+                      <div class='border-t border-neutral-200 px-5 py-4'>
+                        <Text
+                          tag='p'
+                          variant='textBase'
+                          class='text-primary-700'>
+                          {faq.answer}
+                        </Text>
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </Wrapper>
+    </section>
+
+    <!-- Still Have Questions CTA -->
+    <section class='bg-neutral-50 py-16'>
+      <Wrapper variant='standard'>
+        <ContactSupportCTA
+          heading='Still have questions?'
+          message="If you can't find the answer you're looking for, our expert team is ready to help with personalized advice and support."
+          buttonText='Contact Us Now'
+          buttonHref='/contact-us'
+        />
+      </Wrapper>
     </section>
   </main>
 </HomeLayout>
