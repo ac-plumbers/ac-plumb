@@ -18,6 +18,13 @@ import type {
 } from '@/lib/types';
 import { getCollection } from 'astro:content';
 import SingleSchemaService from '@/components/fundations/schema-services/SingleSchemaService.astro';
+import { Image } from 'astro:assets';
+import vaillant from '@/images/brands/vaillant-installer-logo-brighton-boilers.jpg';
+import viesmann from '@/images/brands/viessmann-logo-boiler-installation-brighton.jpg';
+import bpec from '@/images/brands/bpec-certification-logo-gas-plumbing.png';
+import checktrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
+import gasSafe from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
+import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -206,6 +213,57 @@ const process: ServiceStep[] = service.process || [];
       </aside>
     </div>
   </section>
+  <!-- ✨ NEW: Service Image Gallery -->
+  {
+    service.image && (
+      <section aria-labelledby='gallery-heading' class='bg-neutral-50 py-16'>
+        <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+          <Text
+            tag='h2'
+            variant='displayXL'
+            id='gallery-heading'
+            class='mb-8 text-center font-bold text-primary-900'>
+            Alcune immagini di esempio 3/4?
+          </Text>
+          <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            <div class='overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105'>
+              <Image
+                src={service.image}
+                alt={service.alt || `${service.title} example 1`}
+                width={500}
+                height={400}
+                class='h-64 w-full object-cover'
+                format='webp'
+                quality={85}
+              />
+            </div>
+            <div class='overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105'>
+              <Image
+                src={service.image}
+                alt={service.alt || `${service.title} example 2`}
+                width={500}
+                height={400}
+                class='h-64 w-full object-cover'
+                format='webp'
+                quality={85}
+              />
+            </div>
+            <div class='overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105'>
+              <Image
+                src={service.image}
+                alt={service.alt || `${service.title} example 3`}
+                width={500}
+                height={400}
+                class='h-64 w-full object-cover'
+                format='webp'
+                quality={85}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <!-- Key Features/Benefits -->
   <section aria-labelledby='features-heading'>
@@ -217,10 +275,145 @@ const process: ServiceStep[] = service.process || [];
     <ServiceProcessSteps steps={steps} />
   </section>
 
-  <!-- TODO Brand / Equipment Section  -->
-  TODO BRAND / EQUIPMENT SECTION?????
-  <!--TODO Recent Work Related to The Service -->
-  TODO RECENT WORK RELATED TO THE SERVICE???
+  <!-- Brand / Equipment Section -->
+  <!--  <section aria-labelledby='brands-heading' class='bg-primary-900 py-16'>
+    <div class='mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8'>
+      <div>
+        <Text
+          tag='h2'
+          variant='displayXL'
+          id='brands-heading'
+          class='font-bold text-white'>
+          Brands & Equipment We Trust
+        </Text>
+        <Text tag='p' variant='textBase' class='mt-4 text-primary-100'>
+          We work with leading manufacturers and use professional-grade tools
+          and parts to keep your system reliable, efficient, and safe.
+        </Text>
+        <ul class='mt-6 space-y-2 text-sm text-primary-100'>
+          <li class='flex items-center'>
+            <svg
+              class='mr-2 h-4 w-4 text-accent-400'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              aria-hidden='true'
+              focusable='false'>
+              <path
+                fill-rule='evenodd'
+                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                clip-rule='evenodd'
+              />
+            </svg>
+            Boilers, cylinders, and central heating components
+          </li>
+          <li class='flex items-center'>
+            <svg
+              class='mr-2 h-4 w-4 text-accent-400'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              aria-hidden='true'
+              focusable='false'>
+              <path
+                fill-rule='evenodd'
+                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                clip-rule='evenodd'
+              />
+            </svg>
+            Radiators, valves, and pipework upgrades
+          </li>
+          <li class='flex items-center'>
+            <svg
+              class='mr-2 h-4 w-4 text-accent-400'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              aria-hidden='true'
+              focusable='false'>
+              <path
+                fill-rule='evenodd'
+                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                clip-rule='evenodd'
+              />
+            </svg>
+            Smart controls and efficiency improvements
+          </li>
+          <li class='flex items-center'>
+            <svg
+              class='mr-2 h-4 w-4 text-accent-400'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              aria-hidden='true'
+              focusable='false'>
+              <path
+                fill-rule='evenodd'
+                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                clip-rule='evenodd'
+              />
+            </svg>
+            Gas safety testing and compliant fittings
+          </li>
+        </ul>
+      </div>
+      <div
+        class='grid grid-cols-2 items-center gap-6 rounded-2xl bg-primary-800/60 p-6 sm:grid-cols-3'
+        aria-label='Brands and certifications'>
+        <Image
+          width={158}
+          height={48}
+          src={vaillant}
+          alt='Vaillant Advance Installer certification'
+          class='max-h-12 w-full object-contain brightness-0 invert'
+          format='webp'
+          quality={90}
+        />
+        <Image
+          width={158}
+          height={48}
+          src={viesmann}
+          alt='Viessmann certified installer'
+          class='max-h-12 w-full object-contain brightness-0 invert'
+          format='webp'
+          quality={90}
+        />
+        <Image
+          width={158}
+          height={48}
+          src={bpec}
+          alt='BPEC certified gas and plumbing professional'
+          class='max-h-12 w-full object-contain brightness-0 invert'
+          format='webp'
+          quality={90}
+        />
+        <Image
+          width={158}
+          height={48}
+          src={checktrade}
+          alt='Checkatrade verified tradesperson'
+          class='max-h-12 w-full object-contain brightness-0 invert'
+          format='webp'
+          quality={90}
+        />
+        <Image
+          width={158}
+          height={48}
+          src={gasSafe}
+          alt='Gas Safe Register certified engineer'
+          class='max-h-12 w-full object-contain brightness-0 invert'
+          format='webp'
+          quality={90}
+        />
+        <Image
+          width={158}
+          height={48}
+          src={oftec}
+          alt='OFTEC registered heating certification'
+          class='max-h-12 w-full object-contain brightness-0 invert'
+          format='webp'
+          quality={90}
+        />
+      </div>
+    </div>
+  </section> -->
+
   <!-- Service-Specific Testimonials -->
   <section aria-labelledby='testimonials-heading'>
     <Testimonials />
