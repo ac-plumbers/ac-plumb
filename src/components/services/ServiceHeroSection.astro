@@ -7,8 +7,9 @@ type Props = {
   description: string;
   image: string;
   alt?: string;
+  intro?: string;
 };
-const { title, description, image, alt } = Astro.props;
+const { title, description, image, alt, intro } = Astro.props;
 
 // Provide fallback alt text for better accessibility
 const imageAlt =
@@ -17,10 +18,10 @@ const imageAlt =
 
 <section
   id='service-hero'
-  class='relative bg-gradient-to-r from-primary-900 to-primary-800 pt-32 pb-16 sm:pt-40 sm:pb-24'
+  class='relative bg-linear-to-r from-primary-900 to-primary-800 pt-32 pb-16 sm:pt-40 sm:pb-24'
   role='banner'
   aria-labelledby='service-hero-title'>
-  <div class='absolute inset-0 opacity-50' aria-hidden='true'>
+  <div class='absolute inset-0 opacity-20' aria-hidden='true'>
     <picture>
       <source
         srcset={image
@@ -33,9 +34,9 @@ const imageAlt =
         alt={imageAlt}
         class='h-full w-full object-cover'
         role='presentation'
-        loading='lazy'
-        width='400'
-        height='540'
+        loading='eager'
+        width='1920'
+        height='600'
         decoding='async'
       />
     </picture>
@@ -50,7 +51,7 @@ const imageAlt =
         {title}
       </Text>
       <Text tag='p' variant='textLG' class='mt-6 max-w-3xl text-neutral-200'>
-        {description}
+        {intro}
       </Text>
       <div class='mt-10 flex items-center gap-x-6'>
         <Link href='/contact-us' variant='accent-button' size='lg'>

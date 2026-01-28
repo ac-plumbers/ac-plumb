@@ -1,10 +1,12 @@
 ---
-title: Gas Boiler Installation, maintenance, and Repair
-description: Gas boiler installation is a critical service for ensuring efficient and safe heating systems in residential and commercial properties. This process involves the careful selection, installation, and testing of gas boilers to meet specific heating requirements. Professional installation is essential to comply with safety regulations and to ensure the boiler operates efficiently, reducing energy costs and environmental impact. Regular maintenance and inspections are also recommended to prolong the lifespan of the boiler and to ensure it continues to function safely and effectively. Whether for new builds or replacing old systems, expert gas boiler installation is key to reliable heating solutions.
+title: Boiler Installations
+description: Time for a new boiler? f your boiler is starting to show its age or worse, has already let you down it’s essential to find a trusted, efficient boiler installer to get your heating and hot water back up and running.At AC Plumbers Ltd., we specialise in installing new gas boilers and central heating systems for homes across Brighton & Hove and the surrounding areas.We’ll help you choose the most cost-effective and energy-efficient boiler for your home, helping you save on energy bills while keeping your heating and hot water running reliably all year round. Regular maintenance and inspections are also recommended to prolong the lifespan of the boiler and to ensure it continues to function safely and effectively. Whether for new builds or replacing old systems, expert gas boiler installation is key to reliable heating solutions.
 price: 0
-sortedOrder: 2
+sortedOrder: 1
 image: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
 alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+imageHero: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
+altHero: "Viessmann boiler installation with labelled copper pipework and Altecnic pressure gauge inside utility unit"
 tags:
   [
     "gas",
@@ -16,7 +18,7 @@ tags:
   ]
 featured: true
 category: Heating
-intro: "Our gas boiler installation service combines cutting-edge technology with decades of experience. We specialize in high-efficiency condensing boilers from leading manufacturers like Vaillant, Worcester Bosch, and Ideal, ensuring your home stays warm while reducing energy bills."
+intro: "Here at AC Plumbers Ltd., we provide brand-new boiler installations across Brighton & Hove and the surrounding areas, supplying and fitting the perfect boiler for your home, installed by our expert engineers. "
 benefits:
   - "Gas Safe registered engineers"
   - "10-year manufacturer warranties"

@@ -103,25 +103,18 @@
                     Core Services
                   </div>
                   <a
-                    href="/services/all-aspects-of-plumbing-heating-and-gas"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
-                    role="menuitem"
-                  >
-                    Plumbing, Heating & Gas
-                  </a>
-                  <a
-                    href="/services/bathrooms-installation-rennovation"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
-                    role="menuitem"
-                  >
-                    Bathrooms Installation & Renovation
-                  </a>
-                  <a
                     href="/services/gas-boiler-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
                     Gas Boiler Installation
+                  </a>
+                  <a
+                    href="/services/all-aspects-of-plumbing-heating-and-gas"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    Plumbing, Heating & Gas
                   </a>
                   <a
                     href="/services/central-heating-installation"
@@ -143,13 +136,6 @@
                     role="menuitem"
                   >
                     Gas Safety Checks (CP12)
-                  </a>
-                  <a
-                    href="/services/smart-thermostats"
-                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
-                    role="menuitem"
-                  >
-                    Smart Thermostats
                   </a>
                   <a
                     href="/services/renewable-air-source-heat-pump"
@@ -295,32 +281,6 @@
                   All Services
                 </a>
                 <a
-                  href="/services/all-aspects-of-plumbing-heating-and-gas"
-                  :class="[
-                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/services/plumbing')
-                      ? 'bg-primary-600 text-background-100'
-                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
-                  ]"
-                  role="listitem"
-                  @click="closeMenu"
-                >
-                  Plumbing, Heating & Gas
-                </a>
-                <a
-                  href="/services/bathrooms-installation-rennovation"
-                  :class="[
-                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/services/bathrooms-installation-rennovation')
-                      ? 'bg-primary-600 text-background-100'
-                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
-                  ]"
-                  role="listitem"
-                  @click="closeMenu"
-                >
-                  Bathrooms Installation & Renovation
-                </a>
-                <a
                   href="/services/gas-boiler-installation"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
@@ -333,6 +293,20 @@
                 >
                   Gas Boiler Installation
                 </a>
+                <a
+                  href="/services/all-aspects-of-plumbing-heating-and-gas"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink('/services/plumbing')
+                      ? 'bg-primary-600 text-background-100'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  Plumbing, Heating & Gas
+                </a>
+
                 <a
                   href="/services/central-heating-installation"
                   :class="[
@@ -360,19 +334,6 @@
                   @click="closeMenu"
                 >
                   Gas Safety Checks (CP12)
-                </a>
-                <a
-                  href="/services/smart-thermostats"
-                  :class="[
-                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/services/smart-thermostats')
-                      ? 'bg-primary-600 text-background-100'
-                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
-                  ]"
-                  role="listitem"
-                  @click="closeMenu"
-                >
-                  Smart Thermostats
                 </a>
                 <a
                   href="/services/renewable-air-source-heat-pump"

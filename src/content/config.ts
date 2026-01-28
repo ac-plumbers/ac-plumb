@@ -12,6 +12,8 @@ const services = defineCollection({
     // Stores plain URL like "/images/services/bathroom-hero.jpeg"
     image: z.string().optional(),
     alt: z.string().optional(),
+    imageHero: z.string().optional(),
+    altHero: z.string().optional(),
 
     category: z.string().optional(),
     tags: z.array(z.string()).default([]),

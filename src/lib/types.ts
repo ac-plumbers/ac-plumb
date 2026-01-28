@@ -18,6 +18,8 @@ export type ServiceFrontmatter = {
   description: string;
   price: number;
   image?: string;
+  imageHero?: string;
+  altHero?: string;
   category?: string;
   tags?: string[];
   featured?: boolean;

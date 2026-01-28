@@ -5,204 +5,66 @@ import viesmann from '@/images/brands/viessmann-logo-boiler-installation-brighto
 import bpec from '@/images/brands/bpec-certification-logo-gas-plumbing.png';
 import checktrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
 import gasSafe from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
-import oftec1 from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
-import oftec2 from '@/images/brands/oftec-registered-logo-heating-certification.jpg';
-
-import Text from './fundations/elements/Text.astro';
+import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
 ---
 
-<section
-  class='py-3 backdrop-blur-sm transition-all duration-300'
-  id='certifications'
-  aria-labelledby='certifications-heading'
-  style='view-transition-name: none;'>
-  <div class='border-t- mx-auto max-w-7xl px-6 lg:px-8'>
-    <!-- <Text
-      tag="h2"
-      variant="textLG"
-      class="mb-12 text-center font-medium text-gray-600"
-      id="certifications-heading"
-    >
-      Certified & Trusted Partners
-    </Text> -->
+<section class='bg-primary-700 py-24 sm:py-32' id='certifications'>
+  <div class='mx-auto max-w-7xl px-6 lg:px-8'>
+    <h2 class='text-center text-2xl font-semibold text-white'>
+      Fully Certified & Regulated
+    </h2>
+    <div
+      class='mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5'
+      aria-label='Brand certifications and partners'>
+      <Image
+        width={158}
+        height={48}
+        src={vaillant}
+        alt='Vaillant Advance Installer certification'
+        class='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+        format='webp'
+        quality={90}
+      />
 
-    <div class='relative overflow-x-hidden'>
-      {/* Mobile: seamless scroll with duplicated logos */}
-      <div
-        class='scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent animate-logo-scroll flex snap-x snap-mandatory gap-4 py-1 md:hidden'
-        tabindex='0'
-        aria-label='Brand certifications and partners'>
-        {
-          (() => {
-            const logos = [
-              {
-                src: vaillant,
-                alt: 'Vaillant Advance Installer certification',
-              },
-              { src: viesmann, alt: 'Viessmann certified installer' },
-              {
-                src: bpec,
-                alt: 'BPEC certified gas and plumbing professional',
-              },
-              { src: checktrade, alt: 'Checkatrade verified tradesperson' },
-              { src: gasSafe, alt: 'Gas Safe Register certified engineer' },
-              {
-                src: oftec1,
-                alt: 'OFTEC registered heating certification (variant 1)',
-              },
-            ];
-            // Render two sets for seamless scroll
-            return [...logos, ...logos].map((logo, i) => (
-              <div
-                class='flex h-12 w-28 flex-shrink-0 snap-start items-center justify-center overflow-hidden p-2 shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-md'
-                aria-hidden={i >= logos.length ? 'true' : 'false'}>
-                <Image
-                  class='h-auto max-h-full w-full max-w-full object-contain object-center opacity-80 transition-opacity hover:opacity-100'
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={200}
-                  height={100}
-                  format='webp'
-                  quality={90}
-                />
-              </div>
-            ));
-          })()
-        }
-      </div>
-      {/* Desktop: single logo row, no duplicates */}
-      <div
-        class='hidden md:flex md:gap-6 md:overflow-visible md:py-0'
-        aria-label='Brand certifications and partners'>
-        {
-          (() => {
-            const logos = [
-              {
-                src: vaillant,
-                alt: 'Vaillant Advance Installer certification',
-              },
-              { src: viesmann, alt: 'Viessmann certified installer' },
-              {
-                src: bpec,
-                alt: 'BPEC certified gas and plumbing professional',
-              },
-              { src: checktrade, alt: 'Checkatrade verified tradesperson' },
-              { src: gasSafe, alt: 'Gas Safe Register certified engineer' },
-              {
-                src: oftec1,
-                alt: 'OFTEC registered heating certification (variant 1)',
-              },
-            ];
-            return logos.map(logo => (
-              <div class='flex h-14 w-32 flex-shrink-0 snap-start items-center justify-center overflow-hidden p-2 shadow-sm transition-all duration-200 hover:scale-105 hover:shadow-md'>
-                <Image
-                  class='h-auto max-h-full w-full max-w-full object-contain object-center opacity-80 transition-opacity hover:opacity-100'
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={200}
-                  height={100}
-                  format='webp'
-                  quality={90}
-                />
-              </div>
-            ));
-          })()
-        }
-      </div>
-      {/* Gradient fade left/right for scroll hint */}
-      <div
-        class='pointer-events-none absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:hidden'
-        aria-hidden='true'>
-      </div>
-      <div
-        class='pointer-events-none absolute top-0 right-0 h-full w-6 bg-gradient-to-l from-white/95 via-white/80 to-transparent md:hidden'
-        aria-hidden='true'>
-      </div>
-      <style>
-        @media (max-width: 767px) {
-          .animate-logo-scroll {
-            animation: logo-scroll 16s linear infinite;
-            width: max-content;
-          }
-          @keyframes logo-scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-        }
-      </style>
+      <Image
+        width={158}
+        height={48}
+        src={viesmann}
+        alt='Viessmann certified installer'
+        class='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+        format='webp'
+        quality={90}
+      />
+
+      <Image
+        width={158}
+        height={48}
+        src={bpec}
+        alt='BPEC certified gas and plumbing professional'
+        class='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+        format='webp'
+        quality={90}
+      />
+
+      <Image
+        width={158}
+        height={48}
+        src={checktrade}
+        alt='Checkatrade verified tradesperson'
+        class='col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1'
+        format='webp'
+        quality={90}
+      />
+
+      <Image
+        width={158}
+        height={48}
+        src={gasSafe}
+        alt='Gas Safe Register certified engineer'
+        class='col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1'
+        format='webp'
+        quality={90}
+      />
     </div>
   </div>
-
-  <script is:inline>
-    // Wait for everything to be loaded including Vue components
-    function initScrollHandler() {
-      const certificationSection = document.getElementById('certifications');
-      if (!certificationSection) {
-        // Retry after a short delay if element not found
-        setTimeout(initScrollHandler, 100);
-        return;
-      }
-
-      let isScrolled = false;
-      let ticking = false;
-
-      function updateVisibility() {
-        const shouldHide = window.scrollY > 50;
-
-        if (shouldHide !== isScrolled) {
-          isScrolled = shouldHide;
-
-          if (shouldHide) {
-            // Fade out and collapse height smoothly
-            certificationSection.style.transition = 'all 0.3s ease-in-out';
-            certificationSection.style.opacity = '0';
-            certificationSection.style.maxHeight = '0';
-            certificationSection.style.paddingTop = '0';
-            certificationSection.style.paddingBottom = '0';
-            certificationSection.style.marginTop = '0';
-            certificationSection.style.marginBottom = '0';
-            certificationSection.style.overflow = 'hidden';
-          } else {
-            // Fade in and restore height
-            certificationSection.style.transition = 'all 0.3s ease-in-out';
-            certificationSection.style.opacity = '1';
-            certificationSection.style.maxHeight = '100px';
-            certificationSection.style.paddingTop = '0.75rem';
-            certificationSection.style.paddingBottom = '0.75rem';
-            certificationSection.style.marginTop = '';
-            certificationSection.style.marginBottom = '';
-            certificationSection.style.overflow = 'visible';
-          }
-        }
-        ticking = false;
-      }
-
-      function handleScroll() {
-        if (!ticking) {
-          requestAnimationFrame(updateVisibility);
-          ticking = true;
-        }
-      }
-
-      // Add scroll listener
-      window.addEventListener('scroll', handleScroll, { passive: true });
-
-      // Initial check
-      updateVisibility();
-    }
-
-    // Start initialization with multiple fallbacks
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initScrollHandler);
-    } else {
-      initScrollHandler();
-    }
-
-    // Also try after a delay to ensure Vue component is mounted
-    setTimeout(initScrollHandler, 500);
-  </script>
 </section>

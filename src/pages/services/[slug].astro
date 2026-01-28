@@ -50,6 +50,7 @@ const relatedServices = allServices
   .slice(0, 3);
 
 const intro = service.intro || '';
+const description = service.description || '';
 const benefits = service.benefits || [];
 const specialties = service.specialties || [];
 const steps = service.process || [];
@@ -68,9 +69,10 @@ const process: ServiceStep[] = service.process || [];
   <!-- Hero Section with Service Overview -->
   <ServiceHeroSection
     title={service.title}
-    description={service.description}
-    image={service.image ?? ''}
-    alt={service.alt}
+    description={description}
+    image={service.imageHero ?? ''}
+    alt={service.altHero}
+    intro={intro}
   />
 
   <!-- Main Service Content -->
@@ -95,7 +97,7 @@ const process: ServiceStep[] = service.process || [];
             tag='p'
             variant='textBase'
             class='text-lg leading-relaxed text-neutral-700'>
-            {intro}
+            {description}
           </Text>
 
           <div class='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'>
