@@ -1,0 +1,32 @@
+---
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import { Phone, ArrowRight } from 'lucide-vue-next';
+---
+
+<section
+  data-bg='dark'
+  class='bg-linear-to-r from-primary-600 to-primary-700 py-16'>
+  <div class='mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8'>
+    <h2 class='text-3xl font-bold text-white md:text-4xl'>
+      Ready to Book a Local Plumber?
+    </h2>
+    <p class='mt-4 text-xl text-primary-100'>
+      Tell us where you are and what you need. We'll confirm the earliest
+      available slot.
+    </p>
+    <div class='mt-8 flex flex-col justify-center gap-4 sm:flex-row'>
+      <a
+        href={`tel:${BUSINESS_CONFIG.mobilePhone.replace(/\s+/g, '')}`}
+        class='inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-primary-600 transition-colors hover:bg-gray-100'>
+        <Phone class='h-5 w-5' />
+        Call {BUSINESS_CONFIG.mobilePhone}
+      </a>
+      <a
+        href='/contact-us'
+        class='inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-primary-600'>
+        Get a Quote
+        <ArrowRight class='h-4 w-4' />
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,135 @@
+---
+import { MapPin, Clock, CheckCircle2, MapPinned } from 'lucide-vue-next';
+import Text from '../fundations/elements/Text.astro';
+
+type ServiceArea = {
+  zone: string;
+  coverage: string[];
+  response: string;
+};
+
+// Extended coverage areas (excluding primary areas from CoveragesAreasList)
+const extendedAreas: ServiceArea[] = [
+  {
+    zone: 'Mid Sussex',
+    coverage: ['Burgess Hill', 'Haywards Heath', 'Hurstpierpoint'],
+    response: '40–50 minutes',
+  },
+  {
+    zone: 'Adur Valley',
+    coverage: ['Steyning', 'Upper Beeding', 'Bramber'],
+    response: '45–60 minutes',
+  },
+  {
+    zone: 'East Sussex Inland',
+    coverage: ['Ringmer', 'Newhaven', 'Telscombe'],
+    response: '35–45 minutes',
+  },
+  {
+    zone: 'West Sussex Extended',
+    coverage: ['Worthing', 'Sompting', 'Findon'],
+    response: '40–55 minutes',
+  },
+];
+
+const getZoneStyles = (index: number) => {
+  const styles = [
+    {
+      border: 'border-l-purple-500',
+      bg: 'bg-gradient-to-r from-purple-50 to-white',
+      icon: 'text-purple-600',
+      accent: 'bg-purple-100',
+    },
+    {
+      border: 'border-l-indigo-500',
+      bg: 'bg-gradient-to-r from-indigo-50 to-white',
+      icon: 'text-indigo-600',
+      accent: 'bg-indigo-100',
+    },
+    {
+      border: 'border-l-teal-500',
+      bg: 'bg-gradient-to-r from-teal-50 to-white',
+      icon: 'text-teal-600',
+      accent: 'bg-teal-100',
+    },
+    {
+      border: 'border-l-orange-500',
+      bg: 'bg-gradient-to-r from-orange-50 to-white',
+      icon: 'text-orange-600',
+      accent: 'bg-orange-100',
+    },
+  ];
+  return styles[index];
+};
+---
+
+<section class='bg-gray-50 py-16'>
+  <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <div class='mb-12 text-center'>
+      <Text tag='h2' class='text-3xl font-bold md:text-4xl'>
+        Extended Coverage Areas
+      </Text>
+      <p class='mt-4 text-lg text-gray-600'>
+        We also serve nearby towns and surrounding areas
+      </p>
+    </div>
+
+    <div class='grid gap-6 md:grid-cols-2'>
+      {
+        extendedAreas.map((area, index) => {
+          const styles = getZoneStyles(index);
+          return (
+            <div
+              class={`group relative overflow-hidden rounded-xl border-l-4 ${styles.border} ${styles.bg} p-6 shadow-md transition-all hover:shadow-xl`}>
+              {/* Header */}
+              <div class='mb-4 flex items-start justify-between'>
+                <div class='flex items-center gap-3'>
+                  <div class={`rounded-lg ${styles.accent} p-2`}>
+                    <MapPinned class={`h-6 w-6 ${styles.icon}`} />
+                  </div>
+                  <div>
+                    <Text tag='h3' class='text-xl font-bold text-gray-900'>
+                      {area.zone}
+                    </Text>
+                    <div class='mt-1 flex items-center gap-2 text-sm text-gray-600'>
+                      <Clock class='h-4 w-4' />
+                      <span class='font-medium'>{area.response} response</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Coverage Areas */}
+              <div class='space-y-2'>
+                <p class='text-sm font-semibold text-gray-700'>
+                  Areas Covered:
+                </p>
+                <div class='flex flex-wrap gap-2'>
+                  {area.coverage.map(location => (
+                    <span class='inline-flex items-center gap-1.5 rounded-md bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 ring-inset'>
+                      <CheckCircle2 class={`h-3.5 w-3.5 ${styles.icon}`} />
+                      {location}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    {/* Info Footer */}
+    <div class='mt-8 rounded-lg bg-blue-50 p-6 text-center'>
+      <p class='text-sm text-gray-700'>
+        <strong>Not sure if we cover your area?</strong>{' '}
+        <a
+          href='/contact-us'
+          class='font-semibold text-blue-900 underline hover:text-blue-700'>
+          Contact us
+        </a>
+        {' '}and we'll confirm availability for your location.
+      </p>
+    </div>
+  </div>
+</section>

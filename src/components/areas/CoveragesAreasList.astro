@@ -1,0 +1,129 @@
+---
+import { MapPin, Clock, CheckCircle2, MapPinned } from 'lucide-vue-next';
+import Text from '../fundations/elements/Text.astro';
+
+type ServiceArea = {
+  zone: string;
+  coverage: string[];
+  response: string;
+};
+
+const serviceAreas: ServiceArea[] = [
+  {
+    zone: 'Brighton & Hove Core',
+    coverage: ['Brighton', 'Hove'],
+    response: '15–20 minutes',
+  },
+  {
+    zone: 'East Sussex Coast',
+    coverage: ['Rottingdean', 'Saltdean', 'Peacehaven'],
+    response: '20–30 minutes',
+  },
+  {
+    zone: 'West Sussex Coast',
+    coverage: ['Portslade', 'Southwick', 'Shoreham by Sea', 'Lancing'],
+    response: '20–30 minutes',
+  },
+  {
+    zone: 'Sussex Downs Villages',
+    coverage: ['Lewes', 'Hassocks'],
+    response: '30–40 minutes',
+  },
+];
+
+const getZoneStyles = (index: number) => {
+  const styles = [
+    {
+      border: 'border-l-green-500',
+      bg: 'bg-gradient-to-r from-green-50 to-white',
+      icon: 'text-green-600',
+      accent: 'bg-green-100',
+    },
+    {
+      border: 'border-l-blue-500',
+      bg: 'bg-gradient-to-r from-blue-50 to-white',
+      icon: 'text-blue-600',
+      accent: 'bg-blue-100',
+    },
+    {
+      border: 'border-l-blue-500',
+      bg: 'bg-gradient-to-r from-blue-50 to-white',
+      icon: 'text-blue-600',
+      accent: 'bg-blue-100',
+    },
+    {
+      border: 'border-l-gray-500',
+      bg: 'bg-gradient-to-r from-gray-50 to-white',
+      icon: 'text-gray-600',
+      accent: 'bg-gray-100',
+    },
+  ];
+  return styles[index];
+};
+---
+
+<section class='bg-white py-16'>
+  <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <div class='mb-12 text-center'>
+      <Text tag='h2' class='text-3xl font-bold md:text-4xl'>
+        Primary Coverage Areas
+      </Text>
+      <p class='mt-4 text-lg text-gray-600'>
+        Fast, reliable service across Brighton, Hove & Sussex
+      </p>
+    </div>
+
+    <div class='grid gap-6 md:grid-cols-2'>
+      {
+        serviceAreas.map((area, index) => {
+          const styles = getZoneStyles(index);
+          return (
+            <div
+              class={`group relative overflow-hidden rounded-xl border-l-4 ${styles.border} ${styles.bg} p-6 shadow-md transition-all hover:shadow-xl`}>
+              {/* Header */}
+              <div class='mb-4 flex items-start justify-between'>
+                <div class='flex items-center gap-3'>
+                  <div class={`rounded-lg ${styles.accent} p-2`}>
+                    <MapPinned class={`h-6 w-6 ${styles.icon}`} />
+                  </div>
+                  <div>
+                    <Text tag='h3' class='text-xl font-bold text-gray-900'>
+                      {area.zone}
+                    </Text>
+                    <div class='mt-1 flex items-center gap-2 text-sm text-gray-600'>
+                      <Clock class='h-4 w-4' />
+                      <span class='font-medium'>{area.response} response</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Coverage Areas */}
+              <div class='space-y-2'>
+                <p class='text-sm font-semibold text-gray-700'>
+                  Areas Covered:
+                </p>
+                <div class='flex flex-wrap gap-2'>
+                  {area.coverage.map(location => (
+                    <span class='inline-flex items-center gap-1.5 rounded-md bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 ring-inset'>
+                      <CheckCircle2 class={`h-3.5 w-3.5 ${styles.icon}`} />
+                      {location}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    {/* Info Footer */}
+    <div class='mt-8 rounded-lg bg-primary-50 p-6 text-center'>
+      <p class='text-sm text-gray-700'>
+        <strong>All areas receive the same quality service.</strong> Response times
+        may vary based on location and current availability.
+      </p>
+    </div>
+  </div>
+</section>

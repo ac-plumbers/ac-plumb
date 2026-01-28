@@ -9,7 +9,6 @@ import LogoCloud from '@/components/LogoCloud.astro';
 import HeaderVue from '@/components/global/Header.vue';
 import StickyCallButton from '@/components/global/StickyCallButton.vue';
 import Footer from '@/components/global/Footer.astro';
-import Footer1 from '@/components/global/Footer-1.astro';
 
 const {
   title,
@@ -54,8 +53,7 @@ const currentPath = Astro.url.pathname;
       class='mx-auto flex flex-col pt-32 transition-all duration-300'>
       <slot />
     </main>
-    <!-- <Footer /> -->
-    <Footer1 />
+    <Footer />
     <StickyCallButton client:load />
   </body>
 </html>

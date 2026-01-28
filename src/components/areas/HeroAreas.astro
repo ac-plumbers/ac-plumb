@@ -1,0 +1,122 @@
+---
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import {
+  Phone,
+  ArrowRight,
+  CircleCheck,
+  MapPin,
+  Shield,
+} from 'lucide-vue-next';
+import Text from '../fundations/elements/Text.astro';
+---
+
+<section
+  class='mt-24 bg-linear-to-br from-accent-400 to-white pt-16 pb-16 md:mt-28 md:pt-20 md:pb-20'>
+  <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <div class='grid items-center gap-12 lg:grid-cols-2'>
+      <div>
+        <Text tag='h1' variant='displayLG'>Areas We Serve</Text>
+        <Text tag='p' class='mt-6'>
+          Professional plumbing and heating services across Brighton, Hove and
+          surrounding areas with transparent pricing and reliable local service.
+        </Text>
+
+        <!-- Quick stats -->
+        <div class='mt-8 grid grid-cols-2 gap-4 sm:grid-cols-2'>
+          <div class='rounded-lg bg-white p-4 text-center shadow-sm'>
+            <div class='text-2xl font-bold text-primary-600'>11+</div>
+            <div class='text-sm text-gray-600'>Coverage Zones</div>
+          </div>
+          <div class='rounded-lg bg-white p-4 text-center shadow-sm'>
+            <div class='text-2xl font-bold text-primary-600'>100%</div>
+            <div class='text-sm text-gray-600'>Local Service</div>
+          </div>
+        </div>
+
+        <div class='mt-8 flex flex-col gap-4 sm:flex-row'>
+          <a
+            href={`tel:${BUSINESS_CONFIG.mobilePhone.replace(/\s+/g, '')}`}
+            class='inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-700'
+            aria-label={`Call ${BUSINESS_CONFIG.name} now`}>
+            <Phone class='h-5 w-5' />
+            Call {BUSINESS_CONFIG.mobilePhone}
+          </a>
+          <a
+            href='/contact-us'
+            class='inline-flex items-center justify-center gap-2 rounded-lg border border-primary-600 px-6 py-3 font-semibold text-primary-600 transition-colors hover:bg-primary-50'>
+            Get a Quote
+            <ArrowRight class='h-4 w-4' />
+          </a>
+        </div>
+
+        <div
+          class='mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600'>
+          <div class='flex items-center gap-2'>
+            <CircleCheck class='h-6 w-6 text-primary-600' />
+            No hidden travel fees
+          </div>
+          <div class='flex items-center gap-2'>
+            <CircleCheck class='h-6 w-6 text-primary-600' />
+            Free quotes & estimates
+          </div>
+        </div>
+      </div>
+
+      <div class='relative' data-bg='dark'>
+        <div class='overflow-hidden rounded-2xl bg-white shadow-xl'>
+          <div
+            class='bg-linear-to-r from-primary-600 to-primary-700 p-6 text-white'>
+            <div class='flex items-center gap-3'>
+              <MapPin class='h-6 w-6' />
+              <Text tag='h3' class='text-lg font-bold'>Coverage Areas</Text>
+            </div>
+            <p class='mt-2 text-sm text-primary-100'>
+              Professional service across Sussex
+            </p>
+          </div>
+
+          <div class='space-y-1 p-6'>
+            <div
+              class='group cursor-pointer rounded-lg bg-green-50 p-4 transition-all hover:bg-green-100'>
+              <div class='flex items-center gap-3'>
+                <div class='h-3 w-3 rounded-full bg-green-500'></div>
+                <div>
+                  <div class='font-semibold text-gray-900'>Brighton & Hove</div>
+                  <div class='text-sm text-gray-600'>
+                    Our primary service area
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class='group cursor-pointer rounded-lg bg-blue-50 p-4 transition-all hover:bg-blue-100'>
+              <div class='flex items-center gap-3'>
+                <div class='h-3 w-3 rounded-full bg-blue-500'></div>
+                <div>
+                  <div class='font-semibold text-gray-900'>Coastal Areas</div>
+                  <div class='text-sm text-gray-600'>
+                    East & West Sussex coast
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class='group cursor-pointer rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100'>
+              <div class='flex items-center gap-3'>
+                <div class='h-3 w-3 rounded-full bg-gray-500'></div>
+                <div>
+                  <div class='font-semibold text-gray-900'>Sussex Downs</div>
+                  <div class='text-sm text-gray-600'>
+                    Nearby towns & villages
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

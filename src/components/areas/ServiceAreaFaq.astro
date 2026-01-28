@@ -1,0 +1,81 @@
+---
+import { ArrowRight } from 'lucide-vue-next';
+import Text from '../fundations/elements/Text.astro';
+---
+
+<section class='bg-white py-16'>
+  <div class='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8'>
+    <div class='mb-12 text-center'>
+      <Text tag='h2' class='font-bold md:text-4xl'> Service Area FAQs </Text>
+    </div>
+
+    <div class='space-y-6'>
+      <details class='group rounded-lg border border-gray-200 bg-gray-50 p-6'>
+        <summary
+          class='flex cursor-pointer list-none items-center justify-between gap-4'>
+          <span class='text-lg font-semibold text-gray-900'>
+            Do you charge extra for travel in Brighton & Hove?
+          </span>
+          <ArrowRight
+            class='h-5 w-5 text-gray-400 transition-transform group-open:rotate-90'
+          />
+        </summary>
+        <p class='mt-4 text-gray-700'>
+          No additional travel fees within our core Brighton & Hove coverage
+          areas. For extended areas, we'll confirm any small surcharge before
+          booking—always transparent, no surprises.
+        </p>
+      </details>
+
+      <details class='group rounded-lg border border-gray-200 bg-gray-50 p-6'>
+        <summary
+          class='flex cursor-pointer list-none items-center justify-between gap-4'>
+          <span class='text-lg font-semibold text-gray-900'>
+            Do you work evenings and weekends?
+          </span>
+          <ArrowRight
+            class='h-5 w-5 text-gray-400 transition-transform group-open:rotate-90'
+          />
+        </summary>
+        <p class='mt-4 text-gray-700'>
+          Yes, we offer flexible appointments for planned work, including
+          evenings and weekends to suit your schedule.
+        </p>
+      </details>
+
+      <details class='group rounded-lg border border-gray-200 bg-gray-50 p-6'>
+        <summary
+          class='flex cursor-pointer list-none items-center justify-between gap-4'>
+          <span class='text-lg font-semibold text-gray-900'>
+            What if my area isn't listed?
+          </span>
+          <ArrowRight
+            class='h-5 w-5 text-gray-400 transition-transform group-open:rotate-90'
+          />
+        </summary>
+        <p class='mt-4 text-gray-700'>
+          Get in touch with your postcode. If we're nearby or have engineer
+          capacity in your area, we'll try to help or recommend a trusted
+          partner from our network.
+        </p>
+      </details>
+
+      <details class='group rounded-lg border border-gray-200 bg-gray-50 p-6'>
+        <summary
+          class='flex cursor-pointer list-none items-center justify-between gap-4'>
+          <span class='text-lg font-semibold text-gray-900'>
+            What services do you offer in all areas?
+          </span>
+          <ArrowRight
+            class='h-5 w-5 text-gray-400 transition-transform group-open:rotate-90'
+          />
+        </summary>
+        <p class='mt-4 text-gray-700'>
+          We offer the full range of plumbing and heating services across all
+          our coverage areas, including boiler installation, repairs, heating
+          systems, and gas safety checks.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
