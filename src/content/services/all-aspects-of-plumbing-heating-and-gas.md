@@ -9,6 +9,13 @@ sortedOrder: 2
 image: /images/services/radiator-valve-installation-brass-fitting-hove.jpeg
 alt: Radiator valve installation with brass fittings and tools beside cast iron
   radiator on wood floor
+gallery:
+  - src: /images/services/radiator-valve-installation-brass-fitting-hove.jpeg
+    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
+    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
+    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
 tags:
   - plumbing
   - heating

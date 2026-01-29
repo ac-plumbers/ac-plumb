@@ -1,4 +1,4 @@
-// src/content/config.ts
+
 import { defineCollection, z } from "astro:content";
 
 const services = defineCollection({
@@ -54,49 +54,15 @@ const services = defineCollection({
         })
       )
       .default([]),
+
+    // Add gallery field
+    gallery: z
+      .array(
+        z.object({
+          src: z.string(),
+          alt: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
-
-const areas = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    image: z.string().optional(),
-    sortOrder: z.number().optional().default(999),
-    featured: z.boolean().optional().default(false),
-    services: z.array(z.string()).optional(),
-    postcode: z.string().optional(),
-    responseTime: z.string().optional(),
-    level: z.enum(["Priority", "Standard", "Extended"]).optional(),
-    area: z.string().optional(),
-    region: z.string().optional().default("East Sussex"),
-    neighborhoods: z.array(z.string()).optional(),
-    testimonials: z.array(z.string()).optional(),
-    faqs: z.array(z.object({
-      question: z.string(),
-      answer: z.string()
-    })).optional(),
-    specificContent: z.string().optional()
-  })
-});
-
-const legal = defineCollection({
-  type: "content",
-  schema: z.object({
-    page: z.string(),
-    pubDate: z.date(),
-    title: z.string(),
-    description: z.string(),
-    keywords: z.string().optional(),
-    author: z.string().optional(),
-    datePublished: z.string().optional(),
-    dateModified: z.string().optional(),
-  }),
-});
-
-export const collections = {
-  services,
-  areas,
-  legal,
-};

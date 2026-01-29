@@ -7,6 +7,13 @@ image: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
 alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
 imageHero: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
 altHero: "Viessmann boiler installation with labelled copper pipework and Altecnic pressure gauge inside utility unit"
+gallery:
+  - src: /images/services/radiator-valve-installation-brass-fitting-hove.jpeg
+    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
+    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
+    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
 tags:
   [
     "gas",

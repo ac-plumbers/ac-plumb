@@ -31,4 +31,8 @@ export type ServiceFrontmatter = {
   features?: ServiceFeature[];
   process?: ServiceStep[];
   faqs?: ServiceFaq[];
+  gallery?: Array<{
+    src: string;
+    alt: string;
+  }>;
 };

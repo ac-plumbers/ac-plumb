@@ -1,0 +1,45 @@
+---
+import Text from '../fundations/elements/Text.astro';
+
+type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+type Props = {
+  images?: GalleryImage[];
+  title: string;
+};
+
+const { images, title } = Astro.props;
+---
+
+{
+  images && images.length > 0 && (
+    <section aria-labelledby='gallery-heading' class='bg-neutral-50 py-16'>
+      <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+        <Text
+          tag='h2'
+          variant='displayXL'
+          id='gallery-heading'
+          class='mb-8 text-center font-bold text-primary-900'>
+          Our Work
+        </Text>
+        <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {images.slice(0, 3).map(img => (
+            <div class='overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105'>
+              <img
+                src={img.src}
+                alt={img.alt}
+                width='500'
+                height='400'
+                class='h-64 w-full object-cover'
+                loading='lazy'
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
