@@ -110,6 +110,13 @@
                     Gas Boiler Installation
                   </a>
                   <a
+                    href="/services/boiler-servicing-and-repair"
+                    class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
+                    role="menuitem"
+                  >
+                    Boiler Servicing & Repairs
+                  </a>
+                  <a
                     href="/services/all-aspects-of-plumbing-heating-and-gas"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
