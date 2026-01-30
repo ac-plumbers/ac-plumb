@@ -16,6 +16,7 @@ gallery:
     title: "Inside a Viessmann Boiler – High-Efficiency Components Installed by AC Plumbers Ltd. Brighton"
   - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
     alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+    title: "Precision Boiler Installation with Viessmann Controls and Magnetic Filter – AC Plumbers Ltd. Brighton"
 tags:
   [
     "gas",
