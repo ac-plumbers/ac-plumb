@@ -1,5 +1,6 @@
 
 import { defineCollection, z } from "astro:content";
+import { title } from "process";
 
 const services = defineCollection({
   type: "content",
@@ -61,8 +62,13 @@ const services = defineCollection({
         z.object({
           src: z.string(),
           alt: z.string(),
+          title: z.string().optional(),
         })
       )
       .optional(),
   }),
 });
+
+export const collections = {
+  services,
+};

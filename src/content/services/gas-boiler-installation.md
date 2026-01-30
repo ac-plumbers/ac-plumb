@@ -8,10 +8,12 @@ alt: "Close-up of Viessmann boiler controls and copper pipe installation with ma
 imageHero: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
 altHero: "Viessmann boiler installation with labelled copper pipework and Altecnic pressure gauge inside utility unit"
 gallery:
-  - src: /images/services/radiator-valve-installation-brass-fitting-hove.jpeg
-    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
-  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
-    alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+  - src: "/images/services/vaillant-boiler-installation-copper-pipes-brighton.jpeg"
+    alt: "Vaillant boiler installation with copper pipework and pressure gauge in Brighton home"
+    title: "Vaillant Boiler Installed with Filter and Pressure Control – AC Plumbers Ltd. Brighton"
+  - src: "/images/services/viessmann-boiler-internal-view-components-brighton.jpeg"
+    alt: "Internal view of Viessmann boiler showing expansion vessel and heat exchanger"
+    title: "Inside a Viessmann Boiler – High-Efficiency Components Installed by AC Plumbers Ltd. Brighton"
   - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
     alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
 tags:
