@@ -1,6 +1,6 @@
 ---
 title: Boiler Servicing and Repair
-description: Keep your boiler running smoothly with our expert servicing and repair services. At AC Plumbers Ltd., we specialise in maintaining and repairing gas boilers to ensure your heating and hot water systems are reliable and efficient. Our Gas Safe registered engineers provide thorough inspections, timely repairs, and regular maintenance to extend the lifespan of your boiler and prevent unexpected breakdowns. Serving homes across Brighton & Hove and the surrounding areas, we are committed to delivering high-quality service and peace of mind.
+description: Regular boiler servicing is essential for keeping your heating system safe, efficient, and reliable. An annual service helps to reduce the risk of unexpected breakdowns, improve energy efficiency, and extend the lifespan of your boiler — saving you money in the long run.At AC Plumbers Ltd., we provide professional boiler servicing across Brighton & Hove and the surrounding areas. Our Gas Safe registered engineers carry out comprehensive checks on all major boiler brands, ensuring your system is operating safely and in line with manufacturer guidelines.
 price: 0
 sortedOrder: 2
 image: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
@@ -39,6 +39,9 @@ specialties:
   - "Smart thermostat integration"
   - "PowerFlushing included"
   - "Building regulations compliance"
+paragraphs:
+  - heading: "Comprehensive Boiler Servicing"
+    content: "Our boiler servicing includes a thorough inspection and cleaning of all key components, ensuring your system operates safely and efficiently. We check for gas leaks, test the flue, and verify that all safety devices are functioning correctly."
 features:
   - title: "High Efficiency"
     description: "Our gas boilers are designed for maximum efficiency, helping you save on energy bills."

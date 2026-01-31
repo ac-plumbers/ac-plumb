@@ -87,7 +87,7 @@ const process: ServiceStep[] = service.process || [];
   <!-- Main Service Content -->
   <section
     id='main-content'
-    class='mx-auto mt-12 max-w-7xl bg-background-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
+    class='max-w-8xl mx-auto mt-12 bg-background-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
     aria-label='Service details'>
     <div class='grid grid-cols-1 gap-8 lg:grid-cols-3'>
       <!-- Main Content -->
@@ -118,45 +118,96 @@ const process: ServiceStep[] = service.process || [];
                 variant='displayMD'
                 id='why-choose-us-heading'
                 class='mb-3 font-semibold text-primary-900'>
-                Why Choose Us?
+                {service.whyChooseUsHeading || 'Why Choose Us'}
               </Text>
               <ul class='space-y-2'>
                 {
                   benefits.map((benefit: string) => (
-                    <li class='flex items-center text-neutral-700'>
-                      <svg
-                        class='mr-2 h-5 w-5 text-accent-500'
-                        fill='currentColor'
-                        viewBox='0 0 20 20'
-                        aria-hidden='true'
-                        focusable='false'>
-                        <path
-                          fill-rule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clip-rule='evenodd'
-                        />
-                      </svg>
-                      {benefit}
+                    <li class='flex items-start gap-2 text-neutral-700'>
+                      <span class='pt-1.5 sm:pt-0'>
+                        <svg
+                          class='h-5 w-5 shrink-0 text-accent-500'
+                          fill='currentColor'
+                          viewBox='0 0 20 20'
+                          aria-hidden='true'
+                          focusable='false'>
+                          <path
+                            fill-rule='evenodd'
+                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                            clip-rule='evenodd'
+                          />
+                        </svg>
+                      </span>
+                      <span class='wrap-break-word'>{benefit}</span>
                     </li>
                   ))
                 }
               </ul>
             </section>
-
-            <section
-              aria-labelledby='our-specialties-heading'
-              class='rounded-lg bg-accent-50 p-6'>
-              <Text
-                tag='h3'
-                variant='displayMD'
-                id='our-specialties-heading'
-                class='mb-3 font-semibold text-primary-900'>
-                Our Specialties
-              </Text>
-              <ul class='space-y-1 text-neutral-700'>
-                {specialties.map((specialty: string) => <li>• {specialty}</li>)}
-              </ul>
-            </section>
+            {
+              Array.isArray(service.paragraphs) &&
+              service.paragraphs.length > 0 ? (
+                <section
+                  aria-labelledby='service-paragraphs-heading'
+                  class='rounded-lg bg-accent-50 p-6'>
+                  <Text
+                    tag='h3'
+                    variant='displayMD'
+                    id='service-paragraphs-heading'
+                    class='mb-3 font-semibold text-primary-900'>
+                    Service Details
+                  </Text>
+                  <div class='space-y-4 text-neutral-700'>
+                    {service.paragraphs.map(
+                      (para: { heading?: string; content: string }) => (
+                        <div>
+                          {para.heading && (
+                            <Text
+                              tag='h4'
+                              variant='displayBASE'
+                              class='mb-1 font-semibold text-primary-800'>
+                              {para.heading}
+                            </Text>
+                          )}
+                          <p>{para.content}</p>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </section>
+              ) : Array.isArray(specialties) && specialties.length > 0 ? (
+                <section
+                  aria-labelledby='our-specialties-heading'
+                  class='rounded-lg bg-accent-50 p-6'>
+                  <Text
+                    tag='h3'
+                    variant='displayMD'
+                    id='our-specialties-heading'
+                    class='mb-3 font-semibold text-primary-900'>
+                    Our Specialties
+                  </Text>
+                  <ul class='space-y-1 text-neutral-700'>
+                    {specialties.map((specialty: string) => (
+                      <li>• {specialty}</li>
+                    ))}
+                  </ul>
+                </section>
+              ) : typeof specialties === 'string' &&
+                specialties.trim() !== '' ? (
+                <section
+                  aria-labelledby='our-specialties-heading'
+                  class='rounded-lg bg-accent-50 p-6'>
+                  <Text
+                    tag='h3'
+                    variant='displayMD'
+                    id='our-specialties-heading'
+                    class='mb-3 font-semibold text-primary-900'>
+                    Our Specialties
+                  </Text>
+                  <p class='text-neutral-700'>{specialties}</p>
+                </section>
+              ) : null
+            }
           </div>
         </article>
       </section>

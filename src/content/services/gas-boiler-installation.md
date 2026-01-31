@@ -1,6 +1,6 @@
 ---
 title: Boiler Installations
-description: Time for a new boiler? f your boiler is starting to show its age or worse, has already let you down it’s essential to find a trusted, efficient boiler installer to get your heating and hot water back up and running.At AC Plumbers Ltd., we specialise in installing new gas boilers and central heating systems for homes across Brighton & Hove and the surrounding areas.We’ll help you choose the most cost-effective and energy-efficient boiler for your home, helping you save on energy bills while keeping your heating and hot water running reliably all year round. Regular maintenance and inspections are also recommended to prolong the lifespan of the boiler and to ensure it continues to function safely and effectively. Whether for new builds or replacing old systems, expert gas boiler installation is key to reliable heating solutions.
+description: Time for a new boiler? If your boiler is starting to show its age or worse, has already let you down it’s essential to find a trusted, efficient boiler installer to get your heating and hot water back up and running. At AC Plumbers Ltd., we specialise in installing new gas boilers and central heating systems for homes across Brighton & Hove and the surrounding areas. We’ll help you choose the most cost-effective and energy-efficient boiler for your home, helping you save on energy bills while keeping your heating and hot water running reliably all year round. Regular maintenance and inspections are also recommended to prolong the lifespan of the boiler and to ensure it continues to function safely and effectively. Whether for new builds or replacing old systems, expert gas boiler installation is key to reliable heating solutions.
 price: 0
 sortedOrder: 1
 image: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
@@ -30,10 +30,11 @@ featured: true
 category: Heating
 intro: "Here at AC Plumbers Ltd., we provide brand-new boiler installations across Brighton & Hove and the surrounding areas, supplying and fitting the perfect boiler for your home, installed by our expert engineers. "
 benefits:
-  - "Gas Safe registered engineers"
-  - "10-year manufacturer warranties"
-  - "Energy efficiency ratings up to A++"
-  - "Same-day emergency replacements"
+  - "Full inspection of the boiler and heating system"
+  - "Safety checks on key components"
+  - "Testing for leaks, pressure issues, and correct operation"
+  - "Cleaning of essential parts where required"
+  - "Performance and efficiency checks"
 specialties:
   - "Combi, system & conventional boilers"
   - "Smart thermostat integration"
