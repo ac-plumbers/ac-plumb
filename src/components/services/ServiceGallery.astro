@@ -11,9 +11,10 @@ type Props = {
   images?: GalleryImage[];
   title: string;
   alt: string;
+  paragraph?: string;
 };
 
-const { images, title, alt } = Astro.props;
+const { images, title, alt, paragraph } = Astro.props;
 ---
 
 {
@@ -42,6 +43,14 @@ const { images, title, alt } = Astro.props;
             </div>
           ))}
         </div>
+        {paragraph && (
+          <Text
+            tag='p'
+            variant='textBase'
+            class='mt-6 max-w-3xl text-neutral-600'>
+            {paragraph}
+          </Text>
+        )}
       </div>
     </section>
   )

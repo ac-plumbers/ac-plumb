@@ -155,9 +155,14 @@ const process: ServiceStep[] = service.process || [];
                 class='mb-3 font-semibold text-primary-900'>
                 Our Specialties
               </Text>
-              <ul class='space-y-1 text-neutral-700'>
-                {specialties.map((specialty: string) => <li>• {specialty}</li>)}
-              </ul>
+              <div class='overflow-hidden rounded-lg shadow-sm'>
+                <img
+                  src={service.imageHero ?? service.image ?? ''}
+                  alt={service.altHero ?? service.alt ?? `${service.title} service`}
+                  class='h-56 w-full object-cover'
+                  loading='lazy'
+                />
+              </div>
             </section>
           </div>
         </article>
@@ -218,7 +223,11 @@ const process: ServiceStep[] = service.process || [];
     </div>
   </section>
   <!-- ✨ NEW: Service Image Gallery -->
-  <ServiceGallery images={page.data.gallery} title={page.data.title} />
+  <ServiceGallery
+    images={page.data.gallery}
+    title={page.data.title}
+    paragraph={service.intro || service.description || ''}
+  />
 
   <!-- Key Features/Benefits -->
   <section aria-labelledby='features-heading'>
