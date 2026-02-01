@@ -110,7 +110,7 @@
                     Gas Boiler Installation
                   </a>
                   <a
-                    href="/services/boiler-servicing-and-repair"
+                    href="/services/gas-boiler-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >

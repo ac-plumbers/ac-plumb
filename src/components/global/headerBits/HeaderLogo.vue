@@ -2,7 +2,7 @@
   <a href="/" class="default-link ml-4 inline-flex shrink-0 items-center p-2">
     <span class="sr-only">AC Plumbers Ltd.</span>
     <img
-      src="/images/logo/ac-plumbers-logo-brighton.png"
+      src="/images/logo/ACPL-Logo-Reversed-sp.svg"
       alt="AC Plumbers Ltd logo with water and flame icons"
       width="300"
       height="300"
