@@ -148,18 +148,20 @@ const process: ServiceStep[] = service.process || [];
             <section
               aria-labelledby='our-specialties-heading'
               class='rounded-lg bg-accent-50 p-6'>
-              <Text
+              <!-- <Text
                 tag='h3'
                 variant='displayMD'
                 id='our-specialties-heading'
                 class='mb-3 font-semibold text-primary-900'>
                 Our Specialties
-              </Text>
-              <div class='overflow-hidden rounded-lg shadow-sm'>
+              </Text> -->
+              <div class='h-64 overflow-hidden rounded-lg shadow-sm'>
                 <img
                   src={service.imageHero ?? service.image ?? ''}
-                  alt={service.altHero ?? service.alt ?? `${service.title} service`}
-                  class='h-56 w-full object-cover'
+                  alt={service.altHero ??
+                    service.alt ??
+                    `${service.title} service`}
+                  class='block h-full w-full object-cover'
                   loading='lazy'
                 />
               </div>
