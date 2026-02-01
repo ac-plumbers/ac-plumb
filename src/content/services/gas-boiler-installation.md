@@ -5,8 +5,10 @@ price: 0
 sortedOrder: 1
 image: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
 alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
+titleImage: "Precision Boiler Installation with Viessmann Controls and Magnetic Filter – AC Plumbers Ltd. Brighton"
 imageHero: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
 altHero: "Viessmann boiler installation with labelled copper pipework and Altecnic pressure gauge inside utility unit"
+titleImageHero: "Viessmann Boiler Installation in Utility Room – AC Plumbers Ltd. Brighton"
 gallery:
   - src: "/images/services/vaillant-boiler-installation-copper-pipes-brighton.jpeg"
     alt: "Vaillant boiler installation with copper pipework and pressure gauge in Brighton home"

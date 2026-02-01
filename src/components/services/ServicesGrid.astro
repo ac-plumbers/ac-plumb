@@ -21,15 +21,16 @@ const sortedServices = [...services].sort(
         class="block h-full"
         aria-label={`Learn more about ${service.data.title}`}>
 
-        {service.data.image && (
+        {(service.data.imageHero || service.data.image) && (
           <div class="aspect-3/2 overflow-hidden bg-neutral-100">
             <img
-              src={service.data.image}
-              alt={service.data.alt || service.data.title}
+              src={service.data.imageHero || service.data.image}
+              alt={service.data.altHero || service.data.alt || service.data.title}
               class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               loading="lazy"
               width="600"
               height="400"
+              title={service.data.titleImageHero || service.data.titleImage || service.data.title}
             />
           </div>
         )}
