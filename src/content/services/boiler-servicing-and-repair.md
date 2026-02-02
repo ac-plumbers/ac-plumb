@@ -6,8 +6,9 @@ price: 0
 sortedOrder: 2
 image: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
 alt: "Blue gas boiler burner flame during safety inspection"
-imageHero: "/images/services/gas-boiler-installation.jpeg"
-altHero: "Engineer servicing a wall‑mounted gas boiler in a utility room"
+imageHero: "/images/services/combi-boiler-servicing-maintenance-visit-tools-brighton-ac-plumbers.png"
+altHero: "Combi boiler service in progress with casing open and tools ready for maintenance checks"
+titleImageHero: "Full boiler servicing visit with safety checks and performance testing"
 gallery:
   - src: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
     alt: "Blue gas boiler burner flame during safety inspection"
