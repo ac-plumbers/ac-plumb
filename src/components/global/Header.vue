@@ -110,7 +110,7 @@
                     Gas Boiler Installation
                   </a>
                   <a
-                    href="/services/gas-boiler-installation"
+                    href="/services/boiler-servicing-and-repair"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
@@ -301,17 +301,17 @@
                   Gas Boiler Installation
                 </a>
                 <a
-                  href="/services/all-aspects-of-plumbing-heating-and-gas"
+                  href="/services/boiler-servicing-and-repair"
                   :class="[
                     '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
-                    isActiveLink('/services/plumbing')
+                    isActiveLink('/services/boiler-servicing-and-repair')
                       ? 'bg-primary-600 text-background-100'
                       : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
                   ]"
                   role="listitem"
                   @click="closeMenu"
                 >
-                  Plumbing, Heating & Gas
+                  Boiler Servicing & Repair
                 </a>
 
                 <a
