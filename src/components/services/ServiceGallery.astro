@@ -43,14 +43,10 @@ const { images, title, alt, paragraph } = Astro.props;
             </div>
           ))}
         </div>
-        {paragraph && (
-          <Text
-            tag='p'
-            variant='textBase'
-            class='mt-6 max-w-3xl text-neutral-600'>
-            {paragraph}
-          </Text>
-        )}
+        <Text tag='p' variant='textLG' class='mt-6 max-w-3xl text-neutral-600'>
+          {paragraph ||
+            'See examples of our recent work and the quality of our installations below.'}
+        </Text>
       </div>
     </section>
   )

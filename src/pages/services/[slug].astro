@@ -60,6 +60,7 @@ const relatedServices = allServices
 
 const intro = service.intro || '';
 const description = service.description || '';
+const paragraph = service.paragraph || '';
 const benefits = service.benefits || [];
 const specialties = service.specialties || [];
 const steps = service.process || [];
@@ -231,7 +232,7 @@ const process: ServiceStep[] = service.process || [];
   <ServiceGallery
     images={page.data.gallery}
     title={page.data.title}
-    paragraph={service.intro || service.description || ''}
+    paragraph={service.paragraph || ''}
   />
 
   <!-- Key Features/Benefits -->
