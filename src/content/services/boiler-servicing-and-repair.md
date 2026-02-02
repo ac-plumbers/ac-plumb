@@ -1,6 +1,7 @@
 ---
 title: Boiler Servicing & Repair
-description: Keep your heating running safely with professional boiler servicing and fast repair callouts across Brighton & Hove. We inspect, clean, and test your system to maintain efficiency, reduce breakdowns, and ensure safe operation year‑round.
+description: "Regular boiler servicing is essential for keeping your heating system safe, efficient, and reliable. An annual service helps to reduce the risk of unexpected breakdowns, improve energy efficiency, and extend the lifespan of your boiler — saving you money in the long run.At AC Plumbers, we provide professional boiler servicing across Brighton & Hove and the surrounding areas. Our Gas Safe registered engineers carry out comprehensive checks on all major boiler brands, ensuring your system is operating safely and in line with manufacturer guidelines."
+paragraph: "Regular servicing also helps to maintain your manufacturer’s warranty and ensures your boiler complies with current safety standards.Whether your boiler is brand new or several years old, our experienced team will make sure it’s running at its best, giving you complete peace of mind throughout the year.Contact AC Plumbers Ltd. today to book your annual boiler service in Brighton & Hove.When your boiler breaks down, you need a fast and reliable repair service you can trust. At AC Plumbers Ltd., our Gas Safe registered engineers provide expert boiler repair services across Brighton & Hove and the surrounding areas.Whether you’re dealing with a complete boiler breakdown, unusual noises, loss of heating, or hot water issues, our experienced team is ready to diagnose and fix the problem quickly and efficiently."
 price: 0
 sortedOrder: 2
 image: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
@@ -21,14 +22,15 @@ tags:
   - "heating"
   - "residential"
   - "commercial"
-featured: false
+featured: true
 category: Heating
-intro: "We provide thorough boiler servicing and reliable repair callouts to keep your heating safe and efficient. From annual servicing to urgent fixes, our Gas Safe engineers diagnose issues quickly and restore comfort with minimal disruption."
+intro: "Fast, reliable boiler services & repairs across Brighton. Our Gas Safe registered engineers are on hand to diagnose and fix boiler breakdowns quickly and efficiently, restoring your heating and hot water with minimal disruption."
 benefits:
-  - "Gas Safe registered engineers"
-  - "Improved energy efficiency"
-  - "Reduced risk of breakdowns"
-  - "Safety and compliance checks"
+  - "Full inspection of the boiler and heating system"
+  - "Safety checks on key components"
+  - "Testing for leaks, pressure issues, and correct operation"
+  - "Cleaning of essential parts where required"
+  - "Performance and efficiency checks"
 specialties:
   - "Annual boiler servicing"
   - "Fault diagnosis and repair"
