@@ -16,8 +16,9 @@ gallery:
   - src: "/images/services/boiler-condensate-trap-service-inspection-brighton-ac-plumbers.jpg"
     alt: "Boiler condensate trap and internal components during servicing inspection"
     title: "Boiler condensate trap check during annual service in Brighton & Hove"
-  - src: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
-    alt: "Boiler installation with labelled copper pipework and pressure gauge"
+  - src: "/images/services/boiler-repair-parts-fan-gaskets-seals-prep-ac-plumbers.jpg"
+    alt: "Boiler repair parts laid out including fan assembly, seals, and gaskets before refit"
+    title: "Boiler component replacement parts prepared for repair and servicing"
 tags:
   - "gas"
   - "boiler servicing"
