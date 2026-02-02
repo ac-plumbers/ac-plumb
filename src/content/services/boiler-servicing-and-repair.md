@@ -10,10 +10,12 @@ imageHero: "/images/services/combi-boiler-servicing-maintenance-visit-tools-brig
 altHero: "Combi boiler service in progress with casing open and tools ready for maintenance checks"
 titleImageHero: "Full boiler servicing visit with safety checks and performance testing"
 gallery:
-  - src: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
-    alt: "Blue gas boiler burner flame during safety inspection"
-  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
-    alt: "Close‑up of boiler controls and copper pipework"
+  - src: "/images/services/boiler-pcb-control-board-fault-diagnosis-brighton-ac-plumbers.jpg"
+    alt: "Boiler control circuit board with wiring connections during repair diagnostics"
+    title: "Boiler Control Board Fault Diagnosis – AC Plumbers Ltd. Brighton"
+  - src: "/images/services/boiler-condensate-trap-service-inspection-brighton-ac-plumbers.jpg"
+    alt: "Boiler condensate trap and internal components during servicing inspection"
+    title: "Boiler condensate trap check during annual service in Brighton & Hove"
   - src: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
     alt: "Boiler installation with labelled copper pipework and pressure gauge"
 tags:
