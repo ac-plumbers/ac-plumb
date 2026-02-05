@@ -4,8 +4,8 @@ description: "Regular boiler servicing is essential for keeping your heating sys
 paragraph: "Regular servicing also helps to maintain your manufacturer’s warranty and ensures your boiler complies with current safety standards.Whether your boiler is brand new or several years old, our experienced team will make sure it’s running at its best, giving you complete peace of mind throughout the year.Contact AC Plumbers Ltd. today to book your annual boiler service in Brighton & Hove.When your boiler breaks down, you need a fast and reliable repair service you can trust. At AC Plumbers Ltd., our Gas Safe registered engineers provide expert boiler repair services across Brighton & Hove and the surrounding areas.Whether you’re dealing with a complete boiler breakdown, unusual noises, loss of heating, or hot water issues, our experienced team is ready to diagnose and fix the problem quickly and efficiently."
 price: 0
 sortedOrder: 2
-image: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
-alt: "Blue gas boiler burner flame during safety inspection"
+image: "/images/services/combi-boiler-servicing-maintenance-visit-tools-brighton-ac-plumbers.png"
+alt: "Combi boiler service in progress with casing open and tools ready for maintenance checks"
 imageHero: "/images/services/combi-boiler-servicing-maintenance-visit-tools-brighton-ac-plumbers.png"
 altHero: "Combi boiler service in progress with casing open and tools ready for maintenance checks"
 titleImageHero: "Full boiler servicing visit with safety checks and performance testing"
