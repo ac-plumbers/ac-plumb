@@ -157,15 +157,11 @@ const process: ServiceStep[] = service.process || [];
               </Text> -->
               <div class='h-64 overflow-hidden rounded-lg shadow-sm'>
                 <img
-                  src={service.imageHero ?? service.image ?? ''}
-                  alt={service.altHero ??
-                    service.alt ??
-                    `${service.title} service`}
+                  src={service.image ?? ''}
+                  alt={service.alt ?? `${service.title} service`}
                   class='block h-full w-full object-cover'
                   loading='lazy'
-                  title={service.titleImageHero ??
-                    service.titleImage ??
-                    service.title}
+                  title={service.titleImage ?? service.title}
                 />
               </div>
             </section>

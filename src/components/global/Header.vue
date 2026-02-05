@@ -121,14 +121,14 @@
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    Plumbing, Heating & Gas
+                    Plumbing
                   </a>
                   <a
                     href="/services/central-heating-installation"
                     class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600"
                     role="menuitem"
                   >
-                    Central Heating Installation
+                    Heating
                   </a>
                   <!-- Separator with category label -->
                   <div class="my-1 border-t border-gray-200"></div>
@@ -313,6 +313,21 @@
                 >
                   Boiler Servicing & Repair
                 </a>
+                <a
+                  href="/services/all-aspects-of-plumbing-heating-and-gas"
+                  :class="[
+                    '-mx-3 block rounded-lg px-3 py-2 pl-6 text-sm focus:outline-none',
+                    isActiveLink(
+                      '/services/all-aspects-of-plumbing-heating-and-gas',
+                    )
+                      ? 'bg-primary-600 text-background-100'
+                      : 'text-gray-600 hover:bg-accent-500/10 hover:text-primary-600',
+                  ]"
+                  role="listitem"
+                  @click="closeMenu"
+                >
+                  Plumbing
+                </a>
 
                 <a
                   href="/services/central-heating-installation"
@@ -325,7 +340,7 @@
                   role="listitem"
                   @click="closeMenu"
                 >
-                  Central Heating Installation
+                  Heating
                 </a>
                 <!-- Separator -->
                 <div class="mx-3 my-2 border-t border-gray-200"></div>
