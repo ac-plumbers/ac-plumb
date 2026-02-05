@@ -1,18 +1,36 @@
 ---
 title: Gas safety checks (CP12) and Gas Safety Certificates
-description: Gas safety checks (CP12) are essential for ensuring the safe operation of gas appliances and installations. These checks are required by law for landlords and are crucial for preventing gas leaks, explosions, and carbon monoxide poisoning. A Gas Safety Certificate is issued after a qualified engineer conducts a thorough inspection of all gas appliances, flues, and pipework. This certificate confirms that the appliances are safe to use and comply with safety regulations. Regular gas safety checks help maintain the integrity of gas systems, ensuring the safety of occupants and compliance with legal requirements. It is recommended that these checks be performed annually to ensure ongoing safety and reliability.
+description: A Gas Safety Certificate (also called a CP12) is an essential document that confirms your gas appliances, fittings, and flues have been inspected and are safe to use. Whether you’re a homeowner or a landlord, having a valid certificate is not just good practice, it’s a legal requirement in the UK for rental properties.As a landlord, you have duties under the Gas Safety Regulations to arrange maintenance by a Gas Safe registered engineer for all pipe work, appliances and flues, which you own and have provided for your tenants use.You must also arrange for an annual gas safety check to be carried out every 12 months by a Gas Safe registered engineer. Our Gas Safe registered engineers provide a full range of domestic gas services across Brighton & Hove and the surrounding areas.
+paragraph: All work is carried out with safety, efficiency, and compliance as our top priority, giving you complete peace of mind.
 price: 0
-sortedOrder: 6
+sortedOrder: 5
 image: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
 alt: "Gas boiler burner with blue flames during inspection – efficient combustion by AC Plumbers Ltd. Brighton"
+imageHero: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
+altHero: "Gas boiler burner with blue flames during inspection – efficient combustion by AC Plumbers Ltd. Brighton"
+titleImageHero: "Efficient Boiler Combustion – Blue Flame Inspection by AC Plumbers Ltd. Brighton"
+gallery:
+  - src: "/images/services/gas-boiler-burner-blue-flame-repair-servicing-brighton.jpg"
+    alt: "Gas boiler burner with blue flame and ignition electrodes during operation."
+    title: "Gas boiler burner with blue flame and ignition electrodes during operation."
+  - src: "/images/services/viessmann-gas-boiler-burner-brighton.jpg"
+    alt: "Close-up view of a Viessmann gas boiler burner with blue flame inside the combustion chamber, showing advanced heating technology."
+    title: "Viessmann Gas Boiler Burner Technology – Efficient Heating in Brighton | AC Plumbers Ltd."
+  - src: "/images/services/boiler-repair-parts-fan-gaskets-seals-prep-ac-plumbers.jpg"
+    alt: "Boiler repair parts laid out including fan assembly, seals, and gaskets before refit"
+    title: "Boiler component replacement parts prepared for repair and servicing"
 tags: ["gas safety checks", "CP12"]
 featured: true
 category: Safety
-intro: "Gas safety checks (CP12) are vital for ensuring the safety and efficiency of gas appliances. Our expert team conducts thorough inspections to identify any potential hazards and ensure compliance with safety regulations."
+intro: "All appliances that use gas need to be annually checked and certified by a trained, Gas Safe registered professional. We are certified by the Gas Safety register, and can carry out one off, or annual safety checks on your property. We also offer landlords full certification services for their properties."
 benefits:
-  - "Peace of mind knowing your gas appliances are safe"
-  - "Compliance with legal requirements for landlords"
-  - "Prevention of gas leaks and carbon monoxide poisoning"
+  - "Gas boiler installations – Supply and fit new boilers safely and efficiently"
+  - "Boiler repairs and servicing – Keep your boiler running reliably all year round"
+  - "Gas cooker installation and connections – Safe installation of cookers, hobs, and ovens"
+  - "Gas appliance servicing – Regular checks and maintenance for all major gas appliances"
+  - "Gas safety inspections – Comprehensive checks to ensure appliances are safe and compliant"
+  - "Gas Safety Certificates (CP12) – Issued for landlords and homeowners as proof of safety compliance"
+  - "Emergency gas leak repairs – Prompt response to suspected leaks or faults"
 features:
   - title: "Comprehensive Inspections"
     description: "Our gas safety checks include thorough inspections of all gas appliances and installations."
