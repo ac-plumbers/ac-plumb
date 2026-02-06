@@ -17,10 +17,7 @@ const description =
 const keywords =
   'plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers Ltd.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? BUSINESS_CONFIG.website).href;
-const ogImage =
-  frontmatter?.imageHero
-    ? new URL(frontmatter.imageHero, Astro.site ?? BUSINESS_CONFIG.website).href
-    : undefined;
+const ogImage = `${BUSINESS_CONFIG.website}/og/service-og-1200x630.png`;
 ---
 
 <BaseLayout
