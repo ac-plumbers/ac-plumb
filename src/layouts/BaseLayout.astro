@@ -5,7 +5,6 @@ import '@fontsource/lato';
 
 import BaseHead from '@/components/fundations/head/BaseHead.astro';
 import { ClientRouter } from 'astro:transitions';
-import LogoCloud from '@/components/LogoCloud.astro';
 import HeaderVue from '@/components/global/Header.vue';
 import StickyCallButton from '@/components/global/StickyCallButton.vue';
 import Footer from '@/components/global/Footer.astro';
@@ -21,6 +20,8 @@ const {
   schemaType = 'WebPage',
   datePublished,
   dateModified,
+  ogImage,
+  logoImage,
 } = Astro.props;
 
 // Get current path for active link highlighting
@@ -41,13 +42,13 @@ const currentPath = Astro.url.pathname;
       schemaType={schemaType}
       datePublished={datePublished}
       dateModified={dateModified}
+      ogImage={ogImage}
+      logoImage={logoImage}
     />
     <ClientRouter />
   </head>
   <body class='h-full'>
-    <HeaderVue client:load currentPath={currentPath}>
-      <!-- <LogoCloud slot='after-nav' /> -->
-    </HeaderVue>
+    <HeaderVue client:load currentPath={currentPath} />
     <main
       id='main-content'
       class='mx-auto flex flex-col pt-32 transition-all duration-300'>

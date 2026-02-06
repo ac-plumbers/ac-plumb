@@ -16,6 +16,8 @@ export interface Props {
   schemaType?: string;
   datePublished?: string;
   dateModified?: string;
+  ogImage?: string;
+  logoImage?: string;
 }
 
 const {
@@ -29,6 +31,8 @@ const {
   schemaType = 'WebPage',
   datePublished,
   dateModified,
+  ogImage,
+  logoImage,
 } = Astro.props;
 
 // Canonical URL logic (normalize to the primary origin + strip query/hash)
@@ -83,6 +87,7 @@ const canonicalURL = toCanonical(canonical);
   description={description}
   canonical={canonicalURL}
   noindex={noindex}
+  ogImage={ogImage}
 />
 
 <!-- Additional meta tags (keywords, author, theme-color, etc.) -->
@@ -96,6 +101,8 @@ const canonicalURL = toCanonical(canonical);
   description={description}
   datePublished={datePublished}
   dateModified={dateModified}
+  image={ogImage}
+  logoImage={logoImage}
 />
 
 <!-- Favicons -->

@@ -1,20 +1,22 @@
 ---
 import { Schema as AstroSchema } from "astro-seo-schema";
+import { BUSINESS_CONFIG } from "@/utils/businessConfig";
 
 const {
   type = "WebPage",
   title = "AC Plumbers Ltd. | Plumbing, Heating & Renewable Services in Brighton",
-  url = "https://acplumb.co.uk",
+  url = BUSINESS_CONFIG.website,
   description = "AC Plumbers Ltd. provides top-notch plumbing, heating, and renewable energy services in Brighton. Our team is dedicated to delivering high-quality solutions with a focus on customer satisfaction.",
-  email = "info@acplumb.co.uk",
-  telephone = "01273680731",
-  telephone2 = "07535653850",
+  email = BUSINESS_CONFIG.email,
+  telephone = BUSINESS_CONFIG.landline,
+  telephone2 = BUSINESS_CONFIG.mobilePhone,
   address = "21j Campbell Road",
   addressLocality = "Brighton",
   addressRegion = "East Sussex",
   postalCode = "BN1 4QD",
   addressCountry = "GB",
-  image = "https://acplumb.co.uk/wp-content/uploads/2017/02/Boilers-white.png",
+  image = BUSINESS_CONFIG.ogImage,
+  logoImage = BUSINESS_CONFIG.logoImage,
   datePublished = "2017-01-04T21:17:16+00:00",
   dateModified = "2023-09-11T13:56:53+00:00",
 } = Astro.props;
@@ -64,11 +66,10 @@ const {
         logo: {
           "@type": "ImageObject",
           "@id": "https://acplumb.co.uk/#/schema/logo/image/",
-          url: "https://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png",
-          contentUrl:
-            "https://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png",
-          width: "469",
-          height: "187",
+          url: logoImage,
+          contentUrl: logoImage,
+          width: 341,
+          height: 341,
           caption: description,
         },
         image: { "@id": "https://acplumb.co.uk/#/schema/logo/image/" },
@@ -89,8 +90,8 @@ const {
         "@id": "https://acplumb.co.uk/#primaryimage",
         url: image,
         contentUrl: image,
-        width: 110,
-        height: 110,
+        width: 1200,
+        height: 630,
         inLanguage: "en-GB",
       },
       {

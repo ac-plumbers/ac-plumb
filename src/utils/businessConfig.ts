@@ -15,6 +15,8 @@ export interface BusinessContact {
   };
   serviceRadius: string; // in meters
   website: string;
+  ogImage: string;
+  logoImage: string;
   vatNumber?: string;
   companyNumber?: string;
   paymentMethods?: string[];
@@ -38,6 +40,8 @@ export const BUSINESS_CONFIG: BusinessContact = {
   },
   serviceRadius: "50000",
   website: "https://acplumb.co.uk",
+  ogImage: "https://acplumb.co.uk/og/ac-plumbers-ltd-signature-1200x630.jpg",
+  logoImage: "https://acplumb.co.uk/og/ac-plumbers-ltd-logo-brighton.png",
   vatNumber: "300995607",
   companyNumber: "10187057",
   paymentMethods: [ "Bank Transfer"]
