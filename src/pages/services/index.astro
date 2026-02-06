@@ -16,9 +16,10 @@ const services = allServices.sort((a, b) => {
 const title = 'Professional Plumbing Services in Brighton - AC Plumbers Ltd.';
 const description =
   'From emergency repairs to complete installations, our Gas Safe certified engineers deliver professional plumbing, heating, and gas services across Brighton & Hove.';
+const ogImage = `${BUSINESS_CONFIG.website}/og/service-og-1200x630.png`;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <SchemaServices
     services={services}
     providerName='AC Plumbers Ltd.'

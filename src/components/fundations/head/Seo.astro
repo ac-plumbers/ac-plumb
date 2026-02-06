@@ -24,6 +24,12 @@ const {
   ogType = "website",
 } = Astro.props;
 
+const ogImageType = ogImage.endsWith(".png")
+  ? "image/png"
+  : ogImage.endsWith(".webp")
+    ? "image/webp"
+    : "image/jpeg";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -81,7 +87,7 @@ const structuredData = {
         width: 1200,
         height: 630,
         alt: `${BUSINESS_CONFIG.name} - Professional Plumbing Services`,
-        type: "image/jpeg",
+        type: ogImageType,
       },
     ],
     site_name: BUSINESS_CONFIG.name,

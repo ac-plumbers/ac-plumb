@@ -3,20 +3,31 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import Text from '@/components/fundations/elements/Text.astro';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import type { ServiceFrontmatter } from '@/lib/types';
 
-// Custom meta for the services home page
-const title = 'Our Plumbing & Heating Services | AC Plumbers';
+const { frontmatter } = Astro.props as { frontmatter?: ServiceFrontmatter };
+
+const title = frontmatter?.title
+  ? `${frontmatter.title} | ${BUSINESS_CONFIG.name}`
+  : 'Our Plumbing & Heating Services | AC Plumbers';
 const description =
+  frontmatter?.description ||
   'Browse all plumbing, heating, and renewable services offered by AC Plumbers Ltd. in Brighton. Book, compare, and learn more about each service.';
 const keywords =
   'plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers Ltd.';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? BUSINESS_CONFIG.website).href;
+const ogImage =
+  frontmatter?.imageHero
+    ? new URL(frontmatter.imageHero, Astro.site ?? BUSINESS_CONFIG.website).href
+    : undefined;
 ---
 
 <BaseLayout
   title={title}
   description={description}
   keywords={keywords}
-  canonical={canonicalURL}>
+  canonical={canonicalURL}
+  ogImage={ogImage}>
   <slot />
 </BaseLayout>
