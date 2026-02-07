@@ -91,10 +91,13 @@ import Text from '../fundations/elements/Text.astro';
           class='text-balance text-white'>
           {BUSINESS_CONFIG.name}
         </Text>
-        <p class='font-lato text-neutral-100'>
+        <Text
+          tag='p'
+          variant='textBase'
+          class='font-lato leading-relaxed text-neutral-100'>
           Brighton & Hove, East Sussex <br />
           Gas Safe and Oftec Registered Engineers
-        </p>
+        </Text>
 
         <div class='flex gap-x-6'>
           <!-- social links remain unchanged -->
@@ -106,16 +109,23 @@ import Text from '../fundations/elements/Text.astro';
         class='mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4 xl:col-span-4 xl:mt-0'>
         <!-- Services Column -->
         <div>
-          <h3 class='font-lato text-lg font-semibold text-white'>Services</h3>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='font-lato font-semibold text-white'>
+            Services
+          </Text>
           <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
               servicesLinks.map(link => (
                 <li>
-                  <a
+                  <Text
+                    tag='a'
                     href={link.href}
-                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
+                    variant='textBase'
+                    class='font-lato text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
-                  </a>
+                  </Text>
                 </li>
               ))
             }
@@ -124,18 +134,23 @@ import Text from '../fundations/elements/Text.astro';
 
         <!-- NEW: Areas We Serve Column -->
         <div>
-          <h3 class='font-lato text-lg font-semibold text-white'>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='font-lato font-semibold text-white'>
             Areas We Serve
-          </h3>
+          </Text>
           <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
               areasLinks.map(link => (
                 <li>
-                  <a
+                  <Text
+                    tag='a'
                     href={link.href}
-                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
+                    variant='textBase'
+                    class='font-lato text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
-                  </a>
+                  </Text>
                 </li>
               ))
             }
@@ -144,16 +159,23 @@ import Text from '../fundations/elements/Text.astro';
 
         <!-- Company Column -->
         <div>
-          <h3 class='font-lato text-lg font-semibold text-white'>Company</h3>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='font-lato font-semibold text-white'>
+            Company
+          </Text>
           <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
               companyLinks.map(link => (
                 <li>
-                  <a
+                  <Text
+                    tag='a'
                     href={link.href}
-                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
+                    variant='textBase'
+                    class='font-lato text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
-                  </a>
+                  </Text>
                 </li>
               ))
             }
@@ -162,16 +184,23 @@ import Text from '../fundations/elements/Text.astro';
 
         <!-- Legal Column -->
         <div>
-          <h3 class='font-lato text-lg font-semibold text-white'>Legal</h3>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='font-lato font-semibold text-white'>
+            Legal
+          </Text>
           <ul role='list' class='mt-6 space-y-4 font-lato'>
             {
               legalLinks.map(link => (
                 <li>
-                  <a
+                  <Text
+                    tag='a'
                     href={link.href}
-                    class='font-lato text-base text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
+                    variant='textBase'
+                    class='font-lato text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
                     {link.label}
-                  </a>
+                  </Text>
                 </li>
               ))
             }
