@@ -15,6 +15,9 @@
         <nav class="flex items-center py-1" aria-label="Global">
           <!-- Logo link and tagline-->
           <HeaderLogo
+            :logoSrc="logoSrc"
+            :darkLogoSrc="darkLogoSrc"
+            :isDarkSection="isDarkSection"
             :taglineColorClass="taglineColorClass"
             :taglineRef="taglineRef"
           />
@@ -431,6 +434,11 @@ import HeaderLogo from "./headerBits/HeaderLogo.vue";
 // Tagline color switching logic
 const taglineRef = ref(null);
 const taglineColorClass = ref("text-primary-600");
+const logoSrc = ref("/images/logo/ac-plumbers-ltd-logo-brighton.svg");
+const darkLogoSrc = ref(
+  "/images/logo/ac-plumbers-ltd-logo-footer-brighton.svg",
+);
+const isDarkSection = ref(false);
 const scrolled = ref(false);
 const handleScroll = () => {
   scrolled.value = window.scrollY > 50;
@@ -452,14 +460,17 @@ onMounted(() => {
         const bg = section.getAttribute("data-bg");
         if (bg === "dark") {
           taglineColorClass.value = "text-white";
+          isDarkSection.value = true;
         } else {
           taglineColorClass.value = "text-primary-600";
+          isDarkSection.value = false;
         }
         found = true;
       }
     });
     if (!found) {
       taglineColorClass.value = "text-primary-600";
+      isDarkSection.value = false;
     }
   }
   window.addEventListener("scroll", updateTaglineColor, { passive: true });
