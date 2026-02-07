@@ -18,7 +18,7 @@ const sortedServices = [...services].sort(
     <article class="service-card group relative overflow-hidden rounded-xl bg-white border border-neutral-200 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300">
       <a
         href={`/services/${service.slug}`}
-        class="block h-full"
+        class="flex h-full flex-col"
         aria-label={`Learn more about ${service.data.title}`}>
 
         {(service.data.imageHero || service.data.image) && (
@@ -36,7 +36,7 @@ const sortedServices = [...services].sort(
         )}
 
         <!-- Card Content -->
-        <div class="p-6 space-y-4">
+        <div class="p-6 space-y-4 flex flex-1 flex-col">
           <!-- Service Title -->
           <Text
             tag="h3"
@@ -70,7 +70,7 @@ const sortedServices = [...services].sort(
           )} */}
 
           <!-- CTA -->
-          <div class="flex items-end justify-between pt-2 border-t border-neutral-100">
+          <div class="flex items-end justify-between pt-2 border-t border-neutral-100 mt-auto">
             <span class="inline-flex items-center text-primary-600 font-semibold text-sm group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">
               Learn More
               <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

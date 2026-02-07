@@ -40,11 +40,7 @@ const heroContent = {
         <div class='relative px-6 py-16 sm:py-20 lg:px-8 lg:py-28 lg:pr-0'>
           <div class='mx-auto max-w-2xl lg:mx-0 lg:max-w-xl'>
             <!-- Hero heading and text -->
-            <Text
-              tag='h1'
-              id='hero-heading'
-              variant='displayXL'
-              transition:animate={fade({ duration: '0.9s' })}>
+            <Text tag='h1' id='hero-heading' variant='displayXL'>
               <span slot='left-icon'> </span>
               {heroContent.heading}
             </Text>
@@ -67,7 +63,7 @@ const heroContent = {
     </div>
     <div class='bg-neutral-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
       <Image
-        class='aspect-[3/2] object-cover lg:aspect-auto lg:size-full'
+        class='aspect-3/2 object-cover lg:aspect-auto lg:size-full'
         src={heroContent.image.src}
         alt={heroContent.image.alt}
         title={heroContent.image.title}
