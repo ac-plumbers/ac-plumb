@@ -1,32 +1,47 @@
 ---
-import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import {
+  BUSINESS_CONFIG,
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+} from '@/utils/businessConfig';
 import { Phone, ArrowRight } from 'lucide-vue-next';
+import Text from '../fundations/elements/Text.astro';
+import Link from '../fundations/elements/Link.astro';
 ---
 
 <section
   data-bg='dark'
   class='bg-linear-to-r from-primary-600 to-primary-700 py-16'>
   <div class='mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8'>
-    <h2 class='text-3xl font-bold text-white md:text-4xl'>
+    <Text tag='h2' variant='displayXL' class='font-bold text-white'>
       Ready to Book a Local Plumber?
-    </h2>
-    <p class='mt-4 text-xl text-primary-100'>
+    </Text>
+    <Text tag='p' variant='textXL' class='mt-4 text-primary-100'>
       Tell us where you are and what you need. We'll confirm the earliest
       available slot.
-    </p>
+    </Text>
     <div class='mt-8 flex flex-col justify-center gap-4 sm:flex-row'>
-      <a
-        href={`tel:${BUSINESS_CONFIG.mobilePhone.replace(/\s+/g, '')}`}
-        class='inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-primary-600 transition-colors hover:bg-gray-100'>
-        <Phone class='h-5 w-5' />
-        Call {BUSINESS_CONFIG.mobilePhone}
-      </a>
-      <a
+      <Link
+        href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+        variant='default-button'
+        size='md'
+        class='bg-white text-primary-600 hover:bg-gray-100'
+        aria-label={`Call ${BUSINESS_CONFIG.name} at ${formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}`}>
+        <Phone class='h-5 w-5' aria-hidden='true' slot='left-icon' />
+        <Text tag='span' variant='textBase' class='font-semibold'>
+          Call {formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}
+        </Text>
+      </Link>
+      <Link
         href='/contact-us'
-        class='inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-primary-600'>
-        Get a Quote
-        <ArrowRight class='h-4 w-4' />
-      </a>
+        variant='default-button'
+        size='md'
+        class='border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary-600'>
+        <Text tag='span' variant='textBase' class='font-semibold'>
+          Get a Quote
+        </Text>
+        <ArrowRight class='h-4 w-4' aria-hidden='true' slot='right-icon' />
+      </Link>
     </div>
   </div>
 </section>

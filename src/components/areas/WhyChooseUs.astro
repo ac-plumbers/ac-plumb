@@ -32,10 +32,10 @@ const whyChooseUs = [
 <section class='bg-white py-16'>
   <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
     <div class='mb-12 text-center'>
-      <Text tag='h2' class='md:text-4xl'>
+      <Text tag='h2' variant='displayXL' class='font-bold text-text-00'>
         Why Choose {BUSINESS_CONFIG.name}?
       </Text>
-      <Text tag='p' class='mt-4'>
+      <Text tag='p' variant='textLG' class='mt-4 text-neutral-600'>
         Local expertise you can trust across all our coverage areas
       </Text>
     </div>
@@ -47,12 +47,17 @@ const whyChooseUs = [
           return (
             <div class='text-center'>
               <div class='mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100'>
-                <Icon class='h-8 w-8 text-primary-600' />
+                <Icon class='h-8 w-8 text-primary-600' aria-hidden='true' />
               </div>
-              <Text tag='h3' class='mb-2'>
+              <Text
+                tag='h3'
+                variant='textLG'
+                class='mb-2 font-semibold text-text-00'>
                 {point.title}
               </Text>
-              <p class='text-gray-600'>{point.description}</p>
+              <Text tag='p' variant='textBase' class='text-neutral-600'>
+                {point.description}
+              </Text>
             </div>
           );
         })

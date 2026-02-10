@@ -1,5 +1,9 @@
 ---
-import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import {
+  BUSINESS_CONFIG,
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+} from '@/utils/businessConfig';
 import {
   Phone,
   ArrowRight,
@@ -8,6 +12,7 @@ import {
   Shield,
 } from 'lucide-vue-next';
 import Text from '../fundations/elements/Text.astro';
+import Link from '../fundations/elements/Link.astro';
 ---
 
 <section
@@ -24,40 +29,66 @@ import Text from '../fundations/elements/Text.astro';
         <!-- Quick stats -->
         <div class='mt-8 grid grid-cols-2 gap-4 sm:grid-cols-2'>
           <div class='rounded-lg bg-white p-4 text-center shadow-sm'>
-            <div class='text-2xl font-bold text-primary-600'>11+</div>
-            <div class='text-sm text-gray-600'>Coverage Zones</div>
+            <Text
+              tag='span'
+              variant='textXL'
+              class='font-bold text-primary-600'>
+              11+
+            </Text>
+            <Text tag='span' variant='textSM' class='text-gray-600'>
+              Coverage Zones
+            </Text>
           </div>
           <div class='rounded-lg bg-white p-4 text-center shadow-sm'>
-            <div class='text-2xl font-bold text-primary-600'>100%</div>
-            <div class='text-sm text-gray-600'>Local Service</div>
+            <Text
+              tag='span'
+              variant='textXL'
+              class='font-bold text-primary-600'>
+              100%
+            </Text>
+            <Text tag='span' variant='textSM' class='text-gray-600'>
+              Local Service
+            </Text>
           </div>
         </div>
 
         <div class='mt-8 flex flex-col gap-4 sm:flex-row'>
-          <a
-            href={`tel:${BUSINESS_CONFIG.mobilePhone.replace(/\s+/g, '')}`}
-            class='inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-700'
-            aria-label={`Call ${BUSINESS_CONFIG.name} now`}>
-            <Phone class='h-5 w-5' />
-            Call {BUSINESS_CONFIG.mobilePhone}
-          </a>
-          <a
+          <Link
+            href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+            variant='default-button'
+            size='md'
+            class='bg-primary-600 text-white hover:bg-primary-700'
+            aria-label={`Call ${BUSINESS_CONFIG.name} at ${formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}`}>
+            <Phone class='h-5 w-5' aria-hidden='true' slot='left-icon' />
+            <Text tag='span' variant='textBase' class='font-semibold'>
+              Call {formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}
+            </Text>
+          </Link>
+          <Link
             href='/contact-us'
-            class='inline-flex items-center justify-center gap-2 rounded-lg border border-primary-600 px-6 py-3 font-semibold text-primary-600 transition-colors hover:bg-primary-50'>
-            Get a Quote
-            <ArrowRight class='h-4 w-4' />
-          </a>
+            variant='default-button'
+            size='md'
+            class='border-2 border-primary-600 bg-white text-primary-600 hover:bg-primary-50'>
+            <Text tag='span' variant='textBase' class='font-semibold'>
+              Get a Quote
+            </Text>
+            <ArrowRight class='h-4 w-4' aria-hidden='true' slot='right-icon' />
+          </Link>
         </div>
 
         <div
           class='mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600'>
           <div class='flex items-center gap-2'>
-            <CircleCheck class='h-6 w-6 text-primary-600' />
-            No hidden travel fees
+            <CircleCheck class='h-6 w-6 text-primary-600' aria-hidden='true' />
+            <Text tag='span' variant='textSM' class='text-gray-600'>
+              No hidden travel fees
+            </Text>
           </div>
           <div class='flex items-center gap-2'>
-            <CircleCheck class='h-6 w-6 text-primary-600' />
-            Free quotes & estimates
+            <CircleCheck class='h-6 w-6 text-primary-600' aria-hidden='true' />
+            <Text tag='span' variant='textSM' class='text-gray-600'>
+              Free quotes & estimates
+            </Text>
           </div>
         </div>
       </div>
@@ -67,24 +98,34 @@ import Text from '../fundations/elements/Text.astro';
           <div
             class='bg-linear-to-r from-primary-600 to-primary-700 p-6 text-white'>
             <div class='flex items-center gap-3'>
-              <MapPin class='h-6 w-6' />
-              <Text tag='h3' class='text-lg font-bold'>Coverage Areas</Text>
+              <MapPin class='h-6 w-6' aria-hidden='true' />
+              <Text tag='h3' variant='textLG' class='font-bold text-white'>
+                Coverage Areas
+              </Text>
             </div>
-            <p class='mt-2 text-sm text-primary-100'>
+            <Text tag='p' variant='textSM' class='mt-2 text-primary-100'>
               Professional service across Sussex
-            </p>
+            </Text>
           </div>
 
           <div class='space-y-1 p-6'>
             <div
               class='group cursor-pointer rounded-lg bg-green-50 p-4 transition-all hover:bg-green-100'>
               <div class='flex items-center gap-3'>
-                <div class='h-3 w-3 rounded-full bg-green-500'></div>
+                <div
+                  class='h-3 w-3 rounded-full bg-green-500'
+                  aria-hidden='true'>
+                </div>
                 <div>
-                  <div class='font-semibold text-gray-900'>Brighton & Hove</div>
-                  <div class='text-sm text-gray-600'>
+                  <Text
+                    tag='p'
+                    variant='textBase'
+                    class='font-semibold text-gray-900'>
+                    Brighton & Hove
+                  </Text>
+                  <Text tag='p' variant='textSM' class='text-gray-600'>
                     Our primary service area
-                  </div>
+                  </Text>
                 </div>
               </div>
             </div>
@@ -92,12 +133,20 @@ import Text from '../fundations/elements/Text.astro';
             <div
               class='group cursor-pointer rounded-lg bg-blue-50 p-4 transition-all hover:bg-blue-100'>
               <div class='flex items-center gap-3'>
-                <div class='h-3 w-3 rounded-full bg-blue-500'></div>
+                <div
+                  class='h-3 w-3 rounded-full bg-blue-500'
+                  aria-hidden='true'>
+                </div>
                 <div>
-                  <div class='font-semibold text-gray-900'>Coastal Areas</div>
-                  <div class='text-sm text-gray-600'>
+                  <Text
+                    tag='p'
+                    variant='textBase'
+                    class='font-semibold text-gray-900'>
+                    Coastal Areas
+                  </Text>
+                  <Text tag='p' variant='textSM' class='text-gray-600'>
                     East & West Sussex coast
-                  </div>
+                  </Text>
                 </div>
               </div>
             </div>
@@ -105,12 +154,20 @@ import Text from '../fundations/elements/Text.astro';
             <div
               class='group cursor-pointer rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100'>
               <div class='flex items-center gap-3'>
-                <div class='h-3 w-3 rounded-full bg-gray-500'></div>
+                <div
+                  class='h-3 w-3 rounded-full bg-gray-500'
+                  aria-hidden='true'>
+                </div>
                 <div>
-                  <div class='font-semibold text-gray-900'>Sussex Downs</div>
-                  <div class='text-sm text-gray-600'>
+                  <Text
+                    tag='p'
+                    variant='textBase'
+                    class='font-semibold text-gray-900'>
+                    Sussex Downs
+                  </Text>
+                  <Text tag='p' variant='textSM' class='text-gray-600'>
                     Nearby towns & villages
-                  </div>
+                  </Text>
                 </div>
               </div>
             </div>
