@@ -70,6 +70,52 @@ const services = defineCollection({
   }),
 });
 
+const areas = defineCollection({
+  type: "content",
+  schema: z.object({
+    area: z.string(),
+    title: z.string(),
+    description: z.string(),
+    image: z.string().optional(),
+    sortOrder: z.number().optional(),
+    featured: z.boolean().default(false),
+    services: z.array(z.string()).default([]),
+    postcode: z.string().optional(),
+    level: z.string().optional(),
+    responseTime: z.string().optional(),
+    region: z.string().optional(),
+    neighborhoods: z.array(z.string()).default([]),
+    specificContent: z.string().optional(),
+  }),
+});
+
+const legal = defineCollection({
+  type: "content",
+  schema: z.object({
+    page: z.string(),
+    pubDate: z.date().optional(),
+    title: z.string(),
+    description: z.string(),
+    keywords: z.string().optional(),
+    author: z.string().optional(),
+    datePublished: z.string().optional(),
+    dateModified: z.string().optional(),
+  }),
+});
+
+const faq = defineCollection({
+  type: "content",
+  schema: z.object({
+    question: z.string(),
+    answer: z.string(),
+    category: z.string().optional(),
+    order: z.number().optional(),
+  }),
+});
+
 export const collections = {
   services,
+  areas,
+  legal,
+  faq,
 };
