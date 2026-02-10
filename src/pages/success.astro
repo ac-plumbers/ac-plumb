@@ -2,15 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
-import Breadcrumb from '@/components/fundations/elements/Breadcrumb.astro';
 import {
   BUSINESS_CONFIG,
   formatPhoneForDisplay,
   formatPhoneForTel,
 } from '@/utils/businessConfig';
-
-// Breadcrumb items
-const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Success' }];
 
 // Content for SEO
 const title = 'Thank You | AC Plumbers Ltd. Brighton';
@@ -24,16 +20,9 @@ const keywords = 'contact success, thank you, AC Plumbers Ltd, Brighton';
   description={description}
   keywords={keywords}
   noindex={true}>
-  <!-- Breadcrumb Navigation -->
-  <div class='border-b border-green-200 bg-green-50'>
-    <div class='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
-      <Breadcrumb items={breadcrumbItems} />
-    </div>
-  </div>
-
   <main
     id='main-content'
-    class='flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-green-50 to-green-100 px-6 py-20 sm:py-32 lg:px-8'>
+    class='flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-green-50 to-green-100 px-6 py-32 sm:py-40 lg:px-8'>
     <div class='mx-auto max-w-lg text-center'>
       <!-- Animated checkmark -->
       <div

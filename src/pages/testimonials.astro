@@ -3,7 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import TestimonialsComponent from '@/components/home/Testimonials.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
-import Breadcrumb from '@/components/fundations/elements/Breadcrumb.astro';
 import ReviewSchema from '@/components/fundations/head/ReviewSchema.astro';
 
 // Business meta data
@@ -71,12 +70,6 @@ const reviews = [
   },
 ];
 
-// Breadcrumb items
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Testimonials' },
-];
-
 // Page meta data
 const title = 'Customer Testimonials & Reviews | AC Plumbers Brighton & Hove';
 const description =
@@ -89,15 +82,8 @@ const keywords =
   <!-- Review Schema for SEO -->
   <ReviewSchema reviews={reviews} slot='head' />
 
-  <!-- Breadcrumb Navigation -->
-  <div class='border-b border-neutral-200 bg-white'>
-    <div class='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
-      <Breadcrumb items={breadcrumbItems} />
-    </div>
-  </div>
-
   <!-- Hero Section -->
-  <section class='relative pt-24 pb-16 sm:pt-32 sm:pb-24'>
+  <section class='relative pt-32 pb-16 sm:pt-40 sm:pb-24'>
     <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
       <div
         class='relative overflow-hidden rounded-2xl bg-linear-to-br from-primary-300 via-primary-700 to-primary-800 px-6 py-12 text-center sm:px-8 sm:py-16'>
