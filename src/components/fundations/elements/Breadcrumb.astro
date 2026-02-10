@@ -1,0 +1,71 @@
+---
+import Link from './Link.astro';
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<nav aria-label='Breadcrumb' class={`${className}`}>
+  <ol
+    class='flex items-center gap-2 text-sm'
+    itemscope
+    itemtype='https://schema.org/BreadcrumbList'>
+    {
+      items.map((item, index) => (
+        <li
+          class='flex items-center gap-2'
+          itemprop='itemListElement'
+          itemscope
+          itemtype='https://schema.org/ListItem'>
+          {item.href ? (
+            <>
+              <Link
+                href={item.href}
+                variant='default-link'
+                class='text-neutral-600 transition-colors hover:text-primary-600'
+                itemprop='item'>
+                <span class='text-sm' itemprop='name'>
+                  {item.label}
+                </span>
+              </Link>
+              <meta itemprop='position' content={(index + 1).toString()} />
+            </>
+          ) : (
+            <>
+              <span
+                class='text-sm font-medium text-primary-600'
+                itemprop='name'>
+                {item.label}
+              </span>
+              <meta itemprop='position' content={(index + 1).toString()} />
+            </>
+          )}
+          {index < items.length - 1 && (
+            <svg
+              class='h-4 w-4 text-neutral-400'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              aria-hidden='true'>
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M9 5l7 7-7 7'
+              />
+            </svg>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

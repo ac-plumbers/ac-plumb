@@ -1,0 +1,95 @@
+---
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+
+export interface Review {
+  rating: string;
+  title: string;
+  date: string;
+  content: string;
+  location: string;
+  author?: string;
+}
+
+interface Props {
+  reviews: Review[];
+}
+
+const { reviews } = Astro.props;
+
+// Convert rating string (e.g., "10/10", "9/10") to numeric value
+const getRatingValue = (rating: string): number => {
+  const match = rating.match(/(\d+)\/(\d+)/);
+  if (!match) return 5;
+  const [, numerator, denominator] = match;
+  return (parseInt(numerator) / parseInt(denominator)) * 5;
+};
+
+// Calculate aggregate rating
+const totalRating = reviews.reduce(
+  (sum, review) => sum + getRatingValue(review.rating),
+  0,
+);
+const averageRating = (totalRating / reviews.length).toFixed(1);
+
+// Convert date string to ISO format (e.g., "January 2025" -> "2025-01-01")
+const getISODate = (dateStr: string): string => {
+  const months: Record<string, string> = {
+    January: '01',
+    February: '02',
+    March: '03',
+    April: '04',
+    May: '05',
+    June: '06',
+    July: '07',
+    August: '08',
+    September: '09',
+    October: '10',
+    November: '11',
+    December: '12',
+  };
+
+  const parts = dateStr.split(' ');
+  if (parts.length === 2) {
+    const month = months[parts[0]];
+    const year = parts[1];
+    return `${year}-${month}-01`;
+  }
+  return new Date().toISOString().split('T')[0];
+};
+
+// Build review schema array
+const reviewSchemas = reviews.map(review => ({
+  '@type': 'Review',
+  author: {
+    '@type': 'Person',
+    name: review.author || 'AC Plumbers Customer',
+  },
+  datePublished: getISODate(review.date),
+  reviewBody: review.content,
+  name: review.title,
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: getRatingValue(review.rating).toString(),
+    bestRating: '5',
+    worstRating: '1',
+  },
+}));
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${BUSINESS_CONFIG.website}/#organization`,
+  name: BUSINESS_CONFIG.name,
+  url: BUSINESS_CONFIG.website,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: averageRating,
+    reviewCount: reviews.length.toString(),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: reviewSchemas,
+};
+---
+
+<script type='application/ld+json' set:html={JSON.stringify(schema)} />

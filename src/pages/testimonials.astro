@@ -1,21 +1,103 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import TestimonialsComponent from '@/components/home/Testimonials.astro';
+import Text from '@/components/fundations/elements/Text.astro';
+import Link from '@/components/fundations/elements/Link.astro';
+import Breadcrumb from '@/components/fundations/elements/Breadcrumb.astro';
+import ReviewSchema from '@/components/fundations/head/ReviewSchema.astro';
 
 // Business meta data
-import { BUSINESS_CONFIG } from '@/utils/businessConfig.ts';
+import {
+  BUSINESS_CONFIG,
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+} from '@/utils/businessConfig.ts';
+
+// Review data for schema
+const reviews = [
+  {
+    rating: '10/10',
+    title: 'Excellent Boiler Service',
+    date: 'January 2025',
+    content:
+      'AC Plumbers provided an outstanding boiler service. The engineer was professional, punctual, and explained everything clearly. Very impressed with the quality of work and attention to detail. Would definitely recommend to anyone in Brighton.',
+    location: 'Brighton',
+    author: 'Sarah M.',
+  },
+  {
+    rating: '10/10',
+    title: 'Urgent Leak Repair',
+    date: 'December 2024',
+    content:
+      'Called AC Plumbers for an urgent leak. They responded quickly and fixed the problem efficiently. Excellent customer service and fair pricing. Saved us from potential water damage.',
+    location: 'Hove',
+    author: 'David R.',
+  },
+  {
+    rating: '9/10',
+    title: 'Gas Safety Certificate',
+    date: 'December 2024',
+    content:
+      'Needed a gas safety certificate for my rental property. The service was quick, thorough, and professional. Clear documentation provided and competitive pricing. Will use again next year.',
+    location: 'Brighton',
+    author: 'James T.',
+  },
+  {
+    rating: '10/10',
+    title: 'Bathroom Installation',
+    date: 'November 2024',
+    content:
+      'Complete bathroom renovation done to a very high standard. The team was clean, tidy, and professional throughout. Finished on time and within budget. Very happy with the results.',
+    location: 'Brighton',
+    author: 'Emma L.',
+  },
+  {
+    rating: '10/10',
+    title: 'Central Heating Repair',
+    date: 'November 2024',
+    content:
+      'My heating system broke down during the cold spell. AC Plumbers diagnosed and fixed the issue same day. Excellent technical knowledge and customer care. Highly recommended.',
+    location: 'Hove',
+    author: 'Michael P.',
+  },
+  {
+    rating: '9/10',
+    title: 'Landlord Services',
+    date: 'October 2024',
+    content:
+      'Regular maintenance and certification services for my rental properties. Always reliable, professional, and provides clear reports. Great value for money and peace of mind.',
+    location: 'Brighton',
+    author: 'Rachel W.',
+  },
+];
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Testimonials' },
+];
 
 // Page meta data
-const title = 'Customer Testimonials | AC Plumbers Ltd. Brighton';
+const title = 'Customer Testimonials & Reviews | AC Plumbers Brighton & Hove';
 const description =
-  "Read genuine customer reviews and testimonials from our satisfied clients across Brighton & Hove. See why we're the trusted choice for plumbing, heating, and gas services.";
+  "Read genuine customer reviews and testimonials from our satisfied clients across Brighton & Hove. See why we're the trusted choice for plumbing, heating, and gas services with 5-star ratings.";
 const keywords =
-  'customer testimonials, reviews, AC Plumbers Ltd. Brighton, plumbing reviews, heating reviews, gas safe reviews, Brighton plumbers';
+  'customer testimonials, reviews, AC Plumbers Ltd. Brighton, plumbing reviews, heating reviews, gas safe reviews, Brighton plumbers, 5 star plumber';
 ---
 
 <BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Review Schema for SEO -->
+  <ReviewSchema reviews={reviews} slot='head' />
+
+  <!-- Breadcrumb Navigation -->
+  <div class='border-b border-neutral-200 bg-white'>
+    <div class='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
+      <Breadcrumb items={breadcrumbItems} />
+    </div>
+  </div>
+
   <!-- Hero Section -->
-  <section class='relative pt-32 pb-16 sm:pt-40 sm:pb-24'>
+  <section class='relative pt-24 pb-16 sm:pt-32 sm:pb-24'>
     <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
       <div
         class='relative overflow-hidden rounded-2xl bg-linear-to-br from-primary-300 via-primary-700 to-primary-800 px-6 py-12 text-center sm:px-8 sm:py-16'>
@@ -34,7 +116,11 @@ const keywords =
         <div class='relative z-10'>
           <div
             class='mb-4 inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm'>
-            <svg class='mr-2 h-4 w-4' fill='currentColor' viewBox='0 0 20 20'>
+            <svg
+              class='mr-2 h-4 w-4'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              aria-hidden='true'>
               <path
                 d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'
               ></path>
@@ -42,17 +128,30 @@ const keywords =
             Customer Reviews
           </div>
 
-          <h1
-            class='text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl'>
+          <Text
+            tag='h1'
+            variant='displayLG'
+            class='font-lato font-bold tracking-tight text-white sm:text-4xl lg:text-5xl'>
             What Our Customers Say
-          </h1>
+          </Text>
 
-          <p
-            class='mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-primary-100'>
+          <Text
+            tag='p'
+            variant='textLG'
+            class='mx-auto mt-4 max-w-2xl leading-relaxed text-white/90'>
             Real experiences from real customers across Brighton & Hove. See why
-            families and businesses trust AC Plumbers for their plumbing,
-            heating, and gas needs.
-          </p>
+            families and businesses trust <Link
+              href='/about-us'
+              variant='default-link'
+              class='text-white underline hover:text-accent-400'
+              >AC Plumbers Ltd.</Link
+            > for their <Link
+              href='/services'
+              variant='default-link'
+              class='text-white underline hover:text-accent-400'
+              >plumbing, heating, and gas services</Link
+            >.
+          </Text>
 
           <!-- Trust indicators -->
           <div
@@ -61,12 +160,15 @@ const keywords =
               <svg
                 class='h-5 w-5 text-accent-400'
                 fill='currentColor'
-                viewBox='0 0 20 20'>
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
                 <path
                   d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'
                 ></path>
               </svg>
-              <span class='font-semibold'>5-Star Service</span>
+              <Text tag='span' variant='textSM' class='font-semibold'>
+                5-Star Service
+              </Text>
             </div>
 
             <div class='flex items-center gap-2'>
@@ -74,14 +176,17 @@ const keywords =
                 class='h-5 w-5 text-accent-400'
                 fill='none'
                 viewBox='0 0 24 24'
-                stroke='currentColor'>
+                stroke='currentColor'
+                aria-hidden='true'>
                 <path
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
                   d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
               </svg>
-              <span class='font-semibold'>Gas Safe Registered</span>
+              <Text tag='span' variant='textSM' class='font-semibold'>
+                Gas Safe Registered
+              </Text>
             </div>
 
             <div class='flex items-center gap-2'>
@@ -89,14 +194,17 @@ const keywords =
                 class='h-5 w-5 text-accent-400'
                 fill='none'
                 viewBox='0 0 24 24'
-                stroke='currentColor'>
+                stroke='currentColor'
+                aria-hidden='true'>
                 <path
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
                   d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'></path>
               </svg>
-              <span class='font-semibold'>24/7 Emergency</span>
+              <Text tag='span' variant='textSM' class='font-semibold'>
+                Emergency Support
+              </Text>
             </div>
           </div>
         </div>
@@ -105,20 +213,35 @@ const keywords =
   </section>
 
   <!-- Main Testimonials Component -->
+
   <TestimonialsComponent />
 
   <!-- Additional Trust Section -->
   <section class='bg-neutral-50 py-20'>
     <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
       <div class='mb-16 text-center'>
-        <h2 class='text-3xl font-bold text-primary-900 sm:text-4xl'>
+        <Text
+          tag='h2'
+          variant='displayLG'
+          class='font-lato font-bold text-primary-900 sm:text-4xl'>
           Why Customers Choose {BUSINESS_CONFIG.name}
-        </h2>
-        <p class='mx-auto mt-6 max-w-3xl text-xl text-neutral-700'>
+        </Text>
+        <Text
+          tag='p'
+          variant='textLG'
+          class='mx-auto mt-6 max-w-3xl text-neutral-700'>
           Over the years, we've built lasting relationships with customers
           across Brighton & Hove through our commitment to quality, reliability,
-          and exceptional service.
-        </p>
+          and exceptional service. <Link
+            href='/services'
+            variant='default-link'
+            class='font-semibold'>Explore our services</Link
+          > or <Link
+            href='/about-us'
+            variant='default-link'
+            class='font-semibold'>learn more about our team</Link
+          >.
+        </Text>
       </div>
 
       <div class='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4'>
@@ -129,7 +252,8 @@ const keywords =
               class='h-8 w-8 text-primary-600'
               fill='none'
               viewBox='0 0 24 24'
-              stroke='currentColor'>
+              stroke='currentColor'
+              aria-hidden='true'>
               <path
                 stroke-linecap='round'
                 stroke-linejoin='round'
@@ -137,12 +261,15 @@ const keywords =
                 d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
             </svg>
           </div>
-          <h3 class='mb-2 text-lg font-semibold text-primary-900'>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='mb-2 font-lato font-semibold text-primary-900'>
             Fully Qualified
-          </h3>
-          <p class='text-neutral-600'>
+          </Text>
+          <Text tag='p' variant='textSM' class='text-neutral-600'>
             Gas Safe registered engineers with extensive training and experience
-          </p>
+          </Text>
         </div>
 
         <div class='text-center'>
@@ -152,7 +279,8 @@ const keywords =
               class='h-8 w-8 text-accent-600'
               fill='none'
               viewBox='0 0 24 24'
-              stroke='currentColor'>
+              stroke='currentColor'
+              aria-hidden='true'>
               <path
                 stroke-linecap='round'
                 stroke-linejoin='round'
@@ -160,13 +288,16 @@ const keywords =
                 d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'></path>
             </svg>
           </div>
-          <h3 class='mb-2 text-lg font-semibold text-primary-900'>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='mb-2 font-lato font-semibold text-primary-900'>
             Fast Response
-          </h3>
-          <p class='text-neutral-600'>
-            Emergency callouts available 24/7 with typical response times of 1-2
-            hours
-          </p>
+          </Text>
+          <Text tag='p' variant='textSM' class='text-neutral-600'>
+            Urgent callouts prioritised with quick response times across
+            Brighton & Hove
+          </Text>
         </div>
 
         <div class='text-center'>
@@ -176,7 +307,8 @@ const keywords =
               class='h-8 w-8 text-primary-600'
               fill='none'
               viewBox='0 0 24 24'
-              stroke='currentColor'>
+              stroke='currentColor'
+              aria-hidden='true'>
               <path
                 stroke-linecap='round'
                 stroke-linejoin='round'
@@ -185,12 +317,15 @@ const keywords =
               ></path>
             </svg>
           </div>
-          <h3 class='mb-2 text-lg font-semibold text-primary-900'>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='mb-2 font-lato font-semibold text-primary-900'>
             Transparent Pricing
-          </h3>
-          <p class='text-neutral-600'>
+          </Text>
+          <Text tag='p' variant='textSM' class='text-neutral-600'>
             Clear, upfront quotes with no hidden charges or surprise fees
-          </p>
+          </Text>
         </div>
 
         <div class='text-center'>
@@ -200,7 +335,8 @@ const keywords =
               class='h-8 w-8 text-accent-600'
               fill='none'
               viewBox='0 0 24 24'
-              stroke='currentColor'>
+              stroke='currentColor'
+              aria-hidden='true'>
               <path
                 stroke-linecap='round'
                 stroke-linejoin='round'
@@ -209,13 +345,16 @@ const keywords =
               ></path>
             </svg>
           </div>
-          <h3 class='mb-2 text-lg font-semibold text-primary-900'>
+          <Text
+            tag='h3'
+            variant='textLG'
+            class='mb-2 font-lato font-semibold text-primary-900'>
             Quality Guarantee
-          </h3>
-          <p class='text-neutral-600'>
+          </Text>
+          <Text tag='p' variant='textSM' class='text-neutral-600'>
             All work backed by our comprehensive warranty and satisfaction
             guarantee
-          </p>
+          </Text>
         </div>
       </div>
     </div>
@@ -234,26 +373,58 @@ const keywords =
         </div>
 
         <div class='relative z-10'>
-          <h2 class='text-3xl font-bold text-white sm:text-4xl'>
+          <Text
+            tag='h2'
+            variant='displayLG'
+            class='font-lato font-bold text-white sm:text-4xl'>
             Ready to Join Our Happy Customers?
-          </h2>
-          <p class='mx-auto mt-6 max-w-2xl text-xl text-primary-100'>
+          </Text>
+          <Text
+            tag='p'
+            variant='textLG'
+            class='mx-auto mt-6 max-w-2xl text-white/90'>
             Experience the same exceptional service that our customers rave
-            about. Get your free quote today.
-          </p>
+            about. Whether you need <Link
+              href='/services'
+              variant='default-link'
+              class='text-white underline hover:text-accent-400'
+              >plumbing repairs</Link
+            >, <Link
+              href='/services'
+              variant='default-link'
+              class='text-white underline hover:text-accent-400'
+              >heating installations</Link
+            >, or <Link
+              href='/landlords'
+              variant='default-link'
+              class='text-white underline hover:text-accent-400'
+              >landlord services</Link
+            >, get your free quote today.
+          </Text>
 
           <div
             class='mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row'>
-            <a
+            <Link
               href='/contact-us'
-              class='rounded-lg bg-white px-8 py-3 text-base font-semibold text-primary-600 shadow-lg transition-all duration-200 hover:bg-primary-50 hover:shadow-xl focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 focus:outline-none'>
-              Contact Us
-            </a>
-            <a
-              href='tel:01273123456'
-              class='rounded-lg border-2 border-white px-8 py-3 text-base font-semibold text-white transition-all duration-200 hover:bg-white hover:text-primary-600 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 focus:outline-none'>
-              Call: {BUSINESS_CONFIG.mobilePhone}
-            </a>
+              variant='default-button'
+              size='md'
+              class='bg-white text-primary-700 hover:bg-primary-50 focus:outline-2 focus:outline-white'>
+              <Text tag='span' variant='textBase' class='font-semibold'>
+                Contact Us
+              </Text>
+            </Link>
+            <Link
+              href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+              variant='default-button'
+              size='md'
+              class='border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary-700 focus:outline-2 focus:outline-white'
+              aria-label={`Call ${formatPhoneForDisplay(
+                BUSINESS_CONFIG.mobilePhone,
+              )}`}>
+              <Text tag='span' variant='textBase' class='font-semibold'>
+                Call: {formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}
+              </Text>
+            </Link>
           </div>
         </div>
       </div>
