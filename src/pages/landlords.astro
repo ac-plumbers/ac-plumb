@@ -245,6 +245,14 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
                 </label>
               </p>
 
+              <!-- Custom email subject line for better notification management -->
+              <input
+                type='hidden'
+                name='subject'
+                value='New Landlord Enquiry from %{formName} - Submission #%{submissionId}'
+                data-remove-prefix
+              />
+
               <div class='grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6'>
                 <div>
                   <label

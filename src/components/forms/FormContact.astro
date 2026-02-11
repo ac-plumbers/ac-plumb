@@ -9,6 +9,21 @@ import Button from '../fundations/elements/Button.astro';
   netlify-honeypot='bot-field'
   data-netlify='true'
   method='POST'>
+  <!-- Hidden bot field for spam protection -->
+  <p hidden>
+    <label>
+      Don't fill this out if you're human: <input name='bot-field' />
+    </label>
+  </p>
+
+  <!-- Custom email subject line for better notification management -->
+  <input
+    type='hidden'
+    name='subject'
+    value='New Contact Enquiry from %{formName} - Submission #%{submissionId}'
+    data-remove-prefix
+  />
+
   <div class='grid grid-cols-1 gap-6 sm:grid-cols-2'>
     <div>
       <label for='first-name' class='block text-sm font-medium text-text-00'>

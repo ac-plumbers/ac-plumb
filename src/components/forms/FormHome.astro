@@ -11,6 +11,21 @@ import Button from '@components/fundations/elements/Button.astro';
   class='px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48'
   netlify-honeypot='bot-field'
   data-netlify='true'>
+  <!-- Hidden bot field for spam protection -->
+  <p hidden>
+    <label>
+      Don't fill this out if you're human: <input name='bot-field' />
+    </label>
+  </p>
+
+  <!-- Custom email subject line for better notification management -->
+  <input
+    type='hidden'
+    name='subject'
+    value='New Home Page Enquiry from %{formName} - Submission #%{submissionId}'
+    data-remove-prefix
+  />
+
   <div class='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
     <div class='grid grid-cols-1 gap-y-6'>
       <div>
