@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { fade } from 'astro:transitions';
 
+import GetACuote from '../fundations/elements/GetACuote.astro';
 import imgHero from '@/images/lavori/viessmann-boiler-internal-view-components-brighton.jpeg';
 import Link from '@/components/fundations/elements/Link.astro';
 import Text from '../fundations/elements/Text.astro';
@@ -48,86 +49,93 @@ const heroContent = {
               {heroContent.description}
             </Text>
             <div class='mt-10 flex items-center gap-x-4 sm:gap-x-6'>
-              <Link
+              <GetACuote
+                variant='accent'
+                size='lg'
+                href={heroContent.cta.href}
+                class='uppercase'
+              />
+
+              <!-- <Link
                 href={heroContent.cta.href}
                 variant='accent-button'
                 size='lg'>
                 <span class='text-2xl uppercase sm:text-base'
                   >{heroContent.cta.text}
                 </span>
-              </Link>
+              </Link> -->
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class='bg-neutral-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
-      <Image
-        class='aspect-3/2 object-cover lg:aspect-auto lg:size-full'
-        src={heroContent.image.src}
-        alt={heroContent.image.alt}
-        title={heroContent.image.title}
-      />
+      <div class='bg-neutral-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
+        <Image
+          class='aspect-3/2 object-cover lg:aspect-auto lg:size-full'
+          src={heroContent.image.src}
+          alt={heroContent.image.alt}
+          title={heroContent.image.title}
+        />
+      </div>
     </div>
   </div>
-</section>
-<script>
-  // Mobile menu functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const openMenuButton = document.getElementById('open-menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuPanel = document.getElementById('menu-panel');
-    const menuBackdrop = document.getElementById('menu-backdrop');
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const openMenuButton = document.getElementById('open-menu-button');
+      const closeMenuButton = document.getElementById('close-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuPanel = document.getElementById('menu-panel');
+      const menuBackdrop = document.getElementById('menu-backdrop');
 
-    function openMenu() {
-      // Show the mobile menu
-      if (mobileMenu) {
-        mobileMenu.classList.remove('hidden');
-      }
-
-      // Allow time for the DOM to update before animating
-      setTimeout(() => {
-        if (menuPanel) {
-          menuPanel.classList.remove('translate-x-full');
+      function openMenu() {
+        // Show the mobile menu
+        if (mobileMenu) {
+          mobileMenu.classList.remove('hidden');
         }
-      }, 10);
 
-      // Prevent body scrolling
-      document.body.style.overflow = 'hidden';
-    }
+        // Allow time for the DOM to update before animating
+        setTimeout(() => {
+          if (menuPanel) {
+            menuPanel.classList.remove('translate-x-full');
+          }
+        }, 10);
 
-    function closeMenu() {
-      // Animate the panel out
-      menuPanel?.classList.add('translate-x-full');
-
-      // Hide the entire menu after animation completes
-      setTimeout(() => {
-        mobileMenu?.classList.add('hidden');
-        document.body.style.overflow = '';
-      }, 300); // Match this with your transition duration
-    }
-
-    // Event listeners
-    if (openMenuButton) {
-      openMenuButton.addEventListener('click', openMenu);
-    }
-    if (closeMenuButton) {
-      closeMenuButton.addEventListener('click', closeMenu);
-    }
-    if (menuBackdrop) {
-      menuBackdrop.addEventListener('click', closeMenu);
-    }
-
-    // Close menu when pressing Escape key
-    document.addEventListener('keydown', e => {
-      if (
-        e.key === 'Escape' &&
-        mobileMenu &&
-        !mobileMenu.classList.contains('hidden')
-      ) {
-        closeMenu();
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
       }
+
+      function closeMenu() {
+        // Animate the panel out
+        menuPanel?.classList.add('translate-x-full');
+
+        // Hide the entire menu after animation completes
+        setTimeout(() => {
+          mobileMenu?.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300); // Match this with your transition duration
+      }
+
+      // Event listeners
+      if (openMenuButton) {
+        openMenuButton.addEventListener('click', openMenu);
+      }
+      if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMenu);
+      }
+      if (menuBackdrop) {
+        menuBackdrop.addEventListener('click', closeMenu);
+      }
+
+      // Close menu when pressing Escape key
+      document.addEventListener('keydown', e => {
+        if (
+          e.key === 'Escape' &&
+          mobileMenu &&
+          !mobileMenu.classList.contains('hidden')
+        ) {
+          closeMenu();
+        }
+      });
     });
-  });
-</script>
+  </script>
+</section>
