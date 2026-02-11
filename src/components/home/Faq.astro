@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import antonio from '@/images/Antonio.png';
 import Text from '@/components/fundations/elements/Text.astro';
+import Link from '@/components/fundations/elements/Link.astro';
+import { ArrowRight } from '@lucide/astro';
 /* Contento for SEO */
 import {
   BUSINESS_CONFIG,
@@ -16,14 +18,30 @@ import {
   class='bg-background-50 px-4 py-16 sm:px-6 lg:px-8'>
   <div
     class='mx-auto max-w-6xl rounded-2xl border-2 bg-white/60 p-8 shadow-xl backdrop-blur-xl'>
-    <!-- Unified Heading (visible on all devices) -->
-    <Text
-      tag='h2'
-      id='faq-heading'
-      variant='displayLG'
-      class='mb-6 font-lato text-4xl font-extrabold text-primary-800 sm:text-5xl'>
-      Frequently Asked Questions
-    </Text>
+    <!-- Heading + Top-right link -->
+    <div
+      class='mb-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center'>
+      <Text
+        tag='h2'
+        id='faq-heading'
+        variant='displayLG'
+        class='font-lato text-4xl font-extrabold text-primary-800 sm:text-5xl'>
+        Frequently Asked Questions
+      </Text>
+      <Link
+        href='/frequently-asked-questions'
+        variant='accent-link'
+        aria-label='See all FAQs'
+        class='inline-flex items-center gap-1.5 text-base'>
+        See all FAQs
+        <ArrowRight
+          class='h-4 w-4'
+          aria-hidden='true'
+          focusable='false'
+          slot='right-icon'
+        />
+      </Link>
+    </div>
     <Text
       tag='p'
       variant='textXL'
@@ -155,6 +173,23 @@ import {
           })
         }
       </div>
+    </div>
+
+    <!-- Footer link under the accordion -->
+    <div class='mt-8 text-center'>
+      <Link
+        href='/frequently-asked-questions'
+        variant='muted-link'
+        aria-label='See all FAQs'
+        class='inline-flex items-center gap-1.5 text-base'>
+        See all FAQs
+        <ArrowRight
+          class='h-4 w-4'
+          aria-hidden='true'
+          focusable='false'
+          slot='right-icon'
+        />
+      </Link>
     </div>
   </div>
 </section>
