@@ -1,0 +1,30 @@
+---
+import { ClipboardCheck } from 'lucide-vue-next';
+---
+
+<div
+  class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
+  <div class='flex items-start'>
+    <div class='rounded-lg bg-primary-100 p-3'>
+      <ClipboardCheck
+        class='h-6 w-6 text-primary-600'
+        aria-hidden='true'
+        focusable='false'
+      />
+    </div>
+    <div class='ml-4'>
+      <h3 class='mb-2 text-xl font-bold text-primary-800'>
+        Gas Safety Certificates (CP12)
+      </h3>
+      <p class='text-text-00'>
+        Annual Gas Safe inspections and CP12 certificates to keep your rental
+        properties compliant and safe.
+      </p>
+      <a
+        href='/services/gas-safety-checks-cp12'
+        class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
+        Learn more <span aria-hidden='true'>&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 import {
   ClipboardCheck,
-  Home,
+  House,
   Shield,
   Clock,
   Calendar,
@@ -21,6 +21,17 @@ import {
 
 const phoneDisplay = formatPhoneForDisplay(BUSINESS_CONFIG.landline);
 const phoneTel = formatPhoneForTel(BUSINESS_CONFIG.landline);
+import { getCollection } from 'astro:content';
+
+const allTheServices = await getCollection('services');
+const serviceIcons: Record<string, typeof ClipboardCheck> = {
+  'gas-safety-checks-cp12': ClipboardCheck,
+  'boiler-servicing-and-repair': House,
+  'gas-boiler-installation': Shield,
+  'central-heating-installation': Calendar,
+  'all-aspects-of-plumbing-heating-and-gas': BadgeCheck,
+  'renewable-air-source-heat-pump': HeartHandshake,
+};
 ---
 
 <BaseLayout
@@ -63,173 +74,40 @@ const phoneTel = formatPhoneForTel(BUSINESS_CONFIG.landline);
       </div>
 
       <div class='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-        <!-- Gas Safety Certificate -->
-        <div
-          class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
-          <div class='flex items-start'>
-            <div class='rounded-lg bg-primary-100 p-3'>
-              <ClipboardCheck
-                class='h-6 w-6 text-primary-600'
-                aria-hidden='true'
-                focusable='false'
-              />
+        <!-- map thes ervices -->
+        {
+          allTheServices.map(service => (
+            <div class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
+              <div class='flex items-start'>
+                <div class='rounded-lg bg-primary-100 p-3'>
+                  {(() => {
+                    const Icon = serviceIcons[service.slug] ?? ClipboardCheck;
+                    return (
+                      <Icon
+                        class='h-6 w-6 text-primary-600'
+                        aria-hidden='true'
+                        focusable='false'
+                      />
+                    );
+                  })()}
+                </div>
+                <div class='ml-4 flex flex-col'>
+                  <h3 class='mb-2 text-xl font-bold text-primary-800'>
+                    {service.data.title}
+                  </h3>
+                  <p class='line-clamp-4 text-text-00'>{service.data.intro}</p>
+                  <div class='mt-auto pt-4'>
+                    <a
+                      href={`/services/${service.slug}`}
+                      class='inline-flex items-center text-primary-600 hover:text-primary-800'>
+                      Learn more <span aria-hidden='true'>&rarr;</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class='ml-4'>
-              <h3 class='mb-2 text-xl font-bold text-primary-800'>
-                Gas Safety Certificates (CP12)
-              </h3>
-              <p class='text-text-00'>
-                Annual Gas Safe inspections and CP12 certificates to keep your
-                rental properties compliant and safe.
-              </p>
-              <a
-                href='/services/gas-safety-checks-cp12'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Boiler Services -->
-        <div
-          class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
-          <div class='flex items-start'>
-            <div class='rounded-lg bg-primary-100 p-3'>
-              <Home
-                class='h-6 w-6 text-primary-600'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-            <div class='ml-4'>
-              <h3 class='mb-2 text-xl font-bold text-primary-800'>
-                Boiler Servicing & Repairs
-              </h3>
-              <p class='text-text-00'>
-                Annual servicing keeps boilers safe and efficient, with fast
-                repairs when breakdowns happen.
-              </p>
-              <a
-                href='/services/boiler-servicing-and-repair'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Boiler Installations -->
-        <div
-          class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
-          <div class='flex items-start'>
-            <div class='rounded-lg bg-primary-100 p-3'>
-              <Shield
-                class='h-6 w-6 text-primary-600'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-            <div class='ml-4'>
-              <h3 class='mb-2 text-xl font-bold text-primary-800'>
-                Boiler Installations
-              </h3>
-              <p class='text-text-00'>
-                Supply and fit efficient gas boilers, with clear guidance on the
-                right system for each property.
-              </p>
-              <a
-                href='/services/gas-boiler-installation'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Central Heating -->
-        <div
-          class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
-          <div class='flex items-start'>
-            <div class='rounded-lg bg-primary-100 p-3'>
-              <Calendar
-                class='h-6 w-6 text-primary-600'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-            <div class='ml-4'>
-              <h3 class='mb-2 text-xl font-bold text-primary-800'>
-                Central Heating Installation
-              </h3>
-              <p class='text-text-00'>
-                Complete heating installations, power flushing, and smart
-                controls for efficient, reliable warmth.
-              </p>
-              <a
-                href='/services/central-heating-installation'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Plumbing Services -->
-        <div
-          class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
-          <div class='flex items-start'>
-            <div class='rounded-lg bg-primary-100 p-3'>
-              <BadgeCheck
-                class='h-6 w-6 text-primary-600'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-            <div class='ml-4'>
-              <h3 class='mb-2 text-xl font-bold text-primary-800'>
-                Plumbing Services
-              </h3>
-              <p class='text-text-00'>
-                Leak repairs, tap and sanitary fixes, pipework, and hot water
-                cylinder services for well-maintained rentals.
-              </p>
-              <a
-                href='/services/all-aspects-of-plumbing-heating-and-gas'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Air Source Heat Pumps -->
-        <div
-          class='rounded-xl border border-primary-300 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
-          <div class='flex items-start'>
-            <div class='rounded-lg bg-primary-100 p-3'>
-              <HeartHandshake
-                class='h-6 w-6 text-primary-600'
-                aria-hidden='true'
-                focusable='false'
-              />
-            </div>
-            <div class='ml-4'>
-              <h3 class='mb-2 text-xl font-bold text-primary-800'>
-                Air Source Heat Pumps
-              </h3>
-              <p class='text-text-00'>
-                Low-carbon heating installation and maintenance with guidance on
-                efficiency and long-term running costs.
-              </p>
-              <a
-                href='/services/renewable-air-source-heat-pump'
-                class='mt-4 inline-flex items-center text-primary-600 hover:text-primary-800'>
-                Learn more <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </section>
