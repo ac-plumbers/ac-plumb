@@ -3,6 +3,7 @@
 import ServicesGrid from '@/components/services/ServicesGrid.astro';
 import { getCollection } from 'astro:content';
 import Text from '../fundations/elements/Text.astro';
+import GetACuote from '../fundations/elements/GetACuote.astro';
 
 // Get featured services for homepage
 const allServices = await getCollection('services');
@@ -37,24 +38,13 @@ console.log(featuredServices.length);
 
     <!-- View All Services CTA -->
     <div class='mt-12 text-center'>
-      <a
+      <GetACuote
+        variant='primary'
+        size='lg'
         href='/services'
-        class='inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-primary-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary-600'>
-        View All Services
-        <svg
-          aria-hidden='true'
-          focusable='false'
-          class='h-5 w-5'
-          fill='none'
-          stroke='currentColor'
-          viewBox='0 0 24 24'>
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
-            d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
-        </svg>
-      </a>
+        class=''
+        text='View all Services'
+      />
     </div>
   </div>
 </section>

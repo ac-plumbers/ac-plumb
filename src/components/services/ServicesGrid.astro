@@ -16,10 +16,7 @@ const sortedServices = [...services].sort(
 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
   {sortedServices.map((service) => (
     <article class="service-card group relative overflow-hidden rounded-xl bg-white border border-neutral-200 shadow-sm hover:shadow-lg hover:border-primary-300 transition-all duration-300">
-      <a
-        href={`/services/${service.slug}`}
-        class="flex h-full flex-col"
-        aria-label={`Learn more about ${service.data.title}`}>
+      <div class="flex h-full flex-col">
 
         {(service.data.imageHero || service.data.image) && (
           <div class="aspect-3/2 overflow-hidden bg-neutral-100">
@@ -41,48 +38,39 @@ const sortedServices = [...services].sort(
           <Text
             tag="h3"
             variant="displayXS"
-            class="text-xl font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-200 leading-tight">
-            {service.data.title}
+            class="text-xl font-bold text-neutral-900 transition-colors duration-200 leading-tight">
+            <a
+              href={`/services/${service.slug}`}
+              class="group/ttl inline-block hover:text-primary-600 focus:outline-2 focus:outline-primary-400 focus:outline-offset-4"
+              aria-label={`Learn more about ${service.data.title}`}>
+              {service.data.title}
+            </a>
           </Text>
 
           <!-- Service Description -->
           <Text
             tag="p"
             variant="textBASE"
-            class="text-neutral-700 leading-relaxed line-clamp-3">
+            class="text-neutral-700 leading-relaxed line-clamp-3 ">
             {service.data.intro}
           </Text>
-
-      {/*     <!-- Tags (if needed) -->
-          {service.data.tags && service.data.tags.length > 0 && (
-            <div class="flex flex-wrap gap-1.5">
-              {service.data.tags.slice(0, 3).map((tag: string) => (
-                <span class="inline-flex items-center rounded-md bg-primary-50 px-2 py-1 text-xs font-medium text-primary-700 border border-primary-200">
-                  {tag}
-                </span>
-              ))}
-              {service.data.tags.length > 3 && (
-                <span class="text-xs text-neutral-400 self-center">
-                  +{service.data.tags.length - 3} more
-                </span>
-              )}
-            </div>
-          )} */}
-
           <!-- CTA -->
           <div class="flex items-end justify-between pt-2 border-t border-neutral-100 mt-auto">
-            <span class="inline-flex items-center text-primary-600 font-semibold text-sm group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">
+            <a
+              href={`/services/${service.slug}`}
+              class="inline-flex items-center text-primary-600 font-semibold text-sm hover:translate-x-1 transition-transform duration-200 focus:outline-2 focus:outline-primary-400 focus:outline-offset-4"
+              aria-label={`Learn more about ${service.data.title}`}>
               Learn More
-              <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
-            </span>
+            </a>
           </div>
         </div>
 
         <!-- Hover Overlay Effect -->
         <div class="absolute inset-0 bg-linear-to-t from-primary-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-      </a>
+      </div>
     </article>
   ))}
 </div>
