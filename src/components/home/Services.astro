@@ -3,7 +3,7 @@
 import ServicesGrid from '@/components/services/ServicesGrid.astro';
 import { getCollection } from 'astro:content';
 import Text from '../fundations/elements/Text.astro';
-import GetACuote from '../fundations/elements/GetACuote.astro';
+import GetAQuote from '../fundations/elements/GetAQuote.astro';
 
 // Get featured services for homepage
 const allServices = await getCollection('services');
@@ -38,7 +38,7 @@ console.log(featuredServices.length);
 
     <!-- View All Services CTA -->
     <div class='mt-12 text-center'>
-      <GetACuote
+      <GetAQuote
         variant='primary'
         size='lg'
         href='/services'

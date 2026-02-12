@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { fade } from 'astro:transitions';
 
-import GetACuote from '../fundations/elements/GetACuote.astro';
+import GetAQuote from '../fundations/elements/GetAQuote.astro';
 import imgHero from '@/images/lavori/viessmann-boiler-internal-view-components-brighton.jpeg';
 import Link from '@/components/fundations/elements/Link.astro';
 import Text from '../fundations/elements/Text.astro';
@@ -49,7 +49,7 @@ const heroContent = {
               {heroContent.description}
             </Text>
             <div class='mt-10 flex items-center gap-x-4 sm:gap-x-6'>
-              <GetACuote
+              <GetAQuote
                 variant='accent'
                 size='lg'
                 href={heroContent.cta.href}

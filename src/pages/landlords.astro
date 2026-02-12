@@ -11,7 +11,7 @@ import {
   Receipt,
   HeartHandshake,
 } from '@lucide/astro';
-import GetACuote from '@/components/fundations/elements/GetACuote.astro';
+import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
 import {
   BUSINESS_CONFIG,
@@ -49,7 +49,7 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
         central heating upgrades, and responsive repairs.
       </p>
       <div class='flex flex-col justify-center gap-4 sm:flex-row'>
-        <GetACuote
+        <GetAQuote
           variant='gradient'
           size='lg'
           iconStyle='send'
@@ -99,8 +99,10 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
                   <div class='mt-auto pt-4'>
                     <a
                       href={`/services/${service.slug}`}
-                      class='inline-flex items-center text-primary-600 hover:text-primary-800'>
-                      Learn more <span aria-hidden='true'>&rarr;</span>
+                      class='inline-flex items-center text-primary-600 hover:text-primary-800'
+                      aria-label={`Learn more about ${service.data.title}`}>
+                      Learn more about {service.data.title}
+                      <span aria-hidden='true'>&rarr;</span>
                     </a>
                   </div>
                 </div>
