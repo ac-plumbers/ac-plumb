@@ -9,6 +9,7 @@ import {
 } from 'lucide-vue-next';
 import Link from './Link.astro';
 import Text from './Text.astro';
+import type { ACTION_ERROR_CODES } from 'astro:actions';
 
 export interface Props {
   /**
@@ -88,6 +89,7 @@ const {
   label,
   href = '/contact-us',
   class: className = '',
+  ...rest
 } = Astro.props;
 
 // Icon selection
@@ -167,7 +169,8 @@ const showLabel = display === 'with-label' && label;
   href={href}
   variant='custom'
   class={buttonClasses}
-  aria-label={`${text} - Navigate to contact page`}>
+  aria-label={`${text} - Navigate to contact page`}
+  {...rest}>
   {
     pulse && (
       <span
