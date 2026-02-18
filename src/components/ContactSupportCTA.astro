@@ -1,4 +1,6 @@
 ---
+import GetAQuote from './fundations/elements/GetAQuote.astro';
+
 const {
   heading = 'Still have questions?',
   message = "If you can't find the answer you're looking for, our team is ready to help.",
@@ -20,10 +22,14 @@ const {
       {heading}
     </h2>
     <p class='mb-6 text-primary-800'>{message}</p>
-    <a
+    <GetAQuote
+      variant='accent'
+      size='md'
+      iconStyle='none'
       href={buttonHref}
-      class='inline-block rounded bg-accent-500 px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-accent-700 focus:outline-2 focus:outline-accent-700 focus-visible:outline-2 focus-visible:outline-accent-700'
-      aria-label={buttonText}>{buttonText}</a
-    >
+      text={buttonText}
+      data-umami-event='lead_quote_click'
+      data-umami-event-placement='cta_center_page'
+    />
   </div>
 </section>

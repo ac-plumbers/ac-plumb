@@ -10,6 +10,8 @@ import { Image } from 'astro:assets';
 // Images
 import checkaTrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
 import google from '@/images/brands/g.webp';
+import CallButton from '../fundations/elements/CallButton.astro';
+import GetAQuote from '../fundations/elements/GetAQuote.astro';
 // Use static review data for now to ensure compatibility
 const reviews = [
   {
@@ -136,10 +138,14 @@ const reviews = [
   </div>
   <!-- Call to Action -->
   <div class='mt-20 text-center'>
-    <Link href='/contact-us' variant='accent-button' size='md' class='inline'>
-      <Text tag='span' variant='textXL' class='uppercase sm:text-base'>
-        Contact Us
-      </Text>
-    </Link>
+    <GetAQuote
+      variant='accent'
+      size='lg'
+      iconStyle='none'
+      class='uppercase'
+      data-umami-event='lead_quote_click'
+      data-umami-event-placement='reviews_section'
+      text='Contact Us'
+    />
   </div>
 </section>

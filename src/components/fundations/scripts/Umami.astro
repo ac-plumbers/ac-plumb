@@ -2,7 +2,27 @@
 
 ---
 
+<script is:inline>
+  function beforeSendHandler(type, payload) {
+    if (type === 'pageview' && payload?.url) {
+      const url = new URL(payload.url, window.location.origin);
+
+      // Keep UTMs, remove noisy click IDs
+      ['fbclid', 'gclid', 'wbraid', 'gbraid', 'msclkid'].forEach(p =>
+        url.searchParams.delete(p),
+      );
+
+      payload.url = url.pathname + (url.search ? url.search : '');
+    }
+
+    return payload;
+  }
+</script>
+
 <script
   defer
   src='https://cloud.umami.is/script.js'
-  data-website-id='abf1bd09-1500-4532-88c6-474adb412c11'></script>
+  data-website-id='abf1bd09-1500-4532-88c6-474adb412c11'
+  data-domains='acplumbers.co.uk,www.acplumbers.co.uk'
+  data-do-not-track='true'
+  data-before-send='beforeSendHandler'></script>

@@ -93,8 +93,13 @@ import Button from '@components/fundations/elements/Button.astro';
       </div>
     </div>
     <div class='mt-8 flex justify-end'>
-      <Button type='submit' variant='accent' size='lg' class='uppercase'
-        >Send message</Button
+      <Button
+        type='submit'
+        variant='accent'
+        size='lg'
+        class='uppercase'
+        data-umami-event='lead_form_submit'
+        data-umami-event-placement='contact_section'>Send message</Button
       >
     </div>
   </div>
