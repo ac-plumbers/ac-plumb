@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { fade } from 'astro:transitions';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 
 import GetAQuote from '../fundations/elements/GetAQuote.astro';
 import imgHero from '@/images/lavori/viessmann-boiler-internal-view-components-brighton.jpeg';
@@ -39,26 +40,41 @@ const heroContent = {
         </svg>
 
         <div class='relative px-6 py-16 sm:py-20 lg:px-8 lg:py-28 lg:pr-0'>
-          <div class='mx-auto max-w-2xl lg:mx-0 lg:max-w-xl'>
+          <div class='mx-auto max-w-4xl lg:mx-0 lg:max-w-xl'>
             <!-- Hero heading and text -->
-            <Text tag='h1' id='hero-heading' variant='displayXL'>
+            <Text
+              tag='h1'
+              id='hero-heading'
+              variant='displayLG'
+              class='leading-snug'>
+              <span slot='left-icon'> </span>
+              Welcome to {BUSINESS_CONFIG.nameSmall}<sup
+                class='relative -top-[0.70em] ml-1 text-[0.35em] leading-none'
+                >Ltd.</sup
+              >
+              <br />
+              your trusted local experts in plumbing, heating, gas and renewable
+              energy
+            </Text>
+          </div>
+          <!--  <Text tag='h1' id='hero-heading' variant='displayXL'>
               <span slot='left-icon'> </span>
               {heroContent.heading}
-            </Text>
-            <Text tag='p' class='mt-8' variant='textBase'>
-              {heroContent.description}
-            </Text>
-            <div class='mt-10 flex items-center gap-x-4 sm:gap-x-6'>
-              <GetAQuote
-                variant='accent'
-                size='lg'
-                href={heroContent.cta.href}
-                class='uppercase'
-                data-umami-event='lead_quote_click'
-                data-umami-event-placement='home_hero'
-              />
+            </Text> -->
+          <Text tag='p' class='mt-8' variant='textBase'>
+            {heroContent.description}
+          </Text>
+          <div class='mt-10 flex items-center gap-x-4 sm:gap-x-6'>
+            <GetAQuote
+              variant='accent'
+              size='lg'
+              href={heroContent.cta.href}
+              class='uppercase'
+              data-umami-event='lead_quote_click'
+              data-umami-event-placement='home_hero'
+            />
 
-              <!-- <Link
+            <!-- <Link
                 href={heroContent.cta.href}
                 variant='accent-button'
                 size='lg'>
@@ -66,20 +82,20 @@ const heroContent = {
                   >{heroContent.cta.text}
                 </span>
               </Link> -->
-            </div>
           </div>
         </div>
       </div>
-      <div class='bg-neutral-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
-        <Image
-          class='aspect-3/2 object-cover lg:aspect-auto lg:size-full'
-          src={heroContent.image.src}
-          alt={heroContent.image.alt}
-          title={heroContent.image.title}
-        />
-      </div>
+    </div>
+    <div class='bg-neutral-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
+      <Image
+        class='aspect-3/2 object-cover lg:aspect-auto lg:size-full'
+        src={heroContent.image.src}
+        alt={heroContent.image.alt}
+        title={heroContent.image.title}
+      />
     </div>
   </div>
+
   <script>
     // Mobile menu functionality
     document.addEventListener('DOMContentLoaded', () => {
