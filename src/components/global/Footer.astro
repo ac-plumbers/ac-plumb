@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import imgFooter from '@/images/prova-footer.jpg.avif';
 
 // Busineess Config
 import { BUSINESS_CONFIG, fullYear } from '@/utils/businessConfig';
@@ -67,6 +68,15 @@ import Text from '../fundations/elements/Text.astro';
   class='relative bg-primary-800'
   data-bg='dark'
   aria-labelledby='footer-company-heading'>
+  <!-- Background image with overlay -->
+  <Image
+    src={imgFooter}
+    alt=''
+    class='absolute inset-0 h-full w-full object-cover'
+    aria-hidden='true'
+  />
+  <!-- Dark overlay for readability -->
+  <div class='absolute inset-0 h-full w-full bg-black/40'></div>
   <div class='bg-center-60 absolute inset-0 h-full w-full'></div>
   <div class='absolute inset-0 h-full w-full bg-black/20'></div>
   <div
@@ -84,10 +94,13 @@ import Text from '../fundations/elements/Text.astro';
         />
         <Text
           tag='h3'
-          variant='displayLG'
+          variant='displayMD'
           id='footer-company-heading'
           class='text-balance text-white'>
-          {BUSINESS_CONFIG.name}
+          {BUSINESS_CONFIG.nameSmall}<sup
+            class='relative -top-[0.70em] ml-1 text-[0.35em] leading-none'
+            >Ltd.</sup
+          >
         </Text>
         <Text
           tag='p'
