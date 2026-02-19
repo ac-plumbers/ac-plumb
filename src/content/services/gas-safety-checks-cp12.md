@@ -1,5 +1,5 @@
 ---
-title: Gas safety checks (CP12) and Gas Safety Certificates
+title: Gas safety checks
 description: A Gas Safety Certificate (also called a CP12) is an essential document that confirms your gas appliances, fittings, and flues have been inspected and are safe to use. Whether you’re a homeowner or a landlord, having a valid certificate is not just good practice, it’s a legal requirement in the UK for rental properties.As a landlord, you have duties under the Gas Safety Regulations to arrange maintenance by a Gas Safe registered engineer for all pipe work, appliances and flues, which you own and have provided for your tenants use.You must also arrange for an annual gas safety check to be carried out every 12 months by a Gas Safe registered engineer. Our Gas Safe registered engineers provide a full range of domestic gas services across Brighton & Hove and the surrounding areas.
 paragraph: All work is carried out with safety, efficiency, and compliance as our top priority, giving you complete peace of mind.
 price: 0
