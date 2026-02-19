@@ -1,12 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import img from '@/images/lavori/viessmann-boiler-closeup-brighton-installation.jpeg';
-import logo from '@/images/logo/ac-plumbers-ltd-logo-footer-brighton.svg';
+import logo from '@/images/logo/ac-plumbers-ltd-logo-brighton.svg';
+import logoNew from '@/images/logo/ac-plumbers-ltd-logo-who-are-we.svg';
 import Text from '../fundations/elements/Text.astro';
 ---
 
 <section
-  id='who-we-are'
+  id='who-are-we'
   class='overflow-hidden bg-primary-800 py-24 sm:py-32'
   data-bg='dark'>
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
@@ -16,7 +17,7 @@ import Text from '../fundations/elements/Text.astro';
         <div class='lg:max-w-lg'>
           <div class='mt-4 flex items-center gap-8 sm:gap-12'>
             <Image
-              src={logo}
+              src={logoNew}
               alt='AC Plumbers Ltd logo with water and flame icons'
               title='AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton'
               class='mt-6'
@@ -25,18 +26,21 @@ import Text from '../fundations/elements/Text.astro';
             <Text
               tag='h2'
               variant='displayLG'
-              class='mt-2 font-semibold tracking-tight text-pretty text-background-50'>
+              class='mt-2 font-semibold tracking-tight text-pretty text-white'>
               Who We Are
             </Text>
           </div>
-          <Text tag='p' variant='textBase' class='mt-6 text-neutral-300'>
-            Established in 2016, AC Plumbers Ltd. has been serving Brighton &
-            Hove and surrounding area since. Based locally we are always on hand
-            to provide a professional and reliable service, excellent customer
-            service and high workmanship. We cover all aspects of Plumbing,
-            Heating, Gas, Boilers and Air Source Heat Pump installation.
+          <Text tag='p' variant='textLG' class='mt-6 text-white'>
+            Established in 2016, AC Plumbers Ltd. has been proudly serving
+            Brighton & Hove and the surrounding areas. As a locally based
+            company, we are always on hand to provide a professional, reliable
+            service with a strong focus on excellent customer care and
+            high-quality workmanship. We cover all aspects of plumbing, heating,
+            gas services, boilers, and air source heat pump installations. We
+            are a Gas Safe registered company and an approved installer for
+            Vaillant and Viessmann.
           </Text>
-          <button>clik me</button>
+          <button>click me</button>
         </div>
       </div>
       <div class='flex items-start justify-center lg:order-first'>

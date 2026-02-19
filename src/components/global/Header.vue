@@ -49,7 +49,7 @@
           <div
             class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
           >
-            <div class="flex gap-x-4 text-base font-medium xl:gap-x-6">
+            <div class="flex gap-x-4 text-lg font-medium xl:gap-x-4">
               <a
                 href="/"
                 :class="[
@@ -186,7 +186,7 @@
               data-umami-event-placement="header"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-x-2 rounded-md px-3 py-2 text-base font-medium text-green-700 transition-colors duration-200 hover:bg-green-50 hover:text-green-800 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:outline-none"
+              class="flex items-center gap-x-2 rounded-md px-3 py-2 text-lg font-medium text-green-700 transition-colors duration-200 hover:bg-green-50 hover:text-green-800 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:outline-none"
               title="Chat with us on WhatsApp"
             >
               <IconWhatsAppMenu />
@@ -200,6 +200,7 @@
               variant="primary"
               text="Free Quote"
               size="md"
+              class="text-lg"
               display="full"
               :pulse="false"
               href="/contact-us"
