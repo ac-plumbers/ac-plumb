@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import Text from '../components/fundations/elements/Text.astro';
-import vaillant from '@/images/brands/vaillant-installer-logo-brighton-boilers.png';
-import viesmann from '@/images/brands/viessmann-logo-boiler-installation-brighton.png';
-import bpec from '@/images/brands/bpec-certification-logo-gas-plumbing.png';
-import checktrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
-import gasSafe from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
-import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
+import vaillant from '@/images/brands/brands-svg/vaillant-installer-logo-brighton-boilers.svg';
+import viesmann from '@/images/brands/brands-svg/viessmann-logo-boiler-installation-brighton.svg';
+import bpec from '@/images/brands/brands-svg/bpec-certification-logo-gas-plumbing.svg';
+import checktrade from '@/images/brands/brands-svg/checkatrade-logo-ac-plumbers-brighton.svg';
+import gasSafe from '@/images/brands/brands-svg/gas-safe-register-logo-certified-brighton.svg';
+import oftec from '@/images/brands/brands-svg/oftec-registered-logo-heating-certification-1.svg';
 ---
 
 <section class='relative overflow-hidden bg-slate-50 py-16' id='certifications'>
@@ -26,21 +26,21 @@ import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1
       class='mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5'
       aria-label='Brand certifications and partners'>
       <Image
-        width={260}
-        height={76}
+        width={300}
+        height={88}
         src={vaillant}
         alt='Vaillant Advance Installer certification'
-        class='col-span-2 max-h-24 w-full object-contain lg:col-span-1'
-        format='png'
+        class='col-span-2 max-h-28 w-full object-contain lg:col-span-1'
+        format='svg'
       />
 
       <Image
-        width={260}
-        height={76}
+        width={300}
+        height={88}
         src={viesmann}
         alt='Viessmann certified installer'
-        class='col-span-2 max-h-24 w-full object-contain lg:col-span-1'
-        format='png'
+        class='col-span-2 max-h-28 w-full object-contain lg:col-span-1'
+        format='svg'
       />
 
       <Image
@@ -49,17 +49,17 @@ import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1
         src={bpec}
         alt='BPEC certified gas and plumbing professional'
         class='col-span-2 max-h-24 w-full object-contain lg:col-span-1'
-        format='webp'
+        format='svg'
         quality={90}
       />
 
       <Image
-        width={260}
-        height={76}
+        width={300}
+        height={88}
         src={checktrade}
         alt='Checkatrade verified tradesperson'
-        class='col-span-2 max-h-24 w-full object-contain sm:col-start-2 lg:col-span-1'
-        format='webp'
+        class='col-span-2 max-h-28 w-full object-contain sm:col-start-2 lg:col-span-1'
+        format='svg'
         quality={90}
       />
 
@@ -69,7 +69,7 @@ import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1
         src={gasSafe}
         alt='Gas Safe Register certified engineer'
         class='col-span-2 col-start-2 max-h-24 w-full object-contain sm:col-start-auto lg:col-span-1'
-        format='webp'
+        format='svg'
         quality={90}
       />
     </div>
