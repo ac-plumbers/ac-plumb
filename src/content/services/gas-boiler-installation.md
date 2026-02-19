@@ -3,9 +3,9 @@ title: Boiler Installations
 description: Time for a new boiler? If your boiler is starting to show its age or worse, has already let you down it’s essential to find a trusted, efficient boiler installer to get your heating and hot water back up and running. At AC Plumbers Ltd., we specialise in installing new gas boilers and central heating systems for homes across Brighton & Hove and the surrounding areas. We’ll help you choose the most cost-effective and energy-efficient boiler for your home, helping you save on energy bills while keeping your heating and hot water running reliably all year round. Regular maintenance and inspections are also recommended to prolong the lifespan of the boiler and to ensure it continues to function safely and effectively. Whether for new builds or replacing old systems, expert gas boiler installation is key to reliable heating solutions.
 price: 0
 sortedOrder: 1
-image: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
-alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
-titleImage: "Precision Boiler Installation with Viessmann Controls and Magnetic Filter – AC Plumbers Ltd. Brighton"
+image: "/images/services/viessmann-boiler-installation-copper-pipework-brighton-hove.jpeg"
+alt: "Viessmann boiler installation with exposed copper pipework and controls in Brighton & Hove."
+titleImage: "Viessmann boiler installation & servicing in Brighton & Hove | AC Plumbers Ltd."
 imageHero: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
 altHero: "Viessmann boiler installation with labelled copper pipework and Altecnic pressure gauge inside utility unit"
 titleImageHero: "Viessmann Boiler Installation in Utility Room – AC Plumbers Ltd. Brighton"
