@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import img from '@/images/lavori/viessmann-boiler-closeup-brighton-installation.jpeg';
-import logo from '@/images/logo/ac-plumbers-ltd-logo-brighton.svg';
 import logoNew from '@/images/logo/ac-plumbers-ltd-logo-who-are-we.svg';
 import Text from '../fundations/elements/Text.astro';
 ---
@@ -30,17 +29,22 @@ import Text from '../fundations/elements/Text.astro';
               Who We Are
             </Text>
           </div>
-          <Text tag='p' variant='textLG' class='mt-6 text-white'>
+          <Text
+            tag='p'
+            variant='textLG'
+            class='mt-6 max-w-xl text-base leading-8 text-neutral-100 sm:text-lg'>
             Established in 2016, AC Plumbers Ltd. has been proudly serving
             Brighton & Hove and the surrounding areas. As a locally based
             company, we are always on hand to provide a professional, reliable
             service with a strong focus on excellent customer care and
-            high-quality workmanship. We cover all aspects of plumbing, heating,
-            gas services, boilers, and air source heat pump installations. We
-            are a Gas Safe registered company and an approved installer for
-            Vaillant and Viessmann.
+            high-quality workmanship. We cover all aspects of <a
+              href='/services'
+              class='rounded font-semibold text-accent-600 underline decoration-accent-400 underline-offset-4 hover:text-accent-700 hover:decoration-accent-600 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:outline-none'>
+              plumbing, heating, gas services, boilers, and air source heat pump
+              installations</a
+            >. We are a Gas Safe registered company and an approved installer
+            for Vaillant and Viessmann.
           </Text>
-          <button>click me</button>
         </div>
       </div>
       <div class='flex items-start justify-center lg:order-first'>
