@@ -5,13 +5,19 @@ import '@fontsource-variable/inconsolata';
 import '@fontsource/lato';
 import { Image } from 'astro:assets';
 import logo from '../images/logo/ac-plumbers-logo-brighton.png';
+import {
+  BUSINESS_CONFIG,
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+} from '@/utils/businessConfig';
 ---
 
 <Layout>
   <section
-    class='relative flex min-h-screen w-full flex-col items-center justify-center bg-primary-700 px-2 sm:px-0'>
+    id='main-content'
+    class='relative flex min-h-screen w-full flex-col items-center justify-center bg-primary-700 px-3 sm:px-0'>
     <div
-      class='mx-auto flex min-h-[80vh] w-full max-w-2xl flex-col items-center justify-center gap-8 py-8 sm:py-16'>
+      class='mx-auto flex min-h-[80vh] w-full max-w-2xl flex-col items-center justify-center gap-10 py-10 sm:py-16'>
       <Image
         src={logo}
         alt='AC Plumbers Ltd. logo'
@@ -24,15 +30,29 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
         <div class='flex w-full flex-col items-center gap-3'>
           <h1
             class='font-manrope text-center text-2xl leading-tight font-bold text-accent-500 sm:text-3xl md:text-5xl'>
-            We're Building Something New
+            New site arrives end of March
           </h1>
           <p
-            class='max-w-lg px-2 text-center text-sm text-gray-200 sm:text-base'>
-            We're working hard to bring you a new online experience for AC
-            Plumbers Ltd. For urgent plumbing, heating, or gas services in
-            Brighton & Hove, please contact us below.
+            class='max-w-xl px-2 text-center text-sm text-gray-200 sm:text-base'>
+            We’re sharpening response times and clearer quotes. Our 24/7
+            plumbing, heating, and gas callouts across Brighton & Hove continue
+            without disruption.
+          </p>
+          <p
+            class='text-center text-xs font-semibold tracking-[0.12em] text-gray-300 uppercase'>
+            No service disruption during the update
           </p>
         </div>
+
+        <div
+          class='flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center'>
+          <a
+            href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+            class='inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-800 shadow transition hover:-translate-y-px hover:shadow-lg'>
+            Call now · {formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}
+          </a>
+        </div>
+
         <div
           class='count-down-main flex w-full flex-wrap items-start justify-center gap-2 sm:gap-4'>
           <div class='timer flex flex-col gap-0.5'>
@@ -92,10 +112,11 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
             </p>
           </div>
         </div>
+
         <div class='flex w-full flex-col items-center justify-center gap-3'>
           <h6
             class='text-center text-sm font-semibold text-accent-500 sm:text-base'>
-            Estimated Launch: February 28, 2026
+            Estimated Launch: March 31, 2026
           </h6>
           <form
             name='launch-notification'
@@ -115,7 +136,7 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
               name='email'
               required
               class='inline-flex h-10 w-full max-w-full items-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 shadow focus:outline-none sm:w-80'
-              placeholder='Your email for updates...'
+              placeholder='One launch email coming your way'
             />
             <button
               type='submit'
@@ -128,12 +149,12 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
         </div>
       </div>
     </div>
-    <p class='mt-6 w-full text-center text-sm font-normal text-gray-200'>
-      Get in touch with us:
+    <p class='w-full text-center text-sm font-normal text-gray-200'>
+      Prefer email?
       <a
-        href='mailto:info@acplumb.co.uk'
+        href={`mailto:${BUSINESS_CONFIG.email}`}
         class='underline transition-all duration-700 ease-in-out hover:text-white'>
-        info@acplumb.co.uk
+        {BUSINESS_CONFIG.email}
       </a>
     </p>
   </section>
@@ -151,7 +172,7 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
     hour = 0,
     minute = 0,
     second = 0,
-    timeZone = 'Europe/London'
+    timeZone = 'Europe/London',
   ) {
     // Start with a UTC guess
     const utcGuess = Date.UTC(year, month - 1, day, hour, minute, second);
@@ -170,7 +191,7 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
 
     const parts = dtf.formatToParts(new Date(utcGuess));
     const map = Object.fromEntries(
-      parts.filter(p => p.type !== 'literal').map(p => [p.type, p.value])
+      parts.filter(p => p.type !== 'literal').map(p => [p.type, p.value]),
     );
 
     // Interpret the formatted parts as if they were UTC to derive the offset
@@ -180,15 +201,15 @@ import logo from '../images/logo/ac-plumbers-logo-brighton.png';
       Number(map.day),
       Number(map.hour),
       Number(map.minute),
-      Number(map.second)
+      Number(map.second),
     );
 
     // Adjust the guess by the zone offset
     return utcGuess + (utcGuess - asUTC);
   }
 
-  // Countdown target: Feb 28, 2026 00:00:00 in UK time (Europe/London)
-  let dest = zonedTimeToEpoch(2026, 2, 28, 0, 0, 0);
+  // Countdown target: Mar 31, 2026 23:59:59 in UK time (Europe/London)
+  let dest = zonedTimeToEpoch(2026, 3, 31, 23, 59, 59);
   let x = setInterval(function () {
     let now = new Date().getTime();
     let diff = dest - now;
