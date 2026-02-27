@@ -1,11 +1,10 @@
 ---
 title: Renewable - Air Source Heat Pump - Electric Boilers Installation
-description: Air source heat pumps (ASHPs) are an efficient and environmentally friendly way to heat and cool buildings. They extract heat from the outside air, even in cold temperatures, and transfer it indoors. ASHPs can also provide hot water, making them a versatile solution for residential and commercial properties. Installation requires professional expertise to ensure optimal performance and compliance with regulations. Regular maintenance is essential to keep the system running efficiently and to extend its lifespan. ASHPs are a key component of sustainable energy solutions, reducing reliance on fossil fuels and lowering carbon emissions.
 paragraph: Air source heat pumps extract heat from the outside air and transfer it inside your home to provide heating and hot water. Even in cold weather, they can efficiently deliver warmth while using significantly less energy than conventional gas systems.
 price: 0
 sortedOrder: 6
 image: "/images/services/vaillant-air-source-heat-pump-brighton-installation.jpeg"
-alt: "Outdoor Vaillant air source heat pump on anti‑vibration feet beside a garden wall, installed by AC Plumbers Ltd. in Brighton."
+alt: "Outdoor Vaillant air source heat pump on anti-vibration feet beside a garden wall, installed by AC Plumbers Ltd. in Brighton."
 imageHero: "/images/services/combi-boiler-servicing-maintenance-visit-tools-brighton-ac-plumbers.png"
 altHero: "Combi boiler service in progress with casing open and tools ready for maintenance checks"
 titleImageHero: "Full boiler servicing visit with safety checks and performance testing"
@@ -67,3 +66,11 @@ faqs:
   - question: "How can I schedule a consultation?"
     answer: "You can schedule a consultation by contacting us through our website or giving us a call."
 ---
+
+Air source heat pumps **(ASHPs)** are an efficient and environmentally friendly way to heat and cool buildings. They extract heat from the outside air, even in cold temperatures, and transfer it indoors.
+
+ASHPs can also provide hot water, making them a versatile solution for residential and commercial properties.
+
+Installation requires professional expertise to ensure optimal performance and compliance with regulations. Regular maintenance is essential to keep the system running efficiently and to extend its lifespan.
+
+ASHPs are a key component of sustainable energy solutions, reducing reliance on fossil fuels and lowering carbon emissions.

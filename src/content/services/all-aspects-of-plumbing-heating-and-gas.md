@@ -1,6 +1,5 @@
 ---
 title: Plumbing Services in Brighton & Hove
-description: At AC Plumbers Ltd., we provide professional and reliable plumbing services for homes across Brighton & Hove and the surrounding areas. Whether it’s a minor leak, a blocked drain, or a full installation, our experienced team is on hand to ensure your plumbing is safe, efficient, and working exactly as it should.We understand how disruptive plumbing problems can be, which is why we pride ourselves on fast, dependable service. Our engineers are fully qualified to handle all aspects of domestic plumbing, giving you complete peace of mind.
 price: 0
 sortedOrder: 3
 image: /images/services/modern-ceramic-basin-gold-tap-wooden-vanity.jpeg
@@ -74,3 +73,9 @@ faqs:
       You can schedule a consultation by contacting us through our website or
       giving us a call.
 ---
+
+At AC Plumbers Ltd., we provide professional and reliable plumbing services for homes across Brighton & Hove and the surrounding areas.
+
+Whether it’s a minor leak, a blocked drain, or a full installation, our experienced team is on hand to ensure your plumbing is safe, efficient, and working exactly as it should.
+
+We understand how disruptive plumbing problems can be, which is why we pride ourselves on fast, dependable service. Our engineers are fully qualified to handle all aspects of domestic plumbing, giving you complete peace of mind.

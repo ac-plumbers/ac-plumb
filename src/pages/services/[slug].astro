@@ -14,18 +14,10 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import type {
   ServiceFeature,
   ServiceStep,
-  ServiceFaq,
   ServiceFrontmatter,
 } from '@/lib/types';
 import { getCollection } from 'astro:content';
 import SingleSchemaService from '@/components/fundations/schema-services/SingleSchemaService.astro';
-import { Image } from 'astro:assets';
-import vaillant from '@/images/brands/vaillant-installer-logo-brighton-boilers.jpg';
-import viesmann from '@/images/brands/viessmann-logo-boiler-installation-brighton.jpg';
-import bpec from '@/images/brands/bpec-certification-logo-gas-plumbing.png';
-import checktrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
-import gasSafe from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
-import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
 import ServiceGallery from '@/components/services/ServiceGallery.astro';
 
 export async function getStaticPaths() {
@@ -47,6 +39,7 @@ const { page, allServices } = Astro.props as {
     slug: string;
   }>;
 };
+
 const service = page.data;
 const { Content } = await page.render();
 
@@ -60,13 +53,12 @@ const relatedServices = allServices
 
 const intro = service.intro || '';
 const description = service.description || '';
-const paragraph = service.paragraph || '';
+
 const benefits = service.benefits || [];
-const specialties = service.specialties || [];
-const steps = service.process || [];
+const steps: ServiceStep[] = service.process || [];
 const faqs = service.faqs || [];
 const features: ServiceFeature[] = service.features || [];
-const process: ServiceStep[] = service.process || [];
+const gallery = service.gallery || [];
 ---
 
 <ServicesLayout frontmatter={service}>
@@ -76,7 +68,6 @@ const process: ServiceStep[] = service.process || [];
     providerUrl='https://acplumb.co.uk'
   />
 
-  <!-- Hero Section with Service Overview -->
   <ServiceHeroSection
     title={service.title}
     image={service.imageHero ?? ''}
@@ -84,13 +75,11 @@ const process: ServiceStep[] = service.process || [];
     intro={intro}
   />
 
-  <!-- Main Service Content -->
   <section
     id='main-content'
     class='max-w-8xl mx-auto mt-12 bg-background-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
     aria-label='Service details'>
     <div class='grid grid-cols-1 gap-8 lg:grid-cols-3'>
-      <!-- Main Content -->
       <section class='lg:col-span-2' aria-labelledby='about-service-heading'>
         <article class='rounded-xl bg-background-100 p-8 shadow-lg'>
           <header>
@@ -102,59 +91,65 @@ const process: ServiceStep[] = service.process || [];
               About {service.title}
             </Text>
           </header>
-          <Text
-            tag='p'
-            variant='textBase'
-            class='text-lg leading-relaxed text-neutral-700'>
-            {description}
-          </Text>
+
+          <!-- ✅ Prefer Markdown body (stylable). Fallback to frontmatter.description if body is empty. -->
+          <div
+            class='prose prose-lg max-w-none text-neutral-700 prose-headings:font-lato prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-primary-900 prose-h2:mt-10 prose-h2:border-b prose-h2:border-neutral-200 prose-h2:pb-2 prose-h3:mt-8 prose-h3:text-primary-800 prose-p:leading-8 prose-p:text-neutral-700 prose-a:font-semibold prose-a:text-primary-700 prose-a:underline prose-a:decoration-primary-300 prose-a:underline-offset-4 hover:prose-a:text-primary-900 prose-strong:font-semibold prose-strong:text-neutral-900 prose-ul:space-y-2 prose-ol:space-y-2 prose-li:marker:text-primary-600 prose-blockquote:border-l-4 prose-blockquote:border-primary-300 prose-blockquote:bg-primary-50 prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:text-neutral-700 prose-blockquote:not-italic prose-img:rounded-xl prose-img:shadow-md prose-hr:border-neutral-200'>
+            <Content />
+          </div>
+
+          {
+            description && (
+              <Text
+                tag='p'
+                variant='textBase'
+                class='mt-6 text-lg leading-relaxed text-neutral-700'>
+                {description}
+              </Text>
+            )
+          }
 
           <div class='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'>
-            <section
-              aria-labelledby='why-choose-us-heading'
-              class='rounded-lg bg-primary-50 p-6'>
-              <Text
-                tag='h3'
-                variant='displayMD'
-                id='why-choose-us-heading'
-                class='mb-3 font-semibold text-primary-900'>
-                Service Benefits
-              </Text>
-              <ul class='space-y-2'>
-                {
-                  benefits.map((benefit: string) => (
-                    <li class='flex items-start gap-2 text-neutral-700'>
-                      <span class='pt-1.5 sm:pt-0'>
-                        <svg
-                          class='h-5 w-5 shrink-0 text-accent-500'
-                          fill='currentColor'
-                          viewBox='0 0 20 20'
-                          aria-hidden='true'
-                          focusable='false'>
-                          <path
-                            fill-rule='evenodd'
-                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                            clip-rule='evenodd'
-                          />
-                        </svg>
-                      </span>
-                      <span class='wrap-break-word'>{benefit}</span>
-                    </li>
-                  ))
-                }
-              </ul>
-            </section>
+            {
+              benefits.length > 0 && (
+                <section
+                  aria-labelledby='why-choose-us-heading'
+                  class='rounded-lg bg-primary-50 p-6'>
+                  <Text
+                    tag='h3'
+                    variant='displayMD'
+                    id='why-choose-us-heading'
+                    class='mb-3 font-semibold text-primary-900'>
+                    Service Benefits
+                  </Text>
+                  <ul class='space-y-2'>
+                    {benefits.map((benefit: string) => (
+                      <li class='flex items-start gap-2 text-neutral-700'>
+                        <span class='pt-1.5 sm:pt-0'>
+                          <svg
+                            class='h-5 w-5 shrink-0 text-accent-500'
+                            fill='currentColor'
+                            viewBox='0 0 20 20'
+                            aria-hidden='true'
+                            focusable='false'>
+                            <path
+                              fill-rule='evenodd'
+                              d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                              clip-rule='evenodd'
+                            />
+                          </svg>
+                        </span>
+                        <span class='wrap-break-word'>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )
+            }
 
             <section
               aria-labelledby='our-specialties-heading'
               class='rounded-lg bg-accent-50 p-6'>
-              <!-- <Text
-                tag='h3'
-                variant='displayMD'
-                id='our-specialties-heading'
-                class='mb-3 font-semibold text-primary-900'>
-                Our Specialties
-              </Text> -->
               <div class='h-64 overflow-hidden rounded-lg shadow-sm'>
                 <img
                   src={service.image ?? ''}
@@ -169,52 +164,55 @@ const process: ServiceStep[] = service.process || [];
         </article>
       </section>
 
-      <!-- Sidebar -->
       <aside
         class='lg:col-span-1'
         aria-label='Quick contact and service info'
         data-bg='dark'>
         <div class='sticky top-8 rounded-xl bg-primary-900 p-6 text-white'>
-          <Text tag='h3' variant='displayMD' class='mb-4 font-semibold'
-            >Quick Contact</Text
-          >
-          <Text tag='p' variant='textBASE' class='mb-4 text-primary-200'
-            >Need immediate assistance?</Text
-          >
+          <Text tag='h3' variant='displayMD' class='mb-4 font-semibold'>
+            Quick Contact
+          </Text>
+          <Text tag='p' variant='textBASE' class='mb-4 text-primary-200'>
+            Need immediate assistance?
+          </Text>
           <Link href='/contact-us' variant='accent-button' size='lg'>
             <span class='text-2xl uppercase sm:text-base'>Get a Quote</span>
           </Link>
+
           <div class='mt-4 border-t border-primary-700 pt-4'>
             <Text
               tag='h4'
               variant='displayBASE'
-              class='mb-2 font-lato font-semibold'>Service Hours</Text
-            >
+              class='mb-2 font-lato font-semibold'>
+              Service Hours
+            </Text>
             <Text
               tag='p'
               variant='textBase'
               class='mb-2 text-sm text-primary-200'>
               Monday - Friday: 7AM - 6PM
             </Text>
-            <Text tag='p' class='mb-2 text-sm text-primary-200'
-              >Saturday: 8AM - 4PM</Text
-            >
-            <Text tag='p' variant='textBASE' class='text-sm text-primary-200'
-              >Sunday: Emergency only</Text
-            >
+            <Text tag='p' class='mb-2 text-sm text-primary-200'>
+              Saturday: 8AM - 4PM
+            </Text>
+            <Text tag='p' variant='textBASE' class='text-sm text-primary-200'>
+              Sunday: Emergency only
+            </Text>
           </div>
 
           <div class='mt-4 border-t border-primary-700 pt-4'>
             <Text
               tag='h4'
               variant='displayBase'
-              class='mb-2 font-lato font-semibold'>Emergency Service</Text
-            >
+              class='mb-2 font-lato font-semibold'>
+              Emergency Service
+            </Text>
             <Text
               tag='p'
               variant='textBASE'
-              class='mb-2 text-sm text-primary-200'>24/7 availability</Text
-            >
+              class='mb-2 text-sm text-primary-200'>
+              24/7 availability
+            </Text>
             <a
               href='tel:00447535653850'
               class='font-semibold text-accent-400 hover:text-accent-300'
@@ -226,178 +224,49 @@ const process: ServiceStep[] = service.process || [];
       </aside>
     </div>
   </section>
-  <!-- ✨ NEW: Service Image Gallery -->
-  <ServiceGallery
-    images={page.data.gallery}
-    title={page.data.title}
-    paragraph={service.paragraph || ''}
-  />
 
-  <!-- Key Features/Benefits -->
-  <section aria-labelledby='features-heading'>
-    <ServiceFeaturesList features={features} />
-  </section>
+  {
+    gallery.length > 0 && (
+      <ServiceGallery
+        images={gallery}
+        title={page.data.title}
+        paragraph={service.paragraph || ''}
+      />
+    )
+  }
 
-  <!-- Service Process/Steps -->
-  <section aria-labelledby='process-heading'>
-    <ServiceProcessSteps steps={steps} />
-  </section>
+  {
+    features.length > 0 && (
+      <section aria-labelledby='features-heading'>
+        <ServiceFeaturesList features={features} />
+      </section>
+    )
+  }
 
-  <!-- Brand / Equipment Section -->
-  <!--  <section aria-labelledby='brands-heading' class='bg-primary-900 py-16'>
-    <div class='mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8'>
-      <div>
-        <Text
-          tag='h2'
-          variant='displayXL'
-          id='brands-heading'
-          class='font-bold text-white'>
-          Brands & Equipment We Trust
-        </Text>
-        <Text tag='p' variant='textBase' class='mt-4 text-primary-100'>
-          We work with leading manufacturers and use professional-grade tools
-          and parts to keep your system reliable, efficient, and safe.
-        </Text>
-        <ul class='mt-6 space-y-2 text-sm text-primary-100'>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Boilers, cylinders, and central heating components
-          </li>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Radiators, valves, and pipework upgrades
-          </li>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Smart controls and efficiency improvements
-          </li>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Gas safety testing and compliant fittings
-          </li>
-        </ul>
-      </div>
-      <div
-        class='grid grid-cols-2 items-center gap-6 rounded-2xl bg-primary-800/60 p-6 sm:grid-cols-3'
-        aria-label='Brands and certifications'>
-        <Image
-          width={158}
-          height={48}
-          src={vaillant}
-          alt='Vaillant Advance Installer certification'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={viesmann}
-          alt='Viessmann certified installer'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={bpec}
-          alt='BPEC certified gas and plumbing professional'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={checktrade}
-          alt='Checkatrade verified tradesperson'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={gasSafe}
-          alt='Gas Safe Register certified engineer'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={oftec}
-          alt='OFTEC registered heating certification'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-      </div>
-    </div>
-  </section> -->
+  <!-- {
+    steps.length > 0 && (
+      <section aria-labelledby='process-heading'>
+        <ServiceProcessSteps steps={steps} />
+      </section>
+    )
+  } -->
 
-  <!-- Service-Specific Testimonials -->
   <section aria-labelledby='testimonials-heading'>
     <Testimonials />
   </section>
 
-  <!-- Service-Specific FAQs -->
-  <section aria-labelledby='faqs-heading'>
-    <ServiceFaqList questions={faqs} />
-  </section>
+  {
+    faqs.length > 0 && (
+      <section aria-labelledby='faqs-heading'>
+        <ServiceFaqList questions={faqs} />
+      </section>
+    )
+  }
 
-  <!-- Related Services -->
   <nav aria-label='Related services'>
     <RelatedServicesList services={relatedServices} />
   </nav>
 
-  <!-- Call to Action -->
   <section aria-labelledby='cta-heading'>
     <ServiceCallToAction
       title={`Ready to get started with ${page.data.title}?`}

@@ -64,6 +64,7 @@ const services = defineCollection({
         z.object({
           src: z.string(),
           alt: z.string(),
+          title: z.string().optional(),
         })
       )
       .optional(),
@@ -103,7 +104,7 @@ const legal = defineCollection({
   }),
 });
 
-const faq = defineCollection({
+/* const faq = defineCollection({
   type: "content",
   schema: z.object({
     question: z.string(),
@@ -111,11 +112,11 @@ const faq = defineCollection({
     category: z.string().optional(),
     order: z.number().optional(),
   }),
-});
+}); */
 
 export const collections = {
   services,
   areas,
   legal,
-  faq,
+  // faq,
 };
