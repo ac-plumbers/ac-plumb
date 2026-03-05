@@ -1,0 +1,28 @@
+---
+import Text from '@/components/fundations/elements/Text.astro';
+import { Image } from 'astro:assets';
+import viesmann from '@/images/brands/viessmann-logo-boiler-installation-brighton.jpg';
+---
+
+<article class='p-5 sm:p-6'>
+  <div class='flex items-start gap-4 sm:gap-5 xl:flex-col xl:gap-4'>
+    <Image
+      src={viesmann}
+      alt='Viessmann approved installer logo'
+      width={180}
+      height={64}
+      class='h-10 w-auto shrink-0 object-contain sm:h-12'
+      format='webp'
+      quality={90}
+    />
+    <div>
+      <Text tag='h3' variant='displayXS' class='font-semibold text-primary-900'>
+        Viessmann approved installer
+      </Text>
+      <Text tag='p' variant='textSM' class='mt-2 leading-relaxed text-neutral-700'>
+        Manufacturer-aligned installation standards, commissioning, and
+        best-practice servicing.
+      </Text>
+    </div>
+  </div>
+</article>

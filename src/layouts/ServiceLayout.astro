@@ -1,0 +1,206 @@
+---
+// Fundations
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Text from '@/components/fundations/elements/Text.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+import ServiceCertificationViessmann from '@/components/services/ServiceCertificationViessmann.astro';
+import ServiceCertificationGasSafe from '@/components/services/ServiceCertificationGasSafe.astro';
+import type { ServiceFrontmatter } from '@/lib/types';
+import MainCta from '@/components/global/MainCta.astro';
+// Sections
+/* import MainCta from '@/components/ctas/MainCta.astro'; */
+// Props
+const { frontmatter } = Astro.props as {
+  frontmatter: ServiceFrontmatter;
+};
+
+const heroImage = frontmatter.imageHero || frontmatter.image;
+const heroAlt = frontmatter.altHero || frontmatter.alt || frontmatter.title;
+const lead = frontmatter.intro || frontmatter.description || '';
+const benefits = frontmatter.benefits || [];
+const features = frontmatter.features || [];
+const faqs = frontmatter.faqs || [];
+const gallery = frontmatter.gallery || [];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant='full' class='border-base-100 border-b pt-48 pb-12'>
+      <div class='grid grid-cols-1 gap-2 lg:grid-cols-3 lg:items-end'>
+        <div>
+          <Text
+            tag='p'
+            variant='textXS'
+            class='text-base-600 font-medium uppercase'>
+            Service
+          </Text>
+          <Text
+            tag='h1'
+            variant='displayXL'
+            class='text-base-900 font-display mt-12 leading-none'>
+            {frontmatter.title}
+          </Text>
+        </div>
+        {
+          lead && (
+            <Text
+              tag='p'
+              variant='textSM'
+              class='text-base-600 leading-relaxed text-balance lg:col-span-2 lg:columns-2'>
+              {lead}
+            </Text>
+          )
+        }
+      </div>
+      {
+        heroImage && (
+          <img
+            src={heroImage}
+            alt={heroAlt}
+            width={1200}
+            height={900}
+            class='mt-12 aspect-4/2 size-full object-cover'
+            loading='eager'
+            decoding='async'
+          />
+        )
+      }
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant='paddingLess' class='px-4 pt-8 pb-24 sm:px-6 lg:px-8'>
+      <div class='grid grid-cols-1 gap-y-8 xl:grid-cols-12 xl:gap-x-12'>
+        <aside
+          class='order-2 h-fit xl:sticky xl:top-[8.5rem] xl:order-1 xl:col-span-3'>
+          <ServiceCertificationViessmann />
+        </aside>
+        <div class='order-1 xl:order-2 xl:col-span-6'>
+          <div class='prose prose-lg max-w-none text-neutral-700'>
+            <slot />
+          </div>
+
+          {
+            frontmatter.paragraph && (
+              <Text
+                tag='p'
+                variant='textLG'
+                class='mt-8 leading-relaxed text-neutral-700'>
+                {frontmatter.paragraph}
+              </Text>
+            )
+          }
+
+          {
+            benefits.length > 0 && (
+              <section class='mt-10'>
+                <Text
+                  tag='h2'
+                  variant='displaySM'
+                  class='text-base-900 font-semibold'>
+                  Service Benefits
+                </Text>
+                <ul class='mt-4 list-disc space-y-2 pl-5 text-neutral-700'>
+                  {benefits.map(benefit => (
+                    <li>{benefit}</li>
+                  ))}
+                </ul>
+              </section>
+            )
+          }
+
+          {
+            features.length > 0 && (
+              <section class='mt-10'>
+                <Text
+                  tag='h2'
+                  variant='displaySM'
+                  class='text-base-900 font-semibold'>
+                  Key Features
+                </Text>
+                <div class='mt-4 grid grid-cols-1 gap-4 md:grid-cols-2'>
+                  {features.map(feature => (
+                    <article class='rounded-lg border border-neutral-200 bg-white p-4'>
+                      <Text
+                        tag='h3'
+                        variant='textLG'
+                        class='text-base-900 font-semibold'>
+                        {feature.title}
+                      </Text>
+                      {feature.description && (
+                        <Text
+                          tag='p'
+                          variant='textSM'
+                          class='mt-2 text-neutral-700'>
+                          {feature.description}
+                        </Text>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+
+          {
+            faqs.length > 0 && (
+              <section class='mt-10'>
+                <Text
+                  tag='h2'
+                  variant='displaySM'
+                  class='text-base-900 font-semibold'>
+                  Frequently Asked Questions
+                </Text>
+                <div class='mt-4 space-y-3'>
+                  {faqs.map(faq => (
+                    <details class='rounded-lg border border-neutral-200 bg-white p-4'>
+                      <summary class='text-base-900 cursor-pointer font-semibold'>
+                        {faq.question}
+                      </summary>
+                      {faq.answer && (
+                        <Text
+                          tag='p'
+                          variant='textSM'
+                          class='mt-2 text-neutral-700'>
+                          {faq.answer}
+                        </Text>
+                      )}
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+
+          {
+            gallery.length > 0 && (
+              <section class='mt-10'>
+                <Text
+                  tag='h2'
+                  variant='displaySM'
+                  class='text-base-900 font-semibold'>
+                  Gallery
+                </Text>
+                <div class='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+                  {gallery.slice(0, 6).map(image => (
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      title={image.title || image.alt}
+                      class='h-64 w-full rounded-lg object-cover'
+                      loading='lazy'
+                      decoding='async'
+                    />
+                  ))}
+                </div>
+              </section>
+            )
+          }
+        </div>
+        <aside class='order-3 h-fit xl:sticky xl:top-[8.5rem] xl:col-span-3'>
+          <ServiceCertificationGasSafe />
+        </aside>
+      </div>
+    </Wrapper>
+  </section>
+  <MainCta />
+</BaseLayout>

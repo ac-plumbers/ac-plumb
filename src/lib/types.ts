@@ -15,16 +15,19 @@ export type ServiceFaq = {
 
 export type ServiceFrontmatter = {
   title: string;
-  description: string;
-  price: number;
+  description?: string;
+  paragraph?: string;
+  price?: number;
   image?: string;
   imageHero?: string;
   altHero?: string;
+  titleImageHero?: string;
   category?: string;
   tags?: string[];
   featured?: boolean;
   slug?: string;
   alt?: string;
+  titleImage?: string;
   intro?: string;
   benefits?: string[];
   specialties?: string[];
@@ -34,5 +37,6 @@ export type ServiceFrontmatter = {
   gallery?: Array<{
     src: string;
     alt: string;
+    title?: string;
   }>;
 };
