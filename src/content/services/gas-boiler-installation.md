@@ -1,6 +1,5 @@
 ---
 title: Boiler Installations
-price: 0
 sortedOrder: 1
 image: "/images/services/viessmann-boiler-installation-copper-pipework-brighton-hove.jpeg"
 alt: "Viessmann boiler installation with exposed copper pipework and controls in Brighton & Hove."

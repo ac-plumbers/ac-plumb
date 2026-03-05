@@ -1,7 +1,6 @@
 ---
 title: Renewable - Air Source Heat Pump - Electric Boilers Installation
 paragraph: Air source heat pumps extract heat from the outside air and transfer it inside your home to provide heating and hot water. Even in cold weather, they can efficiently deliver warmth while using significantly less energy than conventional gas systems.
-price: 0
 sortedOrder: 6
 image: "/images/services/vaillant-air-source-heat-pump-brighton-installation.jpeg"
 alt: "Outdoor Vaillant air source heat pump on anti-vibration feet beside a garden wall, installed by AC Plumbers Ltd. in Brighton."

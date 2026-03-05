@@ -1,6 +1,5 @@
 ---
 title: Plumbing Services in Brighton & Hove
-price: 0
 sortedOrder: 3
 image: /images/services/modern-ceramic-basin-gold-tap-wooden-vanity.jpeg
 alt: White round ceramic countertop basin with a gold mixer tap, mounted on a rustic wooden vanity unit in a contemporary bathroom.

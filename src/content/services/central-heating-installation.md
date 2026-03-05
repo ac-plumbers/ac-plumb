@@ -1,7 +1,6 @@
 ---
 title: Heating
 paragraph: One of the most important steps in maintaining a heating system is flushing the system. Over time, sludge, rust, and debris can build up in pipes and radiators, reducing efficiency and causing uneven heating. Our thorough system flush removes these blockages, restoring optimal performance, extending the life of your system, and helping to prevent costly breakdowns.We also ensure your heating system is fitted with  TRV valves and smart controllers, giving you precise control over the temperature in each room and helping to reduce energy bills. Whether you’re looking to improve comfort, upgrade your existing system, or plan for long-term efficiency, we provide tailored solutions to meet your needs
-price: 0
 sortedOrder: 4
 image: "/images/services/vaillant-smart-thermostat-sensocomfort-brighton.webp"
 alt: "Vaillant sensoCOMFORT smart thermostat digital display showing 21°C, installed by AC Plumbers Ltd. in Brighton for central heating control."

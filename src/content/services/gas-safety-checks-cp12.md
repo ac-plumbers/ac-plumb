@@ -1,7 +1,6 @@
 ---
 title: Gas safety checks
 paragraph: All work is carried out with safety, efficiency, and compliance as our top priority, giving you complete peace of mind.
-price: 0
 sortedOrder: 5
 image: "/images/services/gas-boiler-burner-blue-flame-inspection.jpeg"
 alt: "Gas boiler burner with blue flames during inspection – efficient combustion by AC Plumbers Ltd. Brighton"
