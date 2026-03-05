@@ -1,68 +1,193 @@
 ---
-import Image from 'astro/components/Image.astro';
-import HeroImg from '@/images/new-hero-img.jpeg';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import { Image } from 'astro:assets';
+import GetAQuote from '../fundations/elements/GetAQuote.astro';
+import Text from '../fundations/elements/Text.astro';
+import imgHeatPump from '@/images/services/vaillant-air-source-heat-pump-brighton-installation.jpeg';
+import imgTapRepair from '@/images/services/kitchen-mixer-tap-replacement-leak-repair-brighton.jpg';
+import imgThermostat from '@/images/services/nest-thermostat-installation-brighton.jpeg';
+import imgBoilerInstall from '@/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg';
+import imgRadiator from '@/images/services/compact-cast-iron-radiator-bee-valve-saltdean.jpeg';
+// Content for the hero section
+const heroContent = {
+  description:
+    'We specialise in boiler installation, repair and maintenance, plumbing, heating & gas services. Proudly serving homeowners across Brighton & Hove and the surrounding areas with reliable and professional service.',
+  cta: {
+    text: 'Get A Quote',
+    href: '/contact-us',
+  },
+};
+
+const heroImages = [
+  {
+    src: imgHeatPump,
+    alt: 'Air source heat pump outdoor unit installed at a Brighton property',
+  },
+  {
+    src: imgTapRepair,
+    alt: 'Kitchen mixer tap replacement during leak repair service in Brighton',
+  },
+  {
+    src: imgThermostat,
+    alt: 'Nest smart thermostat setup for efficient heating control',
+  },
+  {
+    src: imgBoilerInstall,
+    alt: 'New Viessmann boiler installation in a utility room',
+  },
+  {
+    src: imgRadiator,
+    alt: 'Cast iron radiator valve fitting and balancing on a home heating system',
+  },
+];
 ---
 
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: --><!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-<div class='bg-gray-900'>
-  <div class='relative isolate overflow-hidden pt-14'>
-    <Image
-      src={HeroImg}
-      alt=''
-      class='absolute inset-0 -z-10 size-full object-cover'
-    />
-    <div
-      aria-hidden='true'
-      class='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+<section id='hero' aria-labelledby='hero-heading' class='relative isolate'>
+  <div
+    class='bg-linear-to-br from-primary-900 via-primary-800 to-secondary-800'>
+    <div class='relative isolate'>
+      <svg
+        aria-hidden='true'
+        class='absolute inset-x-0 top-0 -z-10 h-256 w-full mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-primary-200/15'>
+        <defs>
+          <pattern
+            id='1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84'
+            width='200'
+            height='200'
+            x='50%'
+            y='-1'
+            patternUnits='userSpaceOnUse'>
+            <path d='M.5 200V.5H200' fill='none'></path>
+          </pattern>
+        </defs>
+        <svg x='50%' y='-1' class='overflow-visible fill-primary-900'>
+          <path
+            d='M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z'
+            stroke-width='0'></path>
+        </svg>
+        <rect
+          width='100%'
+          height='100%'
+          fill='url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)'
+          stroke-width='0'></rect>
+      </svg>
       <div
-        style='clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-        class='relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-288.75'>
-      </div>
-    </div>
-    <div class='max-w-7xl px-6 lg:px-8'>
-      <div class='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
-        <div class='hidden sm:mb-8 sm:flex sm:justify-center'>
-          <!-- <div
-            class='relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20'>
-            Announcing our next round of funding. <a
-              href='#'
-              class='font-semibold text-indigo-400'
-              ><span aria-hidden='true' class='absolute inset-0'></span>Read
-              more <span aria-hidden='true'>&rarr;</span></a
-            >
-          </div> -->
+        aria-hidden='true'
+        class='absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48'>
+        <div
+          style='clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)'
+          class='aspect-801/1036 w-200.25 bg-linear-to-tr from-accent-500/40 to-secondary-400/40 opacity-80'>
         </div>
-        <div class='text-center'>
-          <h1
-            class='black text-5xl font-semibold tracking-tight text-balance sm:text-7xl'>
-            Welcome to AC Plumbers Ltd., your trusted local experts in plumbing,
-            heating, gas and renewable energy.
-          </h1>
-          <p
-            class='mt-8 text-lg font-medium text-pretty text-black sm:text-xl/8'>
-            Welcome to AC Plumbers Ltd., your trusted local experts in plumbing,
-            heating, gas and renewable energy.
-          </p>
-          <div class='mt-10 flex items-center justify-center gap-x-6'>
-            <a
-              href='#'
-              class='rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
-              >Get started</a
-            >
-            <a href='#' class='text-sm/6 font-semibold text-white'
-              >Learn more <span aria-hidden='true'>→</span></a
-            >
+      </div>
+      <div class='overflow-hidden'>
+        <div
+          class='mx-auto max-w-7xl px-6 pt-36 pb-32 sm:pt-60 lg:px-8 lg:pt-32'>
+          <div
+            class='mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center'>
+            <div class='relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl'>
+              <Text
+                tag='p'
+                variant='textSM'
+                class='inline-flex rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide text-primary-900 uppercase'>
+                Brighton and Hove trusted engineers
+              </Text>
+              <!-- Hero heading and text -->
+              <Text
+                tag='h1'
+                id='hero-heading'
+                variant='displayLG'
+                class='mt-5 leading-snug text-neutral-50'>
+                <span slot='left-icon'> </span>
+                Welcome to {BUSINESS_CONFIG.nameSmall}<sup
+                  class='relative -top-[0.70em] ml-1 text-[0.35em] leading-none'
+                  >Ltd.</sup
+                >
+                <br />
+                your trusted local experts in plumbing, heating, gas and renewable
+                energy
+              </Text>
+              <Text
+                tag='p'
+                class='mt-8 max-w-2xl text-primary-100'
+                variant='textBase'>
+                {heroContent.description}
+              </Text>
+              <div class='mt-10 flex items-center gap-x-6'>
+                <GetAQuote
+                  variant='accent'
+                  size='lg'
+                  text={heroContent.cta.text}
+                  href={heroContent.cta.href}
+                  class='uppercase'
+                  data-umami-event='lead_quote_click'
+                  data-umami-event-placement='home_hero'
+                />
+              </div>
+            </div>
+            <div
+              class='mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0'>
+              <div
+                class='ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-0 xl:pt-80'>
+                <div class='relative'>
+                  <Image
+                    src={heroImages[0].src}
+                    alt={heroImages[0].alt}
+                    class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
+                  />
+                  <div
+                    class='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset'>
+                  </div>
+                </div>
+              </div>
+              <div
+                class='mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36'>
+                <div class='relative'>
+                  <Image
+                    src={heroImages[1].src}
+                    alt={heroImages[1].alt}
+                    class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
+                  />
+                  <div
+                    class='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset'>
+                  </div>
+                </div>
+                <div class='relative'>
+                  <Image
+                    src={heroImages[2].src}
+                    alt={heroImages[2].alt}
+                    class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
+                  />
+                  <div
+                    class='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset'>
+                  </div>
+                </div>
+              </div>
+              <div class='w-44 flex-none space-y-8 pt-32 sm:pt-0'>
+                <div class='relative'>
+                  <Image
+                    src={heroImages[3].src}
+                    alt={heroImages[3].alt}
+                    class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
+                  />
+                  <div
+                    class='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset'>
+                  </div>
+                </div>
+                <div class='relative'>
+                  <Image
+                    src={heroImages[4].src}
+                    alt={heroImages[4].alt}
+                    class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
+                  />
+                  <div
+                    class='pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset'>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div
-      aria-hidden='true'
-      class='absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]'>
-      <div
-        style='clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-        class='relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-288.75'>
-      </div>
-    </div>
   </div>
-</div>
+</section>
