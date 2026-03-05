@@ -48,15 +48,6 @@ features:
     description: "We offer smart thermostat installation for optimal temperature control and energy management."
   - title: "Comprehensive Maintenance Plans"
     description: "Our maintenance plans ensure your system runs smoothly year-round, with priority service for members."
-process:
-  - title: "Consultation"
-    description: "We assess your heating needs and recommend the best solutions."
-  - title: "Installation"
-    description: "Our team installs your new heating system with minimal disruption."
-  - title: "Testing"
-    description: "We thoroughly test the system to ensure optimal performance."
-  - title: "Maintenance"
-    description: "Regular maintenance checks to keep your system running efficiently."
 faqs:
   - question: "What services do you offer?"
     answer: "We offer a wide range of plumbing, heating, and gas services, including installation, maintenance, and repair."

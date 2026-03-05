@@ -47,15 +47,6 @@ features:
     description: "We guide you through every step, from choosing the right system to post-installation support."
   - title: "Reliable and trustworthy"
     description: "Our team is committed to high-quality workmanship and your complete satisfaction."
-process:
-  - title: "Home assessment"
-    description: "We evaluate your property to recommend the most suitable system based on your heating needs, heat loss and energy efficiency goals."
-  - title: "System design"
-    description: "We plan the layout and installation, ensuring optimal performance and minimal disruption to your home."
-  - title: "Professional installation"
-    description: "Our experienced engineers handle the complete installation process safely and efficiently."
-  - title: "Ongoing support"
-    description: "We offer maintenance advice and support to keep your heat pump running smoothly for years to come."
 faqs:
   - question: "What services do you offer?"
     answer: "We offer a wide range of plumbing, heating, and gas services, including installation, maintenance, and repair."

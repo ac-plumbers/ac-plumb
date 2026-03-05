@@ -46,15 +46,6 @@ features:
     description: "Cleaning and calibration help reduce energy use and maintain steady heating."
   - title: "Rapid Repairs"
     description: "We carry common parts to fix typical faults in one visit when possible."
-process:
-  - title: "Assessment"
-    description: "We evaluate your boiler and discuss any symptoms or concerns."
-  - title: "Service & Clean"
-    description: "Key components are cleaned, tested, and adjusted for safe operation."
-  - title: "Diagnostics"
-    description: "We identify faults and explain repair options clearly."
-  - title: "Testing & Handover"
-    description: "Final safety tests and performance checks before sign-off."
 faqs:
   - question: "How often should I service my boiler?"
     answer: "We recommend an annual service to keep your boiler safe, efficient, and compliant."
@@ -68,4 +59,4 @@ faqs:
 
 Regular boiler servicing is essential for keeping your heating system safe, efficient, and reliable. An annual service helps to reduce the risk of unexpected breakdowns, improve energy efficiency, and extend the lifespan of your boiler — saving you money in the long run.
 
-At AC Plumbers, we provide professional boiler servicing across Brighton & Hove and the surrounding areas. Our Gas Safe registered engineers carry out comprehensive checks on all major boiler brands, ensuring your system is operating safely and in line with manufacturer guidelines.
+At AC Plumbers Ltd., we provide professional boiler servicing across Brighton & Hove and the surrounding areas. Our Gas Safe registered engineers carry out comprehensive checks on all major boiler brands, ensuring your system is operating safely and in line with manufacturer guidelines.

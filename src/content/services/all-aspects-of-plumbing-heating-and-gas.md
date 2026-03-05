@@ -48,15 +48,6 @@ features:
     description: All work is carried out by experienced and professional engineers.
   - title: Reliable and transparent
     description: We provide honest advice, clear pricing, and high-quality workmanship on every job.
-process:
-  - title: Consultation
-    description: We assess your heating needs and recommend the best solutions.
-  - title: Installation
-    description: Our team installs your new heating system with minimal disruption.
-  - title: Testing
-    description: We thoroughly test the system to ensure optimal performance.
-  - title: Maintenance
-    description: Regular maintenance checks to keep your system running efficiently.
 faqs:
   - question: What services do you offer?
     answer:

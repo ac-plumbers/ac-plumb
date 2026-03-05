@@ -37,15 +37,6 @@ features:
     description: "All checks are carried out by qualified and experienced gas safety engineers."
   - title: "Gas Safety Certificates"
     description: "We provide Gas Safety Certificates upon successful completion of inspections."
-process:
-  - title: "Consultation"
-    description: "We assess your heating needs and recommend the best solutions."
-  - title: "Installation"
-    description: "Our team installs your new heating system with minimal disruption."
-  - title: "Testing"
-    description: "We thoroughly test the system to ensure optimal performance."
-  - title: "Maintenance"
-    description: "Regular maintenance checks to keep your system running efficiently."
 faqs:
   - question: "What services do you offer?"
     answer: "We offer a wide range of plumbing, heating, and gas services, including installation, maintenance, and repair."

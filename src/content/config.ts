@@ -40,15 +40,6 @@ const services = defineCollection({
       )
       .default([]),
 
-    process: z
-      .array(
-        z.object({
-          title: z.string(),
-          description: z.string().optional(),
-        })
-      )
-      .default([]),
-
     faqs: z
       .array(
         z.object({
@@ -104,19 +95,11 @@ const legal = defineCollection({
   }),
 });
 
-/* const faq = defineCollection({
-  type: "content",
-  schema: z.object({
-    question: z.string(),
-    answer: z.string(),
-    category: z.string().optional(),
-    order: z.number().optional(),
-  }),
-}); */
+
 
 export const collections = {
   services,
   areas,
   legal,
-  // faq,
+
 };

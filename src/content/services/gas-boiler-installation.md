@@ -48,15 +48,6 @@ features:
     description: "We offer smart thermostat integration for optimal comfort and energy management."
   - title: "Comprehensive Warranty"
     description: "All our installations come with a comprehensive warranty for your peace of mind."
-process:
-  - title: "Consultation"
-    description: "We assess your heating needs and recommend the best solutions."
-  - title: "Installation"
-    description: "Our team installs your new heating system with minimal disruption."
-  - title: "Testing"
-    description: "We thoroughly test the system to ensure optimal performance."
-  - title: "Maintenance"
-    description: "Regular maintenance checks to keep your system running efficiently."
 faqs:
   - question: "What types of gas boilers do you install?"
     answer: "We install a variety of gas boilers, including combi boilers, system boilers, and conventional boilers."
