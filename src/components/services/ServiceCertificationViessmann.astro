@@ -1,28 +1,81 @@
 ---
 import Text from '@/components/fundations/elements/Text.astro';
+import Link from '@/components/fundations/elements/Link.astro';
 import { Image } from 'astro:assets';
 import viesmann from '@/images/brands/viessmann-logo-boiler-installation-brighton.jpg';
 ---
 
 <article class='p-5 sm:p-6'>
-  <div class='flex items-start gap-4 sm:gap-5 xl:flex-col xl:gap-4'>
-    <Image
-      src={viesmann}
-      alt='Viessmann approved installer logo'
-      width={180}
-      height={64}
-      class='h-10 w-auto shrink-0 object-contain sm:h-12'
-      format='webp'
-      quality={90}
-    />
-    <div>
-      <Text tag='h3' variant='displayXS' class='font-semibold text-primary-900'>
-        Viessmann approved installer
+  <div
+    class='overflow-hidden rounded-2xl border border-neutral-200 bg-linear-to-b from-white to-neutral-50 shadow-sm ring-1 ring-black/2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md'>
+    <div class='h-1 w-full bg-primary-600' aria-hidden='true'></div>
+    <div class='space-y-4 p-5 sm:p-6'>
+      <Text
+        tag='p'
+        variant='textXS'
+        class='inline-flex items-center gap-2 rounded-full bg-primary-50 px-3 py-1 font-semibold tracking-wide text-primary-700 uppercase'>
+        <span class='size-1.5 rounded-full bg-primary-600' aria-hidden='true'
+        ></span>
+        Certified Partner
       </Text>
-      <Text tag='p' variant='textSM' class='mt-2 leading-relaxed text-neutral-700'>
-        Manufacturer-aligned installation standards, commissioning, and
-        best-practice servicing.
-      </Text>
+
+      <div
+        class='flex min-h-20 items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 p-3'>
+        <Image
+          src={viesmann}
+          alt='Viessmann approved installer logo'
+          width={180}
+          height={64}
+          class='mx-auto h-10 w-auto object-contain sm:h-12'
+          format='webp'
+          quality={90}
+        />
+      </div>
+
+      <div>
+        <Text
+          tag='h3'
+          variant='displayXS'
+          class='leading-tight font-semibold text-primary-900'>
+          Viessmann approved installer
+        </Text>
+        <Text
+          tag='p'
+          variant='textSM'
+          class='mt-2 leading-relaxed text-neutral-700'>
+          Manufacturer-aligned installation, commissioning, and servicing for
+          long-term performance.
+        </Text>
+      </div>
+
+      <ul class='space-y-2 text-sm text-neutral-700'>
+        <li class='flex items-start gap-2'>
+          <span class='mt-1 text-primary-700' aria-hidden='true'>
+            <svg viewBox='0 0 20 20' fill='currentColor' class='size-4'>
+              <path
+                fill-rule='evenodd'
+                d='M16.704 5.29a1 1 0 010 1.42l-7.2 7.2a1 1 0 01-1.42 0l-3.2-3.2a1 1 0 111.414-1.42l2.493 2.493 6.493-6.493a1 1 0 011.42 0z'
+                clip-rule='evenodd'></path>
+            </svg>
+          </span>
+          <span>Approved installation standards and setup checks.</span>
+        </li>
+        <li class='flex items-start gap-2'>
+          <span class='mt-1 text-primary-700' aria-hidden='true'>
+            <svg viewBox='0 0 20 20' fill='currentColor' class='size-4'>
+              <path
+                fill-rule='evenodd'
+                d='M16.704 5.29a1 1 0 010 1.42l-7.2 7.2a1 1 0 01-1.42 0l-3.2-3.2a1 1 0 111.414-1.42l2.493 2.493 6.493-6.493a1 1 0 011.42 0z'
+                clip-rule='evenodd'></path>
+            </svg>
+          </span>
+          <span>Warranty-ready commissioning and service documentation.</span>
+        </li>
+      </ul>
+
+      <Link href='/contact-us' variant='default-link' class='font-semibold'>
+        Ask about Viessmann-certified installation
+      </Link>
     </div>
   </div>
 </article>

@@ -69,10 +69,14 @@ const gallery = frontmatter.gallery || [];
       }
     </Wrapper>
   </section>
-  <section>
+  <section aria-labelledby='service-content-heading'>
     <Wrapper variant='contentWide'>
+      <Text tag='h2' id='service-content-heading' class='sr-only'>
+        Service Details and Certifications
+      </Text>
       <div class='grid grid-cols-1 gap-y-8 xl:grid-cols-12 xl:gap-x-12'>
         <aside
+          aria-label='Viessmann certification information'
           class='order-2 h-fit xl:sticky xl:top-34 xl:order-1 xl:col-span-3'>
           <ServiceCertificationViessmann />
         </aside>
@@ -199,7 +203,9 @@ const gallery = frontmatter.gallery || [];
             )
           }
         </div>
-        <aside class='order-3 h-fit xl:sticky xl:top-34 xl:col-span-3'>
+        <aside
+          aria-label='Gas Safe certification information'
+          class='order-3 h-fit xl:sticky xl:top-34 xl:col-span-3'>
           <ServiceCertificationGasSafe />
         </aside>
       </div>
