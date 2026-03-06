@@ -5,6 +5,10 @@ interface Props {
     | 'prose'
     | 'hero'
     | 'prose'
+    | 'serviceHero'
+    | 'contentWide'
+    | 'mediaWide'
+    | 'compact'
     | 'narrow'
     | 'legal'
     | 'full'
@@ -15,12 +19,27 @@ interface Props {
 const { variant = 'standard', class: extraClass = '' } = Astro.props;
 // Map each variant to its specific classes
 const variantClasses = {
+  // Best for large, above-the-fold hero sections with generous vertical rhythm.
   hero: 'pt-32 pb-24 lg:pt-64 px-8 mx-auto md:px-12 lg:px-36 max-w-7xl relative',
+  // Best for internal page headers where hero spacing should be prominent but tighter than homepage hero.
+  serviceHero: 'pt-48 pb-12 px-8 mx-auto md:px-12 lg:px-36 max-w-7xl relative',
+  // Best for full-page content sections that need wide gutters and balanced top/bottom spacing.
+  contentWide:
+    'max-w-screen mx-auto w-full px-4 pt-8 pb-24 sm:px-6 lg:px-8 2xl:max-w-[110rem]',
+  // Best for wide media rows (hero images, banners, carousels) that should expand near viewport width.
+  mediaWide: 'mx-auto w-full max-w-screen 2xl:max-w-[100rem]',
+  // Best for compact blocks like utility sections, short intros, or dense UI groupings.
+  compact: 'px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl relative',
   // All purpose wrapper
+  // Best as a default wide wrapper when no specific layout behavior is required.
   full: ' max-w-screen mx-auto px-8  w-full 2xl:max-w-[100rem] ',
+  // Best for standard page sections with consistent horizontal rhythm.
   standard: 'px-8 mx-auto md:px-12 lg:px-36 max-w-7xl relative',
+  // Best for constrained reading-width content.
   narrow: 'max-w-2xl 2xl:max-w-4xl',
+  // Best for wide sections where spacing is handled by child components.
   paddingLess: 'max-w-screen mx-auto w-full 2xl:max-w-[110rem]',
+  // Best for legal/policy pages that require readable long-form prose styling.
   legal: [
     'prose prose-lg max-w-none',
     'prose-headings:text-primary-600 prose-headings:font-semibold',
@@ -38,6 +57,7 @@ const variantClasses = {
     'prose-th:bg-gray-100 prose-th:text-gray-900 prose-th:font-semibold prose-th:border prose-th:border-gray-300',
     'prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-2',
   ].join(' '),
+  // Best for dark-surface long-form content areas (e.g., dark theme editorial blocks).
   prose: [
     'text-text-00 hover:prose-a:text-white prose',
     'prose-a:font-semibold prose-a:text-accent-300',

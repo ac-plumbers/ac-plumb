@@ -25,7 +25,7 @@ const gallery = frontmatter.gallery || [];
 
 <BaseLayout>
   <section>
-    <Wrapper variant='full' class='border-base-100 border-b pt-48 pb-12'>
+    <Wrapper variant='serviceHero' class='border-base-100 border-b'>
       <div class='grid grid-cols-1 gap-2 lg:grid-cols-3 lg:items-end'>
         <div>
           <Text
@@ -54,21 +54,23 @@ const gallery = frontmatter.gallery || [];
       </div>
       {
         heroImage && (
-          <img
-            src={heroImage}
-            alt={heroAlt}
-            width={1200}
-            height={900}
-            class='mt-12 aspect-4/2 size-full object-cover'
-            loading='eager'
-            decoding='async'
-          />
+          <Wrapper variant='mediaWide' class='mt-12'>
+            <img
+              src={heroImage}
+              alt={heroAlt}
+              width={1200}
+              height={900}
+              class='aspect-4/2 size-full object-cover'
+              loading='eager'
+              decoding='async'
+            />
+          </Wrapper>
         )
       }
     </Wrapper>
   </section>
   <section>
-    <Wrapper variant='paddingLess' class='px-4 pt-8 pb-24 sm:px-6 lg:px-8'>
+    <Wrapper variant='contentWide'>
       <div class='grid grid-cols-1 gap-y-8 xl:grid-cols-12 xl:gap-x-12'>
         <aside
           class='order-2 h-fit xl:sticky xl:top-34 xl:order-1 xl:col-span-3'>
