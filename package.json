@@ -42,7 +42,7 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
-    "@stackbit/cms-git": "^0.0.14",
+    "@stackbit/cms-git": "^1.0.37",
     "@stackbit/types": "^2.1.15",
     "@tailwindcss/typography": "^0.5.19",
     "glob": "^11.0.3",
