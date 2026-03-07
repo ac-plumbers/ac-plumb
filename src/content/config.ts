@@ -77,6 +77,14 @@ const areas = defineCollection({
     region: z.string().optional(),
     neighborhoods: z.array(z.string()).default([]),
     specificContent: z.string().optional(),
+    faqs: z
+      .array(
+        z.object({
+          question: z.string().optional(),
+          answer: z.string().optional(),
+        })
+      )
+      .default([]),
   }),
 });
 
