@@ -1,10 +1,16 @@
 media:
-  name: images
-  label: Images
-  input: src/images/services
-  output: /images/services
-  path: "."
-  extensions: [png, jpg, jpeg, webp, svg]
+  - name: service_images
+    label: Service Images
+    input: src/images/services
+    output: /images/services
+    path: .
+    extensions: [png, jpg, jpeg, webp, svg, avif]
+  - name: area_images
+    label: Area Images
+    input: src/images/areas
+    output: /images/areas
+    path: .
+    extensions: [png, jpg, jpeg, webp, svg, avif]
 
 settings:
   content:
@@ -15,22 +21,35 @@ content:
     label: Services
     type: collection
     path: src/content/services
+    extension: md
 
     view:
       primary: title
-      fields: [title, image, price, category, featured, tags]
+      fields: [title, sortedOrder, category, featured, tags]
       sort: [title]
 
     fields:
       - { name: title, label: Title, type: string }
       - { name: slug, label: URL Slug, type: string }
       - { name: description, label: Description, type: text }
-      - { name: price, label: Price, type: number }
+      - { name: paragraph, label: Paragraph, type: text }
+      - { name: sortedOrder, label: Sort Order, type: number }
 
       - name: image
         label: Image
         type: image
-        options: { media: images, path: . }
+        options: { media: service_images, path: . }
+
+      - { name: alt, label: Image Alt Text, type: text }
+      - { name: titleImage, label: Image Title, type: string }
+
+      - name: imageHero
+        label: Hero Image
+        type: image
+        options: { media: service_images, path: . }
+
+      - { name: altHero, label: Hero Image Alt Text, type: text }
+      - { name: titleImageHero, label: Hero Image Title, type: string }
 
       - name: tags
         label: Tags
@@ -63,18 +82,6 @@ content:
           - { name: title, label: Feature Title, type: string }
           - { name: description, label: Feature Description, type: text }
 
-      # Process steps (list of objects)
-      - name: process
-        label: Process Steps
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.title}"
-        fields:
-          - { name: title, label: Step Title, type: string }
-          - { name: description, label: Step Description, type: text }
-
       # FAQs (list of objects)
       - name: faqs
         label: FAQs
@@ -86,3 +93,94 @@ content:
         fields:
           - { name: question, label: Question, type: string }
           - { name: answer, label: Answer, type: text }
+
+      - name: gallery
+        label: Gallery
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.alt}"
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options: { media: service_images, path: . }
+          - { name: alt, label: Alt Text, type: text }
+          - { name: title, label: Title, type: string }
+
+  - name: areas
+    label: Areas
+    type: collection
+    path: src/content/areas
+    extension: md
+
+    view:
+      primary: area
+      fields: [area, title, sortOrder, level, featured]
+      sort: [sortOrder]
+
+    fields:
+      - { name: area, label: Area Name, type: string }
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: text }
+
+      - name: image
+        label: Area Image
+        type: image
+        options: { media: area_images, path: . }
+
+      - { name: sortOrder, label: Sort Order, type: number }
+      - { name: featured, label: Featured, type: boolean }
+
+      - name: services
+        label: Services (slugs)
+        type: string
+        list: true
+
+      - { name: postcode, label: Postcode, type: string }
+      - { name: level, label: Coverage Level, type: string }
+      - { name: responseTime, label: Response Time, type: string }
+      - { name: region, label: Region, type: string }
+
+      - name: neighborhoods
+        label: Neighborhoods
+        type: string
+        list: true
+
+      - name: faqs
+        label: FAQs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.question}"
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+
+      - { name: specificContent, label: Specific Content, type: text }
+
+  - name: legal
+    label: Legal Pages
+    type: collection
+    path: src/content/legal
+    extension: md
+
+    view:
+      primary: page
+      fields: [page, title, pubDate]
+      sort: [page]
+
+    fields:
+      - { name: page, label: Page Name, type: string }
+      - { name: pubDate, label: Published Date, type: date }
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: keywords, label: Keywords, type: text }
+      - { name: author, label: Author, type: string }
+      - { name: datePublished, label: Date Published (ISO), type: string }
+      - { name: dateModified, label: Date Modified (ISO), type: string }
+      - name: body
+        label: Content
+        type: rich-text
