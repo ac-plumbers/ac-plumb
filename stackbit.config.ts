@@ -40,6 +40,10 @@ export default defineStackbitConfig({
           type: 'page',
           filePath: 'src/content/services/{slug}.md',
           urlPath: '/services/{slug}',
+          frontmatterAdditions: {
+            type: 'Service',
+            condition: (frontmatter) => !('type' in frontmatter),
+          },
           fields: [
             { name: 'title', type: 'string', required: true },
             { name: 'description', type: 'string' },
@@ -111,6 +115,10 @@ export default defineStackbitConfig({
           type: 'page',
           filePath: 'src/content/areas/{slug}.md',
           urlPath: '/areas-we-serve/{slug}',
+          frontmatterAdditions: {
+            type: 'Area',
+            condition: (frontmatter) => !('type' in frontmatter),
+          },
           fields: [
             { name: 'area', type: 'string', required: true },
             { name: 'title', type: 'string', required: true },
@@ -144,6 +152,20 @@ export default defineStackbitConfig({
                 ],
               },
             },
+          ],
+        },
+        {
+          name: 'LegalPage',
+          type: 'page',
+          filePath: 'src/content/legal/{slug}.md',
+          urlPath: '/legal/{slug}',
+          frontmatterAdditions: {
+            type: 'LegalPage',
+            condition: (frontmatter) => !('type' in frontmatter),
+          },
+          fields: [
+            { name: 'title', type: 'string', required: true },
+            { name: 'content', type: 'string' },
           ],
         },
       ],
