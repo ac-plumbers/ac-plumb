@@ -11,12 +11,12 @@ export default defineStackbitConfig({
   stackbitVersion: '~0.6.0',
   nodeVersion: '18',
   ssgName: 'custom',
-  devCommand: 'npx astro dev --port {PORT} --host 0.0.0.0',
+  devCommand: 'node_modules/.bin/astro dev --port {PORT} --hostname 127.0.0.1',
   experimental: {
     ssg: {
       name: 'Astro',
       logPatterns: {
-        up: ['ready', 'astro'],
+        up: ['is ready', 'astro'],
       },
       directRoutes: {
         'socket.io': 'socket.io',
@@ -154,22 +154,7 @@ export default defineStackbitConfig({
             },
           ],
         },
-        {
-          name: 'LegalPage',
-          type: 'page',
-          filePath: 'src/content/legal/{slug}.md',
-          urlPath: '/legal/{slug}',
-          frontmatterAdditions: {
-            type: 'LegalPage',
-            condition: (frontmatter) => !('type' in frontmatter),
-          },
-          fields: [
-            { name: 'title', type: 'string', required: true },
-            { name: 'content', type: 'string' },
-          ],
-        },
       ],
     }),
   ],
-  postInstallCommand: 'npm i --no-save @stackbit/types @stackbit/cms-git',
 });
