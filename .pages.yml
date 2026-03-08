@@ -16,6 +16,10 @@ content:
 
     fields:
       - { name: title, label: Title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - name: body
+        label: Content
+        type: rich-text
       - { name: slug, label: URL Slug, type: string }
       - { name: description, label: Description, type: text }
       - { name: paragraph, label: Paragraph, type: text }
@@ -30,7 +34,7 @@ content:
       - { name: category, label: Category, type: string }
 
       # New fields for richer content
-      - { name: intro, label: Intro, type: text }
+
       - name: benefits
         label: Benefits
         type: string
@@ -63,10 +67,6 @@ content:
         fields:
           - { name: question, label: Question, type: string }
           - { name: answer, label: Answer, type: text }
-
-      - name: body
-        label: Content
-        type: rich-text
 
   - name: areas
     label: Areas
