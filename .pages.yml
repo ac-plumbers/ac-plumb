@@ -1,17 +1,3 @@
-media:
-  - name: service_images
-    label: Service Images
-    input: src/images/services
-    output: /images/services
-    path: .
-    extensions: [png, jpg, jpeg, webp, svg, avif]
-  - name: area_images
-    label: Area Images
-    input: src/images/areas
-    output: /images/areas
-    path: .
-    extensions: [png, jpg, jpeg, webp, svg, avif]
-
 settings:
   content:
     merge: true
@@ -34,22 +20,6 @@ content:
       - { name: description, label: Description, type: text }
       - { name: paragraph, label: Paragraph, type: text }
       - { name: sortedOrder, label: Sort Order, type: number }
-
-      - name: image
-        label: Image
-        type: image
-        options: { media: service_images, path: . }
-
-      - { name: alt, label: Image Alt Text, type: text }
-      - { name: titleImage, label: Image Title, type: string }
-
-      - name: imageHero
-        label: Hero Image
-        type: image
-        options: { media: service_images, path: . }
-
-      - { name: altHero, label: Hero Image Alt Text, type: text }
-      - { name: titleImageHero, label: Hero Image Title, type: string }
 
       - name: tags
         label: Tags
@@ -94,20 +64,9 @@ content:
           - { name: question, label: Question, type: string }
           - { name: answer, label: Answer, type: text }
 
-      - name: gallery
-        label: Gallery
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.alt}"
-        fields:
-          - name: src
-            label: Image
-            type: image
-            options: { media: service_images, path: . }
-          - { name: alt, label: Alt Text, type: text }
-          - { name: title, label: Title, type: string }
+      - name: body
+        label: Content
+        type: rich-text
 
   - name: areas
     label: Areas
@@ -124,11 +83,6 @@ content:
       - { name: area, label: Area Name, type: string }
       - { name: title, label: Title, type: string }
       - { name: description, label: Description, type: text }
-
-      - name: image
-        label: Area Image
-        type: image
-        options: { media: area_images, path: . }
 
       - { name: sortOrder, label: Sort Order, type: number }
       - { name: featured, label: Featured, type: boolean }
@@ -160,6 +114,10 @@ content:
           - { name: answer, label: Answer, type: text }
 
       - { name: specificContent, label: Specific Content, type: text }
+
+      - name: body
+        label: Content
+        type: rich-text
 
   - name: legal
     label: Legal Pages
