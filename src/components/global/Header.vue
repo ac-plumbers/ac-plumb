@@ -9,7 +9,7 @@
   <header class="fixed inset-x-0 top-0 z-50 w-full transition-all duration-300">
     <div class="w-full">
       <div
-        class="border-b px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
+        class="border-b bg-white px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
         <nav class="flex items-center py-1" aria-label="Global">
@@ -466,12 +466,7 @@ onMounted(() => {
       const rect = section.getBoundingClientRect();
       // Check if section is under the header (top of section is at or above header bottom, and bottom is below header top)
       if (rect.top < headerRect.bottom && rect.bottom > headerRect.top) {
-        const bg = section.getAttribute("data-bg");
-        if (bg === "dark") {
-          taglineColorClass.value = "text-white";
-        } else {
-          taglineColorClass.value = "text-primary-600";
-        }
+        taglineColorClass.value = "text-primary-600";
         found = true;
       }
     });
