@@ -11,11 +11,11 @@
     />
   </a>
   <div
-    class="hidden flex-1 justify-center sm:flex lg:flex-auto lg:shrink-0 lg:justify-start"
+    class="hidden flex-1 justify-center sm:flex xl:flex-none xl:shrink-0 xl:justify-start"
   >
     <span
       :class="[
-        'rounded-full px-4 py-2 text-xl font-bold lg:ml-4',
+        'rounded-full px-2 py-2 text-base font-bold lg:ml-2 xl:px-4 xl:text-xl',
         taglineColorClass,
       ]"
     >

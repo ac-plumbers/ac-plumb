@@ -9,10 +9,10 @@
   <header class="fixed inset-x-0 top-0 z-50 w-full transition-all duration-300">
     <div class="w-full">
       <div
-        class="border-b bg-white px-6 pt-3 shadow-lg backdrop-blur-md lg:pr-8 lg:pl-8"
+        class="bg-white shadow-lg backdrop-blur-md"
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
-        <nav class="flex items-center py-1" aria-label="Global">
+        <nav class="flex items-center" aria-label="Global">
           <!-- Logo link and tagline-->
           <HeaderLogo
             :taglineColorClass="taglineColorClass"
@@ -20,21 +20,21 @@
           />
           <!-- Desktop nav links -->
           <!-- <div
-            class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
+            class="hidden xl:flex xl:flex-1 xl:items-center xl:justify-center"
           >
             <div class="text-md flex gap-x-4 font-medium xl:gap-x-6">
 
             </div>
           </div> -->
           <!-- CTA Actions -->
-          <div class="hidden items-center gap-x-3 lg:flex">
+          <div class="hidden items-center gap-x-3 xl:flex">
             <!-- ...existing code... -->
           </div>
 
           <!-- Mobile menu button (always right-aligned) -->
           <button
             type="button"
-            class="-m-3 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none lg:hidden"
+            class="-m-3 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none xl:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -47,7 +47,7 @@
 
           <!-- Desktop nav links -->
           <div
-            class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center"
+            class="hidden xl:flex xl:flex-1 xl:items-center xl:justify-center"
           >
             <div class="flex gap-x-4 text-lg font-medium xl:gap-x-4">
               <a
@@ -178,7 +178,7 @@
             </div>
           </div>
           <!-- CTA Actions -->
-          <div class="hidden items-center gap-x-3 lg:flex">
+          <div class="mr-2 hidden items-center gap-x-3 xl:flex">
             <!-- WhatsApp Button -->
             <a
               href="https://wa.me/447123456789?text=Hi%20AC%20Plumbers%2C%20I%20need%20help%20with%20my%20plumbing"
@@ -189,7 +189,7 @@
               class="flex items-center gap-x-2 rounded-md px-3 py-2 text-lg font-medium text-green-700 transition-colors duration-200 hover:bg-green-50 hover:text-green-800 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:outline-none"
               title="Chat with us on WhatsApp"
             >
-              <IconWhatsAppMenu />
+              <IconWhatsAppMenu iconClass="size-6" />
               <span class="hidden xl:inline">WhatsApp</span>
             </a>
 
@@ -200,7 +200,6 @@
               variant="primary"
               text="Free Quote"
               size="md"
-              class="text-lg"
               display="full"
               :pulse="false"
               href="/contact-us"
