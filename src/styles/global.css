@@ -54,6 +54,7 @@ body {
   /* Font Families */
   --font-lato: "Lato", sans-serif;
   --font-inconsolata: "Inconsolata Variable", monospace;
+  --font-poppins: "Poppins", sans-serif;
   /* Colors */
   /* Primary Color Palette */
   /* #007bff - Blue */
@@ -176,7 +177,7 @@ body {
 }
 @layer components {
   html {
-    font-family: var(--font-inconsolata);
+    font-family: var(--font-poppins);
     font-optical-sizing: auto;
   }
 

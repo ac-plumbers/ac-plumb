@@ -1,5 +1,4 @@
 ---
-import Link from './Link.astro';
 
 export interface BreadcrumbItem {
   label: string;
@@ -8,15 +7,75 @@ export interface BreadcrumbItem {
 
 interface Props {
   items: BreadcrumbItem[];
+  /**
+   * Color variant
+   * @default 'default'
+   */
+  variant?: 'default' | 'light' | 'muted' | 'accent' | 'warm';
+  /**
+   * Text size
+   * @default 'sm'
+   */
+  size?: 'xs' | 'sm' | 'base' | 'md' | 'lg';
   class?: string;
 }
 
-const { items, class: className = '' } = Astro.props;
+const {
+  items,
+  variant = 'default',
+  size = 'sm',
+  class: className = '',
+} = Astro.props;
+
+// Text sizes
+const textSize = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  base: 'text-base',
+  md: 'text-md',
+  lg: 'text-lg',
+}[size];
+
+// Separator icon sizes
+const iconSize = {
+  xs: 'h-3 w-3',
+  sm: 'h-3 w-3',
+  base: 'h-4 w-4',
+  md: 'h-4 w-4',
+  lg: 'h-5 w-5',
+}[size];
+
+// Link (non-current) colors
+const linkClass = {
+  default: 'text-neutral-600 transition-colors hover:text-primary-600',
+  light: 'text-white/70 transition-colors hover:text-white',
+  muted: 'text-neutral-500 transition-colors hover:text-neutral-700',
+  accent: 'text-neutral-600 transition-colors hover:text-accent-600',
+  warm: 'text-white/70 transition-colors hover:text-white',
+}[variant];
+
+// Current (last) item color
+const currentClass = {
+  default: 'text-primary-600 font-medium',
+  light: 'text-white font-semibold',
+  muted: 'text-neutral-700 font-medium',
+  accent: 'text-accent-600 font-medium',
+  warm: 'text-accent-400 font-semibold',
+}[variant];
+
+// Separator color
+const separatorClass = {
+  default: 'text-neutral-400',
+  light: 'text-white/40',
+  muted: 'text-neutral-300',
+  accent: 'text-neutral-400',
+  warm: 'text-accent-600/60',
+}[variant];
 ---
 
-<nav aria-label='Breadcrumb' class={`${className}`}>
+<nav aria-label='Breadcrumb' class={className}>
   <ol
-    class='flex items-center gap-2 text-sm'
+    class='flex flex-wrap items-center gap-2'
     itemscope
     itemtype='https://schema.org/BreadcrumbList'>
     {
@@ -26,32 +85,31 @@ const { items, class: className = '' } = Astro.props;
           itemprop='itemListElement'
           itemscope
           itemtype='https://schema.org/ListItem'>
-          {item.href ? (
-            <>
-              <Link
-                href={item.href}
-                variant='default-link'
-                class='text-neutral-600 transition-colors hover:text-primary-600'
-                itemprop='item'>
-                <span class='text-sm' itemprop='name'>
+          {(() => {
+            const isLast = index === items.length - 1;
+            return item.href ? (
+              <>
+                <a
+                  href={item.href}
+                  class={`${isLast ? currentClass : linkClass} ${textSize} underline-offset-2 hover:underline focus:outline-none focus:underline`}
+                  itemprop='item'
+                  aria-current={isLast ? 'page' : undefined}>
+                  <span itemprop='name'>{item.label}</span>
+                </a>
+                <meta itemprop='position' content={(index + 1).toString()} />
+              </>
+            ) : (
+              <>
+                <span class={`${currentClass} ${textSize}`} itemprop='name' aria-current='page'>
                   {item.label}
                 </span>
-              </Link>
-              <meta itemprop='position' content={(index + 1).toString()} />
-            </>
-          ) : (
-            <>
-              <span
-                class='text-sm font-medium text-primary-600'
-                itemprop='name'>
-                {item.label}
-              </span>
-              <meta itemprop='position' content={(index + 1).toString()} />
-            </>
-          )}
+                <meta itemprop='position' content={(index + 1).toString()} />
+              </>
+            );
+          })()}
           {index < items.length - 1 && (
             <svg
-              class='h-4 w-4 text-neutral-400'
+              class={`${iconSize} ${separatorClass}`}
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'

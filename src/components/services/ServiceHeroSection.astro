@@ -1,15 +1,19 @@
 ---
 import Text from '../fundations/elements/Text.astro';
 import Link from '../fundations/elements/Link.astro';
+import Breadcrumb from '../fundations/elements/Breadcrumb.astro';
+import { BadgeCheck, Camera } from 'lucide-vue-next';
+import GetAQuote from '../fundations/elements/GetAQuote.astro';
 
 type Props = {
   title: string;
-  description: string;
+  description?: string;
   image: string;
   alt?: string;
   intro?: string;
+  slug?: string;
 };
-const { title, description, image, alt, intro } = Astro.props;
+const { title, description, image, alt, intro, slug } = Astro.props;
 
 // Provide fallback alt text for better accessibility
 const imageAlt =
@@ -19,7 +23,7 @@ const imageAlt =
 <section
   data-bg='dark'
   id='service-hero'
-  class='relative mt-5.5 bg-linear-to-r from-primary-900 to-primary-800 pt-32 pb-16 sm:mt-0 sm:pt-40 sm:pb-24'
+  class='relative bg-linear-to-r from-primary-900 to-primary-800 pt-32 pb-16 sm:mt-0 sm:pt-20 sm:pb-24'
   role='banner'
   aria-labelledby='service-hero-title'>
   <div class='absolute inset-0 opacity-20' aria-hidden='true'>
@@ -43,7 +47,25 @@ const imageAlt =
     </picture>
   </div>
   <div class='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-    <div class='md:w-2/3'>
+    <div class='flex flex-col items-center text-center'>
+      <Breadcrumb
+        variant='warm'
+        size='base'
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: title, href: slug ? `/services/${slug}` : undefined },
+        ]}
+      />
+      <!-- badge -->
+      <div
+        class='mt-4 inline-flex items-center rounded-full border border-accent-00 bg-accent-600/20 px-4 py-2 text-base font-bold text-accent-400'>
+        Un poco di testo per riempire il badge
+        <div class='ml-2 h-1 w-1 rounded-full bg-accent-600' aria-hidden='true'>
+        </div>
+        <Camera class='ml-2 h-3 w-3 text-accent-600' aria-hidden='true' />
+        <BadgeCheck class='ml-2 h-5 w-5 text-accent-600' aria-hidden='true' />
+      </div>
       <Text
         tag='h1'
         variant='display2XL'
@@ -55,9 +77,13 @@ const imageAlt =
         {intro}
       </Text>
       <div class='mt-10 flex items-center gap-x-6'>
-        <Link href='/contact-us' variant='accent-button' size='lg'>
-          <span class='text-2xl uppercase sm:text-base'>Get a Quote</span>
-        </Link>
+        <GetAQuote
+          href='/contact-us'
+          variant='accent'
+          size='lg'
+          class='text-2xl font-bold text-white uppercase sm:text-base'>
+          Get a Quote
+        </GetAQuote>
       </div>
     </div>
   </div>

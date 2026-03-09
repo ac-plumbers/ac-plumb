@@ -18,6 +18,7 @@
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inconsolata": "^5.2.6",
     "@fontsource/lato": "^5.2.6",
+    "@fontsource/poppins": "^5.2.7",
     "@lucide/astro": "^0.544.0",
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^13.7.0",
