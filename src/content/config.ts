@@ -22,9 +22,6 @@ const services = defineCollection({
 
     featured: z.boolean().default(false),
 
-    // Optional: Astro usually derives slug from filename
-    slug: z.string().optional(),
-
     // New fields for full CMS-driven content
     intro: z.string().optional(),
     benefits: z.array(z.string()).default([]),

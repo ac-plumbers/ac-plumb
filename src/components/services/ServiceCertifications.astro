@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import Text from '@/components/fundations/elements/Text.astro';
+import gasSafe from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
+import bpec from '@/images/brands/bpec-certification-logo-gas-plumbing.png';
+import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
+import checktrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
+
+const certifications = [
+  {
+    image: gasSafe,
+    alt: 'Gas Safe Register logo — certified gas engineers in Brighton',
+    name: 'Gas Safe Registered',
+    description: 'All gas work carried out by our registered engineers.',
+  },
+  {
+    image: bpec,
+    alt: 'BPEC certification logo — gas and plumbing industry qualification',
+    name: 'BPEC Certified',
+    description: 'Industry-recognised qualifications in gas and plumbing.',
+  },
+  {
+    image: oftec,
+    alt: 'OFTEC registered logo — oil heating certification',
+    name: 'OFTEC Registered',
+    description: 'Qualified for oil heating installation and servicing.',
+  },
+  {
+    image: checktrade,
+    alt: 'Checkatrade logo — vetted and reviewed tradespeople',
+    name: 'Checkatrade Approved',
+    description: 'Vetted, reviewed, and trusted by local homeowners.',
+  },
+];
+---
+
+<section aria-labelledby='certifications-heading' class='py-16 sm:py-24 bg-neutral-50'>
+  <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+    <div class='mx-auto max-w-2xl lg:text-center mb-12'>
+      <Text
+        tag='span'
+        variant='textBASE'
+        class='text-base font-semibold tracking-wide text-primary-600 uppercase'>
+        Accreditations
+      </Text>
+      <Text
+        tag='h2'
+        id='certifications-heading'
+        variant='displayLG'
+        class='mt-2 font-bold tracking-tight text-neutral-900'>
+        Qualified &amp; Certified Engineers
+      </Text>
+      <Text
+        tag='p'
+        variant='textBASE'
+        class='mt-4 text-neutral-600'>
+        Every job is carried out by accredited professionals — giving you complete confidence in the quality and safety of our work.
+      </Text>
+    </div>
+
+    <ul
+      class='grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4'
+      role='list'
+      aria-label='Our certifications and accreditations'>
+      {
+        certifications.map(cert => (
+          <li class='flex flex-col items-center gap-4 rounded-2xl border border-neutral-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md'>
+            <div class='flex h-16 items-center justify-center'>
+              <Image
+                src={cert.image}
+                alt={cert.alt}
+                width={120}
+                height={56}
+                class='h-14 w-auto object-contain'
+              />
+            </div>
+            <div>
+              <Text
+                tag='p'
+                variant='textSM'
+                class='font-semibold text-neutral-900'>
+                {cert.name}
+              </Text>
+              <Text
+                tag='p'
+                variant='textSM'
+                class='mt-1 text-neutral-500'>
+                {cert.description}
+              </Text>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

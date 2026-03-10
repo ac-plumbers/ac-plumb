@@ -56,6 +56,8 @@ faqs:
     answer: "Regular servicing helps your boiler run more efficiently, which can reduce energy usage."
 ---
 
-Regular boiler servicing is essential for keeping your heating system safe, efficient, and reliable. An annual service helps to reduce the risk of unexpected breakdowns, improve energy efficiency, and extend the lifespan of your boiler — saving you money in the long run.
+Regular servicing also helps to maintain your manufacturer’s warranty and ensures your boiler complies with current safety standards. Whether your boiler is brand new or several years old, our experienced team will make sure it’s running at its best, giving you complete peace of mind throughout the year.
 
-At AC Plumbers Ltd., we provide professional boiler servicing across Brighton & Hove and the surrounding areas. Our Gas Safe registered engineers carry out comprehensive checks on all major boiler brands, ensuring your system is operating safely and in line with manufacturer guidelines.
+Contact AC Plumbers Ltd. today to book your annual boiler service. When your boiler breaks down, you need a fast and reliable repair service you can trust.
+
+At AC Plumbers Ltd., our Gas Safe registered engineers provide expert boiler repair services across Brighton & Hove and the surrounding areas. Whether you’re dealing with a complete boiler breakdown, unusual noises, loss of heating, or hot water issues, our experienced team is ready to diagnose and fix the problem quickly and efficiently.

@@ -34,6 +34,7 @@ import Badge from '@/components/fundations/elements/Badge.astro';
 import { BadgeCheck, ShieldCheck } from 'lucide-vue-next';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
 import ServiceContentGallery from '@/components/services/ServiceContentGallery.astro';
+import ServiceCertifications from '@/components/services/ServiceCertifications.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -157,6 +158,9 @@ const process: ServiceStep[] = service.process || [];
   <section aria-labelledby='features-heading'>
     <ServiceFeaturesList features={features} />
   </section>
+  <!-- Certifications -->
+  <ServiceCertifications />
+
   <!-- Service-Specific FAQs -->
   <section aria-labelledby='faqs-heading'>
     <ServiceFaqList questions={faqs} />
