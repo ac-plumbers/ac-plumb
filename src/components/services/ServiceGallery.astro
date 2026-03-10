@@ -28,7 +28,7 @@ const { images, title, alt, paragraph } = Astro.props;
           class='mb-8 text-center font-bold text-primary-900'>
           {title}
         </Text>
-        <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        <div class='grid grid-cols-1 gap-4 overflow-hidden sm:grid-cols-2 lg:grid-cols-3'>
           {images.slice(0, 3).map(img => (
             <div class='overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105'>
               <img

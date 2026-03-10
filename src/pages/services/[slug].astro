@@ -90,14 +90,13 @@ const process: ServiceStep[] = service.process || [];
     slug={page.slug}
   />
 
-  <!-- Main Service Content -->
+  <!-- Main Service Content: only the content+sidebar grid is wrapped -->
   <Wrapper
     id='main-content'
     variant='compact'
     class='mx-auto mt-12 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
     aria-label='Service details'>
-    <!-- Main Content -->
-    <div class='mb-16 grid items-start gap-12 lg:grid-cols-2'>
+    <div class='grid items-start gap-12 lg:grid-cols-2'>
       <section aria-labelledby='about-service-heading'>
         <article>
           <header>
@@ -152,24 +151,22 @@ const process: ServiceStep[] = service.process || [];
         </div>
       </aside>
     </div>
-    <!-- ✨ NEW: Service Image Gallery -->
-    <ServiceGallery
-      images={page.data.gallery}
-      title={page.data.title}
-      paragraph={service.paragraph || ''}
-    />
+  </Wrapper>
 
-    <!-- Key Features/Benefits -->
-    <section aria-labelledby='features-heading'>
-      <ServiceFeaturesList features={features} />
-    </section>
+  <!-- Full-width sections outside the Wrapper -->
+  <!-- Service Image Gallery -->
+  <ServiceGallery
+    images={page.data.gallery}
+    title={page.data.title}
+    paragraph={service.paragraph || ''}
+  />
 
-    <!-- Service Process/Steps -->
-    <!-- <section aria-labelledby='process-heading'>
-    <ServiceProcessSteps steps={steps} />
-  </section> -->
+  <!-- Key Features/Benefits -->
+  <section aria-labelledby='features-heading'>
+    <ServiceFeaturesList features={features} />
+  </section>
 
-    <!-- Brand / Equipment Section -->
+  <!-- Brand / Equipment Section -->
     <!--  <section aria-labelledby='brands-heading' class='bg-primary-900 py-16'>
     <div class='mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8'>
       <div>
@@ -308,28 +305,27 @@ const process: ServiceStep[] = service.process || [];
     </div>
   </section> -->
 
-    <!-- Service-Specific Testimonials -->
-    <section aria-labelledby='testimonials-heading'>
-      <Testimonials />
-    </section>
+  <!-- Service-Specific Testimonials -->
+  <section aria-labelledby='testimonials-heading'>
+    <Testimonials />
+  </section>
 
-    <!-- Service-Specific FAQs -->
-    <section aria-labelledby='faqs-heading'>
-      <ServiceFaqList questions={faqs} />
-    </section>
+  <!-- Service-Specific FAQs -->
+  <section aria-labelledby='faqs-heading'>
+    <ServiceFaqList questions={faqs} />
+  </section>
 
-    <!-- Related Services -->
-    <nav aria-label='Related services'>
-      <RelatedServicesList services={relatedServices} />
-    </nav>
+  <!-- Related Services -->
+  <nav aria-label='Related services'>
+    <RelatedServicesList services={relatedServices} />
+  </nav>
 
-    <!-- Call to Action -->
-    <section aria-labelledby='cta-heading'>
-      <ServiceCallToAction
-        title={`Ready to get started with ${page.data.title}?`}
-        buttonText='Book a Service'
-        buttonLink='/contact-us'
-      />
-    </section>
-  </Wrapper>
+  <!-- Call to Action -->
+  <section aria-labelledby='cta-heading'>
+    <ServiceCallToAction
+      title={`Ready to get started with ${page.data.title}?`}
+      buttonText='Book a Service'
+      buttonLink='/contact-us'
+    />
+  </section>
 </ServicesLayout>
