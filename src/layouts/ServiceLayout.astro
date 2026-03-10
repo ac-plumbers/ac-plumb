@@ -5,6 +5,7 @@ import Text from '@/components/fundations/elements/Text.astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import ServiceCertificationViessmann from '@/components/services/ServiceCertificationViessmann.astro';
 import ServiceCertificationGasSafe from '@/components/services/ServiceCertificationGasSafe.astro';
+import ServiceContentGallery from '@/components/services/ServiceContentGallery.astro';
 import type { ServiceFrontmatter } from '@/lib/types';
 import MainCta from '@/components/global/MainCta.astro';
 // Sections
@@ -176,32 +177,7 @@ const gallery = frontmatter.gallery || [];
               </section>
             )
           }
-          {
-            gallery.length > 0 && (
-              <Wrapper variant='mediaWide'>
-                <section class='mt-10'>
-                  <Text
-                    tag='h2'
-                    variant='displaySM'
-                    class='text-base-900 font-semibold'>
-                    Gallery
-                  </Text>
-                  <div class='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                    {gallery.slice(0, 6).map(image => (
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        title={image.title || image.alt}
-                        class='h-64 w-full rounded-lg object-cover'
-                        loading='lazy'
-                        decoding='async'
-                      />
-                    ))}
-                  </div>
-                </section>
-              </Wrapper>
-            )
-          }
+          {gallery.length > 0 && <ServiceContentGallery images={gallery} />}
         </div>
         <aside
           aria-label='Gas Safe certification information'

@@ -1,0 +1,38 @@
+---
+import Text from '@/components/fundations/elements/Text.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+
+type GalleryImage = {
+  src: string;
+  alt: string;
+  title?: string;
+};
+
+const { images } = Astro.props as {
+  images?: GalleryImage[];
+};
+---
+
+{
+  images && images.length > 0 && (
+    <Wrapper variant='mediaWide'>
+      <section class='mt-10'>
+        <Text tag='h2' variant='displaySM' class='text-base-900 font-semibold'>
+          Gallery
+        </Text>
+        <div class='mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {images.slice(0, 6).map(image => (
+            <img
+              src={image.src}
+              alt={image.alt}
+              title={image.title || image.alt}
+              class='h-64 w-full rounded-lg object-cover'
+              loading='lazy'
+              decoding='async'
+            />
+          ))}
+        </div>
+      </section>
+    </Wrapper>
+  )
+}

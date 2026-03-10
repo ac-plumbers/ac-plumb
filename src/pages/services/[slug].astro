@@ -11,6 +11,7 @@ import RelatedServicesList from '@/components/services/RelatedServicesList.astro
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
+import MainCta from '@/components/global/MainCta.astro';
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import type {
   ServiceFeature,
@@ -32,6 +33,7 @@ import ServiceBenefits from '@/components/services/ServiceBenefits.astro';
 import Badge from '@/components/fundations/elements/Badge.astro';
 import { BadgeCheck, ShieldCheck } from 'lucide-vue-next';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
+import ServiceContentGallery from '@/components/services/ServiceContentGallery.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -81,7 +83,6 @@ const process: ServiceStep[] = service.process || [];
     providerUrl='https://acplumb.co.uk'
   />
 
-  <!-- Hero Section with Service Overview -->
   <ServiceHeroSection
     title={service.title}
     image={service.imageHero ?? ''}
@@ -89,8 +90,7 @@ const process: ServiceStep[] = service.process || [];
     intro={intro}
     slug={page.slug}
   />
-
-  <!-- Main Service Content: only the content+sidebar grid is wrapped -->
+  <!-- Main Service Content-->
   <Wrapper
     id='main-content'
     variant='compact'
@@ -153,172 +153,32 @@ const process: ServiceStep[] = service.process || [];
     </div>
   </Wrapper>
 
-  <!-- Full-width sections outside the Wrapper -->
   <!-- Service Image Gallery -->
-  <ServiceGallery
+  <ServiceContentGallery images={service.gallery} />
+  <!--   <ServiceGallery
     images={page.data.gallery}
     title={page.data.title}
     paragraph={service.paragraph || ''}
-  />
+  /> -->
 
   <!-- Key Features/Benefits -->
   <section aria-labelledby='features-heading'>
     <ServiceFeaturesList features={features} />
   </section>
-
-  <!-- Brand / Equipment Section -->
-    <!--  <section aria-labelledby='brands-heading' class='bg-primary-900 py-16'>
-    <div class='mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8'>
-      <div>
-        <Text
-          tag='h2'
-          variant='displayXL'
-          id='brands-heading'
-          class='font-bold text-white'>
-          Brands & Equipment We Trust
-        </Text>
-        <Text tag='p' variant='textBase' class='mt-4 text-primary-100'>
-          We work with leading manufacturers and use professional-grade tools
-          and parts to keep your system reliable, efficient, and safe.
-        </Text>
-        <ul class='mt-6 space-y-2 text-sm text-primary-100'>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Boilers, cylinders, and central heating components
-          </li>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Radiators, valves, and pipework upgrades
-          </li>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Smart controls and efficiency improvements
-          </li>
-          <li class='flex items-center'>
-            <svg
-              class='mr-2 h-4 w-4 text-accent-400'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-              aria-hidden='true'
-              focusable='false'>
-              <path
-                fill-rule='evenodd'
-                d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                clip-rule='evenodd'
-              />
-            </svg>
-            Gas safety testing and compliant fittings
-          </li>
-        </ul>
-      </div>
-      <div
-        class='grid grid-cols-2 items-center gap-6 rounded-2xl bg-primary-800/60 p-6 sm:grid-cols-3'
-        aria-label='Brands and certifications'>
-        <Image
-          width={158}
-          height={48}
-          src={vaillant}
-          alt='Vaillant Advance Installer certification'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={viesmann}
-          alt='Viessmann certified installer'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={bpec}
-          alt='BPEC certified gas and plumbing professional'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={checktrade}
-          alt='Checkatrade verified tradesperson'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={gasSafe}
-          alt='Gas Safe Register certified engineer'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-        <Image
-          width={158}
-          height={48}
-          src={oftec}
-          alt='OFTEC registered heating certification'
-          class='max-h-12 w-full object-contain brightness-0 invert'
-          format='webp'
-          quality={90}
-        />
-      </div>
-    </div>
-  </section> -->
+  <!-- Service-Specific FAQs -->
+  <section aria-labelledby='faqs-heading'>
+    <ServiceFaqList questions={faqs} />
+  </section>
 
   <!-- Service-Specific Testimonials -->
   <section aria-labelledby='testimonials-heading'>
     <Testimonials />
   </section>
 
-  <!-- Service-Specific FAQs -->
-  <section aria-labelledby='faqs-heading'>
-    <ServiceFaqList questions={faqs} />
-  </section>
-
   <!-- Related Services -->
-  <nav aria-label='Related services'>
+  <!--   <nav aria-label='Related services'>
     <RelatedServicesList services={relatedServices} />
-  </nav>
+  </nav> -->
 
   <!-- Call to Action -->
   <section aria-labelledby='cta-heading'>
@@ -327,5 +187,6 @@ const process: ServiceStep[] = service.process || [];
       buttonText='Book a Service'
       buttonLink='/contact-us'
     />
+    <MainCta />
   </section>
 </ServicesLayout>

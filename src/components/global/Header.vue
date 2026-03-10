@@ -12,7 +12,7 @@
         class="bg-white shadow-lg backdrop-blur-md"
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
-        <nav class="flex items-center" aria-label="Global">
+        <nav class="flex items-center px-2" aria-label="Global">
           <!-- Logo link and tagline-->
           <HeaderLogo
             :taglineColorClass="taglineColorClass"
