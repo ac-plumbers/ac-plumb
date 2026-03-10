@@ -31,6 +31,7 @@ import ServiceGallery from '@/components/services/ServiceGallery.astro';
 import ServiceBenefits from '@/components/services/ServiceBenefits.astro';
 import Badge from '@/components/fundations/elements/Badge.astro';
 import { BadgeCheck } from 'lucide-vue-next';
+import CallButton from '@/components/fundations/elements/CallButton.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -119,6 +120,12 @@ const process: ServiceStep[] = service.process || [];
             <section aria-labelledby='service-description-heading'>
               <!-- content -->
               <Content />
+              <CallButton
+                class='mt-8'
+                display='with-label'
+                label='Call'
+                animation='ring'
+              />
             </section>
           </div>
         </article>

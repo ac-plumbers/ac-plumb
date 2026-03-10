@@ -40,10 +40,13 @@ export interface Props {
   iconStyle?: 'call' | 'phone';
 
   /**
-   * Show pulse animation (attention-grabbing)
-   * @default false
+   * Animation style for the button.
+   * - 'pulse'  — fades opacity in/out (existing)
+   * - 'bounce' — bobs up and down
+   * - 'ring'   — rippling glow ring around the button
+   * @default undefined (no animation)
    */
-  pulse?: boolean;
+  animation?: 'pulse' | 'bounce' | 'ring';
 
   /**
    * Show additional label text
@@ -62,7 +65,7 @@ const {
   size = 'md',
   display = 'full',
   iconStyle = 'call',
-  pulse = false,
+  animation,
   label,
   class: className = '',
 } = Astro.props;
@@ -105,11 +108,14 @@ const iconSizes = {
 const baseStyles =
   'inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary-300/50';
 
-// Pulse animation
-const pulseClass = pulse ? 'animate-pulse' : '';
+// Animation class
+const animationClass =
+  animation === 'pulse' ? 'cb-pulse' :
+  animation === 'bounce' ? 'cb-bounce' :
+  animation === 'ring' ? 'cb-ring' : '';
 
 // Combined classes
-const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${pulseClass} ${className}`;
+const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${animationClass} ${className}`;
 
 // Phone number display logic
 const getPhoneDisplay = () => {
@@ -138,15 +144,6 @@ const showLabel = display === 'with-label' && label;
   variant='custom'
   class={buttonClasses}
   aria-label={`Call ${BUSINESS_CONFIG.name} at ${formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}`}>
-  {
-    pulse && (
-      <span
-        class='absolute -inset-1 rounded-lg bg-primary-400 opacity-75 blur'
-        aria-hidden='true'
-      />
-    )
-  }
-
   <IconComponent
     class={`${iconSizes[size]} ${display === 'icon-only' ? '' : ''}`}
     aria-hidden='true'
@@ -154,38 +151,52 @@ const showLabel = display === 'with-label' && label;
   />
 
   {
+    showLabel && (
+      <Text tag='span' variant='textXS' class='opacity-80'>
+        {label}
+      </Text>
+    )
+  }
+  {
     phoneDisplay && (
-      <span class='relative'>
-        {showLabel && (
-          <Text tag='span' variant='textXS' class='block opacity-80'>
-            {label}
-          </Text>
-        )}
-        <Text
-          tag='span'
-          variant={
-            size === 'sm' ? 'textSM' : size === 'xl' ? 'textLG' : 'textBase'
-          }
-          class='font-semibold'>
-          {phoneDisplay}
-        </Text>
-      </span>
+      <Text
+        tag='span'
+        variant={
+          size === 'sm' ? 'textSM' : size === 'xl' ? 'textLG' : 'textBase'
+        }
+        class='font-semibold'>
+        {phoneDisplay}
+      </Text>
     )
   }
 </Link>
 
 <style>
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
+  /* pulse — fades opacity in/out */
+  @keyframes cb-pulse-kf {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .cb-pulse {
+    animation: cb-pulse-kf 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  .animate-pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  /* bounce — bobs up and down */
+  @keyframes cb-bounce-kf {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .cb-bounce {
+    animation: cb-bounce-kf 1.2s ease-in-out infinite;
+  }
+
+  /* ring — rippling glow ring */
+  @keyframes cb-ring-kf {
+    0% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-primary-400, #21b6df) 60%, transparent); }
+    70% { box-shadow: 0 0 0 10px color-mix(in oklch, var(--color-primary-400, #21b6df) 0%, transparent); }
+    100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-primary-400, #21b6df) 0%, transparent); }
+  }
+  .cb-ring {
+    animation: cb-ring-kf 1.8s ease-out infinite;
   }
 </style>
