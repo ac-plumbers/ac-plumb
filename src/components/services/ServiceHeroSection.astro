@@ -4,6 +4,7 @@ import Link from '../fundations/elements/Link.astro';
 import Breadcrumb from '../fundations/elements/Breadcrumb.astro';
 import { BadgeCheck, Camera } from 'lucide-vue-next';
 import GetAQuote from '../fundations/elements/GetAQuote.astro';
+import Badge from '../fundations/elements/Badge.astro';
 
 type Props = {
   title: string;
@@ -58,14 +59,12 @@ const imageAlt =
         ]}
       />
       <!-- badge -->
-      <div
-        class='mt-4 inline-flex items-center rounded-full border border-accent-00 bg-accent-600/20 px-4 py-2 text-base font-bold text-accent-400'>
-        Un poco di testo per riempire il badge
-        <div class='ml-2 h-1 w-1 rounded-full bg-accent-600' aria-hidden='true'>
-        </div>
-        <Camera class='ml-2 h-3 w-3 text-accent-600' aria-hidden='true' />
-        <BadgeCheck class='ml-2 h-5 w-5 text-accent-600' aria-hidden='true' />
-      </div>
+      <Badge
+        text='Un poco di testo per riempire il badge'
+        iconSize='lg'
+        class='mt-4'>
+        <BadgeCheck slot='left-icon' aria-hidden='true' />
+      </Badge>
       <Text
         tag='h1'
         variant='display2XL'

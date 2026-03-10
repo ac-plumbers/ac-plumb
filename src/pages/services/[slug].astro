@@ -8,6 +8,7 @@ import Testimonials from '@/components/home/Testimonials.astro';
 import ServiceFaqList from '@/components/services/ServiceFaqList.astro';
 import ServiceCallToAction from '@/components/services/ServiceCallToAction.astro';
 import RelatedServicesList from '@/components/services/RelatedServicesList.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
@@ -27,6 +28,9 @@ import checktrade from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.pn
 import gasSafe from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
 import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1.png';
 import ServiceGallery from '@/components/services/ServiceGallery.astro';
+import ServiceBenefits from '@/components/services/ServiceBenefits.astro';
+import Badge from '@/components/fundations/elements/Badge.astro';
+import { BadgeCheck } from 'lucide-vue-next';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -86,85 +90,35 @@ const process: ServiceStep[] = service.process || [];
   />
 
   <!-- Main Service Content -->
-  <section
+  <Wrapper
     id='main-content'
-    class='max-w-8xl mx-auto mt-12 bg-background-50 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
+    variant='compact'
+    class='mx-auto mt-12 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
     aria-label='Service details'>
-    <div class='grid grid-cols-1 gap-8 lg:grid-cols-3'>
-      <!-- Main Content -->
-      <section class='lg:col-span-2' aria-labelledby='about-service-heading'>
-        <article class='rounded-xl bg-background-100 p-8 shadow-lg'>
+    <!-- Main Content -->
+    <div class='mb-16 grid items-start gap-12 lg:grid-cols-2'>
+      <section aria-labelledby='about-service-heading'>
+        <article>
           <header>
+            <Badge
+              text='badge temporaneo soprattutto i colori'
+              iconSize='lg'
+              class='my-4'>
+              <BadgeCheck slot='left-icon' aria-hidden='true' />
+            </Badge>
             <Text
               tag='h2'
               variant='displayMD'
               id='about-service-heading'
               class='mb-4 font-bold text-primary-900'>
-              About {service.title}
+              {service.title}
             </Text>
           </header>
-          <Text
-            tag='p'
-            variant='textBase'
-            class='text-lg leading-relaxed text-neutral-700'>
-            {description}
-          </Text>
 
-          <div class='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'>
-            <section
-              aria-labelledby='why-choose-us-heading'
-              class='rounded-lg bg-primary-50 p-6'>
-              <Text
-                tag='h3'
-                variant='displayMD'
-                id='why-choose-us-heading'
-                class='mb-3 font-semibold text-primary-900'>
-                Service Benefits
-              </Text>
-              <ul class='space-y-2'>
-                {
-                  benefits.map((benefit: string) => (
-                    <li class='flex items-start gap-2 text-neutral-700'>
-                      <span class='pt-1.5 sm:pt-0'>
-                        <svg
-                          class='h-5 w-5 shrink-0 text-accent-500'
-                          fill='currentColor'
-                          viewBox='0 0 20 20'
-                          aria-hidden='true'
-                          focusable='false'>
-                          <path
-                            fill-rule='evenodd'
-                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                            clip-rule='evenodd'
-                          />
-                        </svg>
-                      </span>
-                      <span class='wrap-break-word'>{benefit}</span>
-                    </li>
-                  ))
-                }
-              </ul>
-            </section>
-
-            <section
-              aria-labelledby='our-specialties-heading'
-              class='rounded-lg bg-accent-50 p-6'>
-              <Text
-                tag='h3'
-                variant='displayMD'
-                id='our-specialties-heading'
-                class='mb-3 font-semibold text-primary-900'>
-                Our Specialties
-              </Text>
-              <div class='h-64 overflow-hidden rounded-lg shadow-sm'>
-                <img
-                  src={service.image ?? ''}
-                  alt={service.alt ?? `${service.title} service`}
-                  class='block h-full w-full object-cover'
-                  loading='lazy'
-                  title={service.titleImage ?? service.title}
-                />
-              </div>
+          <div class='space-y-6 text-neutral-700'>
+            <section aria-labelledby='service-description-heading'>
+              <!-- content -->
+              <Content />
             </section>
           </div>
         </article>
@@ -172,80 +126,47 @@ const process: ServiceStep[] = service.process || [];
 
       <!-- Sidebar -->
       <aside
-        class='lg:col-span-1'
-        aria-label='Quick contact and service info'
+        class='rounded-2xl border border-slate-200 bg-white p-8 shadow-xl lg:sticky lg:top-8'
+        aria-label='Service benefits and emergency contact information'
         data-bg='dark'>
-        <div class='sticky top-8 rounded-xl bg-primary-900 p-6 text-white'>
-          <Text tag='h3' variant='displayMD' class='mb-4 font-semibold'
-            >Quick Contact</Text
+        <ServiceBenefits benefits={benefits} />
+        <div class='mt-4 border-t border-primary-700 pt-4'>
+          <Text
+            tag='h4'
+            variant='displayBase'
+            class='mb-2 font-lato font-semibold'>Emergency Service</Text
           >
-          <Text tag='p' variant='textBASE' class='mb-4 text-primary-200'
-            >Need immediate assistance?</Text
+          <Text tag='p' variant='textBASE' class='mb-2 text-sm text-primary-200'
+            >24/7 availability</Text
           >
-          <Link href='/contact-us' variant='accent-button' size='lg'>
-            <span class='text-2xl uppercase sm:text-base'>Get a Quote</span>
-          </Link>
-          <div class='mt-4 border-t border-primary-700 pt-4'>
-            <Text
-              tag='h4'
-              variant='displayBASE'
-              class='mb-2 font-lato font-semibold'>Service Hours</Text
-            >
-            <Text
-              tag='p'
-              variant='textBase'
-              class='mb-2 text-sm text-primary-200'>
-              Monday - Friday: 7AM - 6PM
-            </Text>
-            <Text tag='p' class='mb-2 text-sm text-primary-200'
-              >Saturday: 8AM - 4PM</Text
-            >
-            <Text tag='p' variant='textBASE' class='text-sm text-primary-200'
-              >Sunday: Emergency only</Text
-            >
-          </div>
-
-          <div class='mt-4 border-t border-primary-700 pt-4'>
-            <Text
-              tag='h4'
-              variant='displayBase'
-              class='mb-2 font-lato font-semibold'>Emergency Service</Text
-            >
-            <Text
-              tag='p'
-              variant='textBASE'
-              class='mb-2 text-sm text-primary-200'>24/7 availability</Text
-            >
-            <a
-              href='tel:00447535653850'
-              class='font-semibold text-accent-400 hover:text-accent-300'
-              aria-label='Call emergency plumbing service'>
-              {BUSINESS_CONFIG.mobilePhone}
-            </a>
-          </div>
+          <a
+            href='tel:00447535653850'
+            class='font-semibold text-accent-400 hover:text-accent-300'
+            aria-label='Call emergency plumbing service'>
+            {BUSINESS_CONFIG.mobilePhone}
+          </a>
         </div>
       </aside>
     </div>
-  </section>
-  <!-- ✨ NEW: Service Image Gallery -->
-  <ServiceGallery
-    images={page.data.gallery}
-    title={page.data.title}
-    paragraph={service.paragraph || ''}
-  />
+    <!-- ✨ NEW: Service Image Gallery -->
+    <ServiceGallery
+      images={page.data.gallery}
+      title={page.data.title}
+      paragraph={service.paragraph || ''}
+    />
 
-  <!-- Key Features/Benefits -->
-  <section aria-labelledby='features-heading'>
-    <ServiceFeaturesList features={features} />
-  </section>
+    <!-- Key Features/Benefits -->
+    <section aria-labelledby='features-heading'>
+      <ServiceFeaturesList features={features} />
+    </section>
 
-  <!-- Service Process/Steps -->
-  <!-- <section aria-labelledby='process-heading'>
+    <!-- Service Process/Steps -->
+    <!-- <section aria-labelledby='process-heading'>
     <ServiceProcessSteps steps={steps} />
   </section> -->
 
-  <!-- Brand / Equipment Section -->
-  <!--  <section aria-labelledby='brands-heading' class='bg-primary-900 py-16'>
+    <!-- Brand / Equipment Section -->
+    <!--  <section aria-labelledby='brands-heading' class='bg-primary-900 py-16'>
     <div class='mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8'>
       <div>
         <Text
@@ -383,27 +304,28 @@ const process: ServiceStep[] = service.process || [];
     </div>
   </section> -->
 
-  <!-- Service-Specific Testimonials -->
-  <section aria-labelledby='testimonials-heading'>
-    <Testimonials />
-  </section>
+    <!-- Service-Specific Testimonials -->
+    <section aria-labelledby='testimonials-heading'>
+      <Testimonials />
+    </section>
 
-  <!-- Service-Specific FAQs -->
-  <section aria-labelledby='faqs-heading'>
-    <ServiceFaqList questions={faqs} />
-  </section>
+    <!-- Service-Specific FAQs -->
+    <section aria-labelledby='faqs-heading'>
+      <ServiceFaqList questions={faqs} />
+    </section>
 
-  <!-- Related Services -->
-  <nav aria-label='Related services'>
-    <RelatedServicesList services={relatedServices} />
-  </nav>
+    <!-- Related Services -->
+    <nav aria-label='Related services'>
+      <RelatedServicesList services={relatedServices} />
+    </nav>
 
-  <!-- Call to Action -->
-  <section aria-labelledby='cta-heading'>
-    <ServiceCallToAction
-      title={`Ready to get started with ${page.data.title}?`}
-      buttonText='Book a Service'
-      buttonLink='/contact-us'
-    />
-  </section>
+    <!-- Call to Action -->
+    <section aria-labelledby='cta-heading'>
+      <ServiceCallToAction
+        title={`Ready to get started with ${page.data.title}?`}
+        buttonText='Book a Service'
+        buttonLink='/contact-us'
+      />
+    </section>
+  </Wrapper>
 </ServicesLayout>
