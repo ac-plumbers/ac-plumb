@@ -30,7 +30,7 @@ import oftec from '@/images/brands/oftec-registered-logo-heating-certification-1
 import ServiceGallery from '@/components/services/ServiceGallery.astro';
 import ServiceBenefits from '@/components/services/ServiceBenefits.astro';
 import Badge from '@/components/fundations/elements/Badge.astro';
-import { BadgeCheck } from 'lucide-vue-next';
+import { BadgeCheck, ShieldCheck } from 'lucide-vue-next';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
 
 export async function getStaticPaths() {
@@ -137,21 +137,18 @@ const process: ServiceStep[] = service.process || [];
         aria-label='Service benefits and emergency contact information'
         data-bg='dark'>
         <ServiceBenefits benefits={benefits} />
-        <div class='mt-4 border-t border-primary-700 pt-4'>
-          <Text
-            tag='h4'
-            variant='displayBase'
-            class='mb-2 font-lato font-semibold'>Emergency Service</Text
-          >
-          <Text tag='p' variant='textBASE' class='mb-2 text-sm text-primary-200'
-            >24/7 availability</Text
-          >
-          <a
-            href='tel:00447535653850'
-            class='font-semibold text-accent-400 hover:text-accent-300'
-            aria-label='Call emergency plumbing service'>
-            {BUSINESS_CONFIG.mobilePhone}
-          </a>
+        <div class='mt-8 border-t border-primary-400 pt-8'>
+          <div class='flex items-center gap-4'>
+            <div
+              class='flex h-16 w-16 items-center justify-center rounded-full bg-primary-400/20'>
+              <ShieldCheck
+                class='h-8 w-8 text-primary-600'
+                aria-hidden='true'
+              />
+            </div>
+            <h4>Lorem ipsum dolor sit.</h4>
+            <p>Lorem, ipsum dolor.</p>
+          </div>
         </div>
       </aside>
     </div>
