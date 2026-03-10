@@ -90,7 +90,7 @@ const process: ServiceStep[] = service.process || [];
     intro={intro}
     slug={page.slug}
   />
-  <!-- Main Service Content-->
+  <!-- Main Service Content & Benefits -->
   <Wrapper
     id='main-content'
     variant='compact'
@@ -153,15 +153,7 @@ const process: ServiceStep[] = service.process || [];
     </div>
   </Wrapper>
 
-  <!-- Service Image Gallery -->
-  <ServiceContentGallery images={service.gallery} />
-  <!--   <ServiceGallery
-    images={page.data.gallery}
-    title={page.data.title}
-    paragraph={service.paragraph || ''}
-  /> -->
-
-  <!-- Key Features/Benefits -->
+  <!-- Key Features -->
   <section aria-labelledby='features-heading'>
     <ServiceFeaturesList features={features} />
   </section>
@@ -169,6 +161,9 @@ const process: ServiceStep[] = service.process || [];
   <section aria-labelledby='faqs-heading'>
     <ServiceFaqList questions={faqs} />
   </section>
+
+  <!-- Service Image Gallery -->
+  <ServiceContentGallery images={service.gallery} />
 
   <!-- Service-Specific Testimonials -->
   <section aria-labelledby='testimonials-heading'>
