@@ -49,8 +49,9 @@ benefits:
   - Gas and Electric boilers
   - Central heating installation
   - Radiators and Underfloor Heating
-  - Thermostatic Radiator Valves (TRVs) and Smart Heating Controllers
-  - Full system upgrades, replacements, and energy-efficient solutions
+  - "Thermostatic Radiator Valves (TRVs) "
+  - Smart Heating Controllers
+  - Heating System Flushing & Power Flushing
 specialties:
   - Boiler installation and repair
   - Central heating systems
