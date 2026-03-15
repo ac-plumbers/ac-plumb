@@ -9,57 +9,16 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-// Testimonials data (replace with import if needed)
-const reviews = [
-  {
-    rating: "10/10",
-    title: "Excellent Boiler Service",
-    date: "January 2025",
-    content:
-      "AC Plumbers provided an outstanding boiler service. The engineer was professional, punctual, and explained everything clearly. Very impressed with the quality of work and attention to detail. Would definitely recommend to anyone in Brighton.",
-    location: "Brighton",
-  },
-  {
-    rating: "10/10",
-    title: "Emergency Plumbing Response",
-    date: "December 2024",
-    content:
-      "Called AC Plumbers for an emergency leak on a Sunday. They responded quickly and fixed the problem efficiently. Excellent customer service and fair pricing. Saved us from potential water damage.",
-    location: "Hove",
-  },
-  {
-    rating: "9/10",
-    title: "Gas Safety Certificate",
-    date: "December 2024",
-    content:
-      "Needed a gas safety certificate for my rental property. The service was quick, thorough, and professional. Clear documentation provided and competitive pricing. Will use again next year.",
-    location: "Brighton",
-  },
-  {
-    rating: "10/10",
-    title: "Bathroom Installation",
-    date: "November 2024",
-    content:
-      "Complete bathroom renovation done to a very high standard. The team was clean, tidy, and professional throughout. Finished on time and within budget. Very happy with the results.",
-    location: "Brighton",
-  },
-  {
-    rating: "10/10",
-    title: "Central Heating Repair",
-    date: "November 2024",
-    content:
-      "My heating system broke down during the cold spell. AC Plumbers diagnosed and fixed the issue same day. Excellent technical knowledge and customer care. Highly recommended.",
-    location: "Hove",
-  },
-  {
-    rating: "9/10",
-    title: "Landlord Services",
-    date: "October 2024",
-    content:
-      "Regular maintenance and certification services for my rental properties. Always reliable, professional, and provides clear reports. Great value for money and peace of mind.",
-    location: "Brighton",
-  },
-];
+const props = defineProps<{
+  reviews: {
+    rating: string;
+    title: string;
+    date: string;
+    content: string;
+    location: string;
+  }[];
+}>();
+const reviews = props.reviews;
 </script>
 
 <template>
@@ -87,7 +46,9 @@ const reviews = [
             <span class="text-sm text-neutral-500"
               >{{ review.date }} &mdash; {{ review.location }}</span
             >
-            <p class="mt-2 text-sm text-neutral-700">{{ review.content }}</p>
+            <p class="mt-2 line-clamp-5 text-sm text-neutral-700">
+              {{ review.content }}
+            </p>
           </CardContent>
         </Card>
       </CarouselItem>

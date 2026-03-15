@@ -16,7 +16,7 @@ import * as cheerio from "cheerio";
 import fetch from "node-fetch";
 import { writeFileSync } from "fs";
 import { join } from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -28,21 +28,61 @@ class CheckatradeService {
     this.dataPath = join(__dirname, '../data/reviews.json');
   }
 
-  async fetchAndSaveReviews() {
-    try {
-      console.log("🔄 Fetching reviews from Checkatrade...");
+  async fetchHtml() {
+    const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+    const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+    const waitForSelector = process.env.CLOUDFLARE_WAIT_FOR_SELECTOR;
 
-      const response = await fetch(this.url, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    if (accountId && apiToken) {
+      console.log("🔄 Fetching reviews via Cloudflare Browser Rendering...");
+
+      const response = await fetch(
+        `https://api.cloudflare.com/client/v4/accounts/${accountId}/browser-rendering/content`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            url: this.url,
+            gotoOptions: { waitUntil: 'networkidle2' },
+            ...(waitForSelector ? { waitForSelector } : {})
+          })
         }
-      });
+      );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      const payload = await response.json();
+      if (!response.ok || payload?.success === false) {
+        const message = payload?.errors?.[0]?.message || `HTTP error! status: ${response.status}`;
+        throw new Error(message);
       }
 
-      const html = await response.text();
+      if (!payload?.result) {
+        throw new Error('Cloudflare response missing HTML content');
+      }
+
+      return payload.result;
+    }
+
+    console.log("🔄 Fetching reviews from Checkatrade...");
+
+    const response = await fetch(this.url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.text();
+  }
+
+  async fetchAndSaveReviews() {
+    try {
+      const html = await this.fetchHtml();
       const $ = cheerio.load(html);
 
       // Try multiple selectors to find reviews
@@ -111,19 +151,13 @@ class CheckatradeService {
   }
 
   extractRating($el) {
-    const ratingSelectors = [
-      'span.font-semibold',
-      '.rating',
-      '[data-rating]',
-      '.score',
-      '.stars'
-    ];
-
-    for (const selector of ratingSelectors) {
-      const rating = $el.find(selector).first().text().trim();
-      if (rating) return rating;
+    // Find all span.font-semibold and pick the one that looks like a numeric rating
+    const spans = $el.find('span.font-semibold');
+    for (let i = 0; i < spans.length; i++) {
+      const text = spans.eq(i).text().trim();
+      if (/^\d+(\.\d+)?$/.test(text)) return text;
     }
-    return "10/10";
+    return "10";
   }
 
   extractTitle($el) {
@@ -152,8 +186,16 @@ class CheckatradeService {
     ];
 
     for (const selector of dateSelectors) {
-      const date = $el.find(selector).first().text().trim();
-      if (date) return date;
+      const raw = $el.find(selector).first().text().trim();
+      if (raw) {
+        // Strip "Posted " prefix and parse ISO date
+        const iso = raw.replace(/^Posted\s*/i, '');
+        const parsed = new Date(iso);
+        if (!isNaN(parsed)) {
+          return parsed.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+        }
+        return raw;
+      }
     }
     return new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
   }
@@ -183,8 +225,11 @@ class CheckatradeService {
     ];
 
     for (const selector of locationSelectors) {
-      const location = $el.find(selector).first().text().trim();
-      if (location) return location;
+      const raw = $el.find(selector).first().text().trim();
+      if (raw) {
+        // Strip "Job location: " prefix
+        return raw.replace(/^Job location:\s*/i, '');
+      }
     }
     return "Brighton & Hove";
   }
@@ -254,7 +299,10 @@ class CheckatradeService {
 export default new CheckatradeService();
 
 // Execute if this file is run directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+const entryArg = process.argv[1];
+const entryUrl = entryArg ? pathToFileURL(entryArg).href : '';
+
+if (import.meta.url === entryUrl) {
   const service = new CheckatradeService();
   service.fetchAndSaveReviews();
 }
