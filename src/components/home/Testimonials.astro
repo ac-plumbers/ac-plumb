@@ -13,7 +13,7 @@ import google from '@/images/brands/g.webp';
 import CallButton from '../fundations/elements/CallButton.astro';
 import GetAQuote from '../fundations/elements/GetAQuote.astro';
 import reviewsData from '@/data/reviews.json';
-const reviews = reviewsData.reviews;
+const reviews = [...reviewsData.reviews].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <!-- Modern Bento-Style Layout -->
