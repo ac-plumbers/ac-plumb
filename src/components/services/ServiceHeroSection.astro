@@ -69,7 +69,8 @@ const imageAlt =
         tag='h1'
         variant='display2XL'
         id='service-hero-title'
-        class='mt-8 font-bold tracking-tight text-white'>
+        class='mt-8 font-bold tracking-tight text-white'
+        transition:name={slug ? `service-title-${slug}` : undefined}>
         {title}
       </Text>
       <Text tag='p' variant='textXL' class='mt-6 max-w-3xl text-neutral-200'>

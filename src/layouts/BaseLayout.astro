@@ -57,10 +57,10 @@ const currentPath = Astro.url.pathname;
     <ClientRouter />
   </head>
   <body class='h-full overflow-x-hidden'>
-    <HeaderVue client:load currentPath={currentPath} />
+    <HeaderVue client:load currentPath={currentPath} transition:persist />
     <main
       id='main-content'
-      class='mx-auto mt-20 flex min-h-screen flex-col transition-all duration-300'>
+      class='mx-auto mt-20 flex min-h-screen flex-col'>
       <slot />
     </main>
     <Footer />

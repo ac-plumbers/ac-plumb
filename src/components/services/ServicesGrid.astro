@@ -38,7 +38,8 @@ const sortedServices = [...services].sort(
           <Text
             tag="h3"
             variant="displayXS"
-            class="text-xl font-bold text-neutral-900 transition-colors duration-200 leading-tight">
+            class="text-xl font-bold text-neutral-900 transition-colors duration-200 leading-tight"
+            transition:name={`service-title-${service.slug}`}>
             <a
               href={`/services/${service.slug}`}
               class="group/ttl inline-block hover:text-primary-600 focus:outline-2 focus:outline-primary-400 focus:outline-offset-4"
