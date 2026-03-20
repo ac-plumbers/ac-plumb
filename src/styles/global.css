@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./animations.css" (prefers-reduced-motion: no-preference);
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
