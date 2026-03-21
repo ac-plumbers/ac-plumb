@@ -19,7 +19,7 @@ import type {
   ServiceFaq,
   ServiceFrontmatter,
 } from '@/lib/types';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import SingleSchemaService from '@/components/fundations/schema-services/SingleSchemaService.astro';
 import { Image } from 'astro:assets';
 import vaillant from '@/images/brands/vaillant-installer-logo-brighton-boilers.jpg';
@@ -39,7 +39,7 @@ import ServiceCertifications from '@/components/services/ServiceCertifications.a
 export async function getStaticPaths() {
   const services = await getCollection('services');
   return services.map(page => ({
-    params: { slug: page.slug },
+    params: { slug: page.id },
     props: { page, allServices: services },
   }));
 }
@@ -47,19 +47,18 @@ export async function getStaticPaths() {
 const { page, allServices } = Astro.props as {
   page: {
     data: ServiceFrontmatter;
-    slug: string;
-    render: () => Promise<{ Content: any }>;
+    id: string;
   };
   allServices: Array<{
     data: ServiceFrontmatter;
-    slug: string;
+    id: string;
   }>;
 };
 const service = page.data;
-const { Content } = await page.render();
+const { Content } = await render(page);
 
 const relatedServices = allServices
-  .filter(s => s.slug !== page.slug)
+  .filter(s => s.id !== page.id)
   .filter(s => {
     if (!page.data.tags || !s.data.tags) return false;
     return page.data.tags.some(tag => (s.data.tags ?? []).includes(tag));
@@ -89,7 +88,7 @@ const process: ServiceStep[] = service.process || [];
     image={service.imageHero ?? ''}
     alt={service.altHero}
     intro={intro}
-    slug={page.slug}
+    slug={page.id}
   />
   <!-- Main Service Content & Benefits -->
   <Wrapper

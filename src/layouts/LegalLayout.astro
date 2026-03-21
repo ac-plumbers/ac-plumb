@@ -4,7 +4,7 @@ import Text from '@/components/fundations/elements/Text.astro';
 import Kicker from '@/components/fundations/elements/Kicker.astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import ContactBlock from '@/components/contact/ContactBlock.astro';
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 
 export interface Props {
   slug: string;
@@ -19,7 +19,7 @@ if (!entry) {
   throw new Error(`Legal entry not found for slug: ${slug}`);
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const { data } = entry;
 
 const {

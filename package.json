@@ -14,8 +14,8 @@
     "deploy:prod": "netlify deploy --prod"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/vue": "^5.1.4",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/vue": "^6.0.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inconsolata": "^5.2.6",
     "@fontsource/lato": "^5.2.6",
@@ -23,7 +23,7 @@
     "@lucide/astro": "^0.544.0",
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^13.7.0",
-    "astro": "^5.17.3",
+    "astro": "^6.0.8",
     "astro-seo-schema": "^5.0.0",
     "cheerio": "^1.1.0",
     "class-variance-authority": "^0.7.1",

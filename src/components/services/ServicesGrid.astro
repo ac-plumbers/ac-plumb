@@ -41,9 +41,9 @@ const sortedServices = [...services].sort(
               tag="h3"
               variant="displayXS"
               class="text-xl font-bold text-neutral-900 transition-colors duration-200 leading-tight"
-              transition:name={`service-title-${service.slug}`}>
+              transition:name={`service-title-${service.id}`}>
               <a
-                href={`/services/${service.slug}`}
+                href={`/services/${service.id}`}
                 class="inline-block hover:text-primary-600 focus-visible:outline-2 focus-visible:outline-primary-400 focus-visible:outline-offset-4">
                 {service.data.title}
               </a>
@@ -60,7 +60,7 @@ const sortedServices = [...services].sort(
             <!-- CTA -->
             <div class="flex items-end justify-between pt-2 border-t border-neutral-100 mt-auto">
               <a
-                href={`/services/${service.slug}`}
+                href={`/services/${service.id}`}
                 class="inline-flex items-center text-primary-600 font-semibold text-sm hover:translate-x-1 transition-transform duration-200 focus:outline-2 focus:outline-primary-400 focus:outline-offset-4"
                 aria-label={`Learn more about ${service.data.title}`}
                 tabindex="-1"

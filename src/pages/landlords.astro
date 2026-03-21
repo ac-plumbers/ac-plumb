@@ -81,7 +81,7 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
               <div class='flex items-start'>
                 <div class='rounded-lg bg-accent-50 p-3'>
                   {(() => {
-                    const Icon = serviceIcons[service.slug] ?? ClipboardCheck;
+                    const Icon = serviceIcons[service.id] ?? ClipboardCheck;
                     return (
                       <Icon
                         class='h-6 w-6 text-primary-600'
@@ -98,7 +98,7 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
                   <p class='line-clamp-4 text-text-00'>{service.data.intro}</p>
                   <div class='mt-auto pt-4'>
                     <a
-                      href={`/services/${service.slug}`}
+                      href={`/services/${service.id}`}
                       class='inline-flex items-center text-primary-600 hover:text-primary-800'
                       aria-label={`Learn more about ${service.data.title}`}>
                       Learn more about {service.data.title}
