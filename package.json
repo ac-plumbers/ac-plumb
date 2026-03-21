@@ -16,7 +16,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.8",
     "@astrojs/vue": "^6.0.1",
-    "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inconsolata": "^5.2.6",
     "@fontsource/lato": "^5.2.6",
     "@fontsource/poppins": "^5.2.7",

@@ -1,8 +1,6 @@
 ---
-import { AstroSeo } from "@astrolib/seo";
 import {
   BUSINESS_CONFIG,
-  getFullAddress,
   formatPhoneForTel,
 } from "@/utils/businessConfig";
 
@@ -29,69 +27,28 @@ const ogImageType = ogImage.endsWith(".png")
   : ogImage.endsWith(".webp")
     ? "image/webp"
     : "image/jpeg";
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BUSINESS_CONFIG.name,
-  description:
-    "Professional plumbing, heating, and renewable energy services in Brighton",
-  url: BUSINESS_CONFIG.website,
-  telephone: formatPhoneForTel(BUSINESS_CONFIG.landline),
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: BUSINESS_CONFIG.address.street,
-    addressLocality: BUSINESS_CONFIG.address.city,
-    postalCode: BUSINESS_CONFIG.address.postcode,
-    addressCountry: "GB",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: BUSINESS_CONFIG.geo.latitude,
-    longitude: BUSINESS_CONFIG.geo.longitude,
-  },
-  openingHours: "Mo-Su 00:00-23:59",
-  serviceArea: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: BUSINESS_CONFIG.geo.latitude,
-      longitude: BUSINESS_CONFIG.geo.longitude,
-    },
-    geoRadius: BUSINESS_CONFIG.serviceRadius,
-  },
-  services: [
-    "Emergency Plumbing",
-    "Boiler Installation",
-    "Central Heating",
-    "Gas Safety Checks",
-    "Landlord Services",
-  ],
-  priceRange: "££",
-  image: ogImage,
-};
 ---
 
-<AstroSeo
-  title={title}
-  description={description}
-  canonical={canonical}
-  noindex={noindex}
-  openGraph={{
-    url: canonical,
-    title: title,
-    description: description,
-    images: [
-      {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${BUSINESS_CONFIG.name} - Professional Plumbing Services`,
-        type: ogImageType,
-      },
-    ],
-    site_name: BUSINESS_CONFIG.name,
-    type: ogType,
-    locale: "en_GB",
-  }}
-/>
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content={BUSINESS_CONFIG.name} />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content={ogImageType} />
+<meta property="og:image:alt" content={`${BUSINESS_CONFIG.name} - Professional Plumbing Services`} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
