@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 # --- Canonical host + HTTPS ---
 # Force everything to HTTPS and apex domain
