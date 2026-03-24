@@ -30,13 +30,13 @@ import {
         <div class='flex w-full flex-col items-center gap-3'>
           <h1
             class='font-manrope text-center text-2xl leading-tight font-bold text-accent-500 sm:text-3xl md:text-5xl'>
-            New site arrives end of March
+            New site arrives end of April
           </h1>
           <p
             class='max-w-xl px-2 text-center text-sm text-gray-200 sm:text-base'>
-            We’re sharpening response times and clearer quotes. Our 24/7
-            plumbing, heating, and gas callouts across Brighton & Hove continue
-            without disruption.
+            We got a bit distracted fixing a burst pipe. Turns out our own
+            website had a leak too. Back shortly — with better quotes and fewer
+            puddles. plumbing, heating, and gas callouts across Brighton & Hove.
           </p>
           <p
             class='text-center text-xs font-semibold tracking-[0.12em] text-gray-300 uppercase'>
@@ -116,7 +116,7 @@ import {
         <div class='flex w-full flex-col items-center justify-center gap-3'>
           <h6
             class='text-center text-sm font-semibold text-accent-500 sm:text-base'>
-            Estimated Launch: March 31, 2026
+            Estimated Launch: April 30, 2026
           </h6>
           <form
             name='launch-notification'
@@ -208,8 +208,8 @@ import {
     return utcGuess + (utcGuess - asUTC);
   }
 
-  // Countdown target: Mar 31, 2026 23:59:59 in UK time (Europe/London)
-  let dest = zonedTimeToEpoch(2026, 3, 31, 23, 59, 59);
+  // Countdown target: Apr 30, 2026 23:59:59 in UK time (Europe/London)
+  let dest = zonedTimeToEpoch(2026, 4, 30, 23, 59, 59);
   let x = setInterval(function () {
     let now = new Date().getTime();
     let diff = dest - now;
