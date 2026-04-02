@@ -19,7 +19,7 @@
     "@fontsource-variable/inconsolata": "^5.2.6",
     "@fontsource/lato": "^5.2.6",
     "@fontsource/poppins": "^5.2.7",
-    "@lucide/astro": "^0.544.0",
+    "@lucide/astro": "^1.7.0",
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^13.7.0",
     "astro": "^6.0.8",
@@ -29,7 +29,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
-    "lucide-vue-next": "^0.544.0",
+    "lucide-vue-next": "^1.0.0",
     "node-fetch": "^3.3.2",
     "reka-ui": "^2.4.1",
     "schema-dts": "^1.1.5",
@@ -45,10 +45,10 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "glob": "^11.0.3",
-    "netlify-cli": "^23.7.3",
+    "glob": "^13.0.6",
+    "netlify-cli": "^24.9.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.14"
+    "prettier-plugin-tailwindcss": "^0.7.2"
   }
 }
