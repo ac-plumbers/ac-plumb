@@ -1,107 +1,234 @@
-# AC Plumbing Website
+# AC Plumbers Ltd. — Website
 
-A professional website for AC Plumbing services built with Astro and Tailwind CSS.
+Production website for [AC Plumbers Ltd.](https://acplumb.co.uk), a Gas Safe registered plumbing and heating company based in Brighton, UK.
 
-![AC Plumbing Logo](http://acplumb.co.uk/wp-content/uploads/2017/01/AC-Marque-Postive-rgb.png)
+**Live site:** [acplumb.co.uk](https://acplumb.co.uk)
 
-## 📋 Overview
+---
 
-This website showcases AC Plumbing's services, expertise, and contact information. It's designed to be fast, responsive, and easily maintainable.
+## Tech Stack
 
-## 🚀 Project Structure
+| Layer | Technology |
+| --- | --- |
+| Framework | [Astro 6](https://astro.build/) — static output |
+| UI / Interactivity | [Vue 3](https://vuejs.org/) islands via `@astrojs/vue` |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com/) via Vite plugin |
+| Language | TypeScript (strict) |
+| Deployment | [Netlify](https://netlify.com) |
+| Node | 22 (required by Astro 6) |
+
+---
+
+## Project Structure
 
 ```text
-/
-├── public/               # Static assets like images and favicon
-├── src/
-│   ├── components/       # Reusable UI components
-│   ├── layouts/          # Layout components including header and footer
-│   ├── pages/            # Each .astro file becomes a route
-│   └── styles/           # Global styles and Tailwind configuration
-└── package.json          # Project dependencies and scripts
+src/
+├── components/
+│   ├── fundations/        # Design system primitives (Text, Link, Button, Kicker, Wrapper)
+│   ├── global/            # Header, Footer, navigation
+│   └── ui/                # Page-level UI components
+├── content/
+│   ├── services/          # Service pages (Astro content collection)
+│   ├── areas/             # Service area pages (Astro content collection)
+│   ├── legal/             # Privacy, T&Cs, Cookie policy
+│   └── config.ts          # Content collection schemas
+├── data/                  # Static data files
+├── images/                # Source images (copied to public/ at build time)
+├── layouts/               # Page layouts
+├── pages/                 # File-based routing (.astro files)
+│   ├── services/
+│   ├── areas-we-serve/
+│   ├── index.astro
+│   ├── about-us.astro
+│   ├── contact-us.astro
+│   └── ...
+├── styles/
+│   └── global.css         # Color tokens, spacing, Tailwind base
+└── utils/
+    ├── businessConfig.ts  # Single source of truth for all business/contact data
+    └── ...
+scripts/
+└── copy-images.js         # Prebuild: copies and optimises images to public/
+netlify.toml               # Build config, redirects, security headers
 ```
 
-The website uses a component-based architecture for easy maintenance and scalability. Tailwind CSS provides utility-first styling for rapid development.
+### Path Aliases
 
-## 🧞 Development Commands
+| Alias | Resolves to |
+| --- | --- |
+| `@/*` | `src/*` |
+| `@components/*` | `src/components/*` |
+| `@assets/*` | `src/assets/*` |
+| `@styles/*` | `src/styles/*` |
+| `@layouts/*` | `src/layouts/*` |
 
-All commands are run from the root of the project, from a terminal:
+> Note: the directory is intentionally spelled `fundations` (not `foundations`).
 
-| Command                 | Action                                       |
-| :---------------------- | :------------------------------------------- |
-| `npm install`           | Installs dependencies                        |
-| `npm run dev`           | Starts local dev server at `localhost:4321`  |
-| `npm run build`         | Build your production site to `./dist/`      |
-| `npm run preview`       | Preview your build locally, before deploying |
-| `netlify login`         | Log in to your Netlify account               |
-| `netlify init`          | Connect repo to Netlify site                 |
-| `netlify deploy`        | Deploy preview version                       |
-| `netlify deploy --prod` | Deploy to production                         |
+---
 
-## 🚢 Deployment with Netlify
+## Getting Started
 
-This project is configured for seamless deployment with Netlify. Follow these steps:
+```bash
+# Install dependencies
+npm install
 
-1. **Install Netlify CLI** (if you haven't already):
+# Start dev server at http://localhost:4321
+npm run dev
+```
 
-   ```
-   npm install netlify-cli -g
-   ```
+> Netlify's `--legacy-peer-deps` flag is required due to `@lucide/astro` declaring a peer dependency on Astro 4/5 while the project runs Astro 6. This is configured automatically in `netlify.toml` and you can also set it locally via `.npmrc` if needed.
 
-2. **Authenticate with Netlify**:
+---
 
-   ```
-   netlify login
-   ```
+## Commands
 
-3. **Initialize Netlify in your project**:
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start local dev server at `localhost:4321` |
+| `npm run build` | Production build to `./dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run reviews:fetch` | Fetch latest Checkatrade reviews |
+| `npm run deploy:preview` | Deploy preview to Netlify |
+| `npm run deploy:prod` | Deploy to production on Netlify |
 
-   ```
-   netlify init
-   ```
+---
 
-   - Choose "Create & configure a new site"
-   - Select your team
-   - Give your site a name or press enter for a random name
+## Deployment
 
-4. **Deploy your site**:
-   ```
-   netlify deploy --prod
-   ```
+The site deploys to Netlify. Build settings are fully defined in [`netlify.toml`](netlify.toml).
 
-The site's build settings are automatically configured via the `netlify.toml` file at the root of this project.
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Publish directory | `dist/` |
+| Node version | 22 |
 
-## ✨ Features
+**First-time setup:**
 
-- **Fast Performance**: Built with Astro for optimal loading speeds
-- **Responsive Design**: Works seamlessly on all devices using Tailwind CSS
-- **Service Showcase**: Detailed information about plumbing services offered
-- **Contact Information**: Easy ways for potential customers to get in touch
-- **SEO Optimized**: Structured for better search engine visibility
+```bash
+# Install Netlify CLI (once)
+npm install -g netlify-cli
 
-## 🔧 Technologies Used
+# Authenticate
+netlify login
 
-- [Astro](https://astro.build/) - The web framework for content-driven websites
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [TypeScript](https://www.typescriptlang.org/) - For type-safe JavaScript
-- [Netlify](https://www.netlify.com/) - Hosting and continuous deployment
+# Link repo to Netlify site
+netlify init
 
-## 🎨 Color Palette
+# Deploy preview
+npm run deploy:preview
 
-Our brand uses a modern OKLCH color palette for better visual consistency across different display technologies:
+# Deploy to production
+npm run deploy:prod
+```
 
-| Color      | Hex Code | OKLCH Value          | Usage                              |
-| ---------- | -------- | -------------------- | ---------------------------------- |
-| Teal       | #176776  | oklch(0.45 0.12 200) | Primary color for headers, buttons |
-| Sky Blue   | #21B6DF  | oklch(0.70 0.15 210) | Secondary color, highlights        |
-| Orange     | #F4991D  | oklch(0.75 0.16 70)  | Accent color, calls-to-action      |
-| Light Gray | #E4E8E9  | oklch(0.93 0.02 230) | Backgrounds, neutral elements      |
+**Netlify config includes:**
 
-The full palette includes shade variations (50-950) for each color, providing a comprehensive design system.
+- 301 redirects from old WordPress URLs to new routes
+- Canonical domain enforcement (apex HTTPS, no `www`)
+- Security headers (HSTS, CSP frame options, no-sniff, permissions policy)
+- Aggressive cache headers for static assets (`/assets/*`, `/images/*`)
 
-## 📱 Contact
+---
 
-AC Plumbing Services
-📞 Phone: [Your Phone Number]
-✉️ Email: [Your Email]
-📍 Location: [Your Location]
+## Content
+
+Services and areas are managed as **Astro content collections** with frontmatter-driven CMS fields. See [`src/content/config.ts`](src/content/config.ts) for the full schema.
+
+### Services
+
+| Slug | Page |
+| --- | --- |
+| `gas-boiler-installation` | `/services/gas-boiler-installation/` |
+| `boiler-servicing-and-repair` | `/services/boiler-servicing-and-repair/` |
+| `central-heating-installation` | `/services/central-heating-installation/` |
+| `gas-safety-checks-cp12` | `/services/gas-safety-checks-cp12/` |
+| `renewable-air-source-heat-pump` | `/services/renewable-air-source-heat-pump/` |
+| `all-aspects-of-plumbing-heating-and-gas` | `/services/all-aspects-of-plumbing-heating-and-gas/` |
+
+### Service Frontmatter (key fields)
+
+```yaml
+title: "Service Name"
+description: "Meta description (155–160 chars)"
+intro: "Short intro text"
+benefits:
+  - "Benefit one"
+features:
+  - title: "Feature Name"
+    description: "Feature description"
+faqs:
+  - question: "FAQ Question"
+    answer: "FAQ Answer"
+gallery:
+  - src: "/images/services/photo.jpeg"
+    alt: "Descriptive alt text"
+```
+
+> `process` and `price` are **not** in the schema — do not add them.
+
+---
+
+## Design System
+
+### Brand Colors (OKLCH)
+
+| Name | Hex | Usage |
+| --- | --- | --- |
+| Teal | `#176776` | Primary — headers, buttons |
+| Sky Blue | `#21B6DF` | Secondary — highlights, links |
+| Orange | `#F4991D` | Accent — CTAs |
+| Light Gray | `#E4E8E9` | Backgrounds, neutrals |
+
+Tokens are defined in [`src/styles/global.css`](src/styles/global.css) as CSS custom properties with full shade scales (50–950). Always use tokens — never hardcode color values.
+
+### Foundation Primitives
+
+| Component | Purpose |
+| --- | --- |
+| `Text` | Body copy with consistent typographic scale |
+| `Link` | Accessible anchor with consistent styling |
+| `Button` | CTA element with variant support |
+| `Kicker` | Small label/eyebrow text above headings |
+| `Wrapper` | Page-width container with responsive padding |
+
+Always reach for these primitives before creating new components.
+
+---
+
+## Business Data
+
+All business/contact information lives in a single file:
+
+```text
+src/utils/businessConfig.ts  →  BUSINESS_CONFIG
+```
+
+**Never hardcode** phone numbers, email addresses, company name, VAT number, or address anywhere else in the codebase. Import from `BUSINESS_CONFIG` instead.
+
+---
+
+## Coding Conventions
+
+- Follow strict TypeScript — no `any`
+- Maintain semantic HTML and valid heading order (one `<h1>` per page)
+- All pages must conform to **WCAG 2.2 Level AA**
+- Skip-link target must remain `#main-content`
+- Two footers exist (`Footer.astro`, `Footer-1.astro`) — choose intentionally based on page context
+- SEO: title tag under 60 chars, meta description 155–160 chars, primary keyword in first 100 words
+
+---
+
+## Business
+
+**AC Plumbers Ltd.**
+Gas Safe registered plumbing and heating engineers serving Brighton & Hove and surrounding areas.
+
+| Detail | Value |
+| --- | --- |
+| Phone | 07535 653 850 |
+| Landline | 01273 680 731 |
+| Email | info@acplumb.co.uk |
+| Address | 21j Campbell Road, Brighton, BN1 4QD |
+| Company No. | 10187057 |
+| VAT No. | 300995607 |
