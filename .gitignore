@@ -23,6 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Claude Code
+.claude/
+
 # Local Netlify folder
 .netlify
 __unconfig_astro.config.mjs
