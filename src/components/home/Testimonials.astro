@@ -13,7 +13,9 @@ import google from '@/images/brands/g.webp';
 import CallButton from '../fundations/elements/CallButton.astro';
 import GetAQuote from '../fundations/elements/GetAQuote.astro';
 import reviewsData from '@/data/reviews.json';
-const reviews = [...reviewsData.reviews].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const reviews = [...reviewsData.reviews].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
 ---
 
 <!-- Modern Bento-Style Layout -->
@@ -72,7 +74,7 @@ const reviews = [...reviewsData.reviews].sort((a, b) => new Date(b.date).getTime
         </Text>
       </a>
       <span
-        class='flex h-12 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow'>
+        class='flex h-14 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow'>
         <Image
           src={checkaTrade}
           alt='Checkatrade'
