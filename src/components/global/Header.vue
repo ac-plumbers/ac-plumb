@@ -34,7 +34,7 @@
           <!-- Mobile menu button (always right-aligned) -->
           <button
             type="button"
-            class="-m-3 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none xl:hidden"
+            class="-m-3 ml-auto mr-2 rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none xl:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -224,7 +224,7 @@
     <nav
       v-if="isOpen"
       aria-label="Mobile navigation"
-      class="lg:hidden"
+      class="xl:hidden"
       role="dialog"
       aria-modal="true"
       aria-labelledby="mobile-menu-title"
