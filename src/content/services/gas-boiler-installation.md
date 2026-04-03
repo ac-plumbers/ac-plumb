@@ -1,5 +1,6 @@
 ---
 title: Boiler Installations
+description: "AC Plumbers Ltd. supply and install gas boilers across Brighton & Hove. Combi, system & conventional boilers fitted by Gas Safe registered engineers. Call for a free quote."
 sortedOrder: 1
 image: "/images/services/viessmann-boiler-installation-copper-pipework-brighton-hove.jpeg"
 alt: "Viessmann boiler installation with exposed copper pipework and controls in Brighton & Hove."

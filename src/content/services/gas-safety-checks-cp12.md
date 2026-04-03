@@ -1,5 +1,6 @@
 ---
 title: Gas Services & Landlords
+description: "Gas safety checks and CP12 certificates for homeowners and landlords in Brighton & Hove. Gas Safe registered engineers. Book your annual inspection with AC Plumbers Ltd."
 paragraph: All work is carried out with safety, efficiency, and compliance as
   our top priority, giving you complete peace of mind.
 sortedOrder: 5
