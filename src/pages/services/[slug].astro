@@ -94,16 +94,16 @@ const process: ServiceStep[] = service.process || [];
   <Wrapper
     id='main-content'
     variant='compact'
-    class='mx-auto mt-12 px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
+    class='mx-auto mt-6 py-8 sm:mt-10 sm:py-14 lg:mt-12 lg:py-16'
     aria-label='Service details'>
-    <div class='grid items-start gap-12 lg:grid-cols-2'>
+    <div class='grid items-start gap-8 lg:grid-cols-2 lg:gap-12'>
       <section aria-labelledby='about-service-heading'>
         <article>
           <header>
             <Badge
               text='badge temporaneo soprattutto i colori'
-              iconSize='lg'
-              class='my-4'>
+              iconSize='sm'
+              class='my-4 px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm'>
               <BadgeCheck slot='left-icon' aria-hidden='true' />
             </Badge>
             <Text
@@ -115,18 +115,19 @@ const process: ServiceStep[] = service.process || [];
             </Text>
           </header>
 
-          <div class='space-y-6 text-neutral-700'>
+          <div
+            class='prose max-w-none prose-neutral prose-headings:text-primary-900 prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline'>
             <section aria-labelledby='service-description-heading'>
               <!-- content -->
               <Content />
-              <CallButton
-                class='mt-8'
-                display='with-label'
-                label='Call'
-                animation='ring'
-              />
             </section>
           </div>
+          <CallButton
+            class='mt-8'
+            display='with-label'
+            label='Call'
+            animation='ring'
+          />
         </article>
       </section>
 
@@ -139,15 +140,26 @@ const process: ServiceStep[] = service.process || [];
         <div class='mt-8 border-t border-primary-400 pt-8'>
           <div class='flex items-center gap-4'>
             <div
-              class='flex h-16 w-16 items-center justify-center rounded-full bg-primary-400/20'>
+              class='flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary-400/20'>
               <ShieldCheck
                 class='h-8 w-8 text-primary-600'
                 aria-hidden='true'
               />
             </div>
-            <h4>Lorem ipsum dolor sit.</h4>
-            <p>Lorem, ipsum dolor.</p>
+            <div class='flex-1'>
+              <Text
+                tag='h3'
+                variant='textBase'
+                class='font-semibold text-primary-900'>
+                Need Help Today?
+              </Text>
+              <Text tag='p' variant='textSM' class='mt-1 text-neutral-600'>
+                Call us — we're available across Brighton, Hove & surrounding
+                areas.
+              </Text>
+            </div>
           </div>
+          <CallButton class='mt-4 w-full' display='full' animation='ring' />
         </div>
       </aside>
     </div>
