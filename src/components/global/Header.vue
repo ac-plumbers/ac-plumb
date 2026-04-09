@@ -86,8 +86,15 @@ onMounted(() => {
     currentPath.value = window.location.pathname
   }
   window.addEventListener('scroll', handleScroll)
-  window.addEventListener('popstate', () => {
+  // astro:page-load fires on every Astro View Transition navigation
+  // (needed because transition:persist keeps this component alive across pages)
+  document.addEventListener('astro:page-load', () => {
     currentPath.value = window.location.pathname
+  })
+  // Reset menu state before Astro swaps the body — otherwise isOpen stays true
+  // but the teleported DOM gets destroyed, breaking subsequent opens
+  document.addEventListener('astro:before-swap', () => {
+    isOpen.value = false
   })
 })
 
