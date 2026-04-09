@@ -6,6 +6,13 @@ import CtaImage from '@/images/new-hero-img.jpeg';
 import Text from '@/components/fundations/elements/Text.astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import Link from '@/components/fundations/elements/Link.astro';
+
+interface Props {
+  image?: string;
+  imageAlt?: string;
+}
+const { image, imageAlt } = Astro.props;
+const defaultAlt = 'AC Plumbers engineer carrying out a professional heating service';
 ---
 
 <section class='py-12 lg:py-20'>
@@ -101,19 +108,30 @@ import Link from '@/components/fundations/elements/Link.astro';
           </div>
         </div>
 
-        <div class='relative min-h-72 lg:col-span-5 lg:min-h-full'>
+        <div class='relative min-h-72 lg:col-span-5'>
           <div
             class='absolute inset-0 bg-linear-to-t from-primary-900/60 via-primary-900/10 to-transparent'
             aria-hidden='true'>
           </div>
-          <Image
-            src={CtaImage}
-            alt='AC Plumbers engineer carrying out a professional heating service'
-            class='h-full w-full object-cover'
-            loading='lazy'
-            width={900}
-            height={700}
-          />
+          {image ? (
+            <Image
+              src={image}
+              alt={imageAlt || defaultAlt}
+              class='absolute inset-0 h-full w-full object-cover'
+              loading='lazy'
+              width={900}
+              height={700}
+            />
+          ) : (
+            <Image
+              src={CtaImage}
+              alt={defaultAlt}
+              class='absolute inset-0 h-full w-full object-cover'
+              loading='lazy'
+              width={900}
+              height={700}
+            />
+          )}
         </div>
       </div>
     </div>

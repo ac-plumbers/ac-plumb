@@ -187,5 +187,8 @@ const gallery = frontmatter.gallery || [];
       </div>
     </Wrapper>
   </section>
-  <MainCta />
+  <MainCta
+    image={frontmatter.imageHero || frontmatter.image}
+    imageAlt={frontmatter.altHero || frontmatter.alt || frontmatter.title}
+  />
 </BaseLayout>

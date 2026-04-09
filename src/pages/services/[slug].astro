@@ -197,6 +197,9 @@ const process: ServiceStep[] = service.process || [];
       buttonText='Book a Service'
       buttonLink='/contact-us'
     /> -->
-    <MainCta />
+    <MainCta
+      image={page.data.imageHero || page.data.image}
+      imageAlt={page.data.altHero || page.data.alt || page.data.title}
+    />
   </section>
 </ServicesLayout>
