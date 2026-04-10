@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '@/images/services/viessmann-boiler-installation-copper-pipework-brighton-hove.jpeg';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+
+const categories = ['Heating', 'Plumbing', 'Gas Safety', 'Renewable'] as const;
+---
+
+<section
+  class='relative isolate overflow-hidden'
+  aria-labelledby='services-hero-title'>
+
+  <div class='grid lg:min-h-[88vh] lg:grid-cols-2'>
+
+    <!-- Left: dark content panel -->
+    <div class='relative flex flex-col justify-center overflow-hidden bg-primary-900 px-8 py-28 sm:px-12 lg:px-16 xl:px-20'>
+
+      <!-- Ghost watermark "06" -->
+      <span
+        class='pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none font-poppins text-[16rem] font-black leading-none text-white/[0.04] lg:text-[22rem]'
+        aria-hidden='true'>06</span>
+
+      <!-- Kicker -->
+      <p class='relative font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
+        Brighton &amp; Hove
+      </p>
+
+      <!-- Heading -->
+      <h1
+        id='services-hero-title'
+        class='relative mt-5 font-poppins text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl xl:text-7xl'>
+        Everything Your<br />Home Needs,<br />
+        <em class='not-italic text-accent-400'>Done Right.</em>
+      </h1>
+
+      <!-- Gold rule -->
+      <div class='relative mt-7 h-0.5 w-14 bg-accent-500' aria-hidden='true'></div>
+
+      <!-- Category pills -->
+      <div class='relative mt-7 flex flex-wrap gap-3' aria-label='Service categories'>
+        {categories.map((cat) => (
+          <span class='rounded-full border border-white/20 px-4 py-1.5 font-lato text-xs font-semibold text-white'>
+            {cat}
+          </span>
+        ))}
+      </div>
+
+      <!-- Subtitle -->
+      <p class='relative mt-6 max-w-sm font-lato text-base leading-relaxed text-primary-200'>
+        Gas Safe registered engineers serving Brighton &amp; Hove. From
+        boiler installations to emergency repairs &mdash; all under one roof.
+      </p>
+
+      <!-- CTAs -->
+      <div class='relative mt-8 flex flex-wrap gap-3'>
+        <a
+          href='#services'
+          class='inline-flex items-center rounded-lg bg-accent-500 px-6 py-3 font-poppins text-sm font-semibold text-primary-900 transition-colors duration-200 hover:bg-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900'>
+          Explore Services
+        </a>
+        <a
+          href='tel:01273680731'
+          class='inline-flex items-center rounded-lg border border-white/20 px-6 py-3 font-poppins text-sm font-semibold text-white transition-colors duration-200 hover:border-white/40 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-primary-900'>
+          {BUSINESS_CONFIG.landline}
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: work photo -->
+    <div class='relative min-h-80 lg:min-h-0'>
+      <div
+        class='absolute inset-0 z-10 bg-linear-to-r from-primary-900/60 via-primary-900/10 to-transparent lg:from-primary-900/30'
+        aria-hidden='true'>
+      </div>
+      <div
+        class='absolute inset-x-0 bottom-0 z-10 h-32 bg-linear-to-t from-primary-900 lg:hidden'
+        aria-hidden='true'>
+      </div>
+      <Image
+        src={heroImg}
+        alt='Professional Viessmann boiler installation with copper pipework by AC Plumbers in Brighton'
+        class='h-full w-full object-cover object-center'
+        loading='eager'
+        width={900}
+        height={700}
+      />
+    </div>
+
+  </div>
+</section>
