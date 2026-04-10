@@ -3,14 +3,16 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 // Components
 import AboutHero from '@/components/about/AboutHero.astro';
+import AboutFounderStory from '@/components/about/AboutFounderStory.astro';
+import AboutValues from '@/components/about/AboutValues.astro';
 import MainCta from '@/components/global/MainCta.astro';
-// Content for SEO
+// SEO
 const title =
-  "About AC Plumbers Ltd. | Brighton's Trusted Plumbing & Heating Experts";
+  "About AC Plumbers Ltd. | Meet Antonio Catalano, Brighton's Trusted Plumber";
 const description =
-  "Learn about AC Plumbers Ltd., Brighton's leading plumbing and heating company. Discover our history, values, and commitment to quality service.";
+  'Meet Antonio Catalano — founder of AC Plumbers Ltd. with nearly 30 years of plumbing and heating experience in Italy and the UK. Honest advice, clear communication, and high standards on every job in Brighton & Hove.';
 const keywords =
-  'about AC Plumbers Ltd., Brighton plumbers, heating experts, plumbing company, trusted service';
+  'about AC Plumbers Ltd., Antonio Catalano, Brighton plumber, heating engineer, Gas Safe registered, trusted plumber Brighton';
 const author = 'AC Plumbers Ltd.';
 ---
 
@@ -26,12 +28,10 @@ const author = 'AC Plumbers Ltd.';
     Skip to main content
   </a>
 
-  <div class='bg-background-00'>
-    <main id='main-content' class='isolate'>
-      <!-- Hero section -->
-      <AboutHero />
-      <!-- Call to action -->
-      <MainCta />
-    </main>
-  </div>
+  <main id='main-content' class='isolate'>
+    <AboutHero />
+    <AboutFounderStory />
+    <AboutValues />
+    <MainCta />
+  </main>
 </BaseLayout>
