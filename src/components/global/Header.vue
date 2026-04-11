@@ -2,7 +2,7 @@
   <!-- Skip to main content link -->
   <a
     href="#main-content"
-    class="default-button sr-only z-100 focus:not-sr-only focus:absolute focus:top-2 focus:left-2"
+    class="default-button sr-only z-[100] focus-visible:not-sr-only focus-visible:absolute focus-visible:top-2 focus-visible:left-2"
   >
     Skip to main content
   </a>
@@ -13,7 +13,7 @@
         class="bg-white shadow-lg backdrop-blur-md"
         :class="scrolled ? 'border-neutral-200' : 'border-background-50/20'"
       >
-        <nav class="flex items-center px-2" aria-label="Global">
+        <nav class="flex items-center px-2" aria-label="Main navigation">
           <HeaderLogo />
 
           <HeaderDesktopNav :isActiveLink="isActiveLink" :isInServicesSection="isInServicesSection" />
@@ -25,7 +25,7 @@
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
-            aria-haspopup="true"
+            aria-haspopup="dialog"
             ref="openMenuButton"
           >
             <span class="sr-only">Open main menu</span>

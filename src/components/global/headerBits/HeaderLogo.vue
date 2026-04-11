@@ -3,15 +3,15 @@
     <span class="sr-only">AC Plumbers Ltd.</span>
     <img
       src="/images/logo/ac-plumbers-ltd-logo-brighton.svg"
-      alt="AC Plumbers Ltd logo with water and flame icons"
+      alt=""
       width="300"
       height="300"
-      title="AC Plumbers Ltd – Plumbing, Heating & Gas Services in Brighton"
       class="h-auto w-20 object-contain sm:w-28 md:w-32 lg:w-28"
     />
   </a>
   <div
     class="hidden flex-1 justify-center sm:flex xl:flex-none xl:shrink-0 xl:justify-start"
+    aria-hidden="true"
   >
     <span
       :class="[
@@ -19,7 +19,7 @@
         taglineColorClass,
       ]"
     >
-      Plumbing • Heating • Renewable
+      Plumbing &bull; Heating &bull; Renewable
     </span>
   </div>
 </template>
