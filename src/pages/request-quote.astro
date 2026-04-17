@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import QuoteHero from "@/components/quote/QuoteHero.astro";
 import QuoteForm from "@/components/quote/QuoteForm.vue";
 import NetlifyQuoteForm from "@/components/quote/NetlifyQuoteForm.astro";
+import MainCta from "@/components/global/MainCta.astro";
 // SEO Content
 const canonicalURL = new URL("/request-quote", Astro.site).href;
 const title = "Request a Quote | AC Plumbers Ltd. Brighton";
@@ -18,7 +19,13 @@ const keywords =
   keywords={keywords}
   canonical={canonicalURL}
 >
-  <QuoteHero />
-  <QuoteForm client:only="vue" />
+  <QuoteHero>
+    <QuoteForm client:only="vue" />
+  </QuoteHero>
   <NetlifyQuoteForm />
+  <MainCta
+    body="Not sure which service you need? Call us or drop a message — our team will point you in the right direction."
+    secondaryLinkHref="/services"
+    secondaryLinkLabel="Browse All Services"
+  />
 </BaseLayout>

@@ -10,9 +10,19 @@ import Link from '@/components/fundations/elements/Link.astro';
 interface Props {
   image?: string;
   imageAlt?: string;
+  body?: string;
+  secondaryLinkHref?: string;
+  secondaryLinkLabel?: string;
 }
-const { image, imageAlt } = Astro.props;
-const defaultAlt = 'AC Plumbers engineer carrying out a professional heating service';
+const {
+  image,
+  imageAlt,
+  body = 'From boiler issues to urgent plumbing repairs, our certified engineers deliver fast, reliable service with clear communication and transparent pricing.',
+  secondaryLinkHref = '/services',
+  secondaryLinkLabel = 'View All Services',
+} = Astro.props;
+const defaultAlt =
+  'AC Plumbers engineer carrying out a professional heating service';
 ---
 
 <section class='py-12 lg:py-20'>
@@ -37,9 +47,7 @@ const defaultAlt = 'AC Plumbers engineer carrying out a professional heating ser
             tag='p'
             variant='textBase'
             class='mt-4 max-w-2xl leading-relaxed text-primary-100'>
-            From boiler issues to urgent plumbing repairs, our certified
-            engineers deliver fast, reliable service with clear communication
-            and transparent pricing.
+            {body}
           </Text>
 
           <div class='mt-8 flex flex-wrap items-center gap-3 sm:gap-4'>
@@ -47,16 +55,15 @@ const defaultAlt = 'AC Plumbers engineer carrying out a professional heating ser
               Get a Free Quote
             </Link>
             <Link
-              href='/services'
+              href={secondaryLinkHref}
               variant='default-link'
               class='rounded-lg border border-white/30 px-4 py-2 text-white no-underline hover:bg-white/10 hover:text-white'>
-              View All Services
+              {secondaryLinkLabel}
             </Link>
           </div>
 
           <!-- Trust Indicators -->
-          <div
-            class='mt-12 flex flex-wrap items-center justify-center gap-8 text-white/80'>
+          <div class='mt-12 flex flex-wrap items-center gap-8 text-white/80'>
             <div class='flex items-center text-sm'>
               <svg
                 class='mr-2 h-5 w-5 text-green-400'
@@ -69,7 +76,7 @@ const defaultAlt = 'AC Plumbers engineer carrying out a professional heating ser
               </svg>
               Free Quotes
             </div>
-            <div class='flex items-center text-sm'>
+            <!-- <div class='flex items-center text-sm'>
               <svg
                 class='mr-2 h-5 w-5 text-green-400'
                 fill='currentColor'
@@ -80,7 +87,7 @@ const defaultAlt = 'AC Plumbers engineer carrying out a professional heating ser
                   clip-rule='evenodd'></path>
               </svg>
               24/7 Emergency
-            </div>
+            </div> -->
             <div class='flex items-center text-sm'>
               <svg
                 class='mr-2 h-5 w-5 text-green-400'
@@ -113,25 +120,27 @@ const defaultAlt = 'AC Plumbers engineer carrying out a professional heating ser
             class='absolute inset-0 bg-linear-to-t from-primary-900/60 via-primary-900/10 to-transparent'
             aria-hidden='true'>
           </div>
-          {image ? (
-            <Image
-              src={image}
-              alt={imageAlt || defaultAlt}
-              class='absolute inset-0 h-full w-full object-cover'
-              loading='lazy'
-              width={900}
-              height={700}
-            />
-          ) : (
-            <Image
-              src={CtaImage}
-              alt={defaultAlt}
-              class='absolute inset-0 h-full w-full object-cover'
-              loading='lazy'
-              width={900}
-              height={700}
-            />
-          )}
+          {
+            image ? (
+              <Image
+                src={image}
+                alt={imageAlt || defaultAlt}
+                class='absolute inset-0 h-full w-full object-cover'
+                loading='lazy'
+                width={900}
+                height={700}
+              />
+            ) : (
+              <Image
+                src={CtaImage}
+                alt={defaultAlt}
+                class='absolute inset-0 h-full w-full object-cover'
+                loading='lazy'
+                width={900}
+                height={700}
+              />
+            )
+          }
         </div>
       </div>
     </div>

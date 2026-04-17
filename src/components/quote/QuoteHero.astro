@@ -1,32 +1,150 @@
 ---
-import { Image } from "astro:assets";
-import GasSafeLogo from "@/images/brands/gas-safe-register-logo-certified-brighton.png";
-import CheckatradeLogo from "@/images/brands/checkatrade-logo-ac-plumbers-brighton.png";
-import { ArrowRight } from "@lucide/astro";
+import { Image } from 'astro:assets';
+import GasSafeLogo from '@/images/brands/gas-safe-register-logo-certified-brighton.png';
+import CheckatradeLogo from '@/images/brands/checkatrade-logo-ac-plumbers-brighton.png';
+import Text from '@/components/fundations/elements/Text.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 ---
 
-<section class="bg-background-00 py-16 sm:py-24" id="quote-hero">
-  <div class="mx-auto max-w-3xl px-4 text-center">
-    <h1 class="mb-4 font-lato text-4xl font-bold text-primary-600 sm:text-5xl">
-      Get Your Free Plumbing Quote
-    </h1>
-    <p class="mb-8 font-inconsolata text-lg text-text-00">
-      Fast, no-obligation estimates from Brighton’s trusted Gas Safe engineers.
-      Book online in minutes—no hidden fees, no hassle.
-    </p>
-    <div class="mb-8 flex flex-wrap justify-center gap-4">
-      <Image
-        src={GasSafeLogo}
-        alt="Gas Safe Registered"
-        class="h-10 w-auto object-contain"
-        loading="lazy"
-      />
-      <Image
-        src={CheckatradeLogo}
-        alt="Checkatrade Member"
-        class="h-10 w-auto object-contain"
-        loading="lazy"
-      />
+<section
+  class='relative isolate overflow-hidden'
+  aria-labelledby='quote-hero-heading'
+  data-bg='dark'>
+  <div class='bg-linear-to-br from-primary-900 via-primary-800 to-secondary-800'>
+    <!-- Decorative SVG grid pattern -->
+    <svg
+      aria-hidden='true'
+      class='absolute inset-x-0 top-0 -z-10 h-256 w-full mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-primary-200/15'>
+      <defs>
+        <pattern
+          id='quote-hero-pattern'
+          width='200'
+          height='200'
+          x='50%'
+          y='-1'
+          patternUnits='userSpaceOnUse'>
+          <path d='M.5 200V.5H200' fill='none'></path>
+        </pattern>
+      </defs>
+      <svg x='50%' y='-1' class='overflow-visible fill-primary-900'>
+        <path
+          d='M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z'
+          stroke-width='0'></path>
+      </svg>
+      <rect
+        width='100%'
+        height='100%'
+        fill='url(#quote-hero-pattern)'
+        stroke-width='0'></rect>
+    </svg>
+
+    <!-- Decorative blur blob -->
+    <div
+      aria-hidden='true'
+      class='absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48'>
+      <div
+        style='clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)'
+        class='aspect-801/1036 w-200.25 bg-linear-to-tr from-accent-500/40 to-secondary-400/40 opacity-80'>
+      </div>
     </div>
+
+    <Wrapper variant='standard' class='pt-36 pb-16 sm:pt-52 lg:pt-28 lg:pb-24'>
+      <div class='grid items-center gap-12 lg:grid-cols-2 lg:gap-16'>
+
+        <!-- Left: hero copy -->
+        <div>
+          <Text
+            tag='p'
+            variant='textSM'
+            class='inline-flex whitespace-nowrap rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide text-primary-900 uppercase'>
+            Free, no-obligation estimate
+          </Text>
+
+          <Text
+            tag='h1'
+            id='quote-hero-heading'
+            variant='displayLG'
+            class='mt-5 leading-snug text-neutral-50'>
+            Get Your Free Plumbing &amp; Heating Quote
+          </Text>
+
+          <Text
+            tag='p'
+            variant='textBase'
+            class='mt-6 max-w-lg text-primary-100'>
+            Fast estimates from Brighton's trusted Gas Safe engineers.
+            No hidden fees, no pushy sales — just clear, competitive pricing
+            delivered online in minutes.
+          </Text>
+
+          <ul class='mt-8 space-y-3' aria-label='Why choose AC Plumbers'>
+            <li class='flex items-center gap-3 text-sm text-primary-100'>
+              <svg
+                class='h-5 w-5 shrink-0 text-green-400'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              Gas Safe Registered engineers
+            </li>
+            <li class='flex items-center gap-3 text-sm text-primary-100'>
+              <svg
+                class='h-5 w-5 shrink-0 text-green-400'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              Checkatrade verified — real customer reviews
+            </li>
+            <li class='flex items-center gap-3 text-sm text-primary-100'>
+              <svg
+                class='h-5 w-5 shrink-0 text-green-400'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              Transparent pricing, fully insured
+            </li>
+          </ul>
+
+          <div class='mt-8 flex flex-wrap items-center gap-4'>
+            <div class='rounded-lg bg-white/10 px-3 py-2 backdrop-blur-sm'>
+              <Image
+                src={GasSafeLogo}
+                alt='Gas Safe Registered'
+                class='h-9 w-auto object-contain'
+                loading='eager'
+              />
+            </div>
+            <div class='rounded-lg bg-white/10 px-3 py-2 backdrop-blur-sm'>
+              <Image
+                src={CheckatradeLogo}
+                alt='Checkatrade Member'
+                class='h-9 w-auto object-contain'
+                loading='eager'
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form slot -->
+        <div class='w-full'>
+          <slot />
+        </div>
+
+      </div>
+    </Wrapper>
   </div>
 </section>

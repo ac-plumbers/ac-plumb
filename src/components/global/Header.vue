@@ -2,7 +2,7 @@
   <!-- Skip to main content link -->
   <a
     href="#main-content"
-    class="default-button sr-only z-[100] focus-visible:not-sr-only focus-visible:absolute focus-visible:top-2 focus-visible:left-2"
+    class="default-button sr-only z-100 focus-visible:not-sr-only focus-visible:absolute focus-visible:top-2 focus-visible:left-2"
   >
     Skip to main content
   </a>
@@ -16,12 +16,15 @@
         <nav class="flex items-center px-2" aria-label="Main navigation">
           <HeaderLogo />
 
-          <HeaderDesktopNav :isActiveLink="isActiveLink" :isInServicesSection="isInServicesSection" />
+          <HeaderDesktopNav
+            :isActiveLink="isActiveLink"
+            :isInServicesSection="isInServicesSection"
+          />
 
           <!-- Mobile hamburger button -->
           <button
             type="button"
-            class="-m-3 ml-auto mr-2 rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none xl:hidden"
+            class="-m-3 mr-2 ml-auto rounded-md p-3 text-text-00 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none xl:hidden"
             @click="openMenu"
             aria-controls="mobile-menu"
             :aria-expanded="isOpen ? 'true' : 'false'"
@@ -48,62 +51,62 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
-import HeaderLogo from './headerBits/HeaderLogo.vue'
-import HeaderDesktopNav from './headerBits/HeaderDesktopNav.vue'
-import HeaderDesktopCta from './headerBits/HeaderDesktopCta.vue'
-import HeaderMobileMenu from './headerBits/HeaderMobileMenu.vue'
-import IconMenu from '../icons/IconMenu.vue'
+import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import HeaderLogo from "./headerBits/HeaderLogo.vue";
+import HeaderDesktopNav from "./headerBits/HeaderDesktopNav.vue";
+import HeaderDesktopCta from "./headerBits/HeaderDesktopCta.vue";
+import HeaderMobileMenu from "./headerBits/HeaderMobileMenu.vue";
+import IconMenu from "../icons/IconMenu.vue";
 
 const props = defineProps({
-  currentPath: { type: String, default: '' },
-})
+  currentPath: { type: String, default: "" },
+});
 
-const scrolled = ref(false)
-const isOpen = ref(false)
-const currentPath = ref(props.currentPath)
-const openMenuButton = ref(null)
+const scrolled = ref(false);
+const isOpen = ref(false);
+const currentPath = ref(props.currentPath);
+const openMenuButton = ref(null);
 
 const isActiveLink = (href) => {
-  if (href === '/' && currentPath.value === '/') return true
-  if (href !== '/' && currentPath.value === href) return true
-  return false
-}
+  if (href === "/" && currentPath.value === "/") return true;
+  if (href !== "/" && currentPath.value === href) return true;
+  return false;
+};
 
-const isInServicesSection = () => currentPath.value.startsWith('/services')
+const isInServicesSection = () => currentPath.value.startsWith("/services");
 
 function openMenu() {
-  isOpen.value = true
+  isOpen.value = true;
 }
 
 function closeMenu() {
-  isOpen.value = false
-  nextTick(() => openMenuButton.value?.focus())
+  isOpen.value = false;
+  nextTick(() => openMenuButton.value?.focus());
 }
 
 onMounted(() => {
-  if (!currentPath.value && typeof window !== 'undefined') {
-    currentPath.value = window.location.pathname
+  if (!currentPath.value && typeof window !== "undefined") {
+    currentPath.value = window.location.pathname;
   }
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener("scroll", handleScroll);
   // astro:page-load fires on every Astro View Transition navigation
   // (needed because transition:persist keeps this component alive across pages)
-  document.addEventListener('astro:page-load', () => {
-    currentPath.value = window.location.pathname
-  })
+  document.addEventListener("astro:page-load", () => {
+    currentPath.value = window.location.pathname;
+  });
   // Reset menu state before Astro swaps the body — otherwise isOpen stays true
   // but the teleported DOM gets destroyed, breaking subsequent opens
-  document.addEventListener('astro:before-swap', () => {
-    isOpen.value = false
-  })
-})
+  document.addEventListener("astro:before-swap", () => {
+    isOpen.value = false;
+  });
+});
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
+  window.removeEventListener("scroll", handleScroll);
+});
 
 function handleScroll() {
-  scrolled.value = window.scrollY > 50
+  scrolled.value = window.scrollY > 50;
 }
 </script>
 

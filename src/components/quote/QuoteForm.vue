@@ -8,7 +8,7 @@
     <form
       v-if="!showSummary"
       id="quote-form"
-      class="mx-auto mt-12 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
+      class="mx-auto mt-12 flex min-h-135 w-full max-w-lg flex-col justify-start rounded-2xl border border-primary-100 bg-background-00 p-8 shadow-2xl"
       @submit.prevent="handleSubmit"
       autocomplete="on"
       role="form"
@@ -78,9 +78,14 @@
         >
           <option value="">Select a service</option>
           <option value="Boiler Installation">Boiler Installation</option>
-          <option value="Bathroom Plumbing">Bathroom Plumbing</option>
-          <option value="Emergency Callout">Emergency Callout</option>
+          <option value="Boiler Service">Boiler Service / Annual Maintenance</option>
+          <option value="Gas Safety Certificate">Gas Safety Certificate</option>
           <option value="Heating Repair">Heating Repair</option>
+          <option value="Bathroom Plumbing">Bathroom Plumbing</option>
+          <option value="Bathroom Fit-Out">Bathroom Fit-Out (full)</option>
+          <option value="Plumbing Repair">Plumbing Repair</option>
+          <option value="Air Source Heat Pump">Air Source Heat Pump</option>
+          <option value="Emergency Callout">Emergency Callout</option>
           <option value="Other">Other</option>
         </select>
         <div id="service-help" class="mt-1 text-sm text-gray-600">
@@ -124,17 +129,24 @@
             >
               Property Type *
             </label>
-            <input
+            <select
               id="property-type"
               class="w-full rounded-lg border border-primary-200 bg-background-50 p-3 text-base transition focus:border-accent-500 focus:ring-2 focus:ring-accent-200"
-              placeholder="e.g. Flat, House, Maisonette"
               v-model="propertyType"
               required
               autocomplete="off"
               aria-describedby="property-help"
-            />
+            >
+              <option value="">Select property type</option>
+              <option value="Flat">Flat</option>
+              <option value="House">House</option>
+              <option value="Bungalow">Bungalow</option>
+              <option value="Maisonette">Maisonette</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Other">Other</option>
+            </select>
             <div id="property-help" class="mt-1 text-sm text-gray-600">
-              Specify if it's a flat, house, or other property type
+              Select your property type for accurate pricing
             </div>
           </div>
 
@@ -353,7 +365,7 @@
     <div
       v-if="showSummary"
       id="quote-form"
-      class="mx-auto mt-8 flex min-h-[540px] w-full max-w-lg flex-col justify-start rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
+      class="mx-auto mt-8 flex min-h-135 w-full max-w-lg flex-col justify-start rounded-2xl border border-accent-200 bg-accent-50 p-8 shadow-lg"
       role="region"
       aria-labelledby="quote-summary-heading"
     >
@@ -443,35 +455,40 @@ export default {
   },
   computed: {
     estimatedQuote() {
-      // Simple pricing logic (customize as needed)
       let base = 0;
       switch (this.service) {
-        case "Boiler Installation":
-          base = 1800;
-          break;
-        case "Bathroom Plumbing":
-          base = 600;
-          break;
-        case "Emergency Callout":
-          base = 120;
-          break;
-        case "Heating Repair":
-          base = 250;
-          break;
-        case "Other":
-          base = 100;
-          break;
-        default:
-          base = 0;
+        case "Boiler Installation":      base = 1800; break;
+        case "Boiler Service":           base = 90;   break;
+        case "Gas Safety Certificate":   base = 70;   break;
+        case "Heating Repair":           base = 250;  break;
+        case "Bathroom Plumbing":        base = 600;  break;
+        case "Bathroom Fit-Out":         base = 2500; break;
+        case "Plumbing Repair":          base = 180;  break;
+        case "Air Source Heat Pump":     base = 8000; break;
+        case "Emergency Callout":        base = 120;  break;
+        case "Other":                    base = 100;  break;
+        default:                         base = 0;
       }
       // Extras pricing
       let extraTotal = 0;
       if (this.extras.includes("Smart Thermostat")) extraTotal += 180;
       if (this.extras.includes("Powerflush")) extraTotal += 350;
       if (this.extras.includes("Radiator Install")) extraTotal += 120;
-      // Bedrooms can affect price (optional)
+      // Bedroom uplift only applies to services where property size matters
+      const bedroomRelevantServices = [
+        "Boiler Installation",
+        "Heating Repair",
+        "Bathroom Fit-Out",
+      ];
+      // TODO: postcode is collected but not used in pricing.
+      // Future: validate BN/RH/TN postcodes (service area) and
+      // apply out-of-area surcharge if needed.
       let bedroomsAdj = 0;
-      if (this.bedrooms && !isNaN(Number(this.bedrooms))) {
+      if (
+        bedroomRelevantServices.includes(this.service) &&
+        this.bedrooms &&
+        !isNaN(Number(this.bedrooms))
+      ) {
         bedroomsAdj = (Number(this.bedrooms) - 1) * 40;
       }
       return base + extraTotal + bedroomsAdj;
