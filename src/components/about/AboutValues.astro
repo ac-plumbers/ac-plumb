@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import antonioPortrait from '@/images/antonio/antonio-catalano-ac-plumbers-owner-portrait.jpeg';
+
 const values = [
   {
     number: '01',
@@ -28,19 +31,32 @@ const values = [
   <div class='mx-auto max-w-7xl px-6 lg:px-8'>
 
     <!-- Section header -->
-    <div class='mb-16 max-w-lg'>
-      <p class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
-        The AC Plumbers Way
-      </p>
-      <h2
-        id='values-title'
-        class='mt-3 font-poppins text-4xl font-black leading-tight text-white sm:text-5xl'>
-        What Every Job<br />Is Built On
-      </h2>
+    <div class='mb-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16'>
+      <div>
+        <p class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
+          The AC Plumbers Way
+        </p>
+        <h2
+          id='values-title'
+          class='mt-3 font-poppins text-4xl font-black leading-tight text-white sm:text-5xl'>
+          What Every Job<br />Is Built On
+        </h2>
+      </div>
+      <div class='relative'>
+        <Image
+          src={antonioPortrait}
+          alt='Antonio Catalano, Gas Safe registered plumber and owner of AC Plumbers Ltd. Brighton, headshot portrait'
+          class='w-full rounded-2xl object-cover shadow-xl ring-1 ring-white/10'
+          title="Antonio Catalano – Owner & Lead Engineer at AC Plumbers Ltd. Brighton"
+          loading='lazy'
+          width={600}
+          height={480}
+        />
+      </div>
     </div>
 
     <!-- Value cards -->
-    <div class='grid gap-px bg-white/[0.08] overflow-hidden rounded-2xl sm:grid-cols-3'>
+    <div class='grid gap-px bg-white/8 overflow-hidden rounded-2xl sm:grid-cols-3'>
       {values.map((v) => (
         <div class='group relative bg-primary-900 p-8 lg:p-10 transition-colors duration-300 hover:bg-primary-800'>
           <!-- Number -->
