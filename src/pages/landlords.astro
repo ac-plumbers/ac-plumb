@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Text from '@/components/fundations/elements/Text.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+import Button from '@/components/fundations/elements/Button.astro';
+import MainCta from '@/components/global/MainCta.astro';
+import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
+import CallButton from '@/components/fundations/elements/CallButton.astro';
 import {
   ClipboardCheck,
   House,
@@ -11,16 +16,7 @@ import {
   Receipt,
   HeartHandshake,
 } from '@lucide/astro';
-import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
-import CallButton from '@/components/fundations/elements/CallButton.astro';
-import {
-  BUSINESS_CONFIG,
-  formatPhoneForDisplay,
-  formatPhoneForTel,
-} from '@/utils/businessConfig';
-
-const phoneDisplay = formatPhoneForDisplay(BUSINESS_CONFIG.landline);
-const phoneTel = formatPhoneForTel(BUSINESS_CONFIG.landline);
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import { getCollection } from 'astro:content';
 
 const allTheServices = await getCollection('services');
@@ -38,46 +34,116 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
   title='Landlord Services in Brighton | AC Plumbers Ltd.'
   description='Specialist plumbing and heating services for landlords in Brighton & Hove. Gas safety certificates, boiler servicing, emergency repairs, and more.'
   keywords='landlord services, gas safety certificate, boiler servicing, emergency repairs, Brighton, AC Plumbers Ltd.'>
-  <section class='bg-linear-to-b from-accent-50 to-background-00 py-24'>
-    <div class='mx-auto mt-24 max-w-7xl px-4 text-center md:px-8'>
-      <Text tag='h1' class='mb-6 md:text-5xl'>
-        Specialist Landlord Services in Brighton & Hove
-      </Text>
-      <p class='mx-auto mb-8 max-w-3xl text-lg text-text-00 md:text-xl'>
-        Landlord-ready services built around our core plumbing, heating, and gas
-        offerings. From annual CP12 gas safety checks to boiler servicing,
-        central heating upgrades, and responsive repairs.
-      </p>
-      <div class='flex flex-col justify-center gap-4 sm:flex-row'>
-        <GetAQuote
-          variant='gradient'
-          size='lg'
-          iconStyle='send'
-          class='w-full sm:w-auto'
-        />
-        <CallButton variant='secondary' size='lg' class='w-full sm:w-auto' />
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
+  <section
+    class='relative isolate overflow-hidden'
+    aria-labelledby='landlord-hero-heading'
+    data-bg='dark'>
+    <div
+      class='bg-linear-to-br from-primary-900 via-primary-800 to-secondary-800'>
+      <!-- Decorative SVG grid pattern -->
+      <svg
+        aria-hidden='true'
+        class='absolute inset-x-0 top-0 -z-10 h-256 w-full mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-primary-200/15'>
+        <defs>
+          <pattern
+            id='landlord-hero-pattern'
+            width='200'
+            height='200'
+            x='50%'
+            y='-1'
+            patternUnits='userSpaceOnUse'>
+            <path d='M.5 200V.5H200' fill='none'></path>
+          </pattern>
+        </defs>
+        <svg x='50%' y='-1' class='overflow-visible fill-primary-900'>
+          <path
+            d='M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z'
+            stroke-width='0'></path>
+        </svg>
+        <rect
+          width='100%'
+          height='100%'
+          fill='url(#landlord-hero-pattern)'
+          stroke-width='0'></rect>
+      </svg>
+
+      <!-- Decorative blur blob -->
+      <div
+        aria-hidden='true'
+        class='absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48'>
+        <div
+          style='clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)'
+          class='aspect-801/1036 w-200.25 bg-linear-to-tr from-accent-500/40 to-secondary-400/40 opacity-80'>
+        </div>
       </div>
+
+      <Wrapper
+        variant='standard'
+        class='pt-36 pb-20 sm:pt-52 lg:pt-32 lg:pb-28'>
+        <div class='mx-auto max-w-2xl text-center'>
+          <Text
+            tag='p'
+            variant='textSM'
+            class='inline-flex whitespace-nowrap rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide text-primary-900 uppercase'>
+            For Landlords
+          </Text>
+          <Text
+            tag='h1'
+            id='landlord-hero-heading'
+            variant='display2XL'
+            class='mt-5 font-bold text-white'>
+            Specialist Landlord Services in Brighton &amp; Hove
+          </Text>
+          <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
+            Landlord-ready plumbing, heating, and gas services — from annual
+            CP12 certificates to boiler servicing, central heating upgrades, and
+            responsive repairs across your rental portfolio.
+          </Text>
+          <div
+            class='mt-10 flex flex-col justify-center gap-4 sm:flex-row'>
+            <CallButton variant='accent' size='lg' animation='ring' />
+            <GetAQuote
+              variant='gradient'
+              size='lg'
+              iconStyle='send'
+            />
+          </div>
+        </div>
+      </Wrapper>
     </div>
   </section>
 
-  <!-- Key Services for Landlords -->
-  <section class='bg-neutral-50 py-16'>
-    <div class='mx-auto max-w-7xl px-4 md:px-8'>
+  <!-- ─── Key Services for Landlords ──────────────────────────────────── -->
+  <section
+    class='bg-white py-16 sm:py-24'
+    aria-labelledby='landlord-services-heading'>
+    <Wrapper variant='standard'>
       <div class='mb-16 text-center'>
-        <Text tag='h2' class='mb-4 font-bold'>
+        <Text
+          tag='p'
+          variant='textSM'
+          class='font-semibold tracking-wider text-primary-600 uppercase'>
+          Our Services
+        </Text>
+        <Text
+          tag='h2'
+          id='landlord-services-heading'
+          variant='displayXL'
+          class='mt-3 font-bold text-text-00'>
           Complete Landlord Services
         </Text>
-        <p class='mx-auto max-w-3xl text-lg text-text-00'>
+        <Text tag='p' variant='textLG' class='mx-auto mt-4 max-w-3xl text-neutral-600'>
           Everything you need to ensure your rental properties are safe, legal,
           and well-maintained.
-        </p>
+        </Text>
       </div>
 
       <div class='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-        <!-- map thes ervices -->
         {
           allTheServices.map(service => (
-            <div class='rounded-xl border border-neutral-200 bg-background-00 p-6 shadow-md transition-shadow hover:shadow-lg'>
+            <div class='rounded-xl border border-neutral-200 bg-white p-6 shadow-md transition-shadow hover:shadow-lg'>
               <div class='flex items-start'>
                 <div class='rounded-lg bg-accent-50 p-3'>
                   {(() => {
@@ -92,14 +158,22 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
                   })()}
                 </div>
                 <div class='ml-4 flex flex-col'>
-                  <h3 class='mb-2 text-xl font-bold text-primary-800'>
+                  <Text
+                    tag='h3'
+                    variant='textXL'
+                    class='mb-2 font-bold text-primary-800'>
                     {service.data.title}
-                  </h3>
-                  <p class='line-clamp-4 text-text-00'>{service.data.intro}</p>
+                  </Text>
+                  <Text
+                    tag='p'
+                    variant='textBase'
+                    class='line-clamp-4 text-neutral-600'>
+                    {service.data.intro}
+                  </Text>
                   <div class='mt-auto pt-4'>
                     <a
                       href={`/services/${service.id}`}
-                      class='inline-flex items-center text-primary-600 hover:text-primary-800'
+                      class='inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-800 focus:outline-2 focus:outline-offset-2 focus:outline-primary-600'
                       aria-label={`Learn more about ${service.data.title}`}>
                       Learn more about {service.data.title}
                       <span aria-hidden='true'>&rarr;</span>
@@ -111,447 +185,474 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
           ))
         }
       </div>
-    </div>
+    </Wrapper>
   </section>
 
-  <!-- Why Choose Us -->
-  <section class='bg-accent-50 py-16'>
-    <div class='mx-auto max-w-7xl px-4 md:px-8'>
+  <!-- ─── Why Choose Us ────────────────────────────────────────────────── -->
+  <section
+    class='bg-neutral-50 py-16 sm:py-24'
+    aria-labelledby='landlord-why-heading'>
+    <Wrapper variant='standard'>
       <div class='mb-16 text-center'>
-        <h2 class='mb-4 text-3xl font-bold text-primary-900'>
+        <Text
+          tag='p'
+          variant='textSM'
+          class='font-semibold tracking-wider text-primary-600 uppercase'>
+          Why choose us
+        </Text>
+        <Text
+          tag='h2'
+          id='landlord-why-heading'
+          variant='displayXL'
+          class='mt-3 font-bold text-primary-900'>
           Why Landlords Choose AC Plumbers Ltd.
-        </h2>
-        <p class='mx-auto max-w-3xl text-lg font-medium text-text-00'>
+        </Text>
+        <Text tag='p' variant='textLG' class='mx-auto mt-4 max-w-3xl text-neutral-600'>
           We understand the unique challenges landlords face and provide
           reliable solutions to help you maintain compliant, safe rental
           properties.
-        </p>
+        </Text>
       </div>
 
       <div class='grid grid-cols-1 gap-8 md:grid-cols-2'>
         <!-- Fast Service -->
         <div
-          class='rounded-xl border border-neutral-200 bg-background-00 p-6 shadow-sm'>
+          class='rounded-xl border border-neutral-200 bg-white p-6 shadow-sm'>
           <div class='mb-4 flex items-center gap-4'>
-            <div class='rounded-full bg-accent-200 p-2'>
+            <div
+              class='flex h-10 w-10 items-center justify-center rounded-full bg-primary-100'>
               <Clock
-                class='h-6 w-6 text-text-00'
+                class='h-6 w-6 text-primary-600'
                 aria-hidden='true'
                 focusable='false'
               />
             </div>
-            <h3 class='text-xl font-bold text-primary-800'>
+            <Text tag='h3' variant='textLG' class='font-bold text-primary-800'>
               Fast Response Times
-            </h3>
+            </Text>
           </div>
-          <p class='text-text-00'>
+          <Text tag='p' variant='textBase' class='text-neutral-600'>
             We aim for fast callouts to reduce downtime and keep tenants
             comfortable.
-          </p>
+          </Text>
         </div>
 
         <!-- Compliance Expertise -->
         <div
-          class='rounded-xl border border-neutral-200 bg-background-00 p-6 shadow-sm'>
+          class='rounded-xl border border-neutral-200 bg-white p-6 shadow-sm'>
           <div class='mb-4 flex items-center gap-4'>
-            <div class='rounded-full bg-accent-200 p-2'>
+            <div
+              class='flex h-10 w-10 items-center justify-center rounded-full bg-primary-100'>
               <ClipboardCheck
-                class='h-6 w-6 text-text-00'
+                class='h-6 w-6 text-primary-600'
                 aria-hidden='true'
                 focusable='false'
               />
             </div>
-            <h3 class='text-xl font-bold text-primary-800'>
+            <Text tag='h3' variant='textLG' class='font-bold text-primary-800'>
               Compliance Expertise
-            </h3>
+            </Text>
           </div>
-          <p class='text-text-00'>
+          <Text tag='p' variant='textBase' class='text-neutral-600'>
             Gas Safe registered engineers deliver compliant inspections and
             documentation for rental properties.
-          </p>
+          </Text>
         </div>
 
         <!-- Quality Workmanship -->
         <div
-          class='rounded-xl border border-neutral-200 bg-background-00 p-6 shadow-sm'>
+          class='rounded-xl border border-neutral-200 bg-white p-6 shadow-sm'>
           <div class='mb-4 flex items-center gap-4'>
-            <div class='rounded-full bg-accent-200 p-2'>
+            <div
+              class='flex h-10 w-10 items-center justify-center rounded-full bg-primary-100'>
               <BadgeCheck
-                class='h-6 w-6 text-text-00'
+                class='h-6 w-6 text-primary-600'
                 aria-hidden='true'
                 focusable='false'
               />
             </div>
-            <h3 class='text-xl font-bold text-primary-800'>
+            <Text tag='h3' variant='textLG' class='font-bold text-primary-800'>
               Quality Workmanship
-            </h3>
+            </Text>
           </div>
-          <p class='text-text-00'>
+          <Text tag='p' variant='textBase' class='text-neutral-600'>
             Certified engineers deliver careful installations, servicing, and
             repairs across plumbing and heating.
-          </p>
+          </Text>
         </div>
 
         <!-- Competitive Pricing -->
         <div
-          class='rounded-xl border border-neutral-200 bg-background-00 p-6 shadow-sm'>
+          class='rounded-xl border border-neutral-200 bg-white p-6 shadow-sm'>
           <div class='mb-4 flex items-center gap-4'>
-            <div class='rounded-full bg-accent-200 p-2'>
+            <div
+              class='flex h-10 w-10 items-center justify-center rounded-full bg-primary-100'>
               <Receipt
-                class='h-6 w-6 text-text-00'
+                class='h-6 w-6 text-primary-600'
                 aria-hidden='true'
                 focusable='false'
               />
             </div>
-            <h3 class='text-xl font-bold text-primary-800'>
+            <Text tag='h3' variant='textLG' class='font-bold text-primary-800'>
               Competitive Pricing
-            </h3>
+            </Text>
           </div>
-          <p class='text-text-00'>
+          <Text tag='p' variant='textBase' class='text-neutral-600'>
             Clear pricing and practical recommendations to keep costs
             predictable.
-          </p>
+          </Text>
         </div>
       </div>
-    </div>
+    </Wrapper>
   </section>
 
-  <!-- Contact Us -->
-  <section id='contact' class='bg-background-00 py-16'>
-    <div class='mx-auto max-w-6xl px-4 md:px-8'>
-      <div class='overflow-hidden rounded-2xl bg-primary-700 shadow-xl'>
-        <div class='md:flex'>
-          <!-- Left side: Contact Form -->
-          <div class='p-8 md:w-3/5 md:p-12'>
-            <h2 class='mb-6 text-2xl font-bold text-white md:text-3xl'>
-              Get a Landlord Service Quote
-            </h2>
-            <p class='mb-8 text-primary-100'>
-              Complete the form below and we'll get back to you with a
-              customized solution for your rental properties.
+  <!-- ─── Quote Form ───────────────────────────────────────────────────── -->
+  <section
+    class='bg-white py-16 sm:py-24'
+    aria-labelledby='landlord-form-heading'>
+    <Wrapper variant='standard'>
+      <div class='grid grid-cols-1 gap-16 lg:grid-cols-2'>
+
+        <!-- Left: benefits -->
+        <div>
+          <Text
+            tag='h2'
+            id='landlord-form-heading'
+            variant='displayLG'
+            class='font-bold text-text-00'>
+            Why Landlords Trust AC Plumbers Ltd.
+          </Text>
+          <Text tag='p' variant='textLG' class='mt-4 text-neutral-600'>
+            Dedicated landlord services, fast turnaround, and compliant
+            documentation — so you can focus on your portfolio.
+          </Text>
+
+          <ul class='mt-8 space-y-4' role='list'>
+            <li class='flex items-start gap-3'>
+              <svg
+                class='mt-0.5 h-5 w-5 shrink-0 text-green-500'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              <Text tag='span' variant='textBase' class='text-text-00'>
+                CP12 certificates issued on pass
+              </Text>
+            </li>
+            <li class='flex items-start gap-3'>
+              <svg
+                class='mt-0.5 h-5 w-5 shrink-0 text-green-500'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              <Text tag='span' variant='textBase' class='text-text-00'>
+                Annual boiler servicing options
+              </Text>
+            </li>
+            <li class='flex items-start gap-3'>
+              <svg
+                class='mt-0.5 h-5 w-5 shrink-0 text-green-500'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              <Text tag='span' variant='textBase' class='text-text-00'>
+                Heating upgrades and smart controls
+              </Text>
+            </li>
+            <li class='flex items-start gap-3'>
+              <svg
+                class='mt-0.5 h-5 w-5 shrink-0 text-green-500'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              <Text tag='span' variant='textBase' class='text-text-00'>
+                Plumbing repairs and installations
+              </Text>
+            </li>
+            <li class='flex items-start gap-3'>
+              <svg
+                class='mt-0.5 h-5 w-5 shrink-0 text-green-500'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                aria-hidden='true'>
+                <path
+                  fill-rule='evenodd'
+                  d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                  clip-rule='evenodd'></path>
+              </svg>
+              <Text tag='span' variant='textBase' class='text-text-00'>
+                Air source heat pump options
+              </Text>
+            </li>
+          </ul>
+
+          <div class='mt-10'>
+            <CallButton variant='outline' size='md' />
+          </div>
+        </div>
+
+        <!-- Right: form card -->
+        <div class='rounded-2xl bg-white p-8 shadow-lg ring-1 ring-neutral-200'>
+          <Text tag='h2' variant='displayLG' class='font-bold text-text-00'>
+            Get a Landlord Service Quote
+          </Text>
+          <Text tag='p' variant='textBase' class='mt-4 text-neutral-600'>
+            Complete the form and we'll get back to you with a customised
+            solution for your rental properties.
+          </Text>
+
+          <form
+            name='AC Plumbers Landlord Services'
+            class='mt-8 space-y-6'
+            action='/success'
+            method='POST'
+            netlify-honeypot='bot-field'
+            data-netlify='true'>
+            <!-- Hidden bot field for spam protection -->
+            <p hidden>
+              <label>
+                Don't fill this out if you're human: <input name='bot-field' />
+              </label>
             </p>
 
-            <form
-              name='AC Plumbers Landlord Services'
-              class='space-y-6'
-              action='/success'
-              method='POST'
-              netlify-honeypot='bot-field'
-              data-netlify='true'>
-              <!-- Hidden bot field for spam protection -->
-              <p hidden>
-                <label>
-                  Don't fill this out if you're human: <input
-                    name='bot-field'
-                  />
-                </label>
-              </p>
+            <input
+              type='hidden'
+              name='subject'
+              value='New Landlord Enquiry from %{formName} - Submission #%{submissionId}'
+              data-remove-prefix
+            />
 
-              <!-- Custom email subject line for better notification management -->
-              <input
-                type='hidden'
-                name='subject'
-                value='New Landlord Enquiry from %{formName} - Submission #%{submissionId}'
-                data-remove-prefix
-              />
-
-              <div class='grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6'>
-                <div>
-                  <label
-                    for='first-name'
-                    class='block text-sm font-medium text-white'>
-                    First name <span
-                      class='text-accent-300'
-                      aria-label='required'>*</span
-                    >
-                  </label>
-                  <input
-                    type='text'
-                    id='first-name'
-                    name='first-name'
-                    autocomplete='given-name'
-                    required
-                    aria-required='true'
-                    class='mt-1 block w-full rounded-md border-border-50 bg-white/10 px-3 py-2 text-white shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:ring-1 focus:ring-accent-400 focus:outline-none'
-                  />
-                </div>
-                <div>
-                  <label
-                    for='last-name'
-                    class='block text-sm font-medium text-white'>
-                    Last name <span
-                      class='text-accent-300'
-                      aria-label='required'>*</span
-                    >
-                  </label>
-                  <input
-                    type='text'
-                    id='last-name'
-                    name='last-name'
-                    autocomplete='family-name'
-                    required
-                    aria-required='true'
-                    class='mt-1 block w-full rounded-md border-border-50 bg-white/10 px-3 py-2 text-white shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:ring-1 focus:ring-accent-400 focus:outline-none'
-                  />
-                </div>
-              </div>
-
+            <div class='grid grid-cols-1 gap-6 sm:grid-cols-2'>
               <div>
-                <label for='email' class='block text-sm font-medium text-white'>
-                  Email address <span
-                    class='text-accent-300'
-                    aria-label='required'>*</span
+                <label
+                  for='first-name'
+                  class='block text-sm font-medium text-text-00'>
+                  First name <span class='text-red-600' aria-label='required'
+                    >*</span
                   >
                 </label>
                 <input
-                  type='email'
-                  id='email'
-                  name='email'
-                  autocomplete='email'
+                  type='text'
+                  id='first-name'
+                  name='first-name'
+                  autocomplete='given-name'
                   required
                   aria-required='true'
-                  class='mt-1 block w-full rounded-md border-border-50 bg-white/10 px-3 py-2 text-white shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:ring-1 focus:ring-accent-400 focus:outline-none'
+                  class='mt-2 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-text-00 placeholder:text-neutral-500 focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none'
                 />
               </div>
-
-              <div>
-                <label for='phone' class='block text-sm font-medium text-white'
-                  >Phone number</label
-                >
-                <input
-                  type='tel'
-                  id='phone'
-                  name='phone'
-                  autocomplete='tel'
-                  inputmode='tel'
-                  class='mt-1 block w-full rounded-md border-border-50 bg-white/10 px-3 py-2 text-white shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:ring-1 focus:ring-accent-400 focus:outline-none'
-                />
-              </div>
-
               <div>
                 <label
-                  for='service-type'
-                  class='block text-sm font-medium text-white'
-                  >Service needed</label
-                >
-                <select
-                  name='service-type'
-                  id='service-type'
-                  class='mt-1 block w-full rounded-md border-border-50 bg-white/10 px-3 py-2 text-white shadow-sm focus:border-accent-400 focus:ring-1 focus:ring-accent-400 focus:outline-none'>
-                  <option value=''>Select a service</option>
-                  <option value='gas-safety'
-                    >Gas Safety Certificate (CP12)</option
-                  >
-                  <option value='boiler-service'>Boiler Servicing</option>
-                  <option value='boiler-installation'
-                    >Boiler Installation</option
-                  >
-                  <option value='heating'>Central Heating</option>
-                  <option value='plumbing'>Plumbing Services</option>
-                  <option value='heat-pump'>Air Source Heat Pump</option>
-                  <option value='multiple'>Multiple Properties</option>
-                  <option value='other'>Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  for='message'
-                  class='block text-sm font-medium text-white'>
-                  Tell us about your properties <span
-                    class='text-accent-300'
-                    aria-label='required'>*</span
+                  for='last-name'
+                  class='block text-sm font-medium text-text-00'>
+                  Last name <span class='text-red-600' aria-label='required'
+                    >*</span
                   >
                 </label>
-                <textarea
-                  id='message'
-                  name='message'
-                  rows='4'
+                <input
+                  type='text'
+                  id='last-name'
+                  name='last-name'
+                  autocomplete='family-name'
                   required
                   aria-required='true'
-                  placeholder='Number of properties, location, service needed, etc.'
-                  class='mt-1 block w-full rounded-md border-border-50 bg-white/10 px-3 py-2 text-white shadow-sm placeholder:text-gray-400 focus:border-accent-400 focus:ring-1 focus:ring-accent-400 focus:outline-none'
-                ></textarea>
+                  class='mt-2 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-text-00 placeholder:text-neutral-500 focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none'
+                />
               </div>
-
-              <div>
-                <button
-                  type='submit'
-                  class='inline-flex w-full justify-center rounded-md border border-transparent bg-accent-500 px-6 py-3 text-base font-medium text-text-00 shadow-sm hover:bg-accent-600 focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:outline-none'>
-                  Get Your Free Quote
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Right side: Benefits -->
-          <div class='bg-primary-800 p-8 md:w-2/5 md:p-12'>
-            <h3 class='mb-6 text-xl font-semibold text-white'>
-              Landlord Benefits
-            </h3>
-            <ul class='space-y-4'>
-              <li class='flex items-start'>
-                <svg
-                  class='mr-2 h-6 w-6 shrink-0 text-accent-400'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
-                  focusable='false'>
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
-                </svg>
-                <span class='text-white'>CP12 certificates issued on pass</span>
-              </li>
-              <li class='flex items-start'>
-                <svg
-                  class='mr-2 h-6 w-6 shrink-0 text-accent-400'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
-                  focusable='false'>
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
-                </svg>
-                <span class='text-white'>Annual boiler servicing options</span>
-              </li>
-              <li class='flex items-start'>
-                <svg
-                  class='mr-2 h-6 w-6 shrink-0 text-accent-400'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
-                  focusable='false'>
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
-                </svg>
-                <span class='text-white'
-                  >Heating upgrades and smart controls</span
-                >
-              </li>
-              <li class='flex items-start'>
-                <svg
-                  class='mr-2 h-6 w-6 shrink-0 text-accent-400'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
-                  focusable='false'>
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
-                </svg>
-                <span class='text-white'
-                  >Plumbing repairs and installations</span
-                >
-              </li>
-              <li class='flex items-start'>
-                <svg
-                  class='mr-2 h-6 w-6 shrink-0 text-accent-400'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  aria-hidden='true'
-                  focusable='false'>
-                  <path
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
-                    d='M5 13l4 4L19 7'></path>
-                </svg>
-                <span class='text-white'>Air source heat pump options</span>
-              </li>
-            </ul>
-
-            <div class='mt-10'>
-              <h4 class='mb-3 text-lg font-semibold text-white'>
-                Need immediate assistance?
-              </h4>
-              <a
-                href={`tel:${phoneTel}`}
-                class='inline-block rounded-lg bg-white px-6 py-3 font-bold text-primary-700 transition duration-300 hover:bg-primary-50'>
-                {phoneDisplay}
-              </a>
             </div>
+
+            <div>
+              <label for='email' class='block text-sm font-medium text-text-00'>
+                Email address <span class='text-red-600' aria-label='required'
+                  >*</span
+                >
+              </label>
+              <input
+                type='email'
+                id='email'
+                name='email'
+                autocomplete='email'
+                required
+                aria-required='true'
+                class='mt-2 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-text-00 placeholder:text-neutral-500 focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none'
+              />
+            </div>
+
+            <div>
+              <label for='phone' class='block text-sm font-medium text-text-00'>
+                Phone number
+              </label>
+              <input
+                type='tel'
+                id='phone'
+                name='phone'
+                autocomplete='tel'
+                inputmode='tel'
+                class='mt-2 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-text-00 placeholder:text-neutral-500 focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none'
+              />
+            </div>
+
+            <div>
+              <label
+                for='service-type'
+                class='block text-sm font-medium text-text-00'>
+                Service needed
+              </label>
+              <select
+                name='service-type'
+                id='service-type'
+                class='mt-2 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-text-00 focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none'>
+                <option value=''>Select a service</option>
+                <option value='gas-safety'
+                  >Gas Safety Certificate (CP12)</option
+                >
+                <option value='boiler-service'>Boiler Servicing</option>
+                <option value='boiler-installation'>Boiler Installation</option>
+                <option value='heating'>Central Heating</option>
+                <option value='plumbing'>Plumbing Services</option>
+                <option value='heat-pump'>Air Source Heat Pump</option>
+                <option value='multiple'>Multiple Properties</option>
+                <option value='other'>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for='message'
+                class='block text-sm font-medium text-text-00'>
+                Tell us about your properties <span
+                  class='text-red-600'
+                  aria-label='required'>*</span
+                >
+              </label>
+              <textarea
+                id='message'
+                name='message'
+                rows='4'
+                required
+                aria-required='true'
+                placeholder='Number of properties, location, service needed, etc.'
+                class='mt-2 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-text-00 placeholder:text-neutral-500 focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none'
+              ></textarea>
+            </div>
+
+            <div>
+              <Button type='submit' variant='primary' size='lg' class='w-full'>
+                Get Your Free Quote
+              </Button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- ─── FAQ ──────────────────────────────────────────────────────────── -->
+  <section class='bg-neutral-50 py-16 sm:py-24' aria-labelledby='landlord-faq-heading'>
+    <Wrapper variant='standard'>
+      <div class='mx-auto max-w-3xl'>
+        <div class='mb-12 text-center'>
+          <Text
+            tag='h2'
+            id='landlord-faq-heading'
+            variant='displayXL'
+            class='font-bold text-primary-900'>
+            Frequently Asked Questions
+          </Text>
+          <Text tag='p' variant='textLG' class='mt-4 text-neutral-600'>
+            Common questions from our landlord clients
+          </Text>
+        </div>
+
+        <div class='space-y-6'>
+          <div
+            class='rounded-lg border border-neutral-200 bg-white p-6 shadow-sm'>
+            <Text
+              tag='h3'
+              variant='textLG'
+              class='font-semibold text-primary-800'>
+              How often do I need to get a gas safety certificate?
+            </Text>
+            <Text tag='p' variant='textBase' class='mt-3 text-neutral-600'>
+              CP12 gas safety certificates must be renewed annually for rental
+              properties with gas appliances. Our Gas Safe engineers carry out
+              the inspection and issue certification when everything passes.
+            </Text>
+          </div>
+
+          <div
+            class='rounded-lg border border-neutral-200 bg-white p-6 shadow-sm'>
+            <Text
+              tag='h3'
+              variant='textLG'
+              class='font-semibold text-primary-800'>
+              How often should a boiler be serviced?
+            </Text>
+            <Text tag='p' variant='textBase' class='mt-3 text-neutral-600'>
+              We recommend annual boiler servicing to keep systems safe,
+              efficient, and compliant. Regular servicing helps reduce
+              breakdowns and keeps heating reliable for tenants.
+            </Text>
+          </div>
+
+          <div
+            class='rounded-lg border border-neutral-200 bg-white p-6 shadow-sm'>
+            <Text
+              tag='h3'
+              variant='textLG'
+              class='font-semibold text-primary-800'>
+              What does a central heating upgrade include?
+            </Text>
+            <Text tag='p' variant='textBase' class='mt-3 text-neutral-600'>
+              We install and upgrade central heating systems, including power
+              flushing, TRVs, and smart controls, so each property runs more
+              efficiently and evenly.
+            </Text>
+          </div>
+
+          <div
+            class='rounded-lg border border-neutral-200 bg-white p-6 shadow-sm'>
+            <Text
+              tag='h3'
+              variant='textLG'
+              class='font-semibold text-primary-800'>
+              Do you handle general plumbing repairs?
+            </Text>
+            <Text tag='p' variant='textBase' class='mt-3 text-neutral-600'>
+              Yes. We cover leak repairs, tap and sanitary fixes, pipework
+              updates, and hot water cylinder services for rental properties.
+            </Text>
           </div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   </section>
 
-  <!-- FAQ Section -->
-  <section class='bg-neutral-100 py-16'>
-    <div class='mx-auto max-w-3xl px-4 md:px-8'>
-      <div class='mb-12 text-center'>
-        <h2 class='mb-4 text-3xl font-bold text-primary-900'>
-          Frequently Asked Questions
-        </h2>
-        <p class='text-lg font-medium text-text-00'>
-          Common questions from our landlord clients
-        </p>
-      </div>
+  <!-- ─── CTA ──────────────────────────────────────────────────────────── -->
+  <MainCta
+    body="Need gas safety certificates, boiler servicing, or heating upgrades for your rental properties? Our Gas Safe engineers work with landlords across Brighton & Hove."
+    secondaryLinkHref='/request-quote'
+    secondaryLinkLabel='Request a Quote'
+  />
 
-      <div class='space-y-6'>
-        <div
-          class='rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm'>
-          <h3 class='mb-3 text-xl font-semibold text-primary-800'>
-            How often do I need to get a gas safety certificate?
-          </h3>
-          <p class='text-text-00'>
-            CP12 gas safety certificates must be renewed annually for rental
-            properties with gas appliances. Our Gas Safe engineers carry out the
-            inspection and issue certification when everything passes.
-          </p>
-        </div>
-
-        <div
-          class='rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm'>
-          <h3 class='mb-3 text-xl font-semibold text-primary-800'>
-            How often should a boiler be serviced?
-          </h3>
-          <p class='text-text-00'>
-            We recommend annual boiler servicing to keep systems safe,
-            efficient, and compliant. Regular servicing helps reduce breakdowns
-            and keeps heating reliable for tenants.
-          </p>
-        </div>
-
-        <div
-          class='rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm'>
-          <h3 class='mb-3 text-xl font-semibold text-primary-800'>
-            What does a central heating upgrade include?
-          </h3>
-          <p class='text-text-00'>
-            We install and upgrade central heating systems, including power
-            flushing, TRVs, and smart controls, so each property runs more
-            efficiently and evenly.
-          </p>
-        </div>
-
-        <div
-          class='rounded-lg border border-primary-300 bg-background-00 p-6 shadow-sm'>
-          <h3 class='mb-3 text-xl font-semibold text-primary-800'>
-            Do you handle general plumbing repairs?
-          </h3>
-          <p class='text-text-00'>
-            Yes. We cover leak repairs, tap and sanitary fixes, pipework
-            updates, and hot water cylinder services for rental properties.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
