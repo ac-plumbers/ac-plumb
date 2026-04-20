@@ -16,13 +16,13 @@ gallery:
   - src: /images/services/vaillant-air-source-heat-pump-modern-home-installation-brighton-hove.webp
     alt: Vaillant air source heat pump installed outside a modern home for low-carbon heating.
     title: Air source heat pump installation & servicing in Brighton & Hove | AC Plumbers Ltd.
-  - src: /images/services/boiler-condensate-trap-service-inspection-brighton-ac-plumbers.jpg
-    alt: Boiler condensate trap and internal components during servicing inspection
-    title: Boiler condensate trap check during annual service in Brighton & Hove
-  - src: /images/services/boiler-repair-parts-fan-gaskets-seals-prep-ac-plumbers.jpg
-    alt: Boiler repair parts laid out including fan assembly, seals, and gaskets
-      before refit
-    title: Boiler component replacement parts prepared for repair and servicing
+# - src: /images/services/boiler-condensate-trap-service-inspection-brighton-ac-plumbers.jpg
+#   alt: Boiler condensate trap and internal components during servicing inspection
+#   title: Boiler condensate trap check during annual service in Brighton & Hove
+# - src: /images/services/boiler-repair-parts-fan-gaskets-seals-prep-ac-plumbers.jpg
+#   alt: Boiler repair parts laid out including fan assembly, seals, and gaskets
+#     before refit
+#   title: Boiler component replacement parts prepared for repair and servicing
 tags:
   - air source heat pump
   - renewable energy
