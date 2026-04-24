@@ -1,0 +1,223 @@
+Ready for review
+Select text to add comments on the plan
+SEO Fixes — AC Plumbers Ltd. (Audit 2026-04-21)
+Context
+The site scored 36/90 on an SEO audit. It is in pre-launch lockdown (global Disallow: / in robots.txt and default noindex = true in BaseHead). All findings must be resolved before go-live. This plan follows the audit's rollout sequence: indexing foundation → SERP quality → schema hardening → performance → content constraints → agent discovery.
+
+Critical constraint: Source files are iCloud-evicted. Every task below includes a mandatory read-first step. No file may be edited without reading its current state first.
+
+Phase 1 — Indexing Foundation (P0 Launch Blockers)
+Task 1.1 — Fix public/robots.txt
+File: public/robots.txt Audit says: Currently User-agent: * / Disallow: / — blocks all crawlers.
+
+Replace entire file with:
+
+User-agent: *
+Allow: /
+
+Sitemap: https://acplumb.co.uk/sitemap-index.xml
+Risk: Low — full replacement of a simple text file.
+
+Task 1.2 — Flip noindex default to false
+File: src/components/fundations/head/BaseHead.astro (audit names this file explicitly) Audit says: Default is noindex = true.
+
+Steps:
+
+Read BaseHead.astro fully.
+Find the prop destructuring — change noindex = true → noindex = false.
+Read all files in src/pages/ — verify no page currently passes noindex={true} that should be indexable. Pages that SHOULD stay noindex (e.g. a coming-soon or thank-you page) must be updated to pass noindex={true} explicitly now that the default is permissive.
+Risk: Low — single default value change. Downstream risk only if any page relied on noindex by omission and should stay hidden.
+
+Task 1.3 — Integrate @astrojs/sitemap
+File: astro.config.mjs Audit says: Sitemap integration not present.
+
+Steps:
+
+Read astro.config.mjs fully — note existing integrations array and imports.
+Check package.json — if @astrojs/sitemap is not in dependencies, run npm install @astrojs/sitemap.
+Add import and integration:
+import sitemap from '@astrojs/sitemap';
+// integrations: [...existing, sitemap()]
+Verify site: 'https://acplumb.co.uk' is already set in the config (required for sitemap URL generation). If missing, add it.
+Run npm run build — confirm /sitemap-index.xml is generated in dist/.
+Risk: Medium — must read config before editing to avoid breaking existing integrations (Vue, Tailwind, etc.).
+
+Task 1.4 — Fix OG image path mismatch
+Audit says: Config references /og/ac-plumbers-ltd-signature-1200x630.jpg — file not present in public/og/.
+
+Steps:
+
+List contents of public/og/ — identify what OG image files actually exist.
+Read src/utils/businessConfig.ts — find where the OG image path is referenced.
+Read src/components/fundations/head/Seo.astro — find where the default OG image prop is defined.
+If another OG file exists in public/og/: Update the reference in businessConfig or Seo.astro to point to the actual filename.
+If no OG file exists at all: Copy or rename an existing image to ac-plumbers-ltd-signature-1200x630.jpg (1200×630 JPEG) and place it in public/og/.
+Verify: in page source, <meta property="og:image"> points to a real, accessible URL.
+Risk: Medium — depends on what files exist in public/og/.
+
+Phase 2 — SERP Quality (P1)
+Task 2.1 — Suppress canonical tag on noindex pages
+Audit says: Canonical always emitted even when noindex is true.
+
+Steps:
+
+Read src/components/fundations/head/Seo.astro fully — find every <link rel="canonical" ...> occurrence.
+Read src/components/fundations/head/TitleOpenGraph.astro — check if it ALSO emits a canonical (common in this pattern — would be a duplicate that must be removed).
+In Seo.astro: wrap every canonical link with {!noindex && ...}:
+{!noindex && <link rel="canonical" href={canonicalUrl} />}
+If TitleOpenGraph.astro has its own canonical tag: remove it entirely (canonical belongs only in Seo.astro, guarded by noindex).
+Verify: in page source, a page with noindex={true} has no <link rel="canonical">.
+Risk: Medium — must confirm noindex prop is passed through the component chain before editing.
+
+Task 2.2 — Add extended robots directives
+File: src/components/fundations/head/Seo.astro Audit says: Indexable pages only emit index, follow — missing extended directives.
+
+Steps:
+
+Read Seo.astro — find the robotsContent / searchBotContent variable construction.
+Update the indexable robots string from:
+'index, follow'
+to:
+'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+If googlebot and bingbot meta tags exist separately, apply the same extended string to those too.
+The noindex branch remains: 'noindex, nofollow' — do not touch it.
+Risk: Low — additive string change to the indexable branch only.
+
+Phase 3 — Structured Data Hardening (P1)
+Task 3.1 — Fix JSON-LD schema
+File: src/components/fundations/head/scripts/Schema.astro (or equivalent — check fundations/head/ for the JSON-LD file) Audit says: LocalBusiness type, hardcoded dateModified, dangling #breadcrumb, text openingHours.
+
+Steps:
+
+Read Schema.astro fully.
+
+Make these targeted changes — do not touch any part of the schema not listed here:
+
+a) Type specificity: "@type": "LocalBusiness" → "@type": "Plumber"
+
+b) dateModified — make dynamic: Replace hardcoded date string with:
+
+const today = new Date().toISOString().split('T')[0]; // "2026-04-24"
+Reference dateModified: today in the schema object.
+
+c) Dangling #breadcrumb reference: Read the @graph array — if there is a node referencing { "@id": "https://acplumb.co.uk/#breadcrumb" } without a matching full BreadcrumbList node in the graph, remove the dangling reference. Do NOT add a full BreadcrumbList unless the audit report or future work specifically calls for it.
+
+d) #website node: Verify a WebSite node with "@id": "https://acplumb.co.uk/#website" is fully defined in the graph. If it only appears as a reference but has no full definition, add a minimal WebSite node.
+
+e) openingHoursSpecification — object format: Replace the text string with structured objects (use actual business hours from BUSINESS_CONFIG if available, otherwise use reasonable defaults):
+
+"openingHoursSpecification": [
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  }
+]
+After edit: run npm run build, then validate the homepage at https://search.google.com/test/rich-results.
+
+Risk: Medium — must read Schema.astro before any edit to avoid breaking the existing @graph structure.
+
+Phase 4 — Performance Headers (P1)
+Task 4.1 — Add /_astro/* immutable cache rule
+File: netlify.toml Audit says: Cache headers only cover /assets/* and /images/* — Astro build outputs go to /_astro/*.
+
+Steps:
+
+Read netlify.toml fully — find existing [[headers]] blocks.
+Add (do not replace existing rules):
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+Preserve all existing header rules unchanged.
+Risk: Low — additive new block.
+
+Task 4.2 — Add No-Vary-Search header
+File: netlify.toml Audit says: Not configured — allows UTM variants to be treated as separate cache entries.
+
+Steps:
+
+Read netlify.toml — check if a for = "/*" headers block already exists.
+If a for = "/*" block exists: add No-Vary-Search to its [headers.values] section.
+If no for = "/*" block exists: add a new one:
+[[headers]]
+  for = "/*"
+  [headers.values]
+    No-Vary-Search = "params=(utm_source utm_medium utm_campaign utm_content utm_term)"
+Risk: Low — additive.
+
+Phase 5 — Content Schema Constraints (P2)
+Task 5.1 — Add metadata length validation
+File: src/content/config.ts Audit says: No title/description length constraints enforced.
+
+Steps:
+
+Read src/content/config.ts fully.
+In the services collection Zod schema, add length constraints:
+title: z.string().min(10).max(60),
+description: z.string().min(50).max(160),
+Run npm run build — if any existing content files fail validation, fix them to comply before committing.
+Risk: Low — additive Zod constraints. May surface existing content that needs updating (that is the point).
+
+Phase 6 — Agent Discovery (P2)
+Task 6.1 — Rewrite public/llms.txt
+File: public/llms.txt Audit says: Current format is policy-oriented — should follow llmstxt.org discovery format.
+
+Steps:
+
+Read current public/llms.txt.
+Rewrite to discovery format (preserve any policy content as a section if needed):
+# AC Plumbers Ltd.
+> Gas Safe registered plumbers and heating engineers serving Brighton & Hove since 2016.
+
+## Services
+- [Boiler Installation](/services/gas-boiler-installation)
+- [Boiler Servicing](/services/boiler-servicing)
+- [Central Heating](/services/central-heating)
+- [Gas Safety Checks](/services/gas-safety-check)
+- [Plumbing Repairs](/services/plumbing-repairs)
+- [Air Source Heat Pumps](/services/air-source-heat-pump)
+
+## Key Pages
+- [Home](/)
+- [About Antonio Catalano](/about-us)
+- [All Services](/services)
+
+## Contact
+- Phone: 01273680731
+- Coverage: Brighton & Hove and surrounding areas
+- Website: https://acplumb.co.uk
+Adjust service slugs to match actual filenames in src/content/services/.
+Risk: Low — standalone public file, no build impact.
+
+What We Are NOT Doing
+Audit Suggestion	Decision	Reason
+@jdevalk/astro-seo-graph build validators	Defer	New package; needs codebase access to integrate safely
+RSS feed	Defer	Low ROI for local business site; adds complexity
+Schema corpus endpoints / schemamap.xml	Defer	Advanced agent discovery; low priority for launch
+Markdown alternate endpoints	Defer	Same — low ROI
+OG dimensions 1200×630 → 1200×675	Defer	Requires regenerating all OG images; audit calls it optional
+Twitter card cleanup	Skip	Optional per audit; removing duplicates could hurt some platforms
+Fuzzy 404 redirect	Defer	Minor UX; not a launch blocker
+CI external link checks (lychee)	Defer	DevOps concern; out of scope for this session
+Files Modified
+File	Phase	Risk
+public/robots.txt	1	Low
+src/components/fundations/head/BaseHead.astro	1	Low
+astro.config.mjs	1	Medium
+src/utils/businessConfig.ts or Seo.astro	1	Medium
+src/components/fundations/head/Seo.astro	2	Medium
+src/components/fundations/head/TitleOpenGraph.astro	2	Medium
+src/components/fundations/head/scripts/Schema.astro	3	Medium
+netlify.toml	4	Low
+src/content/config.ts	5	Low
+public/llms.txt	6	Low
+Verification
+Phase	How to verify
+1	npm run build succeeds; /sitemap-index.xml in dist/; robots.txt has Allow: /
+2	Inspect page source: noindex pages have no canonical tag; indexable pages have max-snippet directives
+3	Rich Results Test on / and a /services/[slug] page — no errors or warnings
+4	Deploy preview on Netlify; check response headers in DevTools Network tab
+5	npm run build fails if content exceeds length limits — fix content, rebuild
+6	https://acplumb.co.uk/llms.txt accessible after deploy
