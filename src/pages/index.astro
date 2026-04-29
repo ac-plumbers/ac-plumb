@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '@/styles/global.css';
-import '@fontsource-variable/inconsolata';
-import '@fontsource/lato';
 import { Image } from 'astro:assets';
 import logo from '../images/logo/ac-plumbers-logo-brighton.png';
 import {
@@ -30,7 +28,7 @@ import {
         <div class='flex w-full flex-col items-center gap-3'>
           <h1
             class='font-manrope text-center text-2xl leading-tight font-bold text-accent-500 sm:text-3xl md:text-5xl'>
-            New site arrives end of April
+            New site arrives mid-May
           </h1>
           <p
             class='max-w-xl px-2 text-center text-sm text-gray-200 sm:text-base'>
@@ -116,7 +114,7 @@ import {
         <div class='flex w-full flex-col items-center justify-center gap-3'>
           <h6
             class='text-center text-sm font-semibold text-accent-500 sm:text-base'>
-            Estimated Launch: April 30, 2026
+            Estimated Launch: May 15, 2026
           </h6>
           <form
             name='launch-notification'
@@ -208,8 +206,8 @@ import {
     return utcGuess + (utcGuess - asUTC);
   }
 
-  // Countdown target: Apr 30, 2026 23:59:59 in UK time (Europe/London)
-  let dest = zonedTimeToEpoch(2026, 4, 30, 23, 59, 59);
+  // Countdown target: May 15, 2026 23:59:59 in UK time (Europe/London)
+  let dest = zonedTimeToEpoch(2026, 5, 15, 23, 59, 59);
   let x = setInterval(function () {
     let now = new Date().getTime();
     let diff = dest - now;
