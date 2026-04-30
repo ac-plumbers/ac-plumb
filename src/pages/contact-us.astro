@@ -24,6 +24,7 @@ const whatsappNumber = BUSINESS_CONFIG.mobilePhone.replace(/[\+\s]/g, '');
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%20I%20need%20help%20with%20my%20plumbing`;
 ---
 
+<!-- TODO:: cambiare heading in the hero -->
 <BaseLayout title={title} description={description} keywords={keywords}>
   <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
   <section
@@ -72,7 +73,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%
       <Wrapper
         variant='standard'
         class='pt-36 pb-20 sm:pt-52 lg:pt-32 lg:pb-28'>
-        <div class='mx-auto max-w-2xl text-center'>
+        <div class='mx-auto max-w-4xl text-center'>
           <Text
             tag='p'
             variant='textSM'
@@ -82,15 +83,17 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%
           <Text
             tag='h1'
             id='contact-hero-heading'
-            variant='display2XL'
+            variant='displayLG'
             class='mt-5 font-bold text-white'>
-            Let's Solve Your Plumbing Needs Together
-          </Text>
-          <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
             Your trusted local experts in Brighton for all plumbing, heating,
             and gas services. We're here to help with emergencies and planned
             work.
           </Text>
+          <!-- <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
+            Your trusted local experts in Brighton for all plumbing, heating,
+            and gas services. We're here to help with emergencies and planned
+            work.
+          </Text> -->
           <div class='mt-10 flex flex-col justify-center gap-4 sm:flex-row'>
             <CallButton variant='accent' size='md' animation='ring' />
             <a
