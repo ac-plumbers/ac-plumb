@@ -15,24 +15,23 @@ sortedOrder: 4
 image: /images/services/vaillant-smart-thermostat-sensocomfort-brighton.webp
 alt: Vaillant sensoCOMFORT smart thermostat digital display showing 21°C,
   installed by AC Plumbers Ltd. in Brighton for central heating control.
-imageHero: /images/services/combi-boiler-servicing-maintenance-visit-tools-brighton-ac-plumbers.png
-altHero: Combi boiler service in progress with casing open and tools ready for
-  maintenance checks
-titleImageHero: Full boiler servicing visit with safety checks and performance testing
+imageHero: /images/services/smart-thermostat-app-home-heating-control-brighton-hove.jpg
+altHero: Smart thermostat app controlling home heating temperature in a modern living room.
+titleImageHero: Smart heating controls & thermostat installation in Brighton & Hove
 gallery:
-  - src: /images/services/radiator-valve-installation-brass-fitting-hove.webp
-    alt: Radiator valve installation with brass fittings and tools beside cast iron
-      radiator on wood floor
-    title: Radiator Valve Fitting in Progress – AC Plumbers Cast Iron Radiator
-      Installation in Hove
+  - src: /images/services/vaillant-smart-thermostat-heating-controls-app-brighton-hove.jpg
+    alt: Vaillant smart thermostat and mobile app controlling home heating temperature.
+    title: Smart thermostat installation & heating controls in Brighton & Hove | AC Plumbers Ltd.
   - src: /images/services/central-heating-power-flush-brighton.jpeg
-    alt: Power flushing a central heating system using twin filters and precision
+    alt:
+      Power flushing a central heating system using twin filters and precision
       pipework – AC Plumbers Brighton
     title: Professional Central Heating Power Flush in Brighton – Improve System
       Efficiency
   - src: /images/services/victorian-cast-iron-radiator-installation-hove.jpeg
     alt: Freestanding ornate cast iron radiator with antique-style detailing
-    title: Victorian-Style Cast Iron Radiator Installation – AC Plumbers Designer
+    title:
+      Victorian-Style Cast Iron Radiator Installation – AC Plumbers Designer
       Heating in Hove
 tags:
   - central heating
@@ -66,21 +65,26 @@ features:
     description: We offer smart thermostat installation for optimal temperature
       control and energy management.
   - title: Comprehensive Maintenance Plans
-    description: Our maintenance plans ensure your system runs smoothly year-round,
+    description:
+      Our maintenance plans ensure your system runs smoothly year-round,
       with priority service for members.
 faqs:
   - question: What services do you offer?
-    answer: We offer a wide range of plumbing, heating, and gas services, including
+    answer:
+      We offer a wide range of plumbing, heating, and gas services, including
       installation, maintenance, and repair.
   - question: Are your technicians qualified?
     answer: Yes, all our technicians are fully qualified and Gas Safe registered.
   - question: Do you provide emergency services?
-    answer: Yes, we offer 24/7 emergency services for urgent plumbing and heating
+    answer:
+      Yes, we offer 24/7 emergency services for urgent plumbing and heating
       issues.
   - question: How can I schedule a consultation?
-    answer: You can schedule a consultation by contacting us through our website or
+    answer:
+      You can schedule a consultation by contacting us through our website or
       giving us a call.
 ---
+
 At AC Plumbers Ltd., we provide comprehensive heating system services to ensure your home or business stays warm, efficient, and reliable throughout the year.
 
 Our experienced team offers installation, repair, servicing, and maintenance for all types of heating systems, including...

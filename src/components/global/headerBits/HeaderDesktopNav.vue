@@ -115,7 +115,7 @@
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
             >
-              Heating
+              Heating Services
             </a>
           </li>
           <li
