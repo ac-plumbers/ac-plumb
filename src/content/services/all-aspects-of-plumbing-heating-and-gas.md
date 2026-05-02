@@ -2,19 +2,19 @@
 title: "Plumbing Services "
 description: "AC Plumbers Ltd. provide trusted plumbing services across Brighton & Hove. From leaks and taps to full installations — residential and commercial. Contact us to book."
 sortedOrder: 3
-image: /images/services/modern-ceramic-basin-gold-tap-wooden-vanity.jpeg
+image: ../../images/services/modern-ceramic-basin-gold-tap-wooden-vanity.jpeg
 alt: White round ceramic countertop basin with a gold mixer tap, mounted on a
   rustic wooden vanity unit in a contemporary bathroom.
-imageHero: /images/services/bathroom-tap-running-water-plumbing-repair-brighton.jpg
+imageHero: ../../images/services/bathroom-tap-running-water-plumbing-repair-brighton.jpg
 altHero: Close-up of a bathroom tap running water into a sink.
 titleImageHero: Leaking tap repair and plumbing services in Brighton & Hove.
 gallery:
-  - src: /images/services/modern-rainfall-shower-bathroom-installation-brighton-hove.jpg
+  - src: ../../images/services/modern-rainfall-shower-bathroom-installation-brighton-hove.jpg
     alt: Modern rainfall shower head with running water in a tiled bathroom installation.
     title: Bathroom installation & modern shower systems in Brighton & Hove | AC Plumbers Ltd.
-  - src: /images/services/kitchen-mixer-tap-replacement-leak-repair-brighton.jpg
+  - src: ../../images/services/kitchen-mixer-tap-replacement-leak-repair-brighton.jpg
     alt: Kitchen mixer tap running water over a double sink.
-  - src: /images/services/vaillant-boiler-installation-brighton.jpg
+  - src: ../../images/services/vaillant-boiler-installation-brighton.jpg
     alt: Vaillant combi boiler and unvented hot water cylinder installed in a utility cupboard by AC Plumbers Ltd. in Brighton
     title: Vaillant combi boiler and unvented hot water cylinder installed in a utility cupboard by AC Plumbers Ltd. in Brighton
 tags:

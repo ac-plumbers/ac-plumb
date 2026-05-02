@@ -4,24 +4,24 @@ description: "Gas safety checks and CP12 certificates for homeowners and landlor
 paragraph: All work is carried out with safety, efficiency, and compliance as
   our top priority, giving you complete peace of mind.
 sortedOrder: 5
-image: /images/services/gas-boiler-burner-blue-flame-inspection.jpeg
+image: ../../images/services/gas-boiler-burner-blue-flame-inspection.jpeg
 alt: Gas boiler burner with blue flames during inspection – efficient combustion
   by AC Plumbers Ltd. Brighton
-imageHero: /images/services/gas-boiler-burner-blue-flame-inspection.jpeg
+imageHero: ../../images/services/gas-boiler-burner-blue-flame-inspection.jpeg
 altHero: Gas boiler burner with blue flames during inspection – efficient
   combustion by AC Plumbers Ltd. Brighton
 titleImageHero: Efficient Boiler Combustion – Blue Flame Inspection by AC
   Plumbers Ltd. Brighton
 gallery:
-  - src: /images/services/gas-boiler-burner-blue-flame-repair-servicing-brighton.jpg
+  - src: ../../images/services/gas-boiler-burner-blue-flame-repair-servicing-brighton.jpg
     alt: Gas boiler burner with blue flame and ignition electrodes during operation.
     title: Gas boiler burner with blue flame and ignition electrodes during operation.
-  - src: /images/services/viessmann-gas-boiler-burner-brighton.jpg
+  - src: ../../images/services/viessmann-gas-boiler-burner-brighton.jpg
     alt: Close-up view of a Viessmann gas boiler burner with blue flame inside the
       combustion chamber, showing advanced heating technology.
     title: Viessmann Gas Boiler Burner Technology – Efficient Heating in Brighton |
       AC Plumbers Ltd.
-  - src: /images/services/blue-gas-burner-flame-gas-safety-check-cp12-brighton-hove.webp
+  - src: ../../images/services/blue-gas-burner-flame-gas-safety-check-cp12-brighton-hove.webp
     alt: Blue gas burner flame showing safe combustion during a gas safety check.
     title: Gas safety checks (CP12) & boiler servicing in Brighton & Hove | AC
       Plumbers Ltd.

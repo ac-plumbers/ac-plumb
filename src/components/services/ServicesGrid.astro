@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Text from "../fundations/elements/Text.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   services: CollectionEntry<"services">[];
@@ -23,13 +24,14 @@ const sortedServices = [...services].sort(
 
           {image && (
             <div class="aspect-3/4 overflow-hidden bg-neutral-100">
-              <img
+              <Image
                 src={image}
                 alt={imageAlt}
+                widths={[400, 600, 800]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                format="webp"
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
-                width="600"
-                height="800"
               />
             </div>
           )}

@@ -6,14 +6,14 @@ paragraph: Air source heat pumps extract heat from the outside air and transfer
   they can efficiently deliver warmth while using significantly less energy than
   conventional gas systems.
 sortedOrder: 6
-image: /images/services/vaillant-air-source-heat-pump-brighton-installation.jpeg
+image: ../../images/services/vaillant-air-source-heat-pump-brighton-installation.jpeg
 alt: Outdoor Vaillant air source heat pump on anti-vibration feet beside a
   garden wall, installed by AC Plumbers Ltd. in Brighton.
-imageHero: /images/services/vaillant-air-source-heat-pump-installation-brighton-hove.png
+imageHero: ../../images/services/vaillant-air-source-heat-pump-installation-brighton-hove.png
 altHero: Vaillant air source heat pump installed outside a home for energy-efficient heating.
 titleImageHero: Air source heat pump installation in Brighton & Hove | Renewable heating experts
 gallery:
-  - src: /images/services/vaillant-air-source-heat-pump-modern-home-installation-brighton-hove.webp
+  - src: ../../images/services/vaillant-air-source-heat-pump-modern-home-installation-brighton-hove.webp
     alt: Vaillant air source heat pump installed outside a modern home for low-carbon heating.
     title: Air source heat pump installation & servicing in Brighton & Hove | AC Plumbers Ltd.
 # - src: /images/services/boiler-condensate-trap-service-inspection-brighton-ac-plumbers.jpg

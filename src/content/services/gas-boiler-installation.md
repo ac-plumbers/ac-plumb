@@ -2,20 +2,20 @@
 title: Boiler Installations
 description: "AC Plumbers Ltd. supply and install gas boilers across Brighton & Hove. Combi, system & conventional boilers fitted by Gas Safe registered engineers. Call for a free quote."
 sortedOrder: 1
-image: "/images/services/viessmann-boiler-installation-copper-pipework-brighton-hove.jpeg"
+image: ../../images/services/viessmann-boiler-installation-copper-pipework-brighton-hove.jpeg
 alt: "Viessmann boiler installation with exposed copper pipework and controls in Brighton & Hove."
 titleImage: "Viessmann boiler installation & servicing in Brighton & Hove | AC Plumbers Ltd."
-imageHero: "/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg"
+imageHero: ../../images/services/viessmann-boiler-installation-utility-room-brighton.jpeg
 altHero: "Viessmann boiler installation with labelled copper pipework and Altecnic pressure gauge inside utility unit"
 titleImageHero: "Viessmann Boiler Installation in Utility Room – AC Plumbers Ltd. Brighton"
 gallery:
-  - src: "/images/services/vaillant-boiler-installation-copper-pipes-brighton.jpeg"
+  - src: ../../images/services/vaillant-boiler-installation-copper-pipes-brighton.jpeg
     alt: "Vaillant boiler installation with copper pipework and pressure gauge in Brighton home"
     title: "Vaillant Boiler Installed with Filter and Pressure Control – AC Plumbers Ltd. Brighton"
-  - src: "/images/services/viessmann-boiler-internal-view-components-brighton.jpeg"
+  - src: ../../images/services/viessmann-boiler-internal-view-components-brighton.jpeg
     alt: "Internal view of Viessmann boiler showing expansion vessel and heat exchanger"
     title: "Inside a Viessmann Boiler – High-Efficiency Components Installed by AC Plumbers Ltd. Brighton"
-  - src: "/images/services/viessmann-boiler-closeup-brighton-installation.jpeg"
+  - src: ../../images/services/viessmann-boiler-closeup-brighton-installation.jpeg
     alt: "Close-up of Viessmann boiler controls and copper pipe installation with magnetic filter"
     title: "Precision Boiler Installation with Viessmann Controls and Magnetic Filter – AC Plumbers Ltd. Brighton"
 tags:

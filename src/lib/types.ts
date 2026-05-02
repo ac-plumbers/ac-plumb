@@ -13,13 +13,15 @@ export type ServiceFaq = {
   answer: string;
 };
 
+import type { ImageMetadata } from 'astro';
+
 export type ServiceFrontmatter = {
   title: string;
   description?: string;
   paragraph?: string;
   price?: number;
-  image?: string;
-  imageHero?: string;
+  image?: ImageMetadata;
+  imageHero?: ImageMetadata;
   altHero?: string;
   titleImageHero?: string;
   category?: string;
@@ -35,7 +37,7 @@ export type ServiceFrontmatter = {
   process?: ServiceStep[];
   faqs?: ServiceFaq[];
   gallery?: Array<{
-    src: string;
+    src: ImageMetadata;
     alt: string;
     title?: string;
   }>;

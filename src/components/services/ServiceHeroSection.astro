@@ -5,18 +5,19 @@ import Breadcrumb from '../fundations/elements/Breadcrumb.astro';
 import { BadgeCheck, Camera } from 'lucide-vue-next';
 import GetAQuote from '../fundations/elements/GetAQuote.astro';
 import Badge from '../fundations/elements/Badge.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 type Props = {
   title: string;
   description?: string;
-  image: string;
+  image: ImageMetadata;
   alt?: string;
   intro?: string;
   slug?: string;
 };
 const { title, description, image, alt, intro, slug } = Astro.props;
 
-// Provide fallback alt text for better accessibility
 const imageAlt =
   alt && alt.trim() !== '' ? alt : `${title} service background image`;
 ---
@@ -28,24 +29,16 @@ const imageAlt =
   role='banner'
   aria-labelledby='service-hero-title'>
   <div class='absolute inset-0 opacity-40' aria-hidden='true'>
-    <picture>
-      <source
-        srcset={image
-          .replace('/images/services/', '/images/services/optimized/')
-          .replace(/\.(jpg|jpeg|png)$/i, '-400w.webp')}
-        type='image/webp'
-      />
-      <img
-        src={image}
-        alt={imageAlt}
-        class='h-full w-full object-cover'
-        role='presentation'
-        loading='eager'
-        width='1920'
-        height='600'
-        decoding='async'
-      />
-    </picture>
+    <Image
+      src={image}
+      alt={imageAlt}
+      widths={[400, 800, 1200, 1920]}
+      sizes='100vw'
+      format='webp'
+      class='h-full w-full object-cover'
+      loading='eager'
+      decoding='async'
+    />
   </div>
   <div class='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
     <div class='flex flex-col items-center text-center'>

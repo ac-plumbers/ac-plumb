@@ -3,56 +3,57 @@ import { glob } from "astro/loaders";
 
 const services = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/services" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-    paragraph: z.string().optional(),
-    sortedOrder: z.number().optional(),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      paragraph: z.string().optional(),
+      sortedOrder: z.number().optional(),
 
-    image: z.string().optional(),
-    alt: z.string().optional(),
-    titleImage: z.string().optional(),
-    imageHero: z.string().optional(),
-    altHero: z.string().optional(),
-    titleImageHero: z.string().optional(),
+      image: image().optional(),
+      alt: z.string().optional(),
+      titleImage: z.string().optional(),
+      imageHero: image().optional(),
+      altHero: z.string().optional(),
+      titleImageHero: z.string().optional(),
 
-    category: z.string().optional(),
-    tags: z.array(z.string()).default([]),
+      category: z.string().optional(),
+      tags: z.array(z.string()).default([]),
 
-    featured: z.boolean().default(false),
+      featured: z.boolean().default(false),
 
-    intro: z.string().optional(),
-    benefits: z.array(z.string()).default([]),
-    specialties: z.array(z.string()).default([]),
+      intro: z.string().optional(),
+      benefits: z.array(z.string()).default([]),
+      specialties: z.array(z.string()).default([]),
 
-    features: z
-      .array(
-        z.object({
-          title: z.string(),
-          description: z.string().optional(),
-        })
-      )
-      .default([]),
+      features: z
+        .array(
+          z.object({
+            title: z.string(),
+            description: z.string().optional(),
+          })
+        )
+        .default([]),
 
-    faqs: z
-      .array(
-        z.object({
-          question: z.string(),
-          answer: z.string().optional(),
-        })
-      )
-      .default([]),
+      faqs: z
+        .array(
+          z.object({
+            question: z.string(),
+            answer: z.string().optional(),
+          })
+        )
+        .default([]),
 
-    gallery: z
-      .array(
-        z.object({
-          src: z.string(),
-          alt: z.string(),
-          title: z.string().optional(),
-        })
-      )
-      .optional(),
-  }),
+      gallery: z
+        .array(
+          z.object({
+            src: image(),
+            alt: z.string(),
+            title: z.string().optional(),
+          })
+        )
+        .optional(),
+    }),
 });
 
 const areas = defineCollection({

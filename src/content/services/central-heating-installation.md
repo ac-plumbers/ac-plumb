@@ -12,23 +12,23 @@ paragraph: One of the most important steps in maintaining a heating system is
   existing system, or plan for long-term efficiency, we provide tailored
   solutions to meet your needs
 sortedOrder: 4
-image: /images/services/vaillant-smart-thermostat-sensocomfort-brighton.webp
+image: ../../images/services/vaillant-smart-thermostat-sensocomfort-brighton.png
 alt: Vaillant sensoCOMFORT smart thermostat digital display showing 21°C,
   installed by AC Plumbers Ltd. in Brighton for central heating control.
-imageHero: /images/services/smart-thermostat-app-home-heating-control-brighton-hove.jpg
+imageHero: ../../images/services/smart-thermostat-app-home-heating-control-brighton-hove.jpg
 altHero: Smart thermostat app controlling home heating temperature in a modern living room.
 titleImageHero: Smart heating controls & thermostat installation in Brighton & Hove
 gallery:
-  - src: /images/services/vaillant-smart-thermostat-heating-controls-app-brighton-hove.jpg
+  - src: ../../images/services/vaillant-smart-thermostat-heating-controls-app-brighton-hove.jpg
     alt: Vaillant smart thermostat and mobile app controlling home heating temperature.
     title: Smart thermostat installation & heating controls in Brighton & Hove | AC Plumbers Ltd.
-  - src: /images/services/central-heating-power-flush-brighton.jpeg
+  - src: ../../images/services/central-heating-power-flush-brighton.jpeg
     alt:
       Power flushing a central heating system using twin filters and precision
       pipework – AC Plumbers Brighton
     title: Professional Central Heating Power Flush in Brighton – Improve System
       Efficiency
-  - src: /images/services/victorian-cast-iron-radiator-installation-hove.jpeg
+  - src: ../../images/services/victorian-cast-iron-radiator-installation-hove.jpeg
     alt: Freestanding ornate cast iron radiator with antique-style detailing
     title:
       Victorian-Style Cast Iron Radiator Installation – AC Plumbers Designer
