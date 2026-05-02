@@ -18,6 +18,18 @@
 
 ---
 
+## Image Pipeline
+
+See [IMAGES.md](./IMAGES.md) for full documentation.
+
+- **Source of truth:** `src/images/services/` — always add/edit images here
+- **Never edit** `public/images/services/` directly — it is auto-generated at build time
+- `public/images/services/` — original files served to the browser (galleries, listings, about page)
+- `public/images/services/optimized/` — WebP 400w variants used **only** by `ServiceHeroSection.astro` for hero backgrounds
+- The prebuild script (`scripts/copy-images.js`) handles the copy and WebP generation automatically
+
+---
+
 ## Coding Conventions
 
 - Reuse existing components before creating new ones.
