@@ -17,14 +17,12 @@ const description =
 const keywords =
   'plumbing services, heating, boiler, repair, installation, Brighton, AC Plumbers Ltd.';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? BUSINESS_CONFIG.website).href;
-const ogImage = `${BUSINESS_CONFIG.website}/og/service-og-1200x630.png`;
 ---
 
 <BaseLayout
   title={title}
   description={description}
   keywords={keywords}
-  canonical={canonicalURL}
-  ogImage={ogImage}>
+  canonical={canonicalURL}>
   <slot />
 </BaseLayout>
