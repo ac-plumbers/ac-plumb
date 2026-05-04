@@ -21,7 +21,6 @@ export interface BusinessContact {
   vatNumber?: string;
   companyNumber?: string;
   paymentMethods?: string[];
-
 }
 
 export const BUSINESS_CONFIG: BusinessContact = {
@@ -34,19 +33,20 @@ export const BUSINESS_CONFIG: BusinessContact = {
     street: "21j Campbell Road",
     city: "Brighton",
     postcode: "BN1 4QD",
-    country: "GB"
+    country: "GB",
   },
   geo: {
     latitude: "50.8225",
-    longitude: "-0.1372"
+    longitude: "-0.1372",
   },
   serviceRadius: "50000",
   website: "https://acplumb.co.uk",
-  ogImage: "https://acplumb.co.uk/og/ac-plumbers-ltd-signature-1200x630.jpg",
+  ogImage:
+    "https://acplumb.co.uk/og/ac-plumbers-ltd-brighton-plumbing-heating-renewable-services-og-image.png",
   logoImage: "https://acplumb.co.uk/og/ac-plumbers-ltd-logo-brighton.png",
   vatNumber: "300995607",
   companyNumber: "10187057",
-  paymentMethods: [ "Bank Transfer"]
+  paymentMethods: ["Bank Transfer"],
 };
 // Helper functions for accessibility and consistency
 export const formatPhoneForDisplay = (phone: string): string => {
@@ -56,7 +56,6 @@ export const formatPhoneForDisplay = (phone: string): string => {
 export const formatPhoneForTel = (phone: string): string => {
   return phone;
 };
-
 
 export const getFullAddress = (): string => {
   const { address } = BUSINESS_CONFIG;
