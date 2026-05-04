@@ -7,6 +7,7 @@ const services = defineCollection({
     z.object({
       title: z.string(),
       description: z.string().optional(),
+      badge: z.string().optional(),
       paragraph: z.string().optional(),
       sortedOrder: z.number().optional(),
 
@@ -31,7 +32,7 @@ const services = defineCollection({
           z.object({
             title: z.string(),
             description: z.string().optional(),
-          })
+          }),
         )
         .default([]),
 
@@ -40,7 +41,7 @@ const services = defineCollection({
           z.object({
             question: z.string(),
             answer: z.string().optional(),
-          })
+          }),
         )
         .default([]),
 
@@ -50,7 +51,7 @@ const services = defineCollection({
             src: image(),
             alt: z.string(),
             title: z.string().optional(),
-          })
+          }),
         )
         .optional(),
     }),
@@ -76,7 +77,7 @@ const areas = defineCollection({
         z.object({
           question: z.string(),
           answer: z.string().optional(),
-        })
+        }),
       )
       .default([]),
     specificContent: z.string().optional(),

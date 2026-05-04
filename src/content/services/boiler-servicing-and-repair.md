@@ -1,6 +1,7 @@
 ---
 title: Boiler Servicing & Repair
 description: "Expert boiler servicing and repair in Brighton & Hove. Gas Safe registered engineers diagnose and fix all faults fast. Book your annual service with AC Plumbers Ltd. today."
+badge: "Boiler Service and Repair"
 paragraph: "Regular servicing also helps to maintain your manufacturer’s warranty and ensures your boiler complies with current safety standards.Whether your boiler is brand new or several years old, our experienced team will make sure it’s running at its best, giving you complete peace of mind throughout the year.Contact AC Plumbers Ltd. today to book your annual boiler service in Brighton & Hove.When your boiler breaks down, you need a fast and reliable repair service you can trust. At AC Plumbers Ltd., our Gas Safe registered engineers provide expert boiler repair services across Brighton & Hove and the surrounding areas.Whether you’re dealing with a complete boiler breakdown, unusual noises, loss of heating, or hot water issues, our experienced team is ready to diagnose and fix the problem quickly and efficiently."
 sortedOrder: 2
 image: ../../images/services/combi-boiler-servicing-maintenance-visit-tools-brighton-ac-plumbers.png

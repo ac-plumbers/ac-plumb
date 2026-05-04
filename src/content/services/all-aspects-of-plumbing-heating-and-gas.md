@@ -1,6 +1,7 @@
 ---
 title: "Plumbing Services "
 description: "AC Plumbers Ltd. provide trusted plumbing services across Brighton & Hove. From leaks and taps to full installations — residential and commercial. Contact us to book."
+badge: "Plumbing"
 sortedOrder: 3
 image: ../../images/services/modern-ceramic-basin-gold-tap-wooden-vanity.jpeg
 alt: White round ceramic countertop basin with a gold mixer tap, mounted on a

@@ -13,11 +13,12 @@ export type ServiceFaq = {
   answer: string;
 };
 
-import type { ImageMetadata } from 'astro';
+import type { ImageMetadata } from "astro";
 
 export type ServiceFrontmatter = {
   title: string;
   description?: string;
+  badge?: string;
   paragraph?: string;
   price?: number;
   image?: ImageMetadata;

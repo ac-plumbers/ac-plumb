@@ -1,6 +1,7 @@
 ---
 title: Air Source Heat Pumps
 description: "Air source heat pump installation in Brighton & Hove by AC Plumbers Ltd. Reduce energy bills with renewable heating. Get expert advice and a free quote today."
+badge: "Heat Pump"
 paragraph: Air source heat pumps extract heat from the outside air and transfer
   it inside your home to provide heating and hot water. Even in cold weather,
   they can efficiently deliver warmth while using significantly less energy than
@@ -71,8 +72,7 @@ faqs:
       typically produces three to four units of heat. This makes them
       significantly more efficient than conventional gas or oil heating systems.
   - question: Can I get a grant for installing an air source heat pump?
-    answer:
-      Yes. Homeowners in England and Wales may be eligible for the Boiler
+    answer: Yes. Homeowners in England and Wales may be eligible for the Boiler
       Upgrade Scheme, which provides a grant of up to £7,500. To qualify, the
       installation must be carried out by an MCS-certified installer — which
       we are.

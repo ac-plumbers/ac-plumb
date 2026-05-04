@@ -1,6 +1,7 @@
 ---
 title: Heating Services
 description: "Central heating installation, repair and maintenance in Brighton & Hove. Radiators, TRVs, power flushing and smart controls. Call AC Plumbers Ltd. for a free consultation."
+badge: "Heating"
 paragraph: One of the most important steps in maintaining a heating system is
   flushing the system. Over time, sludge, rust, and debris can build up in pipes
   and radiators, reducing efficiency and causing uneven heating. Our thorough

@@ -15,11 +15,18 @@ type Props = {
   alt?: string;
   intro?: string;
   slug?: string;
+  badge?: string;
 };
-const { title, description, image, alt, intro, slug } = Astro.props;
+const { title, description, image, alt, intro, slug, badge } = Astro.props;
 
 const imageAlt =
   alt && alt.trim() !== '' ? alt : `${title} service background image`;
+const normalizedBadge = badge?.trim();
+const badgeText = normalizedBadge
+  ? normalizedBadge.toLowerCase().endsWith('engineer')
+    ? normalizedBadge
+    : `${normalizedBadge} Engineer`
+  : undefined;
 ---
 
 <section
@@ -52,10 +59,13 @@ const imageAlt =
         ]}
       />
       <!-- badge -->
-      <!-- TODO:: Add a badge field to each service's markdown frontmatter, pass it as a prop to ServiceHeroSection.  -->
-      <Badge text='Gas Safe Registered Engineers' iconSize='lg' class='mt-4'>
-        <BadgeCheck slot='left-icon' aria-hidden='true' />
-      </Badge>
+      {
+        badgeText && (
+          <Badge text={badgeText} iconSize='lg' class='mt-4'>
+            <BadgeCheck slot='left-icon' aria-hidden='true' />
+          </Badge>
+        )
+      }
       <Text
         tag='h1'
         variant='display2XL'
