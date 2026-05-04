@@ -7,6 +7,7 @@ import AboutHero from '@/components/about/AboutHero.astro';
 import AboutFounderStory from '@/components/about/AboutFounderStory.astro';
 import AboutValues from '@/components/about/AboutValues.astro';
 import MainCta from '@/components/global/MainCta.astro';
+import ServiceCertifications from '@/components/services/ServiceCertifications.astro';
 // SEO
 const title =
   "About AC Plumbers Ltd. | Meet Antonio Catalano, Brighton's Trusted Plumber";
@@ -30,12 +31,11 @@ const author = 'AC Plumbers Ltd.';
   </a>
 
   <main id='main-content' class='isolate'>
-    <!--TODO:: cambiare colore di fondo -->
     <!-- TODO:: cambiare hero  -->
-    <!-- TODO:: togliere numeri en la section values -->
-    <!-- TODO:: togliele pills from founderstory -->
     <AboutHero />
     <AboutFounderStory />
+    <!-- Certifications -->
+    <ServiceCertifications />
     <AboutValues />
     <MainCta />
   </main>
