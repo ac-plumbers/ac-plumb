@@ -1,2 +1,6 @@
 User-agent: *
 Disallow: /
+
+
+
+Sitemap: https://acplumb.co.uk/sitemap-index.xml

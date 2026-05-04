@@ -30,19 +30,9 @@ const servicesLinks = [
   { href: '/landlords', label: 'Landlord Services' },
 ];
 
-const areasLinks = [
-  { href: '/areas-we-serve/brighton', label: 'Brighton' },
-  { href: '/areas-we-serve/hove', label: 'Hove' },
-  { href: '/areas-we-serve/rottingdean', label: 'Rottingdean' },
-  { href: '/areas-we-serve/saltdean', label: 'Saltdean' },
-  { href: '/areas-we-serve/peacehaven', label: 'Peacehaven' },
-  { href: '/areas-we-serve/lewes', label: 'Lewes' },
-  { href: '/areas-we-serve/hassocks', label: 'Hassocks' },
-  { href: '/areas-we-serve/portslade', label: 'Portslade' },
-  { href: '/areas-we-serve/southwick', label: 'Southwick' },
-  { href: '/areas-we-serve/shoreham-by-sea', label: 'Shoreham by Sea' },
-  { href: '/areas-we-serve/lancing', label: 'Lancing' },
-  { href: '/areas-we-serve', label: 'See All Areas' },
+const areaNames = [
+  'Brighton', 'Hove', 'Rottingdean', 'Saltdean', 'Peacehaven',
+  'Lewes', 'Hassocks', 'Portslade', 'Southwick', 'Shoreham by Sea', 'Lancing',
 ];
 
 const companyLinks = [
@@ -115,13 +105,16 @@ import logo from '@/images/logo/ac-plumbers-logo-brighton.png';
       <div>
         <Text tag='p' variant='textXS' class='font-medium text-white uppercase'>Areas We Serve</Text>
         <ul class='mt-6 space-y-4'>
-          {areasLinks.map(link => (
+          {areaNames.map(name => (
             <li>
-              <a href={link.href} class='text-base-200 block w-fit transition hover:text-accent-300'>
-                {link.label}
-              </a>
+              <span class='text-base-200 block w-fit'>{name}</span>
             </li>
           ))}
+          <li>
+            <a href='/areas-we-serve' class='block w-fit text-accent-300 transition hover:text-accent-200'>
+              See All Areas →
+            </a>
+          </li>
         </ul>
       </div>
       <!-- Company Column -->

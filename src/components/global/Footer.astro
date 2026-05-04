@@ -32,19 +32,9 @@ const servicesLinks = [
   { href: '/landlords', label: 'Landlord Services' },
 ];
 
-const areasLinks = [
-  { href: '/areas-we-serve/brighton', label: 'Brighton' },
-  { href: '/areas-we-serve/hove', label: 'Hove' },
-  { href: '/areas-we-serve/rottingdean', label: 'Rottingdean' },
-  { href: '/areas-we-serve/saltdean', label: 'Saltdean' },
-  { href: '/areas-we-serve/peacehaven', label: 'Peacehaven' },
-  { href: '/areas-we-serve/lewes', label: 'Lewes' },
-  { href: '/areas-we-serve/hassocks', label: 'Hassocks' },
-  { href: '/areas-we-serve/portslade', label: 'Portslade' },
-  { href: '/areas-we-serve/southwick', label: 'Southwick' },
-  { href: '/areas-we-serve/shoreham-by-sea', label: 'Shoreham by Sea' },
-  { href: '/areas-we-serve/lancing', label: 'Lancing' },
-  { href: '/areas-we-serve', label: 'See All Areas' },
+const areaNames = [
+  'Brighton', 'Hove', 'Rottingdean', 'Saltdean', 'Peacehaven',
+  'Lewes', 'Hassocks', 'Portslade', 'Southwick', 'Shoreham by Sea', 'Lancing',
 ];
 
 const companyLinks = [
@@ -144,7 +134,7 @@ import Text from '../fundations/elements/Text.astro';
           </ul>
         </div>
 
-        <!-- NEW: Areas We Serve Column -->
+        <!-- Areas We Serve Column -->
         <div>
           <Text
             tag='h3'
@@ -153,19 +143,22 @@ import Text from '../fundations/elements/Text.astro';
             Areas We Serve
           </Text>
           <ul role='list' class='mt-6 space-y-4 font-lato'>
-            {
-              areasLinks.map(link => (
-                <li>
-                  <Text
-                    tag='a'
-                    href={link.href}
-                    variant='textBase'
-                    class='font-lato text-white transition hover:text-accent-400 focus-visible:text-primary-600'>
-                    {link.label}
-                  </Text>
-                </li>
-              ))
-            }
+            {areaNames.map(name => (
+              <li>
+                <Text tag='span' variant='textBase' class='font-lato text-white'>
+                  {name}
+                </Text>
+              </li>
+            ))}
+            <li>
+              <Text
+                tag='a'
+                href='/areas-we-serve'
+                variant='textBase'
+                class='font-lato text-accent-400 transition hover:text-accent-300 focus-visible:text-primary-600'>
+                See All Areas →
+              </Text>
+            </li>
           </ul>
         </div>
 
