@@ -42,7 +42,7 @@ export const BUSINESS_CONFIG: BusinessContact = {
   serviceRadius: "50000",
   website: "https://acplumb.co.uk",
   ogImage:
-    "https://acplumb.co.uk/og/ac-plumbers-ltd-brighton-plumbing-heating-renewable-services-og-image.png",
+    "https://acplumb.co.uk/og/ac-plumbers-ltd-brighton-plumbing-heating-renewable-services-og-image.jpg",
   logoImage: "https://acplumb.co.uk/og/ac-plumbers-ltd-logo-brighton.png",
   vatNumber: "300995607",
   companyNumber: "10187057",
