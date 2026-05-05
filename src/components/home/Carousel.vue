@@ -39,7 +39,7 @@ function handleFocusIn() {
 }
 
 function handleFocusOut(e: FocusEvent) {
-  const wrapper = (e.currentTarget as HTMLElement);
+  const wrapper = e.currentTarget as HTMLElement;
   if (!wrapper.contains(e.relatedTarget as Node)) {
     autoplayPlugin.play();
   }
