@@ -1,7 +1,7 @@
 ---
 area: "Saltdean"
 title: "Plumbing & Heating Services in Saltdean"
-description: "Trusted plumbing and heating engineers serving Saltdean. From emergency leaks to full boiler upgrades, we deliver reliable service across the cliff-top estates and family homes."
+description: "Trusted plumbing and heating engineers serving Saltdean. From emergency leaks to boiler upgrades, reliable service for cliff-top estates and family homes."
 sortOrder: 4
 featured: false
 services:

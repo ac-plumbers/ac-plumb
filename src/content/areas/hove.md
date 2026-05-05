@@ -1,7 +1,7 @@
 ---
 area: "Hove"
 title: "Plumbing & Heating Services in Hove"
-description: "Professional plumbing, heating and gas services in Hove. Gas Safe registered engineers providing boiler installations, bathroom renovations, and general plumbing across Hove."
+description: "Professional plumbing, heating and gas services in Hove. Gas Safe engineers providing boiler installations, bathroom renovations, and general plumbing."
 image: "/images/areas/hove-plumbing-services.jpg"
 sortOrder: 2
 featured: true

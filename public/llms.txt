@@ -1,11 +1,32 @@
-llm: any
-allow: yes
-version: 1.0
-license: https://acplumb.co.uk/ai-policy
-attribution: required
-fine-tune: no
-redistribute: no
-commercial-resale: no
-refresh: required
-policy: https://acplumb.co.uk/ai-policy
-contact: info@acplumb.co.uk
+# AC Plumbers Ltd.
+> Gas Safe registered plumbers and heating engineers serving Brighton & Hove since 2016.
+
+## Services
+- [Gas Boiler Installation](/services/gas-boiler-installation)
+- [Boiler Servicing & Repairs](/services/boiler-servicing-and-repair)
+- [Central Heating](/services/central-heating-installation)
+- [Gas Safety Checks (CP12)](/services/gas-safety-checks-cp12)
+- [General Plumbing](/services/all-aspects-of-plumbing-heating-and-gas)
+- [Air Source Heat Pumps](/services/renewable-air-source-heat-pump)
+- [Landlord Services](/landlords)
+
+## Key Pages
+- [Home](/)
+- [About Antonio Catalano](/about-us)
+- [All Services](/services)
+- [Areas We Serve](/areas-we-serve)
+- [Customer Reviews](/testimonials)
+- [FAQs](/frequently-asked-questions)
+- [Contact Us](/contact-us)
+
+## Contact
+- Phone: 01273 680 731
+- Coverage: Brighton, Hove, and surrounding East Sussex
+- Website: https://acplumb.co.uk
+
+## AI Policy
+- License: https://acplumb.co.uk/ai-policy
+- Attribution: required
+- Fine-tuning: not permitted
+- Redistribution: not permitted
+- Contact: info@acplumb.co.uk

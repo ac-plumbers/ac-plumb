@@ -1,7 +1,7 @@
 ---
 area: "Rottingdean"
 title: "Plumbing & Heating Services in Rottingdean"
-description: "Reliable plumbing, heating, and gas services for homes and businesses in Rottingdean. Gas Safe registered engineers providing responsive repairs, boiler care, and bathroom projects along the coast."
+description: "Reliable plumbing, heating and gas services in Rottingdean. Gas Safe engineers providing responsive repairs, boiler care, and bathroom projects along the coast."
 sortOrder: 3
 featured: false
 services:

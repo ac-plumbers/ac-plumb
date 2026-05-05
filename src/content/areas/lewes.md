@@ -1,7 +1,7 @@
 ---
 area: "Lewes"
 title: "Plumbing & Heating Services in Lewes"
-description: "Expert plumbing and heating services across Lewes. Our Gas Safe engineers support heritage homes, new builds, and commercial premises with careful planning and dependable workmanship."
+description: "Expert plumbing and heating services across Lewes. Gas Safe engineers support heritage homes, new builds, and commercial premises with dependable workmanship."
 image: "/images/services/2.jpeg"
 sortOrder: 6
 featured: false

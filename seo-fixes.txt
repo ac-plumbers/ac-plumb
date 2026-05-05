@@ -22,8 +22,8 @@ EXECUTION ORDER AT A GLANCE
   [X] 2.1  Suppress canonical on noindex   Seo.astro + TitleOpenGraph.astro
   [X] 2.2  Extended robots directives      Seo.astro
   [X] 3.1  Fix JSON-LD schema              Schema.astro
-  [ ] 4.1  Add /_astro/* cache rule        netlify.toml
-  [ ] 4.2  Add No-Vary-Search header       netlify.toml
+  [X] 4.1  Add /_astro/* cache rule        netlify.toml
+  [X] 4.2  Add No-Vary-Search header       netlify.toml
   [ ] 5.1  Add metadata length limits      src/content/config.ts
   [ ] 6.1  Rewrite llms.txt               public/llms.txt
 

@@ -1,7 +1,7 @@
 ---
 area: "Lancing"
 title: "Plumbing & Heating Services in Lancing"
-description: "Skilled plumbing and heating support for Lancing residents and businesses. From emergency callouts to full system upgrades, we deliver dependable workmanship backed by Gas Safe registration."
+description: "Plumbing and heating support for Lancing residents and businesses. From emergency callouts to full system upgrades, backed by Gas Safe registration."
 sortOrder: 11
 featured: false
 services:

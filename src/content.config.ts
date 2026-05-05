@@ -5,8 +5,8 @@ const services = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/services" }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
-      description: z.string().optional(),
+      title: z.string().min(10).max(60),
+      description: z.string().min(50).max(160).optional(),
       badge: z.string().optional(),
       paragraph: z.string().optional(),
       sortedOrder: z.number().optional(),
@@ -61,8 +61,8 @@ const areas = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/areas" }),
   schema: z.object({
     area: z.string(),
-    title: z.string(),
-    description: z.string(),
+    title: z.string().min(10).max(60),
+    description: z.string().min(50).max(160),
     image: z.string().optional(),
     sortOrder: z.number().optional(),
     featured: z.boolean().default(false),
@@ -89,8 +89,8 @@ const legal = defineCollection({
   schema: z.object({
     page: z.string(),
     pubDate: z.date().optional(),
-    title: z.string(),
-    description: z.string(),
+    title: z.string().min(10).max(60),
+    description: z.string().min(50).max(160),
     keywords: z.string().optional(),
     author: z.string().optional(),
     datePublished: z.string().optional(),

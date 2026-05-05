@@ -1,6 +1,6 @@
 ---
 title: Air Source Heat Pumps
-description: "Air source heat pump installation in Brighton & Hove by AC Plumbers Ltd. Reduce energy bills with renewable heating. Get expert advice and a free quote today."
+description: "Air source heat pump installation in Brighton & Hove by AC Plumbers Ltd. Reduce energy bills with renewable heating. Free quote available today."
 badge: "Heat Pump"
 paragraph: Air source heat pumps extract heat from the outside air and transfer
   it inside your home to provide heating and hot water. Even in cold weather,

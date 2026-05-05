@@ -1,7 +1,7 @@
 ---
 area: "Shoreham by Sea"
 title: "Plumbing & Heating Services in Shoreham by Sea"
-description: "Professional plumbing, heating, and gas engineering across Shoreham by Sea. We support coastal homes, riverside apartments, and local businesses with responsive service and clear pricing."
+description: "Professional plumbing, heating and gas services across Shoreham by Sea. Coastal homes, riverside apartments, and local businesses served with clear pricing."
 sortOrder: 10
 featured: false
 services:

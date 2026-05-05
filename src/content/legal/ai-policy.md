@@ -2,7 +2,7 @@
 page: AI Policy
 pubDate: 2026-02-28
 title: "AI & Large Language Model Policy - AC Plumbers Ltd. Brighton"
-description: "This AI & Large Language Model Policy outlines how AC Plumbers Ltd. Brighton uses artificial intelligence and large language models in our services and operations."
+description: "AC Plumbers Ltd. Brighton AI policy — how we use artificial intelligence and large language models in our services and operations."
 keywords: "AI Policy, Large Language Models, AC Plumbers Ltd., Brighton, Artificial Intelligence, Data Privacy"
 author: "AC Plumbers Ltd."
 datePublished: "2026-02-28"
