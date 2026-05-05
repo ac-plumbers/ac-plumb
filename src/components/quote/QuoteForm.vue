@@ -329,7 +329,7 @@
         <div class="flex w-full justify-between gap-4">
           <button
             type="button"
-            class="rounded-lg bg-gray-100 px-5 py-2 font-semibold text-gray-700 shadow-sm transition hover:bg-gray-200 focus:ring-2 focus:ring-primary-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            class="rounded-lg bg-gray-100 px-5 py-2 font-semibold text-gray-700 shadow-sm transition hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-primary-300 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
             :disabled="step === 1"
             @click="back"
             :aria-label="
@@ -343,7 +343,7 @@
           <button
             v-if="step < 4"
             type="button"
-            class="rounded-lg bg-primary-600 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 focus:outline-none"
+            class="rounded-lg bg-primary-600 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-primary-700 focus-visible:ring-2 focus-visible:ring-primary-300 focus:outline-none"
             @click="next"
             :aria-label="`Continue to step ${step + 1}: ${stepLabels[step]}`"
           >
@@ -352,7 +352,7 @@
           <button
             v-else
             type="submit"
-            class="rounded-lg bg-accent-500 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-accent-600 focus:ring-2 focus:ring-accent-300 focus:outline-none"
+            class="rounded-lg bg-accent-500 px-5 py-2 font-semibold text-white shadow-sm transition hover:bg-accent-600 focus-visible:ring-2 focus-visible:ring-accent-300 focus:outline-none"
             aria-label="Submit quote request"
           >
             Get My Quote
@@ -425,7 +425,7 @@
       </div>
 
       <button
-        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-background-00 shadow-md transition hover:bg-primary-700 focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:outline-none"
+        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-6 py-3 font-semibold text-background-00 shadow-md transition hover:bg-primary-700 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 focus:outline-none"
         @click="resetForm"
         aria-label="Start a new quote request"
       >

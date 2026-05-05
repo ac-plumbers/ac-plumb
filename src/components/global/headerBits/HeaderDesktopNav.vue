@@ -118,11 +118,9 @@
               Heating Services
             </a>
           </li>
-          <li
-            class="my-1 border-t border-gray-200"
-            role="separator"
-            aria-hidden="true"
-          ></li>
+          <li role="presentation" class="my-1">
+            <hr class="border-gray-200" aria-hidden="true" />
+          </li>
           <li>
             <a
               href="/services/gas-safety-checks-cp12"

@@ -91,7 +91,7 @@ const separatorClass = {
               <>
                 <a
                   href={item.href}
-                  class={`${isLast ? currentClass : linkClass} ${textSize} underline-offset-2 hover:underline focus:outline-none focus:underline`}
+                  class={`${isLast ? currentClass : linkClass} ${textSize} underline-offset-2 hover:underline focus:outline-none focus-visible:underline`}
                   itemprop='item'
                   aria-current={isLast ? 'page' : undefined}>
                   <span itemprop='name'>{item.label}</span>

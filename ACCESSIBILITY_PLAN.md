@@ -91,8 +91,8 @@
 
 > File: [src/components/home/Hero.astro](src/components/home/Hero.astro) lines 100–158
 
-- [ ] Delete the entire `<script>` block — it references `#open-menu-button` etc. which no longer exist
-- [ ] Confirm no console errors on home page after removal
+- [x] Delete the entire `<script>` block — it references `#open-menu-button` etc. which no longer exist
+- [x] Confirm no console errors on home page after removal
 
 ---
 
@@ -100,8 +100,8 @@
 
 > Files: [src/components/quote/QuoteForm.vue](src/components/quote/QuoteForm.vue) · [src/components/about/AboutContactCTA.astro](src/components/about/AboutContactCTA.astro) · [src/components/fundations/elements/Breadcrumb.astro](src/components/fundations/elements/Breadcrumb.astro)
 
-- [ ] On **buttons and links only**, change `focus:ring-*` → `focus-visible:ring-*` (leave form inputs as-is — ring on all focus is correct there)
-- [ ] Verify: mouse click on a button no longer shows a ring; Tab to the same button does
+- [x] On **buttons and links only**, change `focus:ring-*` → `focus-visible:ring-*` (leave form inputs as-is — ring on all focus is correct there)
+- [x] Verify: mouse click on a button no longer shows a ring; Tab to the same button does
 
 ---
 
@@ -109,8 +109,8 @@
 
 > File: [src/components/global/headerBits/HeaderDesktopNav.vue](src/components/global/headerBits/HeaderDesktopNav.vue) line 122
 
-- [ ] Change `<li role="separator" aria-hidden="true">` to `<li role="presentation"><hr class="border-gray-200" aria-hidden="true" /></li>`
-- [ ] Visual divider must look identical
+- [x] Change `<li role="separator" aria-hidden="true">` to `<li role="presentation"><hr class="border-gray-200" aria-hidden="true" /></li>`
+- [x] Visual divider must look identical
 
 ---
 
