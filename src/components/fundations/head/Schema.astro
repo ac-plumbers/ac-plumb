@@ -18,8 +18,9 @@ const {
   image = BUSINESS_CONFIG.ogImage,
   logoImage = BUSINESS_CONFIG.logoImage,
   datePublished = "2017-01-04T21:17:16+00:00",
-  dateModified = "2023-09-11T13:56:53+00:00",
 } = Astro.props;
+
+const dateModified = new Date().toISOString().split('T')[0];
 ---
 
 <AstroSchema
@@ -44,7 +45,7 @@ const {
         potentialAction: [{ "@type": "ReadAction", target: [url] }],
       },
       {
-        "@type": "LocalBusiness",
+        "@type": "Plumber",
         "@id": "https://acplumb.co.uk/#organization",
         name: "AC Plumbers, Heating & Bathrooms",
         url,
@@ -73,7 +74,14 @@ const {
           caption: description,
         },
         image: { "@id": "https://acplumb.co.uk/#/schema/logo/image/" },
-        openingHours: "Mo-Fr 08:00-18:00",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "08:00",
+            closes: "18:00",
+          },
+        ],
         sameAs: [
           "https://www.checkatrade.com/trades/ACPlumbingAndHeatingServices",
           "https://www.instagram.com/ac_plumbing_heating_bathrooms/",

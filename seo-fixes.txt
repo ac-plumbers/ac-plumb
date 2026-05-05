@@ -18,10 +18,10 @@ EXECUTION ORDER AT A GLANCE
 
   DO NOW (safe while noindex is active)
   [X] 1.3  Add sitemap integration         astro.config.mjs
-  [ ] 1.4  Fix OG image path               public/og/ + Seo.astro
-  [ ] 2.1  Suppress canonical on noindex   Seo.astro + TitleOpenGraph.astro
-  [ ] 2.2  Extended robots directives      Seo.astro
-  [ ] 3.1  Fix JSON-LD schema              Schema.astro
+  [X] 1.4  Fix OG image path               public/og/ + Seo.astro
+  [X] 2.1  Suppress canonical on noindex   Seo.astro + TitleOpenGraph.astro
+  [X] 2.2  Extended robots directives      Seo.astro
+  [X] 3.1  Fix JSON-LD schema              Schema.astro
   [ ] 4.1  Add /_astro/* cache rule        netlify.toml
   [ ] 4.2  Add No-Vary-Search header       netlify.toml
   [ ] 5.1  Add metadata length limits      src/content/config.ts

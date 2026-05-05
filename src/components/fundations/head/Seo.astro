@@ -31,8 +31,9 @@ const ogImageType = ogImage.endsWith(".png")
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonical} />
+{!noindex && <link rel="canonical" href={canonical} />}
 {noindex && <meta name="robots" content="noindex, nofollow" />}
+{!noindex && <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />}
 
 <!-- Open Graph -->
 <meta property="og:type" content={ogType} />
