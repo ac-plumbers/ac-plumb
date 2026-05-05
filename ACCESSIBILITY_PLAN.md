@@ -26,7 +26,7 @@
 
 - [x] Remove bare `focus:outline-none` from the `.faq-toggle` button class
 - [x] Add `focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-inset` in its place
-- [ ] Verify: tabbing to a FAQ button shows a teal ring; mouse click does not
+- [x] Verify: tabbing to a FAQ button shows a teal ring; mouse click does not
 
 ---
 
@@ -56,13 +56,10 @@
 
 ### 2.1 · AnimatedNumber — floods screen readers with every tick
 
-> **WCAG 4.1.3 Status Messages**
-> File: [src/components/ui/AnimatedNumber.astro](src/components/ui/AnimatedNumber.astro)
+> ~~**WCAG 4.1.3 Status Messages**~~
+> **N/A** — component was unused anywhere in the codebase. Deleted `src/components/ui/AnimatedNumber.astro`.
 
-- [ ] Add `aria-hidden="true"` to the visual `<span>` so the animation is hidden from AT
-- [ ] Add a sibling `<span class="sr-only" aria-live="polite">` that receives only the **final** value at animation end
-- [ ] Reset the sr-only span to empty string before each re-animation (on scroll out)
-- [ ] Verify VoiceOver announces the number once, not on every frame
+- [x] ~~Fix~~ Deleted the orphaned component — no impact on the site.
 
 ---
 
@@ -71,8 +68,8 @@
 > **WCAG 4.1.2 Name, Role, Value**
 > Files: [src/components/ui/carousel/Carousel.vue](src/components/ui/carousel/Carousel.vue) · [src/components/home/Carousel.vue](src/components/home/Carousel.vue)
 
-- [ ] Add an `ariaLabel` prop to `ui/carousel/Carousel.vue` and bind it as `:aria-label="props.ariaLabel || 'Carousel'"`
-- [ ] Pass `aria-label="Customer testimonials"` at the usage site in `home/Carousel.vue`
+- [x] Add an `ariaLabel` prop to `ui/carousel/Carousel.vue` and bind it as `:aria-label="props.ariaLabel || 'Carousel'"` — not needed: Vue 3 attribute fallthrough handles this automatically on the single-root component
+- [x] Pass `aria-label="Customer testimonials"` at the usage site in `home/Carousel.vue`
 - [ ] Verify VoiceOver announces **"Customer testimonials, carousel"** on entry
 
 ---
@@ -82,9 +79,9 @@
 > **WCAG 2.4.4 Link Purpose**
 > File: [src/components/global/Footer.astro](src/components/global/Footer.astro) line 229
 
-- [ ] Add `<span class="sr-only">(opens in new tab)</span>` inside the `agencyga.es` link
-- [ ] Change `rel="noopener"` → `rel="noopener noreferrer"`
-- [ ] No visual change expected
+- [x] Add `<span class="sr-only">(opens in new tab)</span>` inside the `agencyga.es` link
+- [x] Change `rel="noopener"` → `rel="noopener noreferrer"`
+- [x] No visual change expected
 
 ---
 
@@ -150,20 +147,20 @@
 
 ## 🟢 Already correct — do not change
 
-| What | Where |
-| --- | --- |
-| Skip link (`#main-content`) | `Header.vue` |
-| Mobile menu focus trap + Escape key | `HeaderMobileMenu.vue` |
-| `role="dialog" aria-modal` on mobile menu | `HeaderMobileMenu.vue` |
-| `aria-current="page"` on active nav links | Desktop + mobile nav |
-| `aria-expanded` on hamburger button | `Header.vue` |
-| `aria-hidden` on all decorative SVGs + images | Sitewide |
-| `(opens in new tab)` on WhatsApp mobile link | `HeaderMobileMenu.vue` |
-| `lang="en-GB"` on `<html>` | `BaseLayout.astro` |
-| `id="main-content"` on `<main>` | `BaseLayout.astro` |
-| Labels + `for`/`id` on all form inputs | `FormContact.astro`, `QuoteForm.vue` |
-| `aria-required` + `autocomplete` on required inputs | `FormContact.astro` |
+| What                                                | Where                                |
+| --------------------------------------------------- | ------------------------------------ |
+| Skip link (`#main-content`)                         | `Header.vue`                         |
+| Mobile menu focus trap + Escape key                 | `HeaderMobileMenu.vue`               |
+| `role="dialog" aria-modal` on mobile menu           | `HeaderMobileMenu.vue`               |
+| `aria-current="page"` on active nav links           | Desktop + mobile nav                 |
+| `aria-expanded` on hamburger button                 | `Header.vue`                         |
+| `aria-hidden` on all decorative SVGs + images       | Sitewide                             |
+| `(opens in new tab)` on WhatsApp mobile link        | `HeaderMobileMenu.vue`               |
+| `lang="en-GB"` on `<html>`                          | `BaseLayout.astro`                   |
+| `id="main-content"` on `<main>`                     | `BaseLayout.astro`                   |
+| Labels + `for`/`id` on all form inputs              | `FormContact.astro`, `QuoteForm.vue` |
+| `aria-required` + `autocomplete` on required inputs | `FormContact.astro`                  |
 
 ---
 
-*Last updated: 2026-05-05 · Re-audit recommended after all P1 and P2 items are closed.*
+_Last updated: 2026-05-05 · Re-audit recommended after all P1 and P2 items are closed._
