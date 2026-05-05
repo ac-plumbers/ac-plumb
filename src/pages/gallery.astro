@@ -216,62 +216,42 @@ const categories = [
 </BaseLayout>
 
 <script>
-  // Gallery filtering functionality
-  document.addEventListener('DOMContentLoaded', () => {
+  function initGallery() {
     const filterButtons = document.querySelectorAll('.category-filter');
     const galleryItems = document.querySelectorAll('.gallery-item');
-
-    // Set initial state (all items visible)
     let currentCategory = 'all';
 
-    // Add click event to filter buttons
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
-        // Get category from data attribute
         const category = button.getAttribute('data-category');
         if (category === currentCategory) return;
 
-        // Update active button
         filterButtons.forEach(btn => {
           if (btn.getAttribute('data-category') === category) {
-            btn.classList.add(
-              'bg-primary-500',
-              'text-white',
-              'border-primary-500',
-            );
-            btn.classList.remove(
-              'bg-white',
-              'text-gray-700',
-              'border-gray-300',
-            );
+            btn.classList.add('bg-primary-500', 'text-white', 'border-primary-500');
+            btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
           } else {
-            btn.classList.remove(
-              'bg-primary-500',
-              'text-white',
-              'border-primary-500',
-            );
+            btn.classList.remove('bg-primary-500', 'text-white', 'border-primary-500');
             btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
           }
         });
 
-        // Show/hide gallery items
         galleryItems.forEach(item => {
           const el = item as HTMLElement;
-          if (
-            category === 'all' ||
-            el.getAttribute('data-category') === category
-          ) {
-            el.style.display = 'block';
-          } else {
-            el.style.display = 'none';
-          }
+          el.style.display =
+            category === 'all' || el.getAttribute('data-category') === category
+              ? 'block'
+              : 'none';
         });
 
-        // Update current category
         currentCategory = category || 'all';
       });
     });
-  });
+  }
+
+  // astro:page-load fires on both initial load and every View Transition.
+  // Module scripts run once per session, so no stacking guard is needed.
+  document.addEventListener('astro:page-load', initGallery);
 </script>
 
 <style>

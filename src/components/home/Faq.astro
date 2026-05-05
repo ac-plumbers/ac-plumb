@@ -5,11 +5,7 @@ import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import { ArrowRight } from '@lucide/astro';
 /* Contento for SEO */
-import {
-  BUSINESS_CONFIG,
-  formatPhoneForDisplay,
-  formatPhoneForTel,
-} from '@/utils/businessConfig';
+import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 ---
 
 <section
@@ -141,7 +137,7 @@ import {
                 <h3>
                   <button
                     id={buttonId}
-                    class='faq-toggle flex w-full items-center justify-between p-5 text-lg font-semibold text-primary-800 transition hover:bg-background-50 focus:outline-none'
+                    class='faq-toggle flex w-full items-center justify-between p-5 text-lg font-semibold text-primary-800 transition hover:bg-background-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-inset'
                     aria-expanded='false'
                     aria-controls={panelId}>
                     <span>{faq.question}</span>
@@ -178,35 +174,28 @@ import {
 </section>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggles = document.querySelectorAll('.faq-toggle');
+  function initFaq() {
+    var toggles = document.querySelectorAll('.faq-toggle');
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var allToggles = document.querySelectorAll('.faq-toggle');
+        var faqItem = toggle.closest('.faq-item');
+        var content = faqItem ? faqItem.querySelector('.faq-content') : null;
+        var arrow = toggle.querySelector('svg');
+        var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const faqItem = toggle.closest('.faq-item');
-        const content = faqItem ? faqItem.querySelector('.faq-content') : null;
-        const arrow = toggle.querySelector('svg');
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-        // Close all other items
-        toggles.forEach(otherToggle => {
-          if (
-            otherToggle !== toggle &&
-            otherToggle.getAttribute('aria-expanded') === 'true'
-          ) {
-            const otherFaqItem = otherToggle.closest('.faq-item');
-            const otherContent = otherFaqItem
-              ? otherFaqItem.querySelector('.faq-content')
-              : null;
+        allToggles.forEach(function (otherToggle) {
+          if (otherToggle !== toggle && otherToggle.getAttribute('aria-expanded') === 'true') {
+            var otherFaqItem = otherToggle.closest('.faq-item');
+            var otherContent = otherFaqItem ? otherFaqItem.querySelector('.faq-content') : null;
             if (otherContent) otherContent.classList.add('hidden');
-            const otherArrow = otherToggle.querySelector('svg');
+            var otherArrow = otherToggle.querySelector('svg');
             if (otherArrow) otherArrow.style.transform = '';
             otherToggle.classList.remove('bg-neutral-50');
             otherToggle.setAttribute('aria-expanded', 'false');
           }
         });
 
-        // Toggle the clicked item
         if (isExpanded) {
           toggle.setAttribute('aria-expanded', 'false');
           if (content) content.classList.add('hidden');
@@ -220,5 +209,13 @@ import {
         }
       });
     });
-  });
+  }
+
+  // astro:page-load fires on both the initial load and every View Transition.
+  // The window guard prevents stacking a second listener if this script tag
+  // happens to execute again on the same session.
+  if (!window.__faqReady) {
+    window.__faqReady = true;
+    document.addEventListener('astro:page-load', initFaq);
+  }
 </script>
