@@ -39,7 +39,7 @@
               ? 'bg-primary-600 text-background-100 shadow-sm'
               : 'text-text-00 hover:text-primary-600',
           ]"
-          :aria-expanded="showServicesDropdown"
+          :aria-expanded="showServicesDropdown ? 'true' : 'false'"
           aria-controls="services-dropdown"
           @click="toggleServicesDropdown"
           @keydown.escape="closeServicesDropdown"
@@ -60,6 +60,7 @@
               href="/services"
               :aria-current="isActiveLink('/services') ? 'page' : undefined"
               class="block border-b border-gray-100 px-4 py-2 text-sm font-medium text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               All Services
             </a>
@@ -73,6 +74,7 @@
                   : undefined
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               Gas Boiler Installation
             </a>
@@ -86,6 +88,7 @@
                   : undefined
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               Boiler Servicing &amp; Repairs
             </a>
@@ -101,6 +104,7 @@
                   : undefined
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               Plumbing
             </a>
@@ -114,6 +118,7 @@
                   : undefined
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               Heating Services
             </a>
@@ -130,6 +135,7 @@
                   : undefined
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               Gas Safety Checks (CP12)
             </a>
@@ -143,6 +149,7 @@
                   : undefined
               "
               class="block px-4 py-2 text-sm text-text-00 hover:bg-accent-500/10 hover:text-primary-600 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:outline-none focus-visible:ring-inset"
+              @click="closeServicesDropdown"
             >
               Air Source Heat Pumps
             </a>

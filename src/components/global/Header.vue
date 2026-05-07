@@ -84,25 +84,27 @@ function closeMenu() {
   nextTick(() => openMenuButton.value?.focus());
 }
 
+function onPageLoad() {
+  currentPath.value = window.location.pathname;
+}
+
+function onBeforeSwap() {
+  isOpen.value = false;
+}
+
 onMounted(() => {
   if (!currentPath.value && typeof window !== "undefined") {
     currentPath.value = window.location.pathname;
   }
   window.addEventListener("scroll", handleScroll);
-  // astro:page-load fires on every Astro View Transition navigation
-  // (needed because transition:persist keeps this component alive across pages)
-  document.addEventListener("astro:page-load", () => {
-    currentPath.value = window.location.pathname;
-  });
-  // Reset menu state before Astro swaps the body — otherwise isOpen stays true
-  // but the teleported DOM gets destroyed, breaking subsequent opens
-  document.addEventListener("astro:before-swap", () => {
-    isOpen.value = false;
-  });
+  document.addEventListener("astro:page-load", onPageLoad);
+  document.addEventListener("astro:before-swap", onBeforeSwap);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
+  document.removeEventListener("astro:page-load", onPageLoad);
+  document.removeEventListener("astro:before-swap", onBeforeSwap);
 });
 
 function handleScroll() {
