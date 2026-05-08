@@ -17,6 +17,7 @@ import { ClientRouter } from 'astro:transitions';
 import HeaderVue from '@/components/global/Header.vue';
 import StickyCallButton from '@/components/global/StickyCallButton.vue';
 import Footer from '@/components/global/Footer.astro';
+import Header from '@/components/global/Header.astro';
 
 const {
   title,
@@ -57,7 +58,8 @@ const currentPath = Astro.url.pathname;
     <ClientRouter />
   </head>
   <body class='h-full overflow-x-hidden'>
-    <HeaderVue client:load currentPath={currentPath} transition:persist />
+    <Header />
+    <!-- <HeaderVue client:load currentPath={currentPath} transition:persist /> -->
     <main id='main-content' class='mx-auto mt-20 flex min-h-screen flex-col'>
       <slot />
     </main>

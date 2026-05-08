@@ -9,18 +9,7 @@
       style="list-style: none; margin: 0; padding: 0"
     >
       <li>
-        <a
-          href="/"
-          :aria-current="isActiveLink('/') ? 'page' : undefined"
-          :class="[
-            'rounded-md px-2 py-1 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 focus-visible:outline-none',
-            isActiveLink('/')
-              ? 'bg-primary-600 text-background-100 shadow-sm'
-              : 'text-text-00 hover:text-primary-600',
-          ]"
-        >
-          Home
-        </a>
+        <NavLink href="/" :isActiveLink="isActiveLink">Home</NavLink>
       </li>
 
       <!-- Services Dropdown -->
@@ -158,32 +147,12 @@
       </li>
 
       <li>
-        <a
-          href="/about-us"
-          :aria-current="isActiveLink('/about-us') ? 'page' : undefined"
-          :class="[
-            'rounded-md px-2 py-1 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 focus-visible:outline-none',
-            isActiveLink('/about-us')
-              ? 'bg-primary-600 text-background-100 shadow-sm'
-              : 'text-text-00 hover:text-primary-600',
-          ]"
-        >
-          About
-        </a>
+        <NavLink href="/about-us" :isActiveLink="isActiveLink">About</NavLink>
       </li>
       <li>
-        <a
-          href="/contact-us"
-          :aria-current="isActiveLink('/contact-us') ? 'page' : undefined"
-          :class="[
-            'rounded-md px-2 py-1 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 focus-visible:outline-none',
-            isActiveLink('/contact-us')
-              ? 'bg-primary-600 text-background-100 shadow-sm'
-              : 'text-text-00 hover:text-primary-600',
-          ]"
+        <NavLink href="/contact-us" :isActiveLink="isActiveLink"
+          >Contact</NavLink
         >
-          Contact
-        </a>
       </li>
     </ul>
   </nav>
@@ -192,6 +161,11 @@
 <script setup>
 import { ref } from "vue";
 import IconMenuServices from "../../icons/IconMenuServices.vue";
+import NavLink from "./NavLink.vue";
+
+function onPathChange() {
+  requestAnimationFrame(() => snapPill(true));
+}
 
 const props = defineProps({
   isActiveLink: { type: Function, required: true },
@@ -215,3 +189,4 @@ function handleServicesBlur(e) {
   }
 }
 </script>
+<style></style>
