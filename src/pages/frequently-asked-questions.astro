@@ -3,17 +3,11 @@
 import HomeLayout from '@/layouts/HomeLayout.astro';
 // Components
 import Text from '@/components/fundations/elements/Text.astro';
-import ContactSupportCTA from '@/components/ContactSupportCTA.astro';
+import Link from '@/components/fundations/elements/Link.astro';
+import MainCta from '@/components/global/MainCta.astro';
 // Utils
-import { BUSINESS_CONFIG } from '@/utils/businessConfig';
-import {
-  Phone,
-  Mail,
-  ShieldAlert,
-  Info,
-  CirclePoundSterling,
-  Wrench,
-} from '@lucide/astro';
+import { BUSINESS_CONFIG, formatPhoneForTel } from '@/utils/businessConfig';
+import { ShieldAlert, Info, CirclePoundSterling, Wrench } from '@lucide/astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 
 // Organized FAQ data by category
@@ -30,10 +24,10 @@ const faqCategories = [
       {
         question: 'Are your plumbers certified?',
         answer:
-          'Yes! All AC Plumbers engineers are fully Gas Safe registered, professionally qualified, and insured. Our team undergoes regular training to stay current with the latest UK standards, safety regulations, and best practices in the industry.',
+          'Yes! All AC Plumbers Ltd. engineers are fully Gas Safe registered, professionally qualified, and insured. Our team undergoes regular training to stay current with the latest UK standards, safety regulations, and best practices in the industry.',
       },
       {
-        question: 'What areas do you serve?',
+        question: 'What areas of Brighton and Hove do you cover?',
         answer:
           'We serve Brighton, Hove, and surrounding Sussex areas including Rottingdean, Saltdean, Peacehaven, Lewes, Hassocks, Portslade, Southwick, Shoreham by Sea, and Lancing. Response times typically range from 15-40 minutes depending on your location. Not sure if we cover your area? Contact us to check!',
       },
@@ -44,9 +38,9 @@ const faqCategories = [
     icon: ShieldAlert,
     faqs: [
       {
-        question: 'Do you offer emergency services?',
+        question: 'Do you offer emergency plumbing in Brighton?',
         answer:
-          'Absolutely. We provide 24/7 emergency plumbing response for urgent issues like burst pipes, major leaks, blocked drains, and heating system failures. Call us any time for immediate assistance.',
+          'Absolutely. We provide 24/7 emergency plumbing response across Brighton, Hove, and Sussex for urgent issues like burst pipes, major leaks, blocked drains, and heating system failures. Call us any time for immediate assistance.',
       },
       {
         question: 'How quickly can you respond?',
@@ -105,131 +99,100 @@ const faqCategories = [
 ];
 ---
 
-<!-- TODO:: FINISH THE PAGE -->
 <HomeLayout
-  title='Frequently Asked Questions - AC Plumbers Ltd. Brighton'
-  description='Find answers to common questions about our plumbing, heating, and gas services in Brighton & Hove. Expert advice on emergency repairs, installations, and maintenance.'>
-  <main id='maincontent' tabindex='-1'>
-    <!-- Hero Section -->
-    <section
-      class='mt-24 bg-linear-to-b from-primary-600 to-white py-16 md:py-20'>
-      <Wrapper variant='standard'>
-        <div class='mx-auto max-w-3xl text-center'>
-          <Text tag='h1' variant='displayLG' class='text-primary-900'>
-            Frequently Asked Questions
-          </Text>
-          <Text tag='p' variant='textXL' class='mt-6 text-primary-700'>
-            Find answers to common questions about our plumbing, heating, and
-            gas services. Can't find what you're looking for?{' '}
-            <a
-              href='/contact-us'
-              class='font-semibold text-accent-600 underline hover:text-accent-700'>
-              Contact our team
-            </a>{' '}
-            for expert advice.
-          </Text>
+  title='Plumbing & Heating FAQ Brighton | AC Plumbers Ltd.'
+  description='Find answers to common plumbing, heating, and gas questions from our Brighton & Hove engineers. Call or contact us for expert advice today.'>
+  <!-- Hero Section -->
+  <section class='bg-neutral-50 py-16 md:py-20'>
+    <Wrapper variant='standard'>
+      <div class='mx-auto max-w-3xl text-center'>
+        <Text tag='h1' variant='displayLG' class='text-text-00'>
+          Frequently Asked Questions
+        </Text>
+        <Text tag='p' variant='textXL' class='mt-6 text-neutral-700'>
+          Find answers to common questions about our plumbing, heating, and gas
+          services. Can't find what you're looking for?{' '}
+          <a
+            href='/contact-us'
+            class='font-semibold text-primary-600 underline hover:text-primary-700'>
+            Contact our team
+          </a>{' '}
+          for expert advice.
+        </Text>
 
-          <!-- Quick Contact Cards -->
-          <div class='mt-10 grid gap-4 sm:grid-cols-2'>
-            <a
-              href={`tel:${BUSINESS_CONFIG.mobilePhone.replace(/\s+/g, '')}`}
-              class='flex items-center gap-3 rounded-lg border-2 border-primary-200 bg-white p-4 transition-all hover:border-primary-400 hover:shadow-md'>
-              <div class='rounded-lg bg-primary-100 p-3'>
-                <Phone class='h-5 w-5 text-primary-600' />
-              </div>
-              <div class='text-left'>
-                <div class='text-sm font-medium text-primary-600'>Call Us</div>
-                <div class='font-semibold text-primary-900'>
-                  {BUSINESS_CONFIG.mobilePhone}
-                </div>
-              </div>
-            </a>
-
-            <a
-              href={`mailto:${BUSINESS_CONFIG.email}`}
-              class='flex items-center gap-3 rounded-lg border-2 border-primary-200 bg-white p-4 transition-all hover:border-primary-400 hover:shadow-md'>
-              <div class='rounded-lg bg-accent-100 p-3'>
-                <Mail class='h-5 w-5 text-accent-600' />
-              </div>
-              <div class='text-left'>
-                <div class='text-sm font-medium text-primary-600'>Email Us</div>
-                <div class='font-semibold text-primary-900'>
-                  {BUSINESS_CONFIG.email}
-                </div>
-              </div>
-            </a>
-          </div>
+        <div class='mt-10 flex flex-wrap items-center justify-center gap-4'>
+          <Link
+            href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+            variant='default-button'
+            size='lg'>
+            Call Us Now
+          </Link>
+          <Link href='/contact-us' variant='accent-button' size='lg'>
+            Contact Us
+          </Link>
         </div>
-      </Wrapper>
-    </section>
+      </div>
+    </Wrapper>
+  </section>
 
-    <!-- FAQ Categories -->
-    <section class='bg-white py-16' aria-label='FAQ Categories'>
-      <Wrapper variant='standard'>
-        <div class='space-y-12'>
-          {
-            faqCategories.map(({ category, icon: Icon, faqs }) => (
-              <div class='rounded-2xl border border-neutral-200 bg-linear-to-br from-neutral-50 to-white p-8 shadow-sm'>
-                {/* Category Header */}
-                <div class='mb-6 flex items-center gap-3'>
-                  <div class='rounded-lg bg-primary-100 p-2'>
-                    <Icon class='h-6 w-6 text-primary-600' />
-                  </div>
-                  <Text tag='h2' variant='displayMD' class='text-primary-900'>
-                    {category}
-                  </Text>
+  <!-- FAQ Categories -->
+  <section class='bg-white py-16' aria-label='FAQ Categories'>
+    <Wrapper variant='full'>
+      <div class='grid grid-cols-1 gap-8 lg:grid-cols-2'>
+        {
+          faqCategories.map(({ category, icon: Icon, faqs }) => (
+            <article class='h-full rounded-2xl border border-neutral-200 bg-linear-to-br from-neutral-50 to-white p-8 shadow-sm'>
+              {/* Category Header */}
+              <div class='mb-6 flex items-center gap-3'>
+                <div class='rounded-lg bg-primary-100 p-2'>
+                  <Icon class='h-6 w-6 text-primary-600' aria-hidden='true' />
                 </div>
-
-                {/* FAQ Items */}
-                <div class='space-y-4'>
-                  {faqs.map(faq => (
-                    <details class='group overflow-hidden rounded-xl border border-neutral-200 bg-white transition-all duration-200'>
-                      <summary class='flex cursor-pointer items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden'>
-                        <span class='text-lg font-semibold text-primary-900'>
-                          {faq.question}
-                        </span>
-                        <svg
-                          class='h-5 w-5 shrink-0 text-primary-600 transition-transform duration-200 group-open:rotate-180'
-                          fill='none'
-                          stroke='currentColor'
-                          viewBox='0 0 24 24'
-                          aria-hidden='true'>
-                          <path
-                            stroke-linecap='round'
-                            stroke-linejoin='round'
-                            stroke-width='2'
-                            d='M19 9l-7 7-7-7'
-                          />
-                        </svg>
-                      </summary>
-                      <div class='border-t border-neutral-200 px-5 py-4'>
-                        <Text
-                          tag='p'
-                          variant='textBase'
-                          class='text-primary-700'>
-                          {faq.answer}
-                        </Text>
-                      </div>
-                    </details>
-                  ))}
-                </div>
+                <Text tag='h2' variant='displayMD' class='text-text-00'>
+                  {category}
+                </Text>
               </div>
-            ))
-          }
-        </div>
-      </Wrapper>
-    </section>
 
-    <!-- Still Have Questions CTA -->
-    <section class='bg-neutral-50 py-16'>
-      <Wrapper variant='standard'>
-        <ContactSupportCTA
-          heading='Still have questions?'
-          message="If you can't find the answer you're looking for, our expert team is ready to help with personalized advice and support."
-          buttonText='Contact Us Now'
-          buttonHref='/contact-us'
-        />
-      </Wrapper>
-    </section>
-  </main>
+              {/* FAQ Items */}
+              <div class='space-y-4'>
+                {faqs.map(faq => (
+                  <details class='group overflow-hidden rounded-xl border border-neutral-200 bg-white transition-all duration-200'>
+                    <summary class='flex cursor-pointer items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:outline-none [&::-webkit-details-marker]:hidden'>
+                      <span class='text-lg font-semibold text-text-00'>
+                        {faq.question}
+                      </span>
+                      <svg
+                        class='h-5 w-5 shrink-0 text-primary-600 transition-transform duration-200 group-open:rotate-180'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        aria-hidden='true'>
+                        <path
+                          stroke-linecap='round'
+                          stroke-linejoin='round'
+                          stroke-width='2'
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </summary>
+                    <div class='border-t border-neutral-200 px-5 py-4'>
+                      <Text tag='p' variant='textBase' class='text-neutral-700'>
+                        {faq.answer}
+                      </Text>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <MainCta
+    body='Still have questions? Our Gas Safe engineers are on hand to help with personalised advice on plumbing, heating, and gas services across Brighton & Hove.'
+    secondaryLinkHref='/contact-us'
+    secondaryLinkLabel='Contact Our Team'
+  />
 </HomeLayout>

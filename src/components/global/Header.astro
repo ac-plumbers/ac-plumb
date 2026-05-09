@@ -172,7 +172,7 @@ const serviceLinks = [
           <div
             class='grid grid-cols-2 divide-x divide-gray-100 border-t border-gray-100 bg-gray-50'>
             <a
-              href='#'
+              href='/about-us'
               class='flex items-center justify-center gap-x-2 p-3 text-sm font-semibold text-text-00 hover:bg-gray-100 hover:text-primary-600'>
               <svg
                 viewBox='0 0 20 20'
@@ -180,14 +180,14 @@ const serviceLinks = [
                 aria-hidden='true'
                 class='size-4 flex-none text-gray-400'>
                 <path
-                  d='M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z'
                   clip-rule='evenodd'
-                  fill-rule='evenodd'></path>
+                  fill-rule='evenodd'
+                  d='M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z'></path>
               </svg>
-              Watch demo
+              How We Work
             </a>
             <a
-              href='#'
+              href={`tel:${phone}`}
               class='flex items-center justify-center gap-x-2 p-3 text-sm font-semibold text-text-00 hover:bg-gray-100 hover:text-primary-600'>
               <svg
                 viewBox='0 0 20 20'
@@ -199,7 +199,7 @@ const serviceLinks = [
                   clip-rule='evenodd'
                   fill-rule='evenodd'></path>
               </svg>
-              Contact sales
+              Call Us Now
             </a>
           </div>
         </div>
@@ -363,14 +363,14 @@ const serviceLinks = [
                     ))
                   }
                   <a
-                    href='#'
+                    href='/about-us'
                     class='block rounded-lg py-2 pr-3 pl-6 text-sm text-gray-600 hover:bg-primary-50 hover:text-primary-700'>
-                    Watch demo
+                    How We Work
                   </a>
                   <a
-                    href='#'
+                    href={`tel:${phone}`}
                     class='block rounded-lg py-2 pr-3 pl-6 text-sm text-gray-600 hover:bg-primary-50 hover:text-primary-700'>
-                    Contact sales
+                    Call Us Now
                   </a>
                 </el-disclosure>
               </div>
