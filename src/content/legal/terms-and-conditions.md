@@ -1,12 +1,12 @@
 ---
 page: Terms and Conditions
-pubDate: 2026-02-28
+pubDate: 2026-05-14
 title: "Terms and Conditions – AC Plumbers Ltd. Brighton"
 description: "Read the terms and conditions for AC Plumbers Ltd. Brighton, including estimates, payments, obligations, and more."
 keywords: "terms and conditions, AC Plumbers Ltd., Brighton, payments, obligations"
 author: "AC Plumbers Ltd."
-datePublished: "2026-02-28"
-dateModified: "2026-02-28"
+datePublished: "2026-05-14"
+dateModified: "2026-05-14"
 ---
 
 For the purposes of these Terms of Business (hereinafter, "Terms"), "us" or "we" shall refer to AC Plumbers Ltd., and "you" shall refer to you, our customer. By requesting and allowing us to carry out works for you, you are confirming your agreement to the Terms below.

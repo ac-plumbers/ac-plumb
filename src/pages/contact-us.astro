@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
@@ -29,52 +29,56 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%
 <BaseLayout title={title} description={description} keywords={keywords}>
   <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
   <section
-    class='relative isolate overflow-hidden'
-    aria-labelledby='contact-hero-heading'
-    data-bg='dark'>
-    <!-- Background image -->
-    <Image
-      src={heroImage}
-      alt=''
-      aria-hidden='true'
-      class='absolute inset-0 -z-20 h-full w-full object-cover object-center'
-      widths={[768, 1280, 1920]}
-      sizes='100vw'
-      loading='eager'
-      fetchpriority='high'
-    />
-    <!-- Dark overlay for text contrast -->
-    <div aria-hidden='true' class='absolute inset-0 -z-10 bg-primary-900/65'>
+    data-bg='dark'
+    class='relative overflow-hidden bg-linear-to-r from-primary-900 to-primary-800 px-2 py-32 sm:px-4 sm:pt-28 sm:pb-24 lg:px-8'
+    aria-labelledby='contact-hero-heading'>
+    <!-- Background image at 40% opacity (matches ServiceHeroSection pattern) -->
+    <div class='absolute inset-0 opacity-40' aria-hidden='true'>
+      <Image
+        src={heroImage}
+        alt=''
+        widths={[768, 1280, 1920]}
+        sizes='100vw'
+        format='webp'
+        class='h-full w-full object-cover object-center'
+        loading='eager'
+        decoding='async'
+      />
     </div>
 
-    <Wrapper variant='standard' class='pt-36 pb-20 sm:pt-52 lg:pt-32 lg:pb-28'>
-      <div class='mx-auto max-w-4xl text-center'>
-        <Text
-          tag='p'
-          variant='textSM'
-          class='inline-flex rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide whitespace-nowrap text-primary-900 uppercase'>
+    <div class='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+      <div class='flex flex-col items-center text-center'>
+        <!-- Kicker -->
+        <p class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
           Brighton &amp; Hove Engineer
-        </Text>
+        </p>
+
+        <!-- Heading -->
         <Text
           tag='h1'
           id='contact-hero-heading'
-          variant='displayLG'
-          class='mt-5 font-bold text-white'>
+          variant='display2XL'
+          class='mt-6 font-bold tracking-tight text-white'>
+          Contact AC Plumbers Ltd.
+        </Text>
+
+        <!-- Gold rule -->
+        <div class='mt-6 h-0.5 w-14 bg-accent-500' aria-hidden='true'></div>
+
+        <!-- Subheading -->
+        <Text tag='p' variant='textXL' class='mt-6 max-w-2xl text-neutral-200'>
           Your trusted local experts in Brighton for all plumbing, heating, and
           gas services. We're here to help with emergencies and planned work.
         </Text>
-        <!-- <Text tag='p' variant='textLG' class='mt-6 text-primary-100'>
-            Your trusted local experts in Brighton for all plumbing, heating,
-            and gas services. We're here to help with emergencies and planned
-            work.
-          </Text> -->
+
+        <!-- CTAs -->
         <div class='mt-10 flex flex-col justify-center gap-4 sm:flex-row'>
           <CallButton variant='accent' size='md' animation='ring' />
           <a
             href={whatsappUrl}
             target='_blank'
             rel='noopener noreferrer'
-            class='text-md inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/40 px-8 py-3 font-medium text-white transition hover:border-white/70 hover:bg-white/10 focus:outline-2 focus:outline-offset-4 focus:outline-white'
+            class='inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/40 px-8 py-3 font-poppins text-sm font-semibold text-white transition hover:border-white/70 hover:bg-white/10 focus:outline-2 focus:outline-offset-4 focus:outline-white'
             aria-label='Contact AC Plumbers via WhatsApp'>
             <svg
               class='h-5 w-5'
@@ -89,7 +93,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%
           </a>
         </div>
       </div>
-    </Wrapper>
+    </div>
   </section>
 
   <!-- ─── Contact Methods ───────────────────────────────────────────────── -->

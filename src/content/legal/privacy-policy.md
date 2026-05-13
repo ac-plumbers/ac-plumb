@@ -1,12 +1,12 @@
 ---
 page: Privacy Policy
-pubDate: 2026-02-28
+pubDate: 2026-05-14
 title: "Privacy Policy - AC Plumbers Ltd. Brighton"
 description: "This Privacy Policy outlines how AC Plumbers Ltd. Brighton collects, uses, and protects your personal information."
 keywords: "Privacy Policy, Data Protection, AC Plumbers Ltd., Brighton, Personal Information"
 author: "AC Plumbers Ltd."
-datePublished: "2026-02-28"
-dateModified: "2026-02-28"
+datePublished: "2026-05-14"
+dateModified: "2026-05-14"
 ---
 
 At AC Plumbers Ltd., your privacy is important to us. We are a plumbing and heating company based in Brighton, serving customers across Brighton, Hove, Lewes, Worthing, and surrounding areas. This policy explains how we collect, use, and protect your personal data.
