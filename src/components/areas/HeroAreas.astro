@@ -1,167 +1,84 @@
 ---
-import {
-  BUSINESS_CONFIG,
-  formatPhoneForDisplay,
-  formatPhoneForTel,
-} from '@/utils/businessConfig';
-import {
-  Phone,
-  ArrowRight,
-  CircleCheck,
-  MapPin,
-  Shield,
-} from 'lucide-vue-next';
-import Text from '../fundations/elements/Text.astro';
-import Link from '../fundations/elements/Link.astro';
-import CallButton from '../fundations/elements/CallButton.astro';
-import GetAQuote from '../fundations/elements/GetAQuote.astro';
+import Text from '@/components/fundations/elements/Text.astro';
+import Wrapper from '@/components/fundations/containers/Wrapper.astro';
+import CallButton from '@/components/fundations/elements/CallButton.astro';
+import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
 ---
 
 <section
-  class='mt-24 bg-linear-to-br from-accent-400 to-white pt-16 pb-16 md:mt-28 md:pt-20 md:pb-20'>
-  <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-    <div class='grid items-center gap-12 lg:grid-cols-2'>
+  class='relative isolate flex min-h-[70vh] items-center overflow-hidden bg-primary-900'
+  aria-labelledby='areas-hero-heading'>
+  <!-- Blur blobs -->
+  <div
+    aria-hidden='true'
+    class='absolute -top-40 -right-40 -z-10 h-[37.5rem] w-[37.5rem] rounded-full bg-secondary-400/10 blur-3xl'>
+  </div>
+  <div
+    aria-hidden='true'
+    class='absolute -bottom-40 left-20 -z-10 h-[25rem] w-[25rem] rounded-full bg-accent-500/10 blur-3xl'>
+  </div>
+
+  <Wrapper variant='standard' class='py-32 sm:py-40'>
+    <!-- Kicker -->
+    <p
+      class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
+      Brighton &amp; Hove
+    </p>
+
+    <!-- Heading -->
+    <Text
+      tag='h1'
+      id='areas-hero-heading'
+      variant='display2XL'
+      class='mt-5 font-poppins font-black tracking-tight text-white'>
+      Areas We Serve
+    </Text>
+
+    <!-- Gold rule -->
+    <div class='mt-7 h-0.5 w-14 bg-accent-500' aria-hidden='true'></div>
+
+    <!-- Subtext -->
+    <Text
+      tag='p'
+      variant='textLG'
+      class='mt-6 max-w-xl font-lato leading-relaxed text-primary-200'>
+      Gas Safe registered engineers covering Brighton, Hove and across East
+      &amp; West Sussex. Fast response times, transparent pricing, no hidden
+      travel fees.
+    </Text>
+
+    <!-- Stats row -->
+    <div
+      class='mt-10 flex flex-wrap items-center gap-6 sm:gap-8'
+      aria-label='Service statistics'>
       <div>
-        <Text tag='h1' variant='displayLG'>Areas We Serve</Text>
-        <Text tag='p' class='mt-6'>
-          Professional plumbing and heating services across Brighton, Hove and
-          surrounding areas with transparent pricing and reliable local service.
-        </Text>
-
-        <!-- Quick stats -->
-        <div class='mt-8 grid grid-cols-2 gap-4 sm:grid-cols-2'>
-          <div class='rounded-lg bg-white p-4 text-center shadow-sm'>
-            <Text
-              tag='span'
-              variant='textXL'
-              class='font-bold text-primary-600'>
-              11+
-            </Text>
-            <Text tag='span' variant='textSM' class='text-gray-600'>
-              Coverage Zones
-            </Text>
-          </div>
-          <div class='rounded-lg bg-white p-4 text-center shadow-sm'>
-            <Text
-              tag='span'
-              variant='textXL'
-              class='font-bold text-primary-600'>
-              100%
-            </Text>
-            <Text tag='span' variant='textSM' class='text-gray-600'>
-              Local Service
-            </Text>
-          </div>
-        </div>
-
-        <div class='mt-8 flex flex-col gap-4 sm:flex-row'>
-          <CallButton variant='gradient' size='lg' class='w-full sm:flex-1' />
-          <GetAQuote
-            variant='secondary'
-            size='lg'
-            iconStyle='send'
-            class='w-full sm:flex-1'
-          />
-        </div>
-
-        <div
-          class='mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600'>
-          <div class='flex items-center gap-2'>
-            <CircleCheck class='h-6 w-6 text-primary-600' aria-hidden='true' />
-            <Text tag='span' variant='textSM' class='text-gray-600'>
-              No hidden travel fees
-            </Text>
-          </div>
-          <div class='flex items-center gap-2'>
-            <CircleCheck class='h-6 w-6 text-primary-600' aria-hidden='true' />
-            <Text tag='span' variant='textSM' class='text-gray-600'>
-              Free quotes & estimates
-            </Text>
-          </div>
-        </div>
+        <span class='font-poppins text-3xl font-black text-white'>11+</span>
+        <p class='font-lato text-xs uppercase tracking-widest text-primary-300'>
+          Areas covered
+        </p>
       </div>
-
-      <div class='relative' data-bg='dark'>
-        <div class='overflow-hidden rounded-2xl bg-white shadow-xl'>
-          <div
-            class='bg-linear-to-r from-primary-600 to-primary-700 p-6 text-white'>
-            <div class='flex items-center gap-3'>
-              <MapPin class='h-6 w-6' aria-hidden='true' />
-              <Text tag='h3' variant='textLG' class='font-bold text-white'>
-                Coverage Areas
-              </Text>
-            </div>
-            <Text tag='p' variant='textSM' class='mt-2 text-primary-100'>
-              Professional service across Sussex
-            </Text>
-          </div>
-
-          <div class='space-y-1 p-6'>
-            <div
-              class='group rounded-lg bg-green-50 p-4 transition-all hover:bg-green-100'>
-              <div class='flex items-center gap-3'>
-                <div
-                  class='h-3 w-3 rounded-full bg-green-500'
-                  aria-hidden='true'>
-                </div>
-                <div>
-                  <Text
-                    tag='p'
-                    variant='textBase'
-                    class='font-semibold text-gray-900'>
-                    Brighton & Hove
-                  </Text>
-                  <Text tag='p' variant='textSM' class='text-gray-600'>
-                    Our primary service area
-                  </Text>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class='group rounded-lg bg-blue-50 p-4 transition-all hover:bg-blue-100'>
-              <div class='flex items-center gap-3'>
-                <div
-                  class='h-3 w-3 rounded-full bg-blue-500'
-                  aria-hidden='true'>
-                </div>
-                <div>
-                  <Text
-                    tag='p'
-                    variant='textBase'
-                    class='font-semibold text-gray-900'>
-                    Coastal Areas
-                  </Text>
-                  <Text tag='p' variant='textSM' class='text-gray-600'>
-                    East & West Sussex coast
-                  </Text>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class='group rounded-lg bg-gray-50 p-4 transition-all hover:bg-gray-100'>
-              <div class='flex items-center gap-3'>
-                <div
-                  class='h-3 w-3 rounded-full bg-gray-500'
-                  aria-hidden='true'>
-                </div>
-                <div>
-                  <Text
-                    tag='p'
-                    variant='textBase'
-                    class='font-semibold text-gray-900'>
-                    Sussex Downs
-                  </Text>
-                  <Text tag='p' variant='textSM' class='text-gray-600'>
-                    Nearby towns & villages
-                  </Text>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class='h-8 w-px bg-primary-600' aria-hidden='true'></div>
+      <div>
+        <span class='font-poppins text-3xl font-black text-white'>15 min</span>
+        <p class='font-lato text-xs uppercase tracking-widest text-primary-300'>
+          Priority response
+        </p>
+      </div>
+      <div class='h-8 w-px bg-primary-600' aria-hidden='true'></div>
+      <div>
+        <span class='font-poppins text-3xl font-black text-white'
+          >Gas Safe</span
+        >
+        <p class='font-lato text-xs uppercase tracking-widest text-primary-300'>
+          Registered
+        </p>
       </div>
     </div>
-  </div>
+
+    <!-- CTAs -->
+    <div class='mt-10 flex flex-wrap gap-4'>
+      <CallButton variant='accent' size='lg' animation='ring' />
+      <GetAQuote variant='outline' size='lg' />
+    </div>
+  </Wrapper>
 </section>
