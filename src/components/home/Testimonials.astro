@@ -102,3 +102,21 @@ const reviews = [...reviewsData.reviews].sort(
     />
   </div>
 </section>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "AC Plumbers Ltd.",
+  "url": "https://acplumb.co.uk",
+  "sameAs": [
+    "https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "10",
+    "bestRating": "10",
+    "worstRating": "1",
+    "ratingCount": "134",
+    "reviewCount": "134"
+  }
+})} />

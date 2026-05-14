@@ -9,7 +9,7 @@ import gasSafe from '@/images/brands/brands-svg/gas-safe-register-logo-certified
 import oftec from '@/images/brands/brands-svg/oftec-registered-logo-heating-certification-1.svg';
 ---
 
-<section class='relative overflow-hidden bg-slate-50 py-16' id='certifications'>
+<section class='relative overflow-hidden bg-slate-50 py-16' id='certifications' aria-labelledby='certifications-heading'>
   <div class='pointer-events-none absolute inset-0'>
     <div
       class='absolute inset-0 bg-linear-to-br from-white via-slate-50 to-slate-200 opacity-100'>
@@ -18,9 +18,10 @@ import oftec from '@/images/brands/brands-svg/oftec-registered-logo-heating-cert
   <div class='relative mx-auto max-w-5xl px-6 lg:px-8'>
     <Text
       tag='h2'
+      id='certifications-heading'
       variant='displaySM'
       class='text-center font-semibold text-primary-900'>
-      Fully Certified & Regulated
+      Gas Safe & Fully Certified Plumbers in Brighton
     </Text>
     <div
       class='mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5'
@@ -57,7 +58,7 @@ import oftec from '@/images/brands/brands-svg/oftec-registered-logo-heating-cert
         width={300}
         height={88}
         src={checktrade}
-        alt='Checkatrade verified tradesperson'
+        alt='AC Plumbers Ltd. on Checkatrade — verified Brighton plumber'
         class='col-span-2 max-h-28 w-full object-contain sm:col-start-2 lg:col-span-1'
         format='svg'
         quality={90}

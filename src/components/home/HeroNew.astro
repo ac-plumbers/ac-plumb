@@ -26,24 +26,34 @@ const heroImages = [
   {
     src: imgHeatPump,
     alt: 'Air source heat pump outdoor unit installed at a Brighton property',
+    title:
+      'Vaillant Air Source Heat Pump Installation – Brighton & Hove | AC Plumbers Ltd.',
   },
   {
     src: rems,
     alt: 'REMS press-fit tool joining copper pipe, professional plumbing installation by AC Plumbers Ltd in Brighton and Hove',
+    title:
+      'REMS Press-Fit Tool for Copper Pipe Installation – Brighton | AC Plumbers Ltd.',
   },
   {
     src: thermostat,
     alt: 'Nest smart thermostat displaying 20 degrees heating temperature installed by AC Plumbers Ltd in Brighton and Hove',
+    title:
+      'Nest Smart Thermostat Installation – Brighton & Hove | AC Plumbers Ltd.',
     /* src: imgThermostat,
     alt: 'Nest smart thermostat setup for efficient heating control', */
   },
   {
     src: gasBolier,
     alt: 'Viessmann gas boiler installation with copper pipework and smart controls, fitted by AC Plumbers Ltd.',
+    title:
+      'Viessmann Gas Boiler Installation – Brighton & Hove | AC Plumbers Ltd.',
   },
   {
     src: imgRadiator,
     alt: 'Cast iron radiator valve fitting and balancing on a home heating system',
+    title:
+      'Compact Cast Iron Radiator Installation – Brighton & Hove | AC Plumbers Ltd.',
   },
 ];
 ---
@@ -100,10 +110,10 @@ const heroImages = [
                 tag='p'
                 variant='textSM'
                 class='inline-flex rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide whitespace-nowrap text-primary-900 uppercase'>
-                Brighton and Hove trusted engineers
+                Gas Safe Registered Engineers
               </Text>
               <!-- Hero heading and text -->
-              <Text
+              <!--  <Text
                 tag='h1'
                 id='hero-heading'
                 variant='displayLG'
@@ -116,13 +126,36 @@ const heroImages = [
                 <br />
                 your trusted local experts in plumbing, heating, gas and renewable
                 energy
-              </Text>
+              </Text> -->
               <Text
+                tag='h1'
+                id='hero-heading'
+                variant='displayLG'
+                class='mt-5 leading-snug text-neutral-50'>
+                Plumbing, Heating & Renewable Energy in Brighton
+                <br />
+                by {BUSINESS_CONFIG.nameSmall}<sup
+                  class='relative -top-[0.70em] ml-1 text-[0.35em] leading-none'
+                  >Ltd.</sup
+                >
+              </Text>
+              <p class='mt-8 max-w-2xl text-base text-primary-100'>
+                We specialise in <a
+                  href='/services/gas-boiler-installation'
+                  class='relative text-accent-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent-500 after:transition-all after:duration-300 hover:after:w-full'>boiler installation</a
+                >, repair and maintenance, <a
+                  href='/services/'
+                  class='relative text-accent-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent-500 after:transition-all after:duration-300 hover:after:w-full'>plumbing, heating & gas</a
+                > services. Proudly serving homeowners across Brighton & Hove and
+                the surrounding areas with reliable and professional service.
+              </p>
+
+              <!-- <Text
                 tag='p'
                 class='mt-8 max-w-2xl text-primary-100'
                 variant='textBase'>
                 {heroContent.description}
-              </Text>
+              </Text> -->
               <div class='mt-10 flex items-center gap-x-6'>
                 <GetAQuote
                   variant='accent'
@@ -143,6 +176,7 @@ const heroImages = [
                   <Image
                     src={heroImages[0].src}
                     alt={heroImages[0].alt}
+                    title={heroImages[0].title}
                     class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
                   />
                   <div
@@ -156,6 +190,7 @@ const heroImages = [
                   <Image
                     src={heroImages[1].src}
                     alt={heroImages[1].alt}
+                    title={heroImages[1].title}
                     class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
                   />
                   <div
@@ -166,6 +201,7 @@ const heroImages = [
                   <Image
                     src={heroImages[2].src}
                     alt={heroImages[2].alt}
+                    title={heroImages[2].title}
                     class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
                   />
                   <div
@@ -178,6 +214,7 @@ const heroImages = [
                   <Image
                     src={heroImages[3].src}
                     alt={heroImages[3].alt}
+                    title={heroImages[3].title}
                     class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
                   />
                   <div
@@ -188,6 +225,7 @@ const heroImages = [
                   <Image
                     src={heroImages[4].src}
                     alt={heroImages[4].alt}
+                    title={heroImages[4].title}
                     class='aspect-2/3 w-full rounded-xl object-cover shadow-lg ring-1 ring-white/20'
                   />
                   <div

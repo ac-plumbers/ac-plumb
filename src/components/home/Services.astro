@@ -9,7 +9,6 @@ const allServices = await getCollection('services');
 const featuredServices = allServices
   .filter(service => service.data.featured)
   .slice(0, 6); // Show only 6 featured services on homepage
-console.log(featuredServices.length);
 ---
 
 <section
@@ -24,7 +23,7 @@ console.log(featuredServices.length);
         variant='displayLG'
         id='services-heading'
         class='font-bold tracking-tight text-neutral-900'>
-        Our Expert Services
+        Plumbing, Heating & Gas Services in Brighton
       </Text>
       <Text tag='p' variant='textBase' class='mt-4 text-neutral-600'>
         Professional plumbing, heating, and gas services across Brighton & Hove.
@@ -39,10 +38,10 @@ console.log(featuredServices.length);
     <div class='mt-12 text-center'>
       <GetAQuote
         variant='primary'
-        size='lg'
+        size='md'
         href='/services'
         class=''
-        text='View all Services'
+        text='Explore All Plumbing & Heating Services'
       />
     </div>
   </div>

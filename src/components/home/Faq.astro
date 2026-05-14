@@ -5,7 +5,7 @@ import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import { ArrowRight } from '@lucide/astro';
 /* Contento for SEO */
-import { BUSINESS_CONFIG } from '@/utils/businessConfig';
+import { BUSINESS_CONFIG, formatPhoneForTel } from '@/utils/businessConfig';
 ---
 
 <section
@@ -70,7 +70,7 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
         <div class='flex items-center gap-4'>
           <Image
             src={antonio}
-            alt='Antonio Catalano'
+            alt='Antonio Catalano, Gas Safe registered plumber and owner of AC Plumbers Ltd. Brighton'
             width={64}
             height={64}
             class='h-16 w-16 rounded-full object-cover shadow'
@@ -83,14 +83,14 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
             </p>
             <p class='mt-2 text-sm text-primary-700'>
               Email: <a
-                href='mailto:info@acplumb.co.uk'
+                href={`mailto:${BUSINESS_CONFIG.email}`}
                 class='text-accent-600 hover:text-accent-700'
                 >{BUSINESS_CONFIG.email}</a
               >
             </p>
             <p class='text-sm text-primary-700'>
               Phone: <a
-                href='tel:+447535653850'
+                href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
                 class='text-accent-600 hover:text-accent-700'
                 >{BUSINESS_CONFIG.mobilePhone}</a
               >
@@ -105,24 +105,24 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
         {
           [
             {
-              question: 'Why is my tap leaking?',
+              question: 'Why is my tap leaking and how can I fix it in Brighton?',
               answer:
                 "Leaky taps can be caused by a worn-out washer, a faulty O-ring, or other issues with the tap's internal components.",
             },
             {
-              question: 'Why is my toilet constantly running?',
+              question: 'Why is my toilet constantly running and who should I call?',
               answer:
                 "A running toilet can be caused by a faulty fill valve, a worn-out flapper, or other issues with the toilet's internal mechanisms.",
             },
             {
-              question: 'What should I do if I have a burst pipe?',
+              question: 'What should I do if I have a burst pipe in Brighton?',
               answer:
                 'Turn off the water supply immediately and contact a plumber to repair the burst pipe.',
             },
             {
-              question: 'How can I prevent frozen pipes in winter?',
+              question: 'How can I prevent frozen pipes during winter in Brighton?',
               answer:
-                'Insulate exposed piepes, especially in unheated areas like attics and crawl spaces. You can also kepp your thermostat set to a minimum temperature during cold weather.',
+                'Insulate exposed pipes, especially in unheated areas like attics and crawl spaces. You can also keep your thermostat set to a minimum temperature during cold weather.',
             },
             {
               question: 'What is a boiler service, and why is it important?',
@@ -172,6 +172,53 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
     </div>
   </div>
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my tap leaking and how can I fix it in Brighton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Leaky taps can be caused by a worn-out washer, a faulty O-ring, or other issues with the tap's internal components."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my toilet constantly running and who should I call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A running toilet can be caused by a faulty fill valve, a worn-out flapper, or other issues with the toilet's internal mechanisms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if I have a burst pipe in Brighton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Turn off the water supply immediately and contact a plumber to repair the burst pipe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I prevent frozen pipes during winter in Brighton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Insulate exposed pipes, especially in unheated areas like attics and crawl spaces. You can also keep your thermostat set to a minimum temperature during cold weather."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a boiler service, and why is it important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A boiler service is a thorough check and maintenance of your boiler to ensure it's running safely and efficiently. Regular servicing can prevent breakdowns, extend your boiler's lifespan, and potentially save you money on energy bills."
+      }
+    }
+  ]
+})} />
 
 <script is:inline>
   function initFaq() {
