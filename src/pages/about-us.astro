@@ -2,12 +2,16 @@
 // Layout
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
+// Images
+import heroBgImage from '@/images/about/viessman.jpeg';
+
 // Components
 import AboutHero from '@/components/about/AboutHero.astro';
 import AboutFounderStory from '@/components/about/AboutFounderStory.astro';
 import AboutValues from '@/components/about/AboutValues.astro';
 import MainCta from '@/components/global/MainCta.astro';
 import ServiceCertifications from '@/components/services/ServiceCertifications.astro';
+import ServiceHeroSection from '@/components/services/ServiceHeroSection.astro';
 // SEO
 const title =
   "About AC Plumbers Ltd. | Meet Antonio Catalano, Brighton's Trusted Plumber";
@@ -31,8 +35,16 @@ const author = 'AC Plumbers Ltd.';
   </a>
 
   <main id='main-content' class='isolate'>
-    <!-- TODO:: cambiare hero  -->
-    <AboutHero />
+    <ServiceHeroSection
+      title='About AC Plumbers Ltd.'
+      image={heroBgImage}
+      alt='Antonio Catalano, founder of AC Plumbers Ltd., standing in front of a van with the company logo, wearing a branded uniform and smiling confidently.'
+      intro=' Honest advice, clear communication, and high standards on every job
+          — whether it’s a small repair or a complete system
+          installation.'
+      breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'About Us' }]}
+    />
+    <!--  <AboutHero /> -->
     <AboutFounderStory />
     <!-- Certifications -->
     <ServiceCertifications />

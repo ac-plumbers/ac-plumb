@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import antonio from '@/images/Antonio.png';
+import antonio from '@/images/antonio/antonio-catalano-ac-plumbers-owner-portrait.jpeg';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import { ArrowRight } from '@lucide/astro';
@@ -185,9 +185,14 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
         var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
         allToggles.forEach(function (otherToggle) {
-          if (otherToggle !== toggle && otherToggle.getAttribute('aria-expanded') === 'true') {
+          if (
+            otherToggle !== toggle &&
+            otherToggle.getAttribute('aria-expanded') === 'true'
+          ) {
             var otherFaqItem = otherToggle.closest('.faq-item');
-            var otherContent = otherFaqItem ? otherFaqItem.querySelector('.faq-content') : null;
+            var otherContent = otherFaqItem
+              ? otherFaqItem.querySelector('.faq-content')
+              : null;
             if (otherContent) otherContent.classList.add('hidden');
             var otherArrow = otherToggle.querySelector('svg');
             if (otherArrow) otherArrow.style.transform = '';
