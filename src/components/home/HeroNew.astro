@@ -3,9 +3,11 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
 import { Image } from 'astro:assets';
 import GetAQuote from '../fundations/elements/GetAQuote.astro';
 import Text from '../fundations/elements/Text.astro';
+import thermostat from '@/images/heroHome/tado-smart-thermostat-installation.jpeg';
+import gasBolier from '@/images/heroHome/viessmann-gas-boiler-installation-copper-pipework.jpg';
 import imgHeatPump from '@/images/services/vaillant-air-source-heat-pump-brighton-installation.jpeg';
 import imgTapRepair from '@/images/services/kitchen-mixer-tap-replacement-leak-repair-brighton.jpg';
-import imgThermostat from '@/images/services/nest-thermostat-installation-brighton.jpeg';
+/* import imgThermostat from '@/images/services/nest-thermostat-installation-brighton.jpeg'; */
 import imgBoilerInstall from '@/images/services/viessmann-boiler-installation-utility-room-brighton.jpeg';
 import imgRadiator from '@/images/services/compact-cast-iron-radiator-bee-valve-saltdean.jpeg';
 // Content for the hero section
@@ -28,12 +30,14 @@ const heroImages = [
     alt: 'Kitchen mixer tap replacement during leak repair service in Brighton',
   },
   {
-    src: imgThermostat,
-    alt: 'Nest smart thermostat setup for efficient heating control',
+    src: thermostat,
+    alt: 'Nest smart thermostat displaying 20 degrees heating temperature installed by AC Plumbers Ltd in Brighton and Hove',
+    /* src: imgThermostat,
+    alt: 'Nest smart thermostat setup for efficient heating control', */
   },
   {
-    src: imgBoilerInstall,
-    alt: 'New Viessmann boiler installation in a utility room',
+    src: gasBolier,
+    alt: 'Viessmann gas boiler installation with copper pipework and smart controls, fitted by AC Plumbers Ltd.',
   },
   {
     src: imgRadiator,
@@ -88,11 +92,12 @@ const heroImages = [
           class='mx-auto max-w-7xl px-6 pt-36 pb-32 sm:pt-60 lg:px-8 lg:pt-32'>
           <div
             class='mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center'>
-            <div class='relative w-full sm:pb-44 lg:pb-0 lg:max-w-xl lg:shrink-0 xl:max-w-2xl'>
+            <div
+              class='relative w-full sm:pb-44 lg:max-w-xl lg:shrink-0 lg:pb-0 xl:max-w-2xl'>
               <Text
                 tag='p'
                 variant='textSM'
-                class='inline-flex whitespace-nowrap rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide text-primary-900 uppercase'>
+                class='inline-flex rounded-full bg-accent-500 px-4 py-1.5 font-semibold tracking-wide whitespace-nowrap text-primary-900 uppercase'>
                 Brighton and Hove trusted engineers
               </Text>
               <!-- Hero heading and text -->
