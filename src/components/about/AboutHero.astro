@@ -1,52 +1,48 @@
 ---
 import { BUSINESS_CONFIG } from '@/utils/businessConfig';
-// TODO: replace placeholder with a landscape hero photo
 ---
 
 <section
   class='relative isolate min-h-svh overflow-hidden bg-primary-900'
   aria-labelledby='about-hero-title'>
-
   <!-- Placeholder background — swap for a landscape photo when available -->
-  <div
-    class='absolute inset-0 -z-10 bg-primary-800'
-    aria-hidden='true'>
-  </div>
+  <div class='absolute inset-0 -z-10 bg-primary-800' aria-hidden='true'></div>
 
   <!-- Subtle texture: diagonal teal-to-dark gradient -->
   <div
-    class='absolute inset-0 -z-10 bg-linear-to-br from-primary-900 via-primary-800 to-primary-950'
+    class='to-primary-950 absolute inset-0 -z-10 bg-linear-to-br from-primary-900 via-primary-800'
     aria-hidden='true'>
   </div>
 
   <!-- Decorative accent blob -->
   <div
-    class='absolute -right-40 -top-40 -z-10 h-150 w-150 rounded-full bg-secondary-400/10 blur-3xl'
+    class='absolute -top-40 -right-40 -z-10 h-150 w-150 rounded-full bg-secondary-400/10 blur-3xl'
     aria-hidden='true'>
   </div>
   <div
-    class='absolute -bottom-40 right-20 -z-10 h-100 w-100 rounded-full bg-accent-500/10 blur-3xl'
+    class='absolute right-20 -bottom-40 -z-10 h-100 w-100 rounded-full bg-accent-500/10 blur-3xl'
     aria-hidden='true'>
   </div>
 
   <!-- Content -->
   <div class='mx-auto flex min-h-svh max-w-7xl items-center px-6 lg:px-8'>
     <div class='max-w-xl py-32'>
-
       <!-- Kicker -->
-      <p class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
+      <p
+        class='font-lato text-xs font-bold tracking-[0.35em] text-accent-400 uppercase'>
         Founder &amp; Lead Engineer &middot; 30+ Years&rsquo; Experience
       </p>
 
       <!-- Heading -->
       <h1
         id='about-hero-title'
-        class='mt-4 font-poppins text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl'>
+        class='mt-4 font-poppins text-5xl leading-tight font-black text-white sm:text-6xl lg:text-7xl'>
         Antonio<br /><em class='text-accent-400 not-italic'>Catalano</em>
       </h1>
 
       <!-- Tagline -->
-      <p class='mt-6 font-lato text-lg leading-relaxed text-primary-200 sm:text-xl'>
+      <p
+        class='mt-6 font-lato text-lg leading-relaxed text-primary-200 sm:text-xl'>
         The person behind AC Plumbers Ltd. — a dedicated heating and plumbing
         specialist based in Brighton, built on quality and trust.
       </p>
@@ -55,17 +51,28 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
       <div class='mt-10 flex flex-wrap items-center gap-x-8 gap-y-4'>
         <div>
           <p class='font-poppins text-3xl font-black text-white'>~30</p>
-          <p class='mt-0.5 font-lato text-xs uppercase tracking-widest text-primary-300'>Years&rsquo; Experience</p>
+          <p
+            class='mt-0.5 font-lato text-xs tracking-widest text-primary-300 uppercase'>
+            Years&rsquo; Experience
+          </p>
         </div>
         <div class='h-8 w-px bg-primary-600' aria-hidden='true'></div>
         <div>
           <p class='font-poppins text-3xl font-black text-white'>2016</p>
-          <p class='mt-0.5 font-lato text-xs uppercase tracking-widest text-primary-300'>Founded</p>
+          <p
+            class='mt-0.5 font-lato text-xs tracking-widest text-primary-300 uppercase'>
+            Founded
+          </p>
         </div>
         <div class='h-8 w-px bg-primary-600' aria-hidden='true'></div>
         <div>
-          <p class='font-poppins text-3xl font-black text-white'>IT&thinsp;→&thinsp;UK</p>
-          <p class='mt-0.5 font-lato text-xs uppercase tracking-widest text-primary-300'>Trained</p>
+          <p class='font-poppins text-3xl font-black text-white'>
+            IT&thinsp;→&thinsp;UK
+          </p>
+          <p
+            class='mt-0.5 font-lato text-xs tracking-widest text-primary-300 uppercase'>
+            Trained
+          </p>
         </div>
       </div>
 
@@ -79,10 +86,10 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
         <a
           href={`tel:${BUSINESS_CONFIG.landline}`}
           class='text-sm font-semibold text-white transition-colors hover:text-accent-400'>
-          {BUSINESS_CONFIG.landline} <span aria-hidden='true'>→</span>
+          {BUSINESS_CONFIG.landline}
+          <span aria-hidden='true'>→</span>
         </a>
       </div>
-
     </div>
   </div>
 </section>
