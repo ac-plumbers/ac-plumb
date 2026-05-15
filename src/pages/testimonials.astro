@@ -72,9 +72,9 @@ const reviews = [
 ];
 
 // Page meta data
-const title = 'Customer Testimonials & Reviews | AC Plumbers Brighton & Hove';
+const title = 'Brighton Plumber Reviews & Testimonials | AC Plumbers Ltd.';
 const description =
-  "Read genuine customer reviews and testimonials from our satisfied clients across Brighton & Hove. See why we're the trusted choice for plumbing, heating, and gas services with 5-star ratings.";
+  'Read 134 verified customer reviews for AC Plumbers Ltd. in Brighton & Hove. Trusted for plumbing, heating & gas. Contact us for a free quote today.';
 const keywords =
   'customer testimonials, reviews, AC Plumbers Ltd. Brighton, plumbing reviews, heating reviews, gas safe reviews, Brighton plumbers, 5 star plumber';
 ---
@@ -119,7 +119,7 @@ const keywords =
             tag='h1'
             variant='displayLG'
             class='font-lato font-bold tracking-tight text-white sm:text-4xl lg:text-5xl'>
-            What Our Customers Say
+            Customer Reviews & Testimonials — AC Plumbers Brighton
           </Text>
 
           <Text
@@ -204,11 +204,12 @@ const keywords =
   <TestimonialsComponent />
 
   <!-- Additional Trust Section -->
-  <section class='bg-neutral-50 py-20'>
+  <section class='bg-neutral-50 py-20' aria-labelledby='trust-heading'>
     <div class='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
       <div class='mb-16 text-center'>
         <Text
           tag='h2'
+          id='trust-heading'
           variant='displayLG'
           class='font-lato font-bold text-primary-900 sm:text-4xl'>
           Why Customers Choose {BUSINESS_CONFIG.name}

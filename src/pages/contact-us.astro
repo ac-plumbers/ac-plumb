@@ -14,9 +14,9 @@ import {
 } from '@/utils/businessConfig';
 
 // SEO
-const title = "Contact AC Plumbers Ltd. | Brighton's Trusted Plumbing Experts";
+const title = 'Contact a Brighton Plumber | AC Plumbers Ltd.';
 const description =
-  'Get in touch with AC Plumbers Ltd. for reliable plumbing services in Brighton. Our expert team is ready to assist you with all your plumbing needs.';
+  'Reach our Gas Safe engineers in Brighton for plumbing, heating & boiler services. Call, WhatsApp or send a message — we respond fast and quote for free.';
 const keywords =
   'contact, AC Plumbers Ltd., plumbing services, Brighton, emergency plumbing, boiler repair, heating services';
 // Content
@@ -113,7 +113,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%
           id='contact-methods-heading'
           variant='displayXL'
           class='mt-3 font-bold text-text-00'>
-          We're Here to Help You
+          Ways to Reach Our Plumbing Team
         </Text>
         <Text tag='p' variant='textLG' class='mt-4 text-neutral-600'>
           Whether it's an emergency or planned work, we make getting in touch
@@ -407,6 +407,45 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20AC%20Plumbers%2C%
       </div>
     </Wrapper>
   </section>
+
+  <!-- ContactPage Schema -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact AC Plumbers Ltd.",
+    "url": "https://acplumb.co.uk/contact-us",
+    "description": "Contact AC Plumbers Ltd. for plumbing, heating and gas services in Brighton & Hove.",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "AC Plumbers Ltd.",
+      "url": "https://acplumb.co.uk",
+      "telephone": "+447535653850",
+      "email": "info@acplumb.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21j Campbell Road",
+        "addressLocality": "Brighton",
+        "postalCode": "BN1 4QD",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+441273680731",
+          "contactType": "customer service",
+          "areaServed": "GB",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+447535653850",
+          "contactType": "customer support",
+          "areaServed": "GB",
+          "availableLanguage": "English"
+        }
+      ]
+    }
+  })} />
 
   <!-- ─── CTA ──────────────────────────────────────────────────────────── -->
   <MainCta
