@@ -20,6 +20,7 @@ export interface BusinessContact {
   logoImage: string;
   vatNumber?: string;
   companyNumber?: string;
+  gasSafeNumber?: string;
   paymentMethods?: string[];
 }
 
@@ -46,6 +47,7 @@ export const BUSINESS_CONFIG: BusinessContact = {
   logoImage: "https://acplumb.co.uk/og/ac-plumbers-ltd-logo-brighton.png",
   vatNumber: "300995607",
   companyNumber: "10187057",
+  gasSafeNumber: "568815",
   paymentMethods: ["Bank Transfer"],
 };
 // Helper functions for accessibility and consistency
