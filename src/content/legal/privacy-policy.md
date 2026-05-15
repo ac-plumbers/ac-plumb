@@ -2,7 +2,7 @@
 page: Privacy Policy
 pubDate: 2026-05-14
 title: "Privacy Policy - AC Plumbers Ltd. Brighton"
-description: "This Privacy Policy outlines how AC Plumbers Ltd. Brighton collects, uses, and protects your personal information."
+description: "Read the Privacy Policy for AC Plumbers Ltd. Brighton. Learn how we collect, use, and protect your personal data in line with UK GDPR requirements."
 keywords: "Privacy Policy, Data Protection, AC Plumbers Ltd., Brighton, Personal Information"
 author: "AC Plumbers Ltd."
 datePublished: "2026-05-14"

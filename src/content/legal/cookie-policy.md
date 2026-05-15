@@ -2,7 +2,7 @@
 page: Cookie Policy
 pubDate: 2026-05-14
 title: "Cookie Policy – AC Plumbers Ltd. Brighton"
-description: "Learn about our use of cookies and how we protect your privacy."
+description: "Learn how AC Plumbers Ltd. uses cookies on acplumb.co.uk, what data is collected, and how to manage your preferences. Your privacy is important to us."
 keywords: "cookies, privacy, Brighton, plumbing"
 author: "AC Plumbers Ltd."
 datePublished: "2026-05-14"
