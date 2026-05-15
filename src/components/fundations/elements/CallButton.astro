@@ -143,6 +143,8 @@ const showLabel = display === 'with-label' && label;
   href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
   variant='custom'
   class={buttonClasses}
+  data-umami-event='lead_call_click'
+  data-umami-event-placement='inline_cta'
   aria-label={`Call ${BUSINESS_CONFIG.name} at ${formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}`}>
   <IconComponent
     class={`${iconSizes[size]} ${display === 'icon-only' ? '' : ''}`}

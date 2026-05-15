@@ -10,6 +10,8 @@
     <div v-if="showButton" class="fixed right-4 bottom-4 z-40">
       <a
         href="tel:+447535653850"
+        data-umami-event="lead_call_click"
+        data-umami-event-placement="sticky_button"
         class="flex items-center gap-2 rounded-full bg-primary-600 px-4 py-3 text-background-50 shadow-lg transition-all duration-200 hover:scale-105 hover:bg-primary-700"
         aria-label="Call AC Plumbers Ltd. now at +447535653850"
       >

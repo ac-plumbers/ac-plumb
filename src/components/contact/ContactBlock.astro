@@ -16,6 +16,8 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
       <strong>Email:</strong>
       <a
         href={`mailto:${BUSINESS_CONFIG.email}`}
+        data-umami-event='lead_email_click'
+        data-umami-event-placement='contact_block'
         class='text-white-00 hover:underline'>
         {BUSINESS_CONFIG.email}
       </a>
@@ -24,6 +26,8 @@ import { BUSINESS_CONFIG } from '@/utils/businessConfig';
       <strong>Phone:</strong>
       <a
         href={`tel:${BUSINESS_CONFIG.mobilePhone}`}
+        data-umami-event='lead_call_click'
+        data-umami-event-placement='contact_block'
         class='text-white-00 hover:underline'>
         {BUSINESS_CONFIG.mobilePhone}
       </a>
