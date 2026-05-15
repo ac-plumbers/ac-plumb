@@ -82,7 +82,7 @@ const faqCategories = [
       {
         question: 'How long does a boiler installation take?',
         answer:
-          'A standard boiler replacement typically takes 1-2 days depending on the complexity. This includes removing the old boiler, installing the new system, connecting all pipework, and testing. We´ll provide a clear timeline during your free consultation.',
+          "A standard boiler replacement typically takes 1-2 days depending on the complexity. This includes removing the old boiler, installing the new system, connecting all pipework, and testing. We'll provide a clear timeline during your free consultation.",
       },
       {
         question: 'What is a boiler service and why is it important?',
@@ -107,7 +107,7 @@ const faqCategories = [
     <Wrapper variant='standard'>
       <div class='mx-auto max-w-3xl text-center'>
         <Text tag='h1' variant='displayLG' class='text-text-00'>
-          Frequently Asked Questions
+          Plumbing & Heating FAQs for Brighton & Hove
         </Text>
         <Text tag='p' variant='textXL' class='mt-6 text-neutral-700'>
           Find answers to common questions about our plumbing, heating, and gas
@@ -188,6 +188,22 @@ const faqCategories = [
       </div>
     </Wrapper>
   </section>
+
+  <!-- FAQPage Schema -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqCategories.flatMap(({ faqs }) =>
+      faqs.map(({ question, answer }) => ({
+        "@type": "Question",
+        "name": question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": answer
+        }
+      }))
+    )
+  })} />
 
   <!-- CTA -->
   <MainCta
