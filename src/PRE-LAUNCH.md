@@ -44,6 +44,47 @@
 
 ---
 
+## 📊 Umami Analytics — Missing Events
+
+### What's already tracked
+| Event | Where |
+|---|---|
+| `lead_quote_click` | Hero, header CTA, 3× mid-page CTAs |
+| `lead_call_click` | Mobile menu only ⚠️ |
+| `lead_whatsapp_click` | Header + mobile menu (4 spots) |
+| `lead_form_submit` | `FormHome.astro` only ⚠️ |
+
+### High priority gaps to fix
+
+- [ ] **Sticky call button — no tracking at all** (highest-traffic conversion element)
+  - File: `src/components/global/StickyCallButton.vue`
+  - Add: `data-umami-event="lead_call_click"` + `data-umami-event-placement="sticky_button"`
+
+- [ ] **`CallButton.astro` reusable component — no tracking**
+  - File: `src/components/fundations/elements/CallButton.astro`
+  - Add: `data-umami-event="lead_call_click"` + `data-umami-event-placement="inline_cta"`
+  - This will automatically cover all pages that use `<CallButton />`
+
+- [ ] **Contact page form submit — not tracked**
+  - File: `src/components/forms/FormContact.astro`
+  - Add: `data-umami-event="lead_form_submit"` + `data-umami-event-placement="contact_page"` to the submit button
+
+- [ ] **Phone links in contact/service areas — not tracked**
+  - Files: `src/components/Contact.astro`, `src/components/contact/ContactBlock.astro`, `src/components/services/ServiceCallToAction.astro`
+  - Add: `data-umami-event="lead_call_click"` with appropriate placement per file
+
+### Low priority gaps (post-launch)
+
+- [ ] External review link clicks (Checkatrade, Google)
+  - File: `src/components/home/Testimonials.astro`
+  - Add: `data-umami-event="review_link_click"`
+
+- [ ] FAQ accordion open/close
+  - File: `src/components/home/Faq.astro`
+  - Requires `window.umami.track(...)` call in Vue/JS — not a simple attribute
+
+---
+
 ## ℹ️ Low Priority (post-launch)
 
 - [ ] **Run `npm audit fix`** — 16 vulnerabilities found (4 high, mostly in netlify-cli dev tooling)
