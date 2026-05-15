@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Text from '../components/fundations/elements/Text.astro';
+import heroBg from '@/images/lavori/viessmann-boiler-installation-utility-room-brighton.jpeg';
 
 // Import images properly
 import img1 from '@/images/lavori/1.jpeg';
@@ -19,7 +20,7 @@ const galleryItems = [
   {
     id: 1,
     src: img1,
-    alt: 'Boiler installation',
+    alt: 'Modern combi boiler installation by AC Plumbers Ltd. in a Brighton home',
     category: 'boiler',
     title: 'Modern Combi Boiler Installation',
     description:
@@ -28,7 +29,7 @@ const galleryItems = [
   {
     id: 2,
     src: img2,
-    alt: 'Gas fitting',
+    alt: 'Professional gas line installation with Gas Safe certification, Brighton',
     category: 'gas',
     title: 'Gas Fitting',
     description:
@@ -37,7 +38,7 @@ const galleryItems = [
   {
     id: 3,
     src: img3,
-    alt: 'Heat pump installation',
+    alt: 'Air source heat pump installation for an eco-conscious homeowner in Brighton',
     category: 'renewable',
     title: 'Air Source Heat Pump',
     description: 'Renewable energy solution for eco-conscious homeowners.',
@@ -45,7 +46,7 @@ const galleryItems = [
   {
     id: 4,
     src: img4,
-    alt: 'Bathroom plumbing',
+    alt: 'Complete bathroom plumbing renovation carried out by AC Plumbers Ltd. in Hove',
     category: 'plumbing',
     title: 'Bathroom Renovation',
     description: 'Complete bathroom plumbing renovation in Hove.',
@@ -53,7 +54,7 @@ const galleryItems = [
   {
     id: 5,
     src: img5,
-    alt: 'Smart thermostat',
+    alt: 'Viessmann boiler closeup showing internal components, installed by AC Plumbers Ltd. Brighton',
     category: 'smart',
     title: 'Smart Home Integration',
     description: 'Smart thermostat installation for efficient heating control.',
@@ -61,7 +62,7 @@ const galleryItems = [
   {
     id: 6,
     src: img6,
-    alt: 'Central heating',
+    alt: 'Full central heating system installation completed by AC Plumbers Ltd. in Brighton',
     category: 'heating',
     title: 'Central Heating System',
     description: 'Full central heating system installation.',
@@ -69,7 +70,7 @@ const galleryItems = [
   {
     id: 7,
     src: img7,
-    alt: 'Radiator installation',
+    alt: 'Designer radiator installation for improved heating efficiency, fitted by AC Plumbers in Hove',
     category: 'heating',
     title: 'Designer Radiator Installation',
     description: 'Modern radiator fitting for enhanced heating efficiency.',
@@ -77,7 +78,7 @@ const galleryItems = [
   {
     id: 8,
     src: img8,
-    alt: 'Emergency repair',
+    alt: 'Emergency plumbing leak repair by AC Plumbers Ltd. preventing water damage in Brighton',
     category: 'emergency',
     title: 'Emergency Leak Repair',
     description: 'Rapid response emergency repair preventing water damage.',
@@ -85,12 +86,14 @@ const galleryItems = [
   {
     id: 9,
     src: img9,
-    alt: 'Cylinder replacement',
+    alt: 'Hot water cylinder replacement for improved capacity, installed by AC Plumbers in Brighton',
     category: 'plumbing',
     title: 'Hot Water Cylinder Upgrade',
     description: 'Hot water cylinder replacement for improved capacity.',
   },
 ];
+
+const optimizedBg = await getImage({ src: heroBg, format: 'webp', width: 1600 });
 
 // Define categories for filtering
 const categories = [
@@ -106,35 +109,25 @@ const categories = [
 ---
 
 <BaseLayout
-  title='Our Work Gallery | AC Plumbers'
-  description='View our gallery of completed plumbing, heating and gas projects across Brighton & Hove'>
+  title='Plumbing & Heating Projects Gallery | AC Plumbers Ltd.'
+  description='View our portfolio of boiler installations, heating systems and plumbing projects across Brighton & Hove. Contact us to discuss your project today.'>
   <div class='relative'>
     <!-- Gallery Hero Section -->
-    <div class='bg-linear-to-r from-primary-600 to-primary-800 text-white'>
-      <div class='container mx-auto px-4 py-16 md:py-24'>
-        <div class='mx-auto max-w-3xl text-center'>
-          <Text tag='h1' variant='display2XL' class='mt-18 text-white'>
-            Our Recent Projects
-          </Text>
-          <p class='mt-4 text-lg text-primary-100'>
-            Browse through our portfolio of completed plumbing, heating, and
-            renewable energy projects across Brighton, Hove, and surrounding
-            areas.
-          </p>
-        </div>
+    <section
+      class='relative flex min-h-[50vh] items-center overflow-hidden'
+      style={`background-image: url('${optimizedBg.src}'); background-size: cover; background-position: center;`}
+      aria-labelledby='gallery-hero-heading'>
+      <div aria-hidden='true' class='absolute inset-0 bg-primary-900/70'></div>
+      <div class='relative mx-auto max-w-7xl px-6 py-32 text-center lg:px-8'>
+        <Text tag='h1' id='gallery-hero-heading' variant='display2XL' class='text-white'>
+          Our Plumbing & Heating Project Gallery
+        </Text>
+        <p class='mx-auto mt-4 max-w-2xl text-lg text-primary-100'>
+          Browse through our portfolio of completed plumbing, heating, and
+          renewable energy projects across Brighton, Hove, and surrounding areas.
+        </p>
       </div>
-      <!-- Decorative wave pattern -->
-      <div class='absolute inset-x-0 bottom-0'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 1440 320'
-          class='h-16 w-full fill-current text-white'>
-          <path
-            d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,133.3C672,128,768,160,864,176C960,192,1056,192,1152,170.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
-          ></path>
-        </svg>
-      </div>
-    </div>
+    </section>
 
     <!-- Gallery Content -->
     <div class='container mx-auto px-4 py-12'>
