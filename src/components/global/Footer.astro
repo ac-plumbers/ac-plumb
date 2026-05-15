@@ -33,8 +33,17 @@ const servicesLinks = [
 ];
 
 const areaNames = [
-  'Brighton', 'Hove', 'Rottingdean', 'Saltdean', 'Peacehaven',
-  'Lewes', 'Hassocks', 'Portslade', 'Southwick', 'Shoreham by Sea', 'Lancing',
+  'Brighton',
+  'Hove',
+  'Rottingdean',
+  'Saltdean',
+  'Peacehaven',
+  'Lewes',
+  'Hassocks',
+  'Portslade',
+  'Southwick',
+  'Shoreham by Sea',
+  'Lancing',
 ];
 
 const companyLinks = [
@@ -143,13 +152,18 @@ import Text from '../fundations/elements/Text.astro';
             Areas We Serve
           </Text>
           <ul role='list' class='mt-6 space-y-4 font-lato'>
-            {areaNames.map(name => (
-              <li>
-                <Text tag='span' variant='textBase' class='font-lato text-white'>
-                  {name}
-                </Text>
-              </li>
-            ))}
+            {
+              areaNames.map(name => (
+                <li>
+                  <Text
+                    tag='span'
+                    variant='textBase'
+                    class='font-lato text-white'>
+                    {name}
+                  </Text>
+                </li>
+              ))
+            }
             <li>
               <Text
                 tag='a'
