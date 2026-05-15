@@ -6,6 +6,8 @@ import Button from '@/components/fundations/elements/Button.astro';
 import MainCta from '@/components/global/MainCta.astro';
 import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
+import { Image } from 'astro:assets';
+import heroBg from '@/images/areas/brighton-palace-pier-plumbers-brighton.jpeg';
 import {
   ClipboardCheck,
   House,
@@ -32,15 +34,25 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
 
 <BaseLayout
   title='Landlord Services in Brighton | AC Plumbers Ltd.'
-  description='Specialist plumbing and heating services for landlords in Brighton & Hove. Gas safety certificates, boiler servicing, emergency repairs, and more.'
+  description='Plumbing and heating services for Brighton & Hove landlords. Gas safety certificates, boiler servicing, emergency repairs, and more. Book your free quote today.'
   keywords='landlord services, gas safety certificate, boiler servicing, emergency repairs, Brighton, AC Plumbers Ltd.'>
   <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
   <section
     class='relative isolate overflow-hidden'
     aria-labelledby='landlord-hero-heading'
-    data-bg='dark'>
-    <div
-      class='bg-linear-to-br from-primary-900 via-primary-800 to-secondary-800'>
+    data-bg='dark'
+  >
+    <Image
+      src={heroBg}
+      alt=''
+      role='presentation'
+      width={1600}
+      class='absolute inset-0 h-full w-full object-cover'
+      loading='eager'
+      fetchpriority='high'
+    />
+    <div class='absolute inset-0 bg-primary-900/75' aria-hidden='true'></div>
+    <div>
       <!-- Decorative SVG grid pattern -->
       <svg
         aria-hidden='true'
@@ -576,7 +588,7 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
             id='landlord-faq-heading'
             variant='displayXL'
             class='font-bold text-primary-900'>
-            Frequently Asked Questions
+            Landlord FAQs – Brighton &amp; Hove
           </Text>
           <Text tag='p' variant='textLG' class='mt-4 text-neutral-600'>
             Common questions from our landlord clients
@@ -646,6 +658,46 @@ const serviceIcons: Record<string, typeof ClipboardCheck> = {
       </div>
     </Wrapper>
   </section>
+
+  <!-- FAQPage Schema -->
+  <script is:inline type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How often do I need to get a gas safety certificate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CP12 gas safety certificates must be renewed annually for rental properties with gas appliances. Our Gas Safe engineers carry out the inspection and issue certification when everything passes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should a boiler be serviced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recommend annual boiler servicing to keep systems safe, efficient, and compliant. Regular servicing helps reduce breakdowns and keeps heating reliable for tenants."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a central heating upgrade include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We install and upgrade central heating systems, including power flushing, TRVs, and smart controls, so each property runs more efficiently and evenly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle general plumbing repairs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We cover leak repairs, tap and sanitary fixes, pipework updates, and hot water cylinder services for rental properties."
+        }
+      }
+    ]
+  }</script>
 
   <!-- ─── CTA ──────────────────────────────────────────────────────────── -->
   <MainCta

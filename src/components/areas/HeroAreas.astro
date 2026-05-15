@@ -3,23 +3,24 @@ import Text from '@/components/fundations/elements/Text.astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 import CallButton from '@/components/fundations/elements/CallButton.astro';
 import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
-import { getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import heroBg from '@/images/areas/brighton-palace-pier-plumbers-brighton.jpeg';
-
-const optimizedBg = await getImage({
-  src: heroBg,
-  format: 'webp',
-  width: 1600,
-});
 ---
 
 <section
   class='relative isolate flex min-h-[70vh] items-center overflow-hidden'
-  style={`background-image: url('${optimizedBg.src}'); background-size: cover; background-position: center;`}
   aria-labelledby='areas-hero-heading'>
+  <Image
+    src={heroBg}
+    alt=''
+    role='presentation'
+    width={1600}
+    class='absolute inset-0 h-full w-full object-cover'
+    loading='eager'
+    fetchpriority='high'
+  />
   <!-- Dark overlay -->
-  <div aria-hidden='true' class='absolute inset-0 -z-10 bg-primary-900/70'>
-  </div>
+  <div aria-hidden='true' class='absolute inset-0 bg-primary-900/60'></div>
 
   <Wrapper variant='standard' class='py-32 sm:py-40'>
     <!-- Kicker -->

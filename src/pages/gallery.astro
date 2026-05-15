@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image, getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import Text from '../components/fundations/elements/Text.astro';
 import heroBg from '@/images/lavori/viessmann-boiler-installation-utility-room-brighton.jpeg';
 
@@ -93,8 +93,6 @@ const galleryItems = [
   },
 ];
 
-const optimizedBg = await getImage({ src: heroBg, format: 'webp', width: 1600 });
-
 // Define categories for filtering
 const categories = [
   { id: 'all', name: 'All Projects' },
@@ -115,8 +113,16 @@ const categories = [
     <!-- Gallery Hero Section -->
     <section
       class='relative flex min-h-[50vh] items-center overflow-hidden'
-      style={`background-image: url('${optimizedBg.src}'); background-size: cover; background-position: center;`}
       aria-labelledby='gallery-hero-heading'>
+      <Image
+        src={heroBg}
+        alt=''
+        role='presentation'
+        width={1600}
+        class='absolute inset-0 h-full w-full object-cover'
+        loading='eager'
+        fetchpriority='high'
+      />
       <div aria-hidden='true' class='absolute inset-0 bg-primary-900/70'></div>
       <div class='relative mx-auto max-w-7xl px-6 py-32 text-center lg:px-8'>
         <Text tag='h1' id='gallery-hero-heading' variant='display2XL' class='text-white'>
