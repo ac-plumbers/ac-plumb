@@ -162,7 +162,7 @@ import FormHome from './forms/FormHome.astro';
               </svg>
             </dt>
             <dd>
-              <a class='hover:text-white' href='mailto:info@acplumb.co.uk'
+              <a class='hover:text-white' href={`mailto:${BUSINESS_CONFIG.email}`}
                 >{BUSINESS_CONFIG.email}</a
               >
             </dd>

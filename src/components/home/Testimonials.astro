@@ -57,7 +57,7 @@ const reviews = [...reviewsData.reviews].sort(
     <!-- Social Proof Logos -->
     <div class='mb-10 flex flex-wrap items-center justify-center gap-6'>
       <a
-        href='https://www.google.com/search?sca_esv=ce44fb6aa5ce43e4&tbm=lcl&sxsrf=AE3TifO3vHBTlpVY5ucEmmsRCKq7gtAlvA:1755861284723&q=AC+Plumbing+Heating+%26+Bathrooms+Services+Limited+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDawNDYzNTI2NzA1tzA1MzIwNtrAyPiK0cLRWSEgpzQ3KTMvXcEjNbEERKspOCWWZBTl5-cWKwSnFpVlJqcWK_hk5maWpKYoBKWWZaaWFy9iJVsrAPIqeh6RAAAA&rldimm=13093652370578562032&hl=en-ES&sa=X&ved=2ahUKEwisjpqBpZ6PAxVTQfEDHWZKHe4Q9fQKegQIOhAF&biw=1920&bih=934&dpr=1#'
+        href='https://g.page/r/CfBbyTh1_7W1EAI/review'
         target='_blank'
         rel='noopener'
         class='flex h-10 items-center gap-3 rounded-xl border border-neutral-200 bg-background-100 px-4 py-2 text-neutral-800 shadow transition hover:shadow-md'
@@ -73,16 +73,20 @@ const reviews = [...reviewsData.reviews].sort(
           Rated 5.0 ★ on Google
         </Text>
       </a>
-      <span
-        class='flex h-14 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow'>
+      <a
+        href='https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited'
+        target='_blank'
+        rel='noopener'
+        class='flex h-14 items-center rounded-xl border border-neutral-200 bg-white px-2 shadow transition hover:shadow-md'
+        aria-label='Read our reviews on Checkatrade'>
         <Image
           src={checkaTrade}
-          alt='Checkatrade'
+          alt='AC Plumbers Ltd. on Checkatrade — verified Brighton plumber'
           width={220}
           height={72}
           class='block h-14 w-auto object-contain object-center'
         />
-      </span>
+      </a>
     </div>
     <!-- Testimonials Grid with Animated Entry -->
     <div class='relative'>
@@ -108,8 +112,23 @@ const reviews = [...reviewsData.reviews].sort(
   "@type": "LocalBusiness",
   "name": "AC Plumbers Ltd.",
   "url": "https://acplumb.co.uk",
+  "telephone": "+447535653850",
+  "email": "info@acplumb.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21j Campbell Road",
+    "addressLocality": "Brighton",
+    "postalCode": "BN1 4QD",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "50.8225",
+    "longitude": "-0.1372"
+  },
   "sameAs": [
-    "https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited"
+    "https://www.checkatrade.com/trades/acplumbingheatingbathroomsserviceslimited",
+    "https://g.page/r/CfBbyTh1_7W1EAI/review"
   ],
   "aggregateRating": {
     "@type": "AggregateRating",

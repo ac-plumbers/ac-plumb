@@ -6,7 +6,11 @@ import GetAQuote from '@/components/fundations/elements/GetAQuote.astro';
 import { getImage } from 'astro:assets';
 import heroBg from '@/images/areas/brighton-palace-pier-plumbers-brighton.jpeg';
 
-const optimizedBg = await getImage({ src: heroBg, format: 'webp', width: 1600 });
+const optimizedBg = await getImage({
+  src: heroBg,
+  format: 'webp',
+  width: 1600,
+});
 ---
 
 <section
@@ -14,12 +18,13 @@ const optimizedBg = await getImage({ src: heroBg, format: 'webp', width: 1600 })
   style={`background-image: url('${optimizedBg.src}'); background-size: cover; background-position: center;`}
   aria-labelledby='areas-hero-heading'>
   <!-- Dark overlay -->
-  <div aria-hidden='true' class='absolute inset-0 -z-10 bg-primary-900/70'></div>
+  <div aria-hidden='true' class='absolute inset-0 -z-10 bg-primary-900/70'>
+  </div>
 
   <Wrapper variant='standard' class='py-32 sm:py-40'>
     <!-- Kicker -->
     <p
-      class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-400'>
+      class='font-lato text-xs font-bold tracking-[0.35em] text-accent-400 uppercase'>
       Brighton &amp; Hove
     </p>
 
@@ -46,7 +51,7 @@ const optimizedBg = await getImage({ src: heroBg, format: 'webp', width: 1600 })
     </Text>
 
     <!-- Stats row -->
-    <div
+    <!--  <div
       class='mt-10 flex flex-wrap items-center gap-6 sm:gap-8'
       aria-label='Service statistics'>
       <div>
@@ -71,12 +76,12 @@ const optimizedBg = await getImage({ src: heroBg, format: 'webp', width: 1600 })
           Registered
         </p>
       </div>
-    </div>
+    </div> -->
 
     <!-- CTAs -->
     <div class='mt-10 flex flex-wrap gap-4'>
       <CallButton variant='accent' size='lg' animation='ring' />
-      <GetAQuote variant='outline' size='lg' />
+      <GetAQuote variant='secondary' size='lg' />
     </div>
   </Wrapper>
 </section>

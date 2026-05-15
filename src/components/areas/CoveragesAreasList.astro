@@ -4,7 +4,9 @@ import Text from '@/components/fundations/elements/Text.astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 
 const allAreas = await getCollection('areas');
-const sorted = allAreas.sort((a, b) => (a.data.sortOrder ?? 99) - (b.data.sortOrder ?? 99));
+const sorted = allAreas.sort(
+  (a, b) => (a.data.sortOrder ?? 99) - (b.data.sortOrder ?? 99),
+);
 ---
 
 <section class='bg-neutral-50 py-16 sm:py-24'>
@@ -12,7 +14,7 @@ const sorted = allAreas.sort((a, b) => (a.data.sortOrder ?? 99) - (b.data.sortOr
     <!-- Section header -->
     <div class='mb-12 text-center'>
       <p
-        class='font-lato text-xs font-bold uppercase tracking-[0.35em] text-accent-500'>
+        class='font-lato text-xs font-bold tracking-[0.35em] text-accent-500 uppercase'>
         Coverage
       </p>
       <Text
@@ -35,14 +37,11 @@ const sorted = allAreas.sort((a, b) => (a.data.sortOrder ?? 99) - (b.data.sortOr
         sorted.map(area => {
           const isPriority = area.data.level === 'Priority';
           return (
-            <a
-              href={`/areas-we-serve/${area.id.replace('.md', '')}`}
+            <span
               role='listitem'
               class:list={[
-                'group flex items-center gap-3 rounded-full border bg-white px-5 py-3 shadow-sm transition-all duration-200 hover:shadow-md focus:outline-2 focus:outline-offset-2',
-                isPriority
-                  ? 'border-primary-200 hover:border-primary-400 hover:bg-primary-50 focus:outline-primary-600'
-                  : 'border-neutral-200 hover:border-neutral-400 hover:bg-neutral-100 focus:outline-neutral-600',
+                'group flex items-center gap-3 rounded-full border bg-white px-5 py-3 shadow-sm',
+                isPriority ? 'border-primary-200' : 'border-neutral-200',
               ]}>
               {/* Level dot */}
               <span
@@ -65,20 +64,20 @@ const sorted = allAreas.sort((a, b) => (a.data.sortOrder ?? 99) - (b.data.sortOr
               </span>
 
               {/* Detail — slides in on hover */}
-              <span class='flex max-w-0 items-center gap-1.5 overflow-hidden whitespace-nowrap font-lato text-xs text-neutral-500 transition-[max-width] duration-300 ease-in-out group-hover:max-w-48'>
+              {/* <span class='flex max-w-0 items-center gap-1.5 overflow-hidden font-lato text-xs whitespace-nowrap text-neutral-500 transition-[max-width] duration-300 ease-in-out group-hover:max-w-48'>
                 <span aria-hidden='true'>·</span>
                 {area.data.postcode}
                 <span aria-hidden='true'>·</span>
                 {area.data.responseTime}
-              </span>
-            </a>
+              </span> */}
+            </span>
           );
         })
       }
     </div>
 
     <!-- Legend -->
-    <div
+    <!--     <div
       class='mt-10 flex flex-wrap items-center justify-center gap-6 font-lato text-xs text-neutral-500'>
       <span class='flex items-center gap-2'>
         <span class='h-2.5 w-2.5 rounded-full bg-primary-500' aria-hidden='true'></span>
@@ -88,6 +87,6 @@ const sorted = allAreas.sort((a, b) => (a.data.sortOrder ?? 99) - (b.data.sortOr
         <span class='h-2.5 w-2.5 rounded-full bg-neutral-400' aria-hidden='true'></span>
         Extended coverage — 20–40 min response
       </span>
-    </div>
+    </div> -->
   </Wrapper>
 </section>
