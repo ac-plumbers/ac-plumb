@@ -46,6 +46,8 @@ import {
           class='flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center'>
           <a
             href={`tel:${formatPhoneForTel(BUSINESS_CONFIG.mobilePhone)}`}
+            data-umami-event='lead_call_click'
+            data-umami-event-placement='coming_soon'
             class='inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-800 shadow transition hover:-translate-y-px hover:shadow-lg'>
             Call now · {formatPhoneForDisplay(BUSINESS_CONFIG.mobilePhone)}
           </a>
@@ -138,6 +140,8 @@ import {
             />
             <button
               type='submit'
+              data-umami-event='lead_form_submit'
+              data-umami-event-placement='launch_notification'
               class='mt-2 flex w-fit items-center justify-center rounded-lg bg-accent-500 px-4 py-2 shadow transition-all duration-700 ease-in-out hover:bg-accent-600 sm:mt-0'>
               <span class='text-sm font-medium whitespace-nowrap text-white'
                 >Notify Me</span
@@ -151,6 +155,8 @@ import {
       Prefer email?
       <a
         href={`mailto:${BUSINESS_CONFIG.email}`}
+        data-umami-event='lead_email_click'
+        data-umami-event-placement='coming_soon'
         class='underline transition-all duration-700 ease-in-out hover:text-white'>
         {BUSINESS_CONFIG.email}
       </a>
