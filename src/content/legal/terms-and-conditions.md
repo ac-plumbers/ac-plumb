@@ -2,7 +2,7 @@
 page: Terms and Conditions
 pubDate: 2026-05-14
 title: "Terms and Conditions – AC Plumbers Ltd. Brighton"
-description: "Read the terms and conditions for AC Plumbers Ltd. Brighton. Covers estimates, payments, liability, cancellations, and obligations for all plumbing and heating work."
+description: "Terms and conditions for AC Plumbers Ltd. Brighton. Covers estimates, payments, liability, cancellations, and obligations for plumbing and heating work."
 keywords: "terms and conditions, AC Plumbers Ltd., Brighton, payments, obligations"
 author: "AC Plumbers Ltd."
 datePublished: "2026-05-14"
