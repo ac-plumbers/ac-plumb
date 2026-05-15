@@ -32,16 +32,12 @@ tags:
   - sustainable energy
 featured: true
 category: Renewable Energy
-intro: "Air source heat pumps extract naturally occurring heat from the outside air — even in cold temperatures — and upgrade it into usable heat for your home. At AC Plumbers Ltd, our MCS-certified engineers design and install systems that lower energy bills, reduce carbon emissions, and may qualify for the Boiler Upgrade Scheme grant of up to £7,500."
+intro: "An Air Source Heat Pump (ASHP) extracts heat from the outside air to provide efficient heating and hot water for your home, helping reduce energy usage and carbon emissions. Eligible homeowners may also benefit from the Government’s Boiler Upgrade Scheme (BUS), which currently offers grants of up to £7,500 towards the installation cost, subject to eligibility."
 benefits:
-  - "Lower energy bills: By using renewable energy from the air, ASHPs can
-    reduce your heating costs compared to traditional systems."
-  - "Environmentally friendly: They produce fewer carbon emissions, helping you
-    reduce your household carbon footprint."
-  - "Renewable incentives: Depending on eligibility, you may qualify for
-    government schemes or incentives for installing renewable energy systems."
-  - "Long-term reliability: With proper installation and maintenance, air source
-    heat pumps can last for many years while maintaining high efficiency."
+  - "MCS-Compliant Installations. All installations are completed under an approved MCS umbrella scheme, helping eligible homeowners access the Government’s Boiler Upgrade Scheme with grants of up to £7,500."
+  - "Experienced & Qualified Engineers. Our skilled heating engineers have extensive experience installing energy-efficient heating systems to the highest professional standards."
+  - "Manufacturer-Backed Support. We work alongside accredited manufacturer networks to ensure every system is correctly designed, commissioned, and optimised for long-term performance and reliability."
+  - "Honest Advice & Quality Workmanship. We pride ourselves on delivering transparent quotations, reliable service, and high-quality workmanship with customer satisfaction at the heart of every project."
 specialties:
   - Air source heat pump installation
   - Heat pump maintenance and servicing
@@ -112,4 +108,6 @@ The installation itself includes fitting the outdoor unit in a suitable location
 
 Homeowners in England and Wales may be eligible for financial support through the **Boiler Upgrade Scheme**, which can provide a grant of up to **£7,500** towards the cost of installing an air source heat pump. This significantly reduces the upfront investment and makes switching to renewable heating more accessible.
 
-To qualify for this grant, the installation must be carried out by an **MCS (Microgeneration Certification Scheme) certified installer**. MCS certification ensures that both the products and the installation meet strict quality and performance standards. It also gives homeowners confidence that the system has been designed and installed correctly, and is operating as efficiently as possible.
+At **AC Plumbers Ltd**, we are committed to delivering high-quality, energy-efficient air source heat pump installations that meet the latest UK industry standards.
+To ensure our customers can benefit from government-backed incentives and fully compliant installations, our projects are completed under an MCS umbrella scheme provided through the heat pump manufacturer’s accredited network. This means your installation is carried out in accordance with Microgeneration Certification Scheme (MCS) standards, allowing eligible homeowners to access the Government’s Boiler Upgrade Scheme (BUS), which currently offers grants of up to £7,500 towards the installation of an air source heat pump, subject to eligibility criteria.
+By working under an approved MCS umbrella scheme, we can provide customers with professionally designed and compliant renewable heating installations that meet recognised industry standards for quality, efficiency, and performance.
