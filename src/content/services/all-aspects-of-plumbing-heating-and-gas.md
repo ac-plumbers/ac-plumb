@@ -3,9 +3,8 @@ title: "Plumbing Services "
 description: "Trusted plumbing services across Brighton & Hove. From leaks and taps to full installations — residential and commercial. Contact AC Plumbers Ltd."
 badge: "Plumbing"
 sortedOrder: 3
-image: ../../images/services/modern-ceramic-basin-gold-tap-wooden-vanity.jpeg
-alt: White round ceramic countertop basin with a gold mixer tap, mounted on a
-  rustic wooden vanity unit in a contemporary bathroom.
+image: ../../images/services/bathroom-renovation-blue-vanity-tiled-floor-lewes.jpg
+alt: Traditional bathroom with patterned tile flooring, blue vanity unit, and chrome towel rail.
 imageHero: ../../images/services/bathroom-tap-running-water-plumbing-repair-brighton.jpg
 altHero: Close-up of a bathroom tap running water into a sink.
 titleImageHero: Leaking tap repair and plumbing services in Brighton & Hove.
