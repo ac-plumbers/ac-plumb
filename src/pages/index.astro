@@ -28,13 +28,13 @@ import {
         <div class='flex w-full flex-col items-center gap-3'>
           <h1
             class='font-manrope text-center text-2xl leading-tight font-bold text-accent-500 sm:text-3xl md:text-5xl'>
-            New site lands Wednesday 27 May
+            New site lands Friday 29 May
           </h1>
           <p
             class='max-w-xl px-2 text-center text-sm text-gray-200 sm:text-base'>
             We set a date, then a customer called with a burst pipe. Priorities.
             The new site is fully built and ready — we're just dotting the i's.
-            Wednesday 27 May, it's live. Plumbing, heating, and gas across Brighton & Hove.
+            Friday 29 May, it's live. Plumbing, heating, and gas across Brighton & Hove.
           </p>
           <p
             class='text-center text-xs font-semibold tracking-[0.12em] text-gray-300 uppercase'>
@@ -116,7 +116,7 @@ import {
         <div class='flex w-full flex-col items-center justify-center gap-3'>
           <h6
             class='text-center text-sm font-semibold text-accent-500 sm:text-base'>
-            Launching: Wednesday 27 May 2026
+            Launching: Friday 29 May 2026
           </h6>
           <form
             name='launch-notification'
@@ -212,8 +212,8 @@ import {
     return utcGuess + (utcGuess - asUTC);
   }
 
-  // Countdown target: May 27, 2026 23:59:59 in UK time (Europe/London)
-  let dest = zonedTimeToEpoch(2026, 5, 27, 23, 59, 59);
+  // Countdown target: May 29, 2026 23:59:59 in UK time (Europe/London)
+  let dest = zonedTimeToEpoch(2026, 5, 29, 23, 59, 59);
   let x = setInterval(function () {
     let now = new Date().getTime();
     let diff = dest - now;
