@@ -3,6 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Text from '@/components/fundations/elements/Text.astro';
 import Link from '@/components/fundations/elements/Link.astro';
 import MainCta from '@/components/global/MainCta.astro';
+import Image from 'astro/components/Image.astro';
+import antonio from '../images/antonio/antonio-catalano-gas-boiler-servicing-safety-checks-brighton-hove.jpeg';
 import {
   BUSINESS_CONFIG,
   formatPhoneForDisplay,
@@ -102,10 +104,12 @@ const keywords =
 
     <!-- Right panel: image (desktop only) -->
     <div class='relative hidden flex-1 lg:block'>
-      <img
-        src='/images/services/antonio-catalano-gas-boiler-servicing-safety-checks-brighton-hove.jpeg'
-        alt=''
+      <Image
+        src={antonio}
+        alt='Antonio Catalano performing gas boiler servicing and safety checks in Brighton and Hove'
         role='presentation'
+        loading='eager'
+        fetchpriority='high'
         class='absolute inset-0 h-full w-full object-cover'
       />
     </div>
