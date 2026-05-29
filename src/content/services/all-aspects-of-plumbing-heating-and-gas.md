@@ -52,17 +52,6 @@ features:
   - title: Reliable and transparent
     description: We provide honest advice, clear pricing, and high-quality
       workmanship on every job.
-faqs:
-  - question: What services do you offer?
-    answer:
-      We offer a wide range of plumbing, heating, and gas services, including
-      installation, maintenance, and repair.
-  - question: Are your technicians qualified?
-    answer: Yes, all our technicians are fully qualified and Gas Safe registered.
-  - question: How can I schedule a consultation?
-    answer:
-      You can schedule a consultation by contacting us through our website or
-      giving us a call.
 ---
 
 At AC Plumbers Ltd., we provide professional and reliable plumbing services for homes across Brighton & Hove and the surrounding areas.

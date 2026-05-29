@@ -172,9 +172,11 @@ const process: ServiceStep[] = service.process || [];
   </section>
 
   <!-- Service-Specific FAQs -->
-  <section aria-labelledby='faqs-heading'>
-    <ServiceFaqList questions={faqs} />
-  </section>
+  {faqs.length > 0 && (
+    <section aria-labelledby='faqs-heading'>
+      <ServiceFaqList questions={faqs} />
+    </section>
+  )}
 
   <!-- Service Image Gallery -->
   <ServiceContentGallery images={service.gallery} />

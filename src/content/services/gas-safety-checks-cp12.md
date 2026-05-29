@@ -58,17 +58,6 @@ features:
     description:
       We provide Gas Safety Certificates upon successful completion of
       inspections.
-faqs:
-  - question: What services do you offer?
-    answer:
-      We offer a wide range of plumbing, heating, and gas services, including
-      installation, maintenance, and repair.
-  - question: Are your technicians qualified?
-    answer: Yes, all our technicians are fully qualified and Gas Safe registered.
-  - question: How can I schedule a consultation?
-    answer:
-      You can schedule a consultation by contacting us through our website or
-      giving us a call.
 ---
 
 All gas appliances should be checked annually by a qualified Gas Safe registered engineer to ensure they are working safely and efficiently.

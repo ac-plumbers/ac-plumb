@@ -67,17 +67,6 @@ features:
       control and energy management.
   - title: Comprehensive Maintenance Plans
     description: Regular maintenance and repair covering all major heating systems, helping to prevent breakdowns, extend system lifespan, and keep performance at its best year-round.
-faqs:
-  - question: What services do you offer?
-    answer:
-      We offer a wide range of plumbing, heating, and gas services, including
-      installation, maintenance, and repair.
-  - question: Are your technicians qualified?
-    answer: Yes, all our technicians are fully qualified and Gas Safe registered.
-  - question: How can I schedule a consultation?
-    answer:
-      You can schedule a consultation by contacting us through our website or
-      giving us a call.
 ---
 
 At AC Plumbers Ltd., we provide comprehensive heating system services to ensure your home or business stays warm, efficient, and reliable throughout the year.
