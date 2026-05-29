@@ -66,9 +66,7 @@ features:
     description: We offer smart thermostat installation for optimal temperature
       control and energy management.
   - title: Comprehensive Maintenance Plans
-    description:
-      Our maintenance plans ensure your system runs smoothly year-round,
-      with priority service for members.
+    description: Regular maintenance and repair covering all major heating systems, helping to prevent breakdowns, extend system lifespan, and keep performance at its best year-round.
 faqs:
   - question: What services do you offer?
     answer:
@@ -76,10 +74,6 @@ faqs:
       installation, maintenance, and repair.
   - question: Are your technicians qualified?
     answer: Yes, all our technicians are fully qualified and Gas Safe registered.
-  - question: Do you provide emergency services?
-    answer:
-      Yes, we offer 24/7 emergency services for urgent plumbing and heating
-      issues.
   - question: How can I schedule a consultation?
     answer:
       You can schedule a consultation by contacting us through our website or

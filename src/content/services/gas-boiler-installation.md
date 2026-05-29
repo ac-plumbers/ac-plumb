@@ -32,11 +32,11 @@ featured: true
 category: Heating
 intro: "Here at AC Plumbers Ltd., we provide boiler installations across Brighton & Hove and the surrounding areas, supplying and fitting the perfect boiler for your home, installed by our expert engineers. "
 benefits:
-  - "Full inspection of the boiler and heating system"
-  - "Safety checks on key components"
-  - "Testing for leaks, pressure issues, and correct operation"
-  - "Cleaning of essential parts where required"
-  - "Performance and efficiency checks"
+  - "Fully qualified and experienced boiler installation specialists"
+  - "Energy-efficient systems to help reduce heating bills"
+  - "Honest pricing with clear quotes and no hidden costs"
+  - "Fast, reliable service with high-quality workmanship"
+  - "Friendly local support and aftercare you can trust"
 specialties:
   - "Combi, system & conventional boilers"
   - "Smart thermostat integration"

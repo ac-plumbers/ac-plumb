@@ -65,10 +65,6 @@ faqs:
       installation, maintenance, and repair.
   - question: Are your technicians qualified?
     answer: Yes, all our technicians are fully qualified and Gas Safe registered.
-  - question: Do you provide emergency services?
-    answer:
-      Yes, we offer 24/7 emergency services for urgent plumbing and heating
-      issues.
   - question: How can I schedule a consultation?
     answer:
       You can schedule a consultation by contacting us through our website or

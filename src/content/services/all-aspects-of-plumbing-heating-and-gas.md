@@ -28,9 +28,7 @@ tags:
   - commercial
 featured: true
 category: Plumbing
-intro: Comprehensive plumbing, heating, and gas services for residential and
-  commercial properties. Expert installation, maintenance, and repair by
-  certified professionals.
+intro: At AC Plumbers Ltd, we provide reliable, professional plumbing services with honest pricing, fast response times, and quality workmanship you can trust across Brighton and the surrounding areas.
 benefits:
   - "Leak detection and repair "
   - "Tap and shower repairs "
@@ -61,10 +59,6 @@ faqs:
       installation, maintenance, and repair.
   - question: Are your technicians qualified?
     answer: Yes, all our technicians are fully qualified and Gas Safe registered.
-  - question: Do you provide emergency services?
-    answer:
-      Yes, we offer 24/7 emergency services for urgent plumbing and heating
-      issues.
   - question: How can I schedule a consultation?
     answer:
       You can schedule a consultation by contacting us through our website or

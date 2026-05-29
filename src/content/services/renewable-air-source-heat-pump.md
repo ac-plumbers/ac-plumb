@@ -43,9 +43,6 @@ specialties:
   - Heat pump maintenance and servicing
   - Energy efficiency consultations
 features:
-  - title: MCS-certified installation
-    description: We are MCS-certified, meaning your installation qualifies for
-      the Boiler Upgrade Scheme grant of up to £7,500.
   - title: Full heat loss calculation
     description: Every installation starts with a detailed heat loss survey so
       the system is accurately sized for your home.
