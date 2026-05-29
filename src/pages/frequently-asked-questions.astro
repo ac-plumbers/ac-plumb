@@ -7,7 +7,7 @@ import Link from '@/components/fundations/elements/Link.astro';
 import MainCta from '@/components/global/MainCta.astro';
 // Utils
 import { BUSINESS_CONFIG, formatPhoneForTel } from '@/utils/businessConfig';
-import { ShieldAlert, Info, CirclePoundSterling, Wrench } from '@lucide/astro';
+import { Flame, Info, CirclePoundSterling, Wrench } from '@lucide/astro';
 import Wrapper from '@/components/fundations/containers/Wrapper.astro';
 
 // Organized FAQ data by category
@@ -19,38 +19,43 @@ const faqCategories = [
       {
         question: 'What services do you offer?',
         answer:
-          'We provide comprehensive plumbing, heating, and gas services including installations, repairs, and maintenance. Our services cover boiler installation, central heating, bathroom fitting, emergency plumbing, gas safety checks, air source heat pumps, and smart thermostats for residential and commercial properties.',
+          'We provide plumbing, heating, and gas services including boiler installation, boiler servicing and repair, central heating installation, gas safety checks (CP12), air source heat pump installation, and general plumbing — from leaks and taps to full bathroom and kitchen installations — for both residential and commercial properties across Brighton & Hove.',
       },
       {
-        question: 'Are your plumbers certified?',
+        question: 'Are your engineers Gas Safe registered?',
         answer:
-          'Yes! All AC Plumbers Ltd. engineers are fully Gas Safe registered, professionally qualified, and insured. Our team undergoes regular training to stay current with the latest UK standards, safety regulations, and best practices in the industry.',
+          `Yes. All AC Plumbers Ltd. engineers are fully Gas Safe registered (licence ${BUSINESS_CONFIG.gasSafeNumber}), professionally qualified, and fully insured. We follow all current UK gas and heating regulations on every job.`,
       },
       {
-        question: 'What areas of Brighton and Hove do you cover?',
+        question: 'What areas do you cover?',
         answer:
-          'We serve Brighton, Hove, and surrounding Sussex areas including Rottingdean, Saltdean, Peacehaven, Lewes, Hassocks, Portslade, Southwick, Shoreham by Sea, and Lancing. Response times typically range from 15-40 minutes depending on your location. Not sure if we cover your area? Contact us to check!',
+          "We serve Brighton, Hove, and the surrounding Sussex areas including Rottingdean, Saltdean, Peacehaven, Lewes, Hassocks, Portslade, Southwick, Shoreham-by-Sea, and Lancing. Not sure if we cover your location? Get in touch and we'll confirm.",
       },
     ],
   },
   {
-    category: 'Emergency & Response',
-    icon: ShieldAlert,
+    category: 'Boilers & Heating',
+    icon: Flame,
     faqs: [
       {
-        question: 'Do you offer emergency plumbing in Brighton?',
+        question: 'What types of boiler do you install?',
         answer:
-          'Absolutely. We provide 24/7 emergency plumbing response across Brighton, Hove, and Sussex for urgent issues like burst pipes, major leaks, blocked drains, and heating system failures. Call us any time for immediate assistance.',
+          'We install combi boilers, system boilers, and conventional (heat-only) boilers. We work with leading brands including Vaillant and Viessmann, and will recommend the most suitable system for your property size and hot water demands.',
       },
       {
-        question: 'How quickly can you respond?',
+        question: 'How long does a boiler installation take?',
         answer:
-          'For our primary service areas (Brighton & Hove), we typically respond within 15-20 minutes for emergencies. For surrounding areas, response times range from 20-40 minutes depending on location and current demand.',
+          "A standard boiler replacement typically takes 1–2 days depending on the complexity of the pipework and system type. We'll give you a clear timeline during your free consultation before any work begins.",
       },
       {
-        question: 'What should I do if I have a burst pipe?',
+        question: 'How often should I service my boiler?',
         answer:
-          'Turn off the water supply immediately at the main stopcock (usually under the kitchen sink or where the water pipe enters your property). Turn off electricity if water is near electrical fittings. Move valuables away from the leak and call us immediately for emergency assistance.',
+          'We recommend an annual boiler service. Regular servicing keeps your boiler running safely and efficiently, helps prevent unexpected breakdowns, and maintains any manufacturer warranty.',
+      },
+      {
+        question: 'What is a power flush and do I need one?',
+        answer:
+          "A power flush clears sludge, rust, and debris from your heating system's pipes and radiators. It's often recommended when fitting a new boiler or if you notice cold spots on radiators, unusual noises, or slow warm-up times. We include a power flush assessment as part of every boiler installation quote.",
       },
     ],
   },
@@ -59,40 +64,45 @@ const faqCategories = [
     icon: CirclePoundSterling,
     faqs: [
       {
-        question: 'How can I get a quote?',
+        question: 'How do I get a quote?',
         answer:
-          "Request a quote by phone, email, or our online contact form. For most jobs, we'll arrange a free site visit to assess the work and provide a clear, competitive, no-obligation estimate. For emergency work, we provide transparent pricing before starting.",
+          "You can request a quote by phone, WhatsApp, or our online contact form. For most jobs we'll arrange a free site visit to assess the work and provide a clear, no-obligation estimate with no hidden costs.",
       },
       {
-        question: 'Do you charge for call-outs?',
+        question: 'Do you offer financing for new boiler installations?',
         answer:
-          'We do not charge hidden travel fees within our primary service areas. For emergency call-outs, there is a standard call-out fee which is clearly communicated upfront and can be offset against the final repair cost.',
+          'Yes, we offer flexible payment options to help spread the cost of a new boiler or heating system installation. Ask us about available options when you request your quote.',
       },
       {
         question: 'What payment methods do you accept?',
         answer:
-          'We accept bank transfers for your convenience. Payment terms will be clearly outlined in your quote and invoice.',
+          'We accept bank transfers. Payment terms are clearly outlined in your quote and invoice before any work begins.',
       },
     ],
   },
   {
-    category: 'Installations & Maintenance',
+    category: 'Gas Safety & Heat Pumps',
     icon: Wrench,
     faqs: [
       {
-        question: 'How long does a boiler installation take?',
+        question: 'What is a Gas Safety Certificate (CP12)?',
         answer:
-          "A standard boiler replacement typically takes 1-2 days depending on the complexity. This includes removing the old boiler, installing the new system, connecting all pipework, and testing. We'll provide a clear timeline during your free consultation.",
+          'A Gas Safety Certificate — also known as a CP12 — is an annual inspection of all gas appliances in a property, carried out by a Gas Safe registered engineer. Landlords are legally required to hold a valid CP12 for every rented property. We issue digital certificates and can set up renewal reminders to keep you compliant.',
       },
       {
-        question: 'What is a boiler service and why is it important?',
+        question: 'Do you carry out gas safety checks for landlords?',
         answer:
-          "A boiler service is a thorough check and maintenance of your boiler to ensure it's running safely and efficiently. Annual servicing can prevent breakdowns, extend your boiler's lifespan, maintain warranty validity, improve efficiency, and ensure safety by detecting potential carbon monoxide risks.",
+          'Yes. We work with landlords across Brighton & Hove and the surrounding areas, providing annual gas safety inspections, CP12 certificates, and ongoing appliance maintenance to keep rental properties legally compliant.',
       },
       {
-        question: 'Do you provide guarantees on your work?',
+        question: 'What is an air source heat pump?',
         answer:
-          'Yes, we provide guarantees on all our work and use only quality parts from reputable manufacturers. Specific warranty details vary by job type and will be clearly outlined in your quote.',
+          'An air source heat pump (ASHP) extracts heat from outside air to provide heating and hot water for your home. It is a highly efficient, low-carbon alternative to a gas boiler and can significantly reduce energy bills over time.',
+      },
+      {
+        question: 'Can I get a grant for an air source heat pump?',
+        answer:
+          "Eligible homeowners in England and Wales can apply for the Government's Boiler Upgrade Scheme (BUS), which currently offers grants of up to £7,500 towards ASHP installation costs. We are MCS-compliant installers, which is a requirement to access the grant. Contact us to find out if your property qualifies.",
       },
     ],
   },
