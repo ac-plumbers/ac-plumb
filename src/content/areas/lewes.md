@@ -9,7 +9,7 @@ services:
   [
     "gas-boiler-installation",
     "central-heating-installation",
-    "bathrooms-installation-rennovation",
+    "all-aspects-of-plumbing-heating-and-gas",
   ]
 postcode: "BN7"
 level: "Extended"

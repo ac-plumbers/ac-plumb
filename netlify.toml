@@ -67,6 +67,26 @@
   to = "/services/gas-safety-checks-cp12/"
   status = 301
 
+[[redirects]]
+  from = "/services/bathrooms-installation-rennovation/"
+  to = "/services/all-aspects-of-plumbing-heating-and-gas/"
+  status = 301
+
+[[redirects]]
+  from = "/services/bathrooms-installation-rennovation"
+  to = "/services/all-aspects-of-plumbing-heating-and-gas/"
+  status = 301
+
+[[redirects]]
+  from = "/services/smart-thermostats/"
+  to = "/services/central-heating-installation/"
+  status = 301
+
+[[redirects]]
+  from = "/services/smart-thermostats"
+  to = "/services/central-heating-installation/"
+  status = 301
+
 # --- Security & caching headers ---
 [[headers]]
   for = "/*"

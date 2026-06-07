@@ -8,7 +8,6 @@ services:
   [
     "gas-boiler-installation",
     "central-heating-installation",
-    "smart-thermostats",
   ]
 postcode: "BN6"
 level: "Extended"

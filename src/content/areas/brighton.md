@@ -8,7 +8,7 @@ featured: true
 services:
   [
     "gas-boiler-installation",
-    "bathrooms-installation-rennovation",
+    "all-aspects-of-plumbing-heating-and-gas",
     "central-heating-installation",
   ]
 postcode: "BN1, BN2, BN3"
